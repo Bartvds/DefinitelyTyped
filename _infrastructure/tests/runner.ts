@@ -98,7 +98,6 @@ module DT {
 			setTimeout(() => {
 				while (this.queue.length > 0 && this.active.length < this.concurrent) {
 					this.queue.pop().call(null);
-					this.step();
 				}
 			}, 1);
 		}
@@ -215,7 +214,7 @@ module DT {
 				]);
 			}).spread((syntaxFiles, testFiles) => {
 				this.print.init(syntaxFiles.length, testFiles.length, files.length);
-				this.print.printHeader();
+				this.print.printHeader(this.options);
 
 				if (this.options.findNotRequiredTscparams) {
 					this.addSuite(new FindNotRequiredTscparams(this.options, this.print));
@@ -303,12 +302,13 @@ module DT {
 	var findNotRequiredTscparams = process.argv.some(arg => arg == '--try-without-tscparams');
 	var tscVersionIndex = process.argv.indexOf('--tsc-version');
 	var tscVersion = DEFAULT_TSC_VERSION;
+	var cpuCores = os.cpus().length;
 
 	if (tscVersionIndex > -1) {
 		tscVersion = process.argv[tscVersionIndex + 1];
 	}
 	var runner = new TestRunner(dtPath, {
-		concurrent: Math.max(os.cpus().length, 2),
+		concurrent: Math.max(cpuCores, 2),
 		tscVersion: tscVersion,
 		findNotRequiredTscparams: findNotRequiredTscparams
 	});

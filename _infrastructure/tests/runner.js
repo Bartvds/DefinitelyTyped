@@ -444,6 +444,8 @@ var DT;
 /// <reference path="../runner.ts" />
 var DT;
 (function (DT) {
+    var os = require('os');
+
     /////////////////////////////////
     // All the common things that we print are functions of this class
     /////////////////////////////////
@@ -469,11 +471,14 @@ var DT;
 
         Print.prototype.printChangeHeader = function () {
             this.out('=============================================================================\n');
-            this.out('                   \33[36m\33[1mDefinitelyTyped Diff Detector 0.1.0\33[0m \n');
+            this.out('                    \33[36m\33[1mDefinitelyTyped Diff Detector 0.1.0\33[0m \n');
             this.out('=============================================================================\n');
         };
 
-        Print.prototype.printHeader = function () {
+        Print.prototype.printHeader = function (options) {
+            var totalMem = Math.round(os.totalmem() / 1024 / 1024) + ' mb';
+            var freemem = Math.round(os.freemem() / 1024 / 1024) + ' mb';
+
             this.out('=============================================================================\n');
             this.out('                    \33[36m\33[1mDefinitelyTyped Test Runner 0.5.0\33[0m\n');
             this.out('=============================================================================\n');
@@ -481,6 +486,10 @@ var DT;
             this.out(' \33[36m\33[1mTypings           :\33[0m ' + this.typings + '\n');
             this.out(' \33[36m\33[1mTests             :\33[0m ' + this.tests + '\n');
             this.out(' \33[36m\33[1mTypeScript files  :\33[0m ' + this.tsFiles + '\n');
+            this.out(' \33[36m\33[1mTotal Memory      :\33[0m ' + totalMem + '\n');
+            this.out(' \33[36m\33[1mFree Memory       :\33[0m ' + freemem + '\n');
+            this.out(' \33[36m\33[1mCores             :\33[0m ' + os.cpus().length + '\n');
+            this.out(' \33[36m\33[1mConcurrent        :\33[0m ' + options.concurrent + '\n');
         };
 
         Print.prototype.printSuiteHeader = function (title) {
@@ -1040,7 +1049,6 @@ var DT;
             setTimeout(function () {
                 while (_this.queue.length > 0 && _this.active.length < _this.concurrent) {
                     _this.queue.pop().call(null);
-                    _this.step();
                 }
             }, 1);
         };
@@ -1154,7 +1162,7 @@ var DT;
                 ]);
             }).spread(function (syntaxFiles, testFiles) {
                 _this.print.init(syntaxFiles.length, testFiles.length, files.length);
-                _this.print.printHeader();
+                _this.print.printHeader(_this.options);
 
                 if (_this.options.findNotRequiredTscparams) {
                     _this.addSuite(new DT.FindNotRequiredTscparams(_this.options, _this.print));
@@ -1247,12 +1255,13 @@ var DT;
     });
     var tscVersionIndex = process.argv.indexOf('--tsc-version');
     var tscVersion = DT.DEFAULT_TSC_VERSION;
+    var cpuCores = os.cpus().length;
 
     if (tscVersionIndex > -1) {
         tscVersion = process.argv[tscVersionIndex + 1];
     }
     var runner = new TestRunner(dtPath, {
-        concurrent: Math.max(os.cpus().length, 2),
+        concurrent: Math.max(cpuCores, 2),
         tscVersion: tscVersion,
         findNotRequiredTscparams: findNotRequiredTscparams
     });
