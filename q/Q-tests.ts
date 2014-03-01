@@ -42,7 +42,6 @@ Q.all([
     console.log(x, y);
 });
 
-
 Q.fcall(function () { })
     .then(function () { })
     .then(function () { })
