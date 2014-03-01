@@ -150,13 +150,13 @@ module DT {
 			}
 		}
 
-		public printTestComplete(testResult: TestResult, index: number): void {
+		public printTestComplete(testResult: TestResult): void {
 			var reporter = testResult.hostedBy.testReporter;
 			if (testResult.success) {
-				reporter.printPositiveCharacter(index, testResult);
+				reporter.printPositiveCharacter(testResult);
 			}
 			else {
-				reporter.printNegativeCharacter(index, testResult);
+				reporter.printNegativeCharacter(testResult);
 			}
 		}
 

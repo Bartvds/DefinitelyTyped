@@ -25,6 +25,7 @@ module DT {
 	var Lazy: LazyJS.LazyStatic = require('lazy.js');
 	var Promise: typeof Promise = require('bluebird');
 
+	var os = require('os');
 	var fs = require('fs');
 	var path = require('path');
 	var assert = require('assert');
@@ -57,6 +58,53 @@ module DT {
 	}
 
 	/////////////////////////////////
+	// Parallel execute Tests
+	/////////////////////////////////
+	export class TestQueue {
+
+		private queue: Function[] = [];
+		private active: Test[] = [];
+		private concurrent: number;
+
+		constructor(concurrent: number) {
+			this.concurrent = Math.max(1, concurrent);
+		}
+
+		// add to queue and return a promise
+		run(test: Test): Promise<TestResult> {
+			var defer = Promise.defer();
+			// add a closure to queue
+			this.queue.push(() => {
+				// when activate, add test to active list
+				this.active.push(test);
+				// run it
+				var p = test.run();
+				p.then(defer.resolve.bind(defer), defer.reject.bind(defer));
+				p.finally(() => {
+					var i = this.active.indexOf(test);
+					if (i > -1) {
+						this.active.splice(i, 1);
+					}
+					this.step();
+				});
+			});
+			this.step();
+			// defer it
+			return defer.promise;
+		}
+
+		private step(): void {
+			// setTimeout to make it flush
+			setTimeout(() => {
+				while (this.queue.length > 0 && this.active.length < this.concurrent) {
+					this.queue.pop().call(null);
+					this.step();
+				}
+			}, 1);
+		}
+	}
+
+	/////////////////////////////////
 	// Test results
 	/////////////////////////////////
 	export class TestResult {
@@ -75,6 +123,7 @@ module DT {
 
 	export interface ITestRunnerOptions {
 		tscVersion:string;
+		concurrent?:number;
 		findNotRequiredTscparams?:boolean;
 	}
 
@@ -177,10 +226,8 @@ module DT {
 
 					this.print.printSuiteHeader(suite.testSuiteName);
 
-					return suite.filterTargetFiles(files).then((targetFiles) => {
-						return suite.start(targetFiles, (testResult, index) => {
-							this.print.printTestComplete(testResult, index);
-						});
+					return suite.start(files, (testResult) => {
+						this.print.printTestComplete(testResult);
 					}).then((suite) => {
 						this.print.printSuiteComplete(suite);
 						return count++;
@@ -260,8 +307,8 @@ module DT {
 	if (tscVersionIndex > -1) {
 		tscVersion = process.argv[tscVersionIndex + 1];
 	}
-
 	var runner = new TestRunner(dtPath, {
+		concurrent: Math.max(os.cpus().length, 2),
 		tscVersion: tscVersion,
 		findNotRequiredTscparams: findNotRequiredTscparams
 	});
