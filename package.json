@@ -20,13 +20,11 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "npm run changes",
-    "changes": "node ./_infrastructure/tests/runner.js --tsc-version 1.0.1 --test-changes",
-    "all": "node ./_infrastructure/tests/runner.js --tsc-version 1.0.1",
-    "dry": "node ./_infrastructure/tests/runner.js --tsc-version 1.0.1 --skip-tests --test-changes",
-    "list": "node ./_infrastructure/tests/runner.js --tsc-version 1.0.1 --skip-tests --print-files --print-refmap",
-    "help": "node ./_infrastructure/tests/runner.js -h",
-    "tsc_runner": "node ./_infrastructure/tests/typescript/1.0.1/tsc ./_infrastructure/tests/runner.ts --target ES5 --out ./_infrastructure/tests/runner.js --module commonjs --sourcemap"
+    "test": "node ./_infrastructure/tests/dist/main.js --tsc-version 0.9.7 --test-changes",
+    "all": "node ./_infrastructure/tests/dist/main.js --tsc-version 0.9.7",
+    "dry": "node ./_infrastructure/tests/dist/main.js --tsc-version 0.9.7 --skip-tests --test-changes",
+    "list": "node ./_infrastructure/tests/dist/main.js --tsc-version 0.9.7 --skip-tests --print-files --print-refmap",
+    "help": "node ./_infrastructure/tests/dist/main.js -h"
   },
   "dependencies": {
     "source-map-support": "~0.2.5",
@@ -35,5 +33,13 @@
     "bluebird": "~1.0.7",
     "lazy.js": "~0.3.2",
     "optimist": "~0.6.1"
+  },
+  "devDependencies": {
+    "typescript": "~0.9.7",
+    "grunt": "~0.4.2",
+    "grunt-ts": "~1.7.2-2",
+    "tslint-path-formatter": "~0.1.1",
+    "grunt-tslint": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0"
   }
 }
