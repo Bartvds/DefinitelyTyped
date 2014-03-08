@@ -78,5 +78,5 @@ interface Async {
 declare var async: Async;
 
 declare module "async" {
-	export = async;
+    export = async;
 }
