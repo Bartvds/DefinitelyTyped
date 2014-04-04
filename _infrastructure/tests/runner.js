@@ -1296,7 +1296,7 @@ var DT;
     var testFull = process.env['TRAVIS_BRANCH'] ? /\w\/full$/.test(process.env['TRAVIS_BRANCH']) : false;
 
     new TestRunner(dtPath, {
-        concurrent: argv['single-thread'] ? 1 : Math.max(cpuCores, 2),
+        concurrent: argv['single-thread'] ? 1 : Math.min(Math.max(cpuCores, 2), 24),
         tscVersion: argv['tsc-version'],
         testChanges: testFull ? false : argv['test-changes'],
         skipTests: argv['skip-tests'],
@@ -1312,7 +1312,4 @@ var DT;
         process.exit(2);
     });
 })(DT || (DT = {}));
-//grunt-start
-/// <reference path="../runner.ts" />
-//grunt-end
 //# sourceMappingURL=runner.js.map

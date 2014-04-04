@@ -339,7 +339,7 @@ module DT {
 	var testFull = process.env['TRAVIS_BRANCH'] ? /\w\/full$/.test(process.env['TRAVIS_BRANCH']) : false;
 
 	new TestRunner(dtPath, {
-		concurrent: argv['single-thread'] ? 1 : Math.max(cpuCores, 2),
+		concurrent: argv['single-thread'] ? 1 : Math.min(Math.max(cpuCores, 2), 24),
 		tscVersion: argv['tsc-version'],
 		testChanges: testFull ? false : argv['test-changes'], // allow magic branch
 		skipTests: argv['skip-tests'],
