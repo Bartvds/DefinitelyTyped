@@ -117,6 +117,11 @@ module DT {
 			this.out(' \33[36m\33[1mElapsed time    :\33[0m ~' + time + ' (' + s + 's)\n');
 		}
 
+		public printProbe(report: ProbeReport) {
+			this.out(' \33[36m\33[1mFreemem min     :\33[0m ~' + Math.round(report.freemem.min / 1024 / 1024)  + ' mb' + '\n');
+			this.out(' \33[36m\33[1mFreemem avg     :\33[0m ~' + Math.round(report.freemem.avg / 1024 / 1024)  + ' mb' + '\n');
+		}
+
 		public printSuiteErrorCount(errorHeadline: string, current: number, total: number, warn: boolean = false) {
 			var arb = (total === 0) ? 0 : (current / total);
 			this.out(' \33[36m\33[1m').out(errorHeadline).out(this.repeat(' ', 16 - errorHeadline.length));

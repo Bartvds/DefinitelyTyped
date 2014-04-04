@@ -18,6 +18,8 @@
 /// <reference path="src/suite/testEval.ts" />
 /// <reference path="src/suite/tscParams.ts" />
 
+/// <reference path="src/stats/probe.ts" />
+
 module DT {
 	require('source-map-support').install();
 
@@ -48,9 +50,11 @@ module DT {
 				testResult.targetFile = this.tsfile;
 				testResult.options = this.options;
 
+				// note: why copy?
 				testResult.stdout = execResult.stdout;
 				testResult.stderr = execResult.stderr;
 				testResult.exitCode = execResult.exitCode;
+				testResult.attempts = execResult.attempts;
 
 				return testResult;
 			});
@@ -111,6 +115,7 @@ module DT {
 		stdout: string;
 		stderr: string;
 		exitCode: number;
+		attempts: number;
 
 		public get success(): boolean {
 			return this.exitCode === 0;
@@ -137,6 +142,7 @@ module DT {
 		public changes: GitChanges;
 		public index: FileIndex;
 		public print: Print;
+		public probe: Probe;
 
 		constructor(public dtPath: string, public options: ITestRunnerOptions = {tscVersion: DT.DEFAULT_TSC_VERSION}) {
 			this.options.findNotRequiredTscparams = !!this.options.findNotRequiredTscparams;
@@ -145,6 +151,7 @@ module DT {
 			this.changes = new GitChanges(this);
 
 			this.print = new Print(this.options.tscVersion);
+			this.probe = new Probe(100);
 		}
 
 		public addSuite(suite: ITestSuite): void {
@@ -229,6 +236,8 @@ module DT {
 					this.addSuite(new FindNotRequiredTscparams(this.options, this.print));
 				}
 
+				this.probe.reset();
+
 				return Promise.reduce(this.suites, (count, suite: ITestSuite) => {
 					suite.testReporter = suite.testReporter || new DefaultTestReporter(this.print);
 
@@ -293,6 +302,9 @@ module DT {
 				this.print.printSuiteErrorCount('Without tests', withoutTestTypings.length, typings.length, true);
 			}
 
+			this.print.printProbe(this.probe.report());
+
+
 			this.print.printDiv();
 
 			if (this.suites.some((suite) => {
@@ -339,7 +351,7 @@ module DT {
 	var testFull = process.env['TRAVIS_BRANCH'] ? /\w\/full$/.test(process.env['TRAVIS_BRANCH']) : false;
 
 	new TestRunner(dtPath, {
-		concurrent: argv['single-thread'] ? 1 : Math.min(Math.max(cpuCores, 2), 24),
+		concurrent: argv['single-thread'] ? 1 : Math.max(cpuCores - 2, 2),
 		tscVersion: argv['tsc-version'],
 		testChanges: testFull ? false : argv['test-changes'], // allow magic branch
 		skipTests: argv['skip-tests'],

@@ -47,7 +47,7 @@ module DT {
 				else if (options.checkNoImplicitAny) {
 					command += '--noImplicitAny';
 				}
-				return exec(command, [tsfile]);
+				return DT.exec(command, [tsfile]);
 			});
 		}
 	}

@@ -22,13 +22,23 @@ module DT {
 		}
 
 		public printPositiveCharacter(testResult: TestResult) {
-			this.print.out('\33[36m\33[1m' + '.' + '\33[0m');
+			if (testResult.attempts > 1) {
+				this.print.out('\33[32m\33[1m' + testResult.attempts.toString(16) + '\33[0m');
+			}
+			else {
+				this.print.out('\33[36m\33[1m' + '.' + '\33[0m');
+			}
 			this.index++;
 			this.printBreakIfNeeded(this.index);
 		}
 
 		public printNegativeCharacter( testResult: TestResult) {
-			this.print.out('x');
+			if (testResult.attempts > 1) {
+				this.print.out('\33[31m\33[1m' + testResult.attempts.toString(16) + '\33[0m');
+			}
+			else {
+				this.print.out('x');
+			}
 			this.index++;
 			this.printBreakIfNeeded(this.index);
 		}

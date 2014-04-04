@@ -1,4 +1,93 @@
-﻿var DT;
+﻿/// <reference path="../../_ref.d.ts" />
+var DT;
+(function (DT) {
+    'use strict';
+
+    var Statr = (function () {
+        function Statr() {
+            this.samples = [];
+        }
+        Statr.prototype.add = function (value) {
+            this.samples.push(value);
+        };
+
+        Statr.prototype.reset = function () {
+            this.samples = [];
+        };
+
+        Statr.prototype.getResult = function () {
+            var samples = this.samples.length;
+            var res = {
+                samples: samples,
+                avg: 0,
+                max: 0,
+                min: 0
+            };
+            if (samples === 0) {
+                return res;
+            }
+            this.samples.forEach(function (value) {
+                res.avg += value / samples;
+                res.min = value < res.min ? value : res.min;
+                res.max = value > res.max ? value : res.max;
+            });
+
+            return res;
+        };
+        return Statr;
+    })();
+    DT.Statr = Statr;
+})(DT || (DT = {}));
+/// <reference path="../../_ref.d.ts" />
+/// <reference path="stats.ts" />
+var DT;
+(function (DT) {
+    'use strict';
+
+    var os = require('os');
+
+    var Probe = (function () {
+        function Probe(delay) {
+            this.delay = delay;
+            this.freemem = new DT.Statr();
+            this.start();
+        }
+        Probe.prototype.start = function () {
+            var _this = this;
+            if (this.interval) {
+                clearInterval(this.interval);
+            }
+            this.startTime = Date.now();
+            this.interval = setInterval(function () {
+                _this.freemem.add(os.freemem());
+            }, this.delay);
+        };
+
+        Probe.prototype.stop = function () {
+            if (this.interval) {
+                clearInterval(this.interval);
+                this.interval = null;
+            }
+        };
+
+        Probe.prototype.reset = function () {
+            this.startTime = 0;
+            this.freemem.reset();
+        };
+
+        Probe.prototype.report = function () {
+            this.stop();
+            return {
+                duration: Date.now() - this.startTime,
+                freemem: this.freemem.getResult()
+            };
+        };
+        return Probe;
+    })();
+    DT.Probe = Probe;
+})(DT || (DT = {}));
+/// <reference path="stats/probe.ts" />
+var DT;
 (function (DT) {
     'use strict';
 
@@ -20,14 +109,45 @@
             result.exitCode = null;
 
             var cmdLine = filename + ' ' + cmdLineArgs.join(' ');
+            var maxAttempts = 4;
+            var attempts = 0;
 
-            nodeExec(cmdLine, { maxBuffer: 1 * 1024 * 1024 }, function (error, stdout, stderr) {
-                result.error = error;
-                result.stdout = stdout;
-                result.stderr = stderr;
-                result.exitCode = error ? error.code : 0;
-                resolve(result);
-            });
+            var run = function () {
+                attempts++;
+                var cid = nodeExec(cmdLine, { maxBuffer: 1 * 1024 * 1024 }, function (error, stdout, stderr) {
+                    var exitCode = (error ? error.code : 0);
+                    if (exitCode !== 0) {
+                        console.log('bad exit');
+                        console.log(result.stderr);
+                        console.log(attempts);
+                        console.log(exitCode);
+                        console.log((error ? error.code : 'XX'));
+                        console.log(error);
+                        console.log(typeof result.stderr);
+                        console.log(/^Killed/.test(String(result.stderr)));
+                        console.log(/Killed/.test(String(result.stderr)));
+                        console.log(/^Killed/.exec(String(result.stderr)));
+                        console.log(/Killed/.exec(String(result.stderr)));
+                    }
+                    if (exitCode !== 0 && result.stderr && /^Killed/.test(String(result.stderr)) && attempts < maxAttempts) {
+                        console.log('try again ' + attempts);
+
+                        // try again
+                        setTimeout(function () {
+                            run();
+                        }, attempts * 2000 + 2000);
+                        return;
+                    }
+                    result.attempts = attempts;
+                    result.error = error;
+                    result.stdout = stdout;
+                    result.stderr = stderr;
+                    result.exitCode = exitCode;
+                    resolve(result);
+                });
+                //monitor cid
+            };
+            run();
         });
     }
     DT.exec = exec;
@@ -553,6 +673,11 @@ var DT;
             this.out(' \33[36m\33[1mElapsed time    :\33[0m ~' + time + ' (' + s + 's)\n');
         };
 
+        Print.prototype.printProbe = function (report) {
+            this.out(' \33[36m\33[1mFreemem min     :\33[0m ~' + Math.round(report.freemem.min / 1024 / 1024) + ' mb' + '\n');
+            this.out(' \33[36m\33[1mFreemem avg     :\33[0m ~' + Math.round(report.freemem.avg / 1024 / 1024) + ' mb' + '\n');
+        };
+
         Print.prototype.printSuiteErrorCount = function (errorHeadline, current, total, warn) {
             if (typeof warn === "undefined") { warn = false; }
             var arb = (total === 0) ? 0 : (current / total);
@@ -740,13 +865,21 @@ var DT;
             this.index = 0;
         }
         DefaultTestReporter.prototype.printPositiveCharacter = function (testResult) {
-            this.print.out('\33[36m\33[1m' + '.' + '\33[0m');
+            if (testResult.attempts > 1) {
+                this.print.out('\33[32m\33[1m' + testResult.attempts.toString(16) + '\33[0m');
+            } else {
+                this.print.out('\33[36m\33[1m' + '.' + '\33[0m');
+            }
             this.index++;
             this.printBreakIfNeeded(this.index);
         };
 
         DefaultTestReporter.prototype.printNegativeCharacter = function (testResult) {
-            this.print.out('x');
+            if (testResult.attempts > 1) {
+                this.print.out('\33[31m\33[1m' + testResult.attempts.toString(16) + '\33[0m');
+            } else {
+                this.print.out('x');
+            }
             this.index++;
             this.printBreakIfNeeded(this.index);
         };
@@ -974,6 +1107,7 @@ var DT;
 /// <reference path="src/suite/syntax.ts" />
 /// <reference path="src/suite/testEval.ts" />
 /// <reference path="src/suite/tscParams.ts" />
+/// <reference path="src/stats/probe.ts" />
 var DT;
 (function (DT) {
     require('source-map-support').install();
@@ -1008,9 +1142,11 @@ var DT;
                 testResult.targetFile = _this.tsfile;
                 testResult.options = _this.options;
 
+                // note: why copy?
                 testResult.stdout = execResult.stdout;
                 testResult.stderr = execResult.stderr;
                 testResult.exitCode = execResult.exitCode;
+                testResult.attempts = execResult.attempts;
 
                 return testResult;
             });
@@ -1096,6 +1232,7 @@ var DT;
             this.changes = new DT.GitChanges(this);
 
             this.print = new DT.Print(this.options.tscVersion);
+            this.probe = new DT.Probe(100);
         }
         TestRunner.prototype.addSuite = function (suite) {
             this.suites.push(suite);
@@ -1183,6 +1320,8 @@ var DT;
                     _this.addSuite(new DT.FindNotRequiredTscparams(_this.options, _this.print));
                 }
 
+                _this.probe.reset();
+
                 return Promise.reduce(_this.suites, function (count, suite) {
                     suite.testReporter = suite.testReporter || new DT.DefaultTestReporter(_this.print);
 
@@ -1248,6 +1387,8 @@ var DT;
                 this.print.printSuiteErrorCount('Without tests', withoutTestTypings.length, typings.length, true);
             }
 
+            this.print.printProbe(this.probe.report());
+
             this.print.printDiv();
 
             if (this.suites.some(function (suite) {
@@ -1296,7 +1437,7 @@ var DT;
     var testFull = process.env['TRAVIS_BRANCH'] ? /\w\/full$/.test(process.env['TRAVIS_BRANCH']) : false;
 
     new TestRunner(dtPath, {
-        concurrent: argv['single-thread'] ? 1 : Math.min(Math.max(cpuCores, 2), 24),
+        concurrent: argv['single-thread'] ? 1 : Math.max(cpuCores - 2, 2),
         tscVersion: argv['tsc-version'],
         testChanges: testFull ? false : argv['test-changes'],
         skipTests: argv['skip-tests'],
