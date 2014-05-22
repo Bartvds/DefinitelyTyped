@@ -7,11 +7,11 @@ declare module LazyJS {
 
 	interface LazyStatic {
 
+		(value: string):StringLikeSequence;
 		<T>(value: T[]):ArrayLikeSequence<T>;
 		(value: any[]):ArrayLikeSequence<any>;
 		<T>(value: Object):ObjectLikeSequence<T>;
 		(value: Object):ObjectLikeSequence<any>;
-		(value: string):StringLikeSequence;
 
 		strict():LazyStatic;
 

@@ -9,7 +9,13 @@
       "commit": "bac5b4311465c7052467ec315d0cbb1c640a69d6"
     },
     "node/node.d.ts": {
-      "commit": "bac5b4311465c7052467ec315d0cbb1c640a69d6"
+      "commit": "73a3d72238091f489c1bcdcce49bbad5fa111683"
+    },
+    "lazy.js/lazy.js.d.ts": {
+      "commit": "73a3d72238091f489c1bcdcce49bbad5fa111683"
+    },
+    "optimist/optimist.d.ts": {
+      "commit": "73a3d72238091f489c1bcdcce49bbad5fa111683"
     }
   }
 }
