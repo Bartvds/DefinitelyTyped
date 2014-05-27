@@ -8,7 +8,6 @@ import File = require('../file/File');
 import Timer = require('../util/Timer');
 
 import TestResult = require('../test/TestResult');
-import ITestSuite = require('../suite/ITestSuite');
 
 /////////////////////////////////
 // The interface for test suite
