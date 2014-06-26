@@ -29,7 +29,7 @@
     "help": "node ./_infrastructure/runner.js -h"
   },
   "dependencies": {
-    "definition-tester": "git+https://github.com/DefinitelyTyped/definition-tester"
+    "definition-tester": "~0.0.1"
   },
   "devDependencies": {}
 }
