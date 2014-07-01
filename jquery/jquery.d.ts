@@ -168,7 +168,9 @@ interface JQueryXHR extends XMLHttpRequest, JQueryPromise<any> {
      */
     overrideMimeType(mimeType: string): any;
     /**
-     * Cancel the request. Pass the statusText as textStatus parameter for done callback, "canceled" will be passed if not provided.
+     * Cancel the request. 
+     *
+     * @param statusText A string passed as the textStatus parameter for the done callback. Default value: "canceled"
      */
     abort(statusText?: string): void;
     /**
@@ -361,6 +363,11 @@ interface JQueryPromise<T> {
      * @param progressCallbacks A function, or array of functions, to be called when the Deferred generates progress notifications.
      */
     progress(...progressCallbacks: any[]): JQueryPromise<T>;
+
+    /**
+     * Determine the current state of a Deferred object.
+     */
+    state(): string;
 
     // Deprecated - given no typings
     pipe(doneFilter?: (x: any) => any, failFilter?: (x: any) => any, progressFilter?: (x: any) => any): JQueryPromise<any>;
