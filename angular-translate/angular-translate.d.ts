@@ -13,7 +13,7 @@ declare module ng.translate {
     interface ILanguageKeyAlias {
         [key: string]: string;
     }
-    
+
     interface IStorage {
         get(name: string): string;
         set(name: string, value: string): void;

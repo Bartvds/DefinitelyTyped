@@ -296,7 +296,7 @@ interface UnderscoreStringStaticExports {
      * @param delimiter
      */
     words(str: string): string[];
-    
+
     /**
      * Split string by delimiter (String or RegExp).
      * /\s+/ by default.
@@ -331,7 +331,7 @@ interface UnderscoreStringStaticExports {
      * @param padStr
      * @param type
      */
-    pad(str: string, length: number, padStr?:string, type?: string): string;
+    pad(str: string, length: number, padStr?: string, type?: string): string;
 
     /**
      * Left-pad a string.
@@ -529,7 +529,7 @@ interface UnderscoreStringStaticExports {
      * @param count
      * @param separator
      */
-    repeat(value: string, count: number, separator?:string): string;
+    repeat(value: string, count: number, separator?: string): string;
 
     /**
      * Naturally sort strings like humans would do.

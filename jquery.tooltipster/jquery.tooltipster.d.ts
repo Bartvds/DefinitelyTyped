@@ -1,4 +1,4 @@
-﻿// Type definitions for jQuery Tooltipster 3.0.5
+// Type definitions for jQuery Tooltipster 3.0.5
 // Project: https://github.com/iamceege/tooltipster
 // Definitions by: Patrick Magee <https://github.com/pjmagee/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -145,7 +145,7 @@ interface JQueryTooltipsterOptions {
 interface JQuery {
     /**
     * Initiate the Tooltipster plugin
-    */ 
+    */
     tooltipster(): void;
     /**
     * Creates a new tooltip with the specified, or default, options.

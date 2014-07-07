@@ -67,7 +67,7 @@ declare module createjs {
         static sineInOut: (amount: number) => number;
         static sineOut: (amount: number) => number;
     }
-    
+
     export class MotionGuidePlugin {
         constructor();
 
@@ -96,7 +96,7 @@ declare module createjs {
     */
 
     export class Timeline extends EventDispatcher {
-        constructor (tweens: Tween[], labels: Object, props: Object);
+        constructor(tweens: Tween[], labels: Object, props: Object);
 
         // properties
         duration: number;

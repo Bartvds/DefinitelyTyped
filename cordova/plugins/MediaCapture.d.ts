@@ -25,9 +25,9 @@ interface Capture {
      * @param options   Encapsulates audio capture configuration options.
      */
     captureAudio(
-            onSuccess: (mediaFiles: MediaFile[]) => void,
-            onError: (error: CaptureError) => void,
-            options?: AudioOptions): void ;
+        onSuccess: (mediaFiles: MediaFile[]) => void,
+        onError: (error: CaptureError) => void,
+        options?: AudioOptions): void;
     /**
      * Start the camera application and return information about captured image files.
      * @param onSuccess Executes when the capture operation finishes with an array
@@ -37,9 +37,9 @@ interface Capture {
      * @param options   Encapsulates audio capture configuration options.
      */
     captureImage(
-            onSuccess: (mediaFiles: MediaFile[]) => void,
-            onError: (error: CaptureError) => void,
-            options?: ImageOptions): void ;
+        onSuccess: (mediaFiles: MediaFile[]) => void,
+        onError: (error: CaptureError) => void,
+        options?: ImageOptions): void;
     /**
      * Start the video recorder application and return information about captured video clip files.
      * @param onSuccess Executes when the capture operation finishes with an array
@@ -49,9 +49,9 @@ interface Capture {
      * @param options   Encapsulates audio capture configuration options.
      */
     captureVideo(
-            onSuccess: (mediaFiles: MediaFile[]) => void,
-            onError: (error: CaptureError) => void,
-            options?: VideoOptions): void ;
+        onSuccess: (mediaFiles: MediaFile[]) => void,
+        onError: (error: CaptureError) => void,
+        options?: VideoOptions): void;
     /** The audio recording formats supported by the device. */
     supportedAudioModes: ConfigurationData[];
     /** The recording image sizes and formats supported by the device. */

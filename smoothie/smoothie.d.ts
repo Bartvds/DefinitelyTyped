@@ -10,21 +10,18 @@
 
 declare module "smoothie"
 {
-    export interface ITimeSeriesOptions
-    {
+    export interface ITimeSeriesOptions {
         resetBounds?: boolean;
         resetBoundsInterval?: number;
     }
 
-    export interface ITimeSeriesPresentationOptions
-    {
+    export interface ITimeSeriesPresentationOptions {
         stokeStyle?: string;
         fillStyle?: string;
         lineWidth?: number;
     }
 
-    export class TimeSeries
-    {
+    export class TimeSeries {
         /**
          * Initialises a new <code>TimeSeries</code> with optional data options.
          *
@@ -61,8 +58,7 @@ declare module "smoothie"
         dropOldData(oldestValidTime: number, maxDataSetLength: number): void;
     }
 
-    export interface IGridOptions
-    {
+    export interface IGridOptions {
         /** The background colour of the chart. */
         fillStyle?: string;
         /** The pixel width of grid lines. */
@@ -79,8 +75,7 @@ declare module "smoothie"
         borderVisible?: boolean;
     }
 
-    export interface ILabelOptions
-    {
+    export interface ILabelOptions {
         /** Enables/disables labels showing the min/max values. */
         disabled?: boolean;
         /** Colour for text of labels. */
@@ -92,35 +87,33 @@ declare module "smoothie"
 
     export interface IRange { min: number; max: number }
 
-    export interface IHorizontalLine
-    {
+    export interface IHorizontalLine {
         value?: number;
         color?: string;
         lineWidth?: number;
     }
 
-    export interface IChartOptions
-    {
+    export interface IChartOptions {
         /** Specify to clamp the lower y-axis to a given value. */
         minValue?: number;
         /** Specify to clamp the upper y-axis to a given value. */
         maxValue?: number;
         /** Allows proportional padding to be added above the chart. for 10% padding, specify 1.1. */
         maxValueScale?: number;
-        yRangeFunction?: (range:IRange)=>IRange;
+        yRangeFunction?: (range: IRange) => IRange;
         /** Controls the rate at which y-value zoom animation occurs. */
         scaleSmoothing?: number;
         /** Sets the speed at which the chart pans by. */
         millisPerPixel?: number;
         /** Whether to render at different DPI depending upon the device. Enabled by default. */
         enableDpiScaling?: boolean;
-        yMinFormatter?: (min:number, precision:number)=>string;
-        yMaxFormatter?: (max:number, precision:number)=>string;
+        yMinFormatter?: (min: number, precision: number) => string;
+        yMaxFormatter?: (max: number, precision: number) => string;
         maxDataSetLength?: number;
         /** One of: 'bezier', 'linear', 'step' */
         interpolation?: string;
         /** Optional function to format time stamps for bottom of chart. You may use <code>SmoothieChart.timeFormatter</code>, or your own/ */
-        timestampFormatter?: (date:Date)=>string;
+        timestampFormatter?: (date: Date) => string;
         horizontalLines?: IHorizontalLine[];
 
         grid?: IGridOptions;
@@ -134,8 +127,7 @@ declare module "smoothie"
      * Options are optional and may be sparsely populated. Just specify the values you
      * need and the rest will be given sensible defaults.
      */
-    export class SmoothieChart
-    {
+    export class SmoothieChart {
         constructor(chartOptions?: IChartOptions);
 
         /**

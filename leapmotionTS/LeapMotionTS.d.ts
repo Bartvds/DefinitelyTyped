@@ -281,9 +281,9 @@ export declare class Vector3 {
     public magnitude(): number;
     public magnitudeSquared(): number;
     public normalized(): Vector3;
-    public pitch : number;
-    public yaw : number;
-    public roll : number;
+    public pitch: number;
+    public yaw: number;
+    public roll: number;
     static zero(): Vector3;
     static xAxis(): Vector3;
     static yAxis(): Vector3;

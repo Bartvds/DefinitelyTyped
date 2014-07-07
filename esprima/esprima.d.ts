@@ -138,11 +138,11 @@ declare module esprima {
         }
         interface DebuggerStatement extends Statement {
         }
-        interface SomeStatement extends 
-            EmptyStatement, ExpressionStatement, BlockStatement, IfStatement,
-            LabeledStatement, BreakStatement, ContinueStatement, WithStatement,
-            SwitchStatement, ReturnStatement, ThrowStatement, TryStatement,
-            WhileStatement, DoWhileStatement, ForStatement, ForInStatement, DebuggerStatement {
+        interface SomeStatement extends
+        EmptyStatement, ExpressionStatement, BlockStatement, IfStatement,
+        LabeledStatement, BreakStatement, ContinueStatement, WithStatement,
+        SwitchStatement, ReturnStatement, ThrowStatement, TryStatement,
+        WhileStatement, DoWhileStatement, ForStatement, ForInStatement, DebuggerStatement {
             body: SomeStatementOrList
         }
         interface SomeStatementOrList extends Array<SomeStatement>, SomeStatement {
@@ -172,11 +172,11 @@ declare module esprima {
         // Expression
         interface Expression extends Node { // | Pattern
         }
-        interface SomeExpression extends 
-            ThisExpression, ArrayExpression, ObjectExpression, FunctionExpression,
-            ArrowFunctionExpression, SequenceExpression, UnaryExpression, BinaryExpression,
-            AssignmentExpression, UpdateExpression, LogicalExpression, ConditionalExpression,
-            NewExpression, CallExpression, MemberExpression {
+        interface SomeExpression extends
+        ThisExpression, ArrayExpression, ObjectExpression, FunctionExpression,
+        ArrowFunctionExpression, SequenceExpression, UnaryExpression, BinaryExpression,
+        AssignmentExpression, UpdateExpression, LogicalExpression, ConditionalExpression,
+        NewExpression, CallExpression, MemberExpression {
         }
         interface ThisExpression extends Expression {
         }

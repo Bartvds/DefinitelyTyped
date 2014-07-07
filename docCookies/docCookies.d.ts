@@ -1,4 +1,4 @@
-﻿// Type definitions for docCookies
+// Type definitions for docCookies
 // Project: https://developer.mozilla.org/en-US/docs/Web/API/document.cookie
 // Definitions by: Jon Egerton <https://github.com/jonegerton>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -13,7 +13,7 @@ interface docCookies {
     @param {string} path (optional) E.g., "/", "/mydir"; if not specified, defaults to the current path of the current document location
     @param {string} domain (optional) E.g., "example.com", ".example.com" (includes all subdomains) or "subdomain.example.com"; if not specified, defaults to the host portion of the current document location
     @param {boolean} secure (optional) The cookie will be transmitted only over secure protocol as https
-    */   
+    */
     setItem(sKey: string, sValue: string, vEnd?: number, sPath?: string, sDomain?: string, bSecure?: boolean): boolean;
 
     /**

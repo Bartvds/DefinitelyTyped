@@ -209,7 +209,7 @@ interface CallbackObject {
 }
 
 interface SetThings {
-    clear?;
+    clear? ;
     select?: any;
     highlight?: any;
     view?: any;
@@ -296,7 +296,7 @@ interface DatePickerObject extends PickerObject {
     set(things: SetThings): DatePickerObject;
 
     /** Bind callbacks to get fired off when the relative picker method is called. */
-    on(methodName, callback: () => void ): DatePickerObject;
+    on(methodName, callback: () => void): DatePickerObject;
 
     /** Bind multiple callbacks at once to get fired off when the relative picker method is called. */
     on(callbackObject: CallbackObject): DatePickerObject;
@@ -370,7 +370,7 @@ interface TimePickerObject extends PickerObject {
     set(things: TimePickerSetThings): TimePickerObject;
 
     /** Bind callbacks to get fired off when the relative picker method is called. */
-    on(methodName, callback: () => void ): TimePickerObject;
+    on(methodName, callback: () => void): TimePickerObject;
 
     /** Bind multiple callbacks at once to get fired off when the relative picker method is called. */
     on(callbackObject: CallbackObject): TimePickerObject;

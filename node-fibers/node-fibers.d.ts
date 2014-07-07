@@ -27,15 +27,15 @@ declare module "fibers/future" {
         constructor();
         detach(): void;
         get(): any;
-        isResolved (): boolean;
+        isResolved(): boolean;
         proxy(future: Future): void;
         proxyErrors(futureOrList: any): Future;
         resolver(): Function;
         resolve(fn: Function): void;
         resolveSuccess(fn: Function): void;
         return(result?: any): void;
-        throw (error: any): void;
-        wait (): void;
+        throw(error: any): void;
+        wait(): void;
         static wait(future: Future);
         static wait(future_list: Future[]);
         static wrap(fn: Function): Future

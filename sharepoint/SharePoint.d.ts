@@ -268,7 +268,7 @@ declare module SP {
             export function deselectAllListItems(iid: string);
         }
         export module Overrides {
-            export function overrideDeleteConfirmation(listId: string, overrideText:string):void;
+            export function overrideDeleteConfirmation(listId: string, overrideText: string): void;
         }
     }
 
@@ -329,16 +329,16 @@ declare function AddEvtHandler(element: HTMLElement, event: string, func: EventL
 declare function GetUrlKeyValue(key: string): string;
 
 declare class AjaxNavigate {
-    update(url:string, updateParts:Object, fullNavigate:boolean, anchorName:string):void;
+    update(url: string, updateParts: Object, fullNavigate: boolean, anchorName: string): void;
     add_navigate(handler: Function): void;
-    remove_navigate(handler:Function):void;
-    submit(formToSubmit:HTMLFormElement):void;
-    getParam(paramName:string):string;
-    getSavedFormAction():string;
+    remove_navigate(handler: Function): void;
+    submit(formToSubmit: HTMLFormElement): void;
+    getParam(paramName: string): string;
+    getSavedFormAction(): string;
     get_href(): string;
     get_hash(): string;
-    get_search():string;
-    convertMDSURLtoRegularURL(mdsPath:string):string;
+    get_search(): string;
+    convertMDSURLtoRegularURL(mdsPath: string): string;
 }
 
 declare var ajaxNavigate: AjaxNavigate;
@@ -463,7 +463,7 @@ interface ContextInfo extends SPClientTemplates.RenderContext {
 
 }
 
-declare function GetCurrentCtx():ContextInfo;
+declare function GetCurrentCtx(): ContextInfo;
 declare module SP {
     export enum RequestExecutorErrors {
         requestAbortedOrTimedout,
@@ -481,8 +481,8 @@ declare module SP {
         set_formDigestHandlingEnabled(value: boolean): void;
         get_iFrameSourceUrl(): string;
         set_iFrameSourceUrl(value: string): void;
-        executeAsync(requestInfo:RequestInfo): void;
-        attemptLogin(returnUrl:string, success: (response: ResponseInfo) => void , error?: (response: ResponseInfo, error: RequestExecutorErrors, statusText: string) => void): void;
+        executeAsync(requestInfo: RequestInfo): void;
+        attemptLogin(returnUrl: string, success: (response: ResponseInfo) => void, error?: (response: ResponseInfo, error: RequestExecutorErrors, statusText: string) => void): void;
     }
 
     export interface RequestInfo {
@@ -522,13 +522,12 @@ declare module SP {
         createWebRequestExecutor(): ProxyWebRequestExecutor;
     }
 }
-interface MQuery
-{
+interface MQuery {
     (selector: string, context?: any): MQueryResultSetElements;
     (element: HTMLElement): MQueryResultSetElements;
     (object: MQueryResultSetElements): MQueryResultSetElements;
     <T>(object: MQueryResultSet<T>): MQueryResultSet<T>;
-    <T>(object: T): MQueryResultSet<T>;    
+    <T>(object: T): MQueryResultSet<T>;
     (elementArray: HTMLElement[]): MQueryResultSetElements;
     <T>(array: T[]): MQueryResultSet<T>;
     <T>(): MQueryResultSet<T>;
@@ -557,7 +556,7 @@ interface MQuery
     isObject(obj: any): boolean;
     isEmptyObject(obj: any): boolean;
 
-    ready(callback: () => void ): void;
+    ready(callback: () => void): void;
     contains(container: HTMLElement, contained: HTMLElement): boolean;
 
     proxy(fn: (...args: any[]) => any, context: any, ...args: any[]): Function;
@@ -599,7 +598,7 @@ interface MQuery
     hasData(element: HTMLElement): boolean;
 }
 
-interface MQueryResultSetElements extends MQueryResultSet<HTMLElement>{
+interface MQueryResultSetElements extends MQueryResultSet<HTMLElement> {
     append(node: HTMLElement): MQueryResultSetElements;
     append(mQuerySet: MQueryResultSetElements): MQueryResultSetElements;
     append(html: string): MQueryResultSetElements;
@@ -707,26 +706,26 @@ interface MQueryResultSetElements extends MQueryResultSet<HTMLElement>{
     submit(): MQueryResultSetElements;
     submit(handler: (eventObject: MQueryEvent) => any): MQueryResultSetElements;
     unload(): MQueryResultSetElements;
-    unload(handler: (eventObject: MQueryEvent) => any): MQueryResultSetElements; 
+    unload(handler: (eventObject: MQueryEvent) => any): MQueryResultSetElements;
 
 }
 
-interface MQueryResultSet<T> {    
+interface MQueryResultSet<T> {
     [index: number]: T;
     contains(contained: T): boolean;
-    
+
     filter(fn: (elementOfArray: T, indexInArray: number) => boolean, context?: any): MQueryResultSet<T>;
-    filter(fn: (elementOfArray: T) => boolean, context?: any): MQueryResultSet<T>;    
+    filter(fn: (elementOfArray: T) => boolean, context?: any): MQueryResultSet<T>;
 
     every(fn: (elementOfArray: T, indexInArray: number) => boolean, context?: any): boolean;
     every(fn: (elementOfArray: T) => boolean, context?: any): boolean;
-    
+
     some(fn: (elementOfArray: T, indexInArray: number) => boolean, context?: any): boolean;
     some(fn: (elementOfArray: T) => boolean, context?: any): boolean;
-    
+
     map(callback: (elementOfArray: T, indexInArray: number) => any): MQueryResultSet<T>;
     map(callback: (elementOfArray: T) => any): MQueryResultSet<T>;
-    
+
     forEach(fn: (elementOfArray: T, indexInArray: number) => void, context?: any): void;
     forEach(fn: (elementOfArray: T) => void, context?: any): void;
 
@@ -815,12 +814,12 @@ declare class CalloutAction {
     render(): void;
     isEnabled(): boolean;
     isVisible(): boolean;
-    set (options: CalloutActionOptions): void;
+    set(options: CalloutActionOptions): void;
 }
 
 declare class Callout {
     /** Sets options for the callout. Not all options can be changed for the callout after its creation. */
-    set (options: CalloutOptions);
+    set(options: CalloutOptions);
     /** Adds event handler to the callout.
         @param eventName one of the following: "opened", "opening", "closing", "closed" */
     addEventCallback(eventName: string, callback: (callout: Callout) => void);
@@ -1116,8 +1115,8 @@ declare module SPClientTemplates {
         Type: string;
     }
 
-/** Represents field schema in Grid mode and on list forms.
-        Consider casting objects of this type to more specific field types, e.g. FieldSchemaInForm_Lookup */
+    /** Represents field schema in Grid mode and on list forms.
+            Consider casting objects of this type to more specific field types, e.g. FieldSchemaInForm_Lookup */
     export interface FieldSchema_InForm extends FieldSchema {
         /** Description for this field. */
         Description: string;
@@ -1616,13 +1615,13 @@ declare module SPClientTemplates {
             EnableVesioning: boolean;
             Id: string;
         };
-        registerInitCallback(fieldname: string, callback: () => void ): void;
-        registerFocusCallback(fieldname: string, callback: () => void ): void;
-        registerValidationErrorCallback(fieldname: string, callback: (error: any) => void ): void;
+        registerInitCallback(fieldname: string, callback: () => void): void;
+        registerFocusCallback(fieldname: string, callback: () => void): void;
+        registerValidationErrorCallback(fieldname: string, callback: (error: any) => void): void;
         registerGetValueCallback(fieldname: string, callback: () => any): void;
         updateControlValue(fieldname: string, value: any): void;
         registerClientValidator(fieldname: string, validator: SPClientForms.ClientValidation.ValidatorSet): void;
-        registerHasValueChangedCallback(fieldname: string, callback: (eventArg?: any) => void );
+        registerHasValueChangedCallback(fieldname: string, callback: (eventArg?: any) => void);
     }
 
 }
@@ -1701,23 +1700,23 @@ declare module SPAnimation {
         GetDataIndex(attributeId: Attribute): number
     }
 
-    export class Object{
-        constructor(animationID: ID, delay: number, element: HTMLElement, finalState: State, finishFunc?: (data: any) => void , data?: any);
-        constructor(animationID: ID, delay: number, element: HTMLElement[], finalState: State, finishFunc?: (data: any) => void , data?: any);
+    export class Object {
+        constructor(animationID: ID, delay: number, element: HTMLElement, finalState: State, finishFunc?: (data: any) => void, data?: any);
+        constructor(animationID: ID, delay: number, element: HTMLElement[], finalState: State, finishFunc?: (data: any) => void, data?: any);
         RunAnimation(): void;
     }
 }
 
-declare module SPAnimationUtility{
+declare module SPAnimationUtility {
     export class BasicAnimator {
-        static FadeIn(element: HTMLElement, finishFunc?: (data: any) => void , data?: any): void;
-        static FadeOut (element: HTMLElement, finishFunc?: (data: any) => void , data?: any): void;
-        static Move(element: HTMLElement, posX:number, posY:number, finishFunc?: (data: any) => void , data?: any): void;
-        static StrikeThrough(element: HTMLElement, strikeThroughWidth: number, finishFunc?: (data: any) => void , data?: any): void;
-        static Resize(element: HTMLElement, newHeight: number, newWidth: number, finishFunc?: (data: any) => void , data?: any): void;
-        static CommonResize(element: HTMLElement, newHeight: number, newWidth: number, finishFunc: (data: any) => void , data: any, animationId:SPAnimation.ID): void;
-        static QuickResize(element: HTMLElement, newHeight: number, newWidth: number, finishFunc?: (data: any) => void , data?: any): void;
-        static ResizeContainerAndFillContent(element: HTMLElement, newHeight: number, newWidth: number, finishFunc: () => void , fAddToEnd: boolean): void;
+        static FadeIn(element: HTMLElement, finishFunc?: (data: any) => void, data?: any): void;
+        static FadeOut(element: HTMLElement, finishFunc?: (data: any) => void, data?: any): void;
+        static Move(element: HTMLElement, posX: number, posY: number, finishFunc?: (data: any) => void, data?: any): void;
+        static StrikeThrough(element: HTMLElement, strikeThroughWidth: number, finishFunc?: (data: any) => void, data?: any): void;
+        static Resize(element: HTMLElement, newHeight: number, newWidth: number, finishFunc?: (data: any) => void, data?: any): void;
+        static CommonResize(element: HTMLElement, newHeight: number, newWidth: number, finishFunc: (data: any) => void, data: any, animationId: SPAnimation.ID): void;
+        static QuickResize(element: HTMLElement, newHeight: number, newWidth: number, finishFunc?: (data: any) => void, data?: any): void;
+        static ResizeContainerAndFillContent(element: HTMLElement, newHeight: number, newWidth: number, finishFunc: () => void, fAddToEnd: boolean): void;
         static GetWindowScrollPosition(): { x: number; y: number; };
         static GetLeftOffset(element: HTMLElement): number;
         static GetTopOffset(element: HTMLElement): number;
@@ -1969,13 +1968,13 @@ declare module SP {
         get_expectedContentType(): string;
         set_expectedContentType(value: string): void;
         post(body: string): void;
-        get (): void;
-        static doPost(url: string, body: string, expectedContentType: string, succeededHandler: (sender: any, args: SP.PageRequestSucceededEventArgs) => void , failedHandler: (sender: any, args: SP.PageRequestFailedEventArgs) => void ): void;
-        static doGet(url: string, expectedContentType: string, succeededHandler: (sender: any, args: SP.PageRequestSucceededEventArgs) => void , failedHandler: (sender: any, args: SP.PageRequestFailedEventArgs) => void ): void;
-        add_succeeded(value: (sender: any, args: SP.PageRequestSucceededEventArgs) => void ): void;
-        remove_succeeded(value: (sender: any, args: SP.PageRequestSucceededEventArgs) => void ): void;
-        add_failed(value: (sender: any, args: SP.PageRequestFailedEventArgs) => void ): void;
-        remove_failed(value: (sender: any, args: SP.PageRequestFailedEventArgs) => void ): void;
+        get(): void;
+        static doPost(url: string, body: string, expectedContentType: string, succeededHandler: (sender: any, args: SP.PageRequestSucceededEventArgs) => void, failedHandler: (sender: any, args: SP.PageRequestFailedEventArgs) => void): void;
+        static doGet(url: string, expectedContentType: string, succeededHandler: (sender: any, args: SP.PageRequestSucceededEventArgs) => void, failedHandler: (sender: any, args: SP.PageRequestFailedEventArgs) => void): void;
+        add_succeeded(value: (sender: any, args: SP.PageRequestSucceededEventArgs) => void): void;
+        remove_succeeded(value: (sender: any, args: SP.PageRequestSucceededEventArgs) => void): void;
+        add_failed(value: (sender: any, args: SP.PageRequestFailedEventArgs) => void): void;
+        remove_failed(value: (sender: any, args: SP.PageRequestFailedEventArgs) => void): void;
         constructor();
     }
     export class ResResources {
@@ -2229,10 +2228,10 @@ declare module SP {
     export class ClientRequest {
         static get_nextSequenceId(): number;
         get_webRequest(): Sys.Net.WebRequest;
-        add_requestSucceeded(value: (sender: any, args: SP.ClientRequestSucceededEventArgs) => void ): void;
-        remove_requestSucceeded(value: (sender: any, args: SP.ClientRequestSucceededEventArgs) => void ): void;
-        add_requestFailed(value: (sender: any, args: SP.ClientRequestFailedEventArgs) => void ): void;
-        remove_requestFailed(value: (sender: any, args: SP.ClientRequestFailedEventArgs) => void ): void;
+        add_requestSucceeded(value: (sender: any, args: SP.ClientRequestSucceededEventArgs) => void): void;
+        remove_requestSucceeded(value: (sender: any, args: SP.ClientRequestSucceededEventArgs) => void): void;
+        add_requestFailed(value: (sender: any, args: SP.ClientRequestFailedEventArgs) => void): void;
+        remove_requestFailed(value: (sender: any, args: SP.ClientRequestFailedEventArgs) => void): void;
         get_navigateWhenServerRedirect(): boolean;
         set_navigateWhenServerRedirect(value: boolean): void;
     }
@@ -2267,18 +2266,18 @@ declare module SP {
         set_webRequestExecutorFactory(value: SP.IWebRequestExecutorFactory): void;
         get_pendingRequest(): SP.ClientRequest;
         get_hasPendingRequest(): boolean;
-        add_executingWebRequest(value: (sender: any, args: SP.WebRequestEventArgs) => void ): void;
-        remove_executingWebRequest(value: (sender: any, args: SP.WebRequestEventArgs) => void ): void;
-        add_requestSucceeded(value: (sender: any, args: SP.ClientRequestSucceededEventArgs) => void ): void;
-        remove_requestSucceeded(value: (sender: any, args: SP.ClientRequestSucceededEventArgs) => void ): void;
-        add_requestFailed(value: (sender: any, args: SP.ClientRequestFailedEventArgs) => void ): void;
-        remove_requestFailed(value: (sender: any, args: SP.ClientRequestFailedEventArgs) => void ): void;
-        add_beginningRequest(value: (sender: any, args: SP.ClientRequestEventArgs) => void ): void;
-        remove_beginningRequest(value: (sender: any, args: SP.ClientRequestEventArgs) => void ): void;
+        add_executingWebRequest(value: (sender: any, args: SP.WebRequestEventArgs) => void): void;
+        remove_executingWebRequest(value: (sender: any, args: SP.WebRequestEventArgs) => void): void;
+        add_requestSucceeded(value: (sender: any, args: SP.ClientRequestSucceededEventArgs) => void): void;
+        remove_requestSucceeded(value: (sender: any, args: SP.ClientRequestSucceededEventArgs) => void): void;
+        add_requestFailed(value: (sender: any, args: SP.ClientRequestFailedEventArgs) => void): void;
+        remove_requestFailed(value: (sender: any, args: SP.ClientRequestFailedEventArgs) => void): void;
+        add_beginningRequest(value: (sender: any, args: SP.ClientRequestEventArgs) => void): void;
+        remove_beginningRequest(value: (sender: any, args: SP.ClientRequestEventArgs) => void): void;
         get_requestTimeout(): number;
         set_requestTimeout(value: number): void;
-        executeQueryAsync(succeededCallback: (sender: any, args: SP.ClientRequestSucceededEventArgs) => void , failedCallback: (sender: any, args: SP.ClientRequestFailedEventArgs) => void ): void;
-        executeQueryAsync(succeededCallback: (sender: any, args: SP.ClientRequestSucceededEventArgs) => void ): void;
+        executeQueryAsync(succeededCallback: (sender: any, args: SP.ClientRequestSucceededEventArgs) => void, failedCallback: (sender: any, args: SP.ClientRequestFailedEventArgs) => void): void;
+        executeQueryAsync(succeededCallback: (sender: any, args: SP.ClientRequestSucceededEventArgs) => void): void;
         executeQueryAsync(): void;
         get_staticObjects(): any;
         castTo(obj: SP.ClientObject, type: any): SP.ClientObject;
@@ -2657,7 +2656,7 @@ declare module SP {
         constructor();
     }
     export class BasePermissions extends SP.ClientValueObject {
-        set (perm: SP.PermissionKind): void;
+        set(perm: SP.PermissionKind): void;
         clear(perm: SP.PermissionKind): void;
         clearAll(): void;
         has(perm: SP.PermissionKind): boolean;
@@ -3986,7 +3985,7 @@ declare module SP {
         choiceField,
         minMaxField,
         textField,
-    } 
+    }
     /** Represents an item or row in a list. */
     export class ListItem extends SP.SecurableObject {
         get_fieldValues(): any;
@@ -4420,7 +4419,7 @@ declare module SP {
         get_value(): string;
         static newObject(context: SP.ClientRuntimeContext): SP.RequestVariable;
         append(value: string): void;
-        set (value: string): void;
+        set(value: string): void;
     }
     export class RoleAssignment extends SP.ClientObject {
         get_member(): SP.Principal;
@@ -5113,8 +5112,8 @@ declare module SP {
                 set_moreColorsPicker(value: SP.Application.UI.MoreColorsPicker): void;
             }
             export class ThemeWebPage extends Sys.UI.Control {
-                add_themeDisplayUpdated(value: (sender: any, e: Sys.EventArgs) => void ): void;
-                remove_themeDisplayUpdated(value: (sender: any, e: Sys.EventArgs) => void ): void;
+                add_themeDisplayUpdated(value: (sender: any, e: Sys.EventArgs) => void): void;
+                remove_themeDisplayUpdated(value: (sender: any, e: Sys.EventArgs) => void): void;
                 constructor(e: HTMLElement);
                 initialize(): void;
                 dispose(): void;
@@ -5300,11 +5299,11 @@ declare module Microsoft.SharePoint.Client.Search {
 
 
             getQuerySuggestionsWithResults: (iNumberOfQuerySuggestions: number,
-                iNumberOfResultSuggestions: number,
-                fPreQuerySuggestions: boolean,
-                fHitHighlighting: boolean,
-                fCapitalizeFirstLetters: boolean,
-                fPrefixMatchAllTerms: boolean) => QuerySuggestionResults;
+            iNumberOfResultSuggestions: number,
+            fPreQuerySuggestions: boolean,
+            fHitHighlighting: boolean,
+            fCapitalizeFirstLetters: boolean,
+            fPrefixMatchAllTerms: boolean) => QuerySuggestionResults;
 
 
         }
@@ -5350,15 +5349,15 @@ declare module Microsoft.SharePoint.Client.Search {
             executeQuery: (query: Query) => SP.JsonObjectResult;
             executeQueries: (queryIds: string[], queries: Query[], handleExceptions: boolean) => SP.JsonObjectResult;
             recordPageClick: (
-                pageInfo: string,
-                clickType: string,
-                blockType: number,
-                clickedResultId: string,
-                subResultIndex: number,
-                immediacySourceId: string,
-                immediacyQueryString: string,
-                immediacyTitle: string,
-                immediacyUrl: string) => void;
+            pageInfo: string,
+            clickType: string,
+            blockType: number,
+            clickedResultId: string,
+            subResultIndex: number,
+            immediacySourceId: string,
+            immediacyQueryString: string,
+            immediacyTitle: string,
+            immediacyUrl: string) => void;
             exportPopularQueries: (web: SP.Web, sourceId: SP.Guid) => SP.JsonObjectResult;
         }
 
@@ -5664,14 +5663,14 @@ declare module Microsoft.SharePoint.Client.Search {
         export class DocumentCrawlLog extends SP.ClientObject {
             constructor(context: SP.ClientContext, site: SP.Site);
             getCrawledUrls: (getCountOnly: boolean,
-                maxRows: { High: number; Low: number; },
-                queryString: string,
-                isLike: boolean,
-                contentSourceID: number,
-                errorLevel: number,
-                errorID: number,
-                startDateTime: Date,
-                endDateTime: Date) => SP.JsonObjectResult;
+            maxRows: { High: number; Low: number; },
+            queryString: string,
+            isLike: boolean,
+            contentSourceID: number,
+            errorLevel: number,
+            errorID: number,
+            startDateTime: Date,
+            endDateTime: Date) => SP.JsonObjectResult;
         }
 
         export class SearchObjectOwner extends SP.ClientObject {
@@ -6405,7 +6404,7 @@ declare module SP {
             set_newerThan(value: string): string;
             get_olderThan(): string;
             set_olderThan(value: string): string;
-            get_sortOrder():SocialFeedSortOrder;
+            get_sortOrder(): SocialFeedSortOrder;
             set_sortOrder(value: SocialFeedSortOrder): SocialFeedSortOrder;
         }
 
@@ -7074,7 +7073,7 @@ declare module SP {
                 get_selectedEntities(): any;
                 set_selectedEntities(value: any): void;
                 get_callback(): (sender: any, e: Sys.EventArgs) => void;
-                set_callback(value: (sender: any, e: Sys.EventArgs) => void ): void;
+                set_callback(value: (sender: any, e: Sys.EventArgs) => void): void;
                 get_scopeKey(): string;
                 get_componentType(): SP.UI.ApplicationPages.SelectorType;
                 revertTo(ent: SP.UI.ApplicationPages.ResolveEntity): void;
@@ -7092,7 +7091,7 @@ declare module SP {
                 static instance(): SP.UI.ApplicationPages.CalendarSelector;
                 registerSelector(selector: SP.UI.ApplicationPages.ISelectorComponent): void;
                 getSelector(type: SP.UI.ApplicationPages.SelectorType, scopeKey: string): SP.UI.ApplicationPages.ISelectorComponent;
-                addHandler(scopeKey: string, people: boolean, resource: boolean, handler: (sender: any, selection: SP.UI.ApplicationPages.SelectorSelectionEventArgs) => void ): void;
+                addHandler(scopeKey: string, people: boolean, resource: boolean, handler: (sender: any, selection: SP.UI.ApplicationPages.SelectorSelectionEventArgs) => void): void;
                 revertTo(scopeKey: string, ent: SP.UI.ApplicationPages.ResolveEntity): void;
                 removeEntity(scopeKey: string, ent: SP.UI.ApplicationPages.ResolveEntity): void;
                 constructor();
@@ -7104,7 +7103,7 @@ declare module SP {
                 get_selectedEntities(): any;
                 set_selectedEntities(value: any): void;
                 get_callback(): (sender: any, e: Sys.EventArgs) => void;
-                set_callback(value: (sender: any, e: Sys.EventArgs) => void ): void;
+                set_callback(value: (sender: any, e: Sys.EventArgs) => void): void;
                 revertTo(ent: SP.UI.ApplicationPages.ResolveEntity): void;
                 removeEntity(ent: SP.UI.ApplicationPages.ResolveEntity): void;
                 setEntity(ent: SP.UI.ApplicationPages.ResolveEntity): void;
@@ -7412,7 +7411,7 @@ declare module SP {
             get_elementIDPrefix(): string;
             set_elementIDPrefix(value: string): string;
 
-            get_linkElement():HTMLAnchorElement;
+            get_linkElement(): HTMLAnchorElement;
 
             get_isDropDownCommand(): boolean;
             set_isDropDownCommand(value: boolean): boolean;
@@ -7429,27 +7428,27 @@ declare module SP {
 
         export class CommandBar {
             constructor();
-            get_commands():Command[];
+            get_commands(): Command[];
             get_dropDownThreshold(): number;
             set_dropDownThreshold(value: number): number;
             get_elementID(): string;
             get_overrideClass(): string;
             set_overrideClass(value: string): string;
-            addCommand(action:Command):void;
-            insertCommand(action: Command, position:number): void;
+            addCommand(action: Command): void;
+            insertCommand(action: Command, position: number): void;
             render(builder: HtmlBuilder): void;
             attachEvents(): void;
-            findCommandByName(name:string):Command;
+            findCommandByName(name: string): Command;
         }
 
 
         export class PagingControl {
             constructor(id: string);
-            render(innerContent:string): string;
-            postRender():void;
-            get_innerContent():HTMLSpanElement;
-            get_innerContentClass():string;
-            setButtonState(buttonId:number, state:number):void;
+            render(innerContent: string): string;
+            postRender(): void;
+            get_innerContent(): HTMLSpanElement;
+            get_innerContentClass(): string;
+            setButtonState(buttonId: number, state: number): void;
             getButtonState(buttonId: number): number;
             onWindowResized(): void;
 
@@ -7507,7 +7506,7 @@ declare module SPNotifications {
     }
 }
 
-declare class  SPStatusNotificationData {
+declare class SPStatusNotificationData {
     constructor(text: string, subText: string, imageUrl: string, sip: string);
 }
 
@@ -8175,18 +8174,18 @@ declare module SP {
         }
 
         export class LocUtility {
-            static getLocalizedCountValue(locText:string, intervals:string, count:number):string;
+            static getLocalizedCountValue(locText: string, intervals: string, count: number): string;
         }
 
         export class VersionUtility {
-            static get_layoutsLatestVersionRelativeUrl():string;
+            static get_layoutsLatestVersionRelativeUrl(): string;
             static get_layoutsLatestVersionUrl(): string;
-            static getLayoutsPageUrl(pageName:string): string;
-            static getImageUrl(imageName:string): string;
+            static getLayoutsPageUrl(pageName: string): string;
+            static getImageUrl(imageName: string): string;
         }
 
     }
-    
+
     export module DateTimeUtil {
         export class SimpleDate {
             construction(year: number, month: number, day: number, era: number);
@@ -9294,35 +9293,35 @@ declare module SP {
             constructor(context: ClientRuntimeContext, web: Web);
 
             static createPolicyDefinition(context: ClientRuntimeContext): SPPolicyDefinition;
-            static createPolicyBinding(context: ClientRuntimeContext):SPPolicyBinding;
-            static createPolicyAssociation(context: ClientRuntimeContext):SPPolicyAssociation;
+            static createPolicyBinding(context: ClientRuntimeContext): SPPolicyBinding;
+            static createPolicyAssociation(context: ClientRuntimeContext): SPPolicyAssociation;
             static createPolicyRule(context: ClientRuntimeContext): SPPolicyRule;
 
 
-            updatePolicyRule(policyRule:SPPolicyRule):void;
+            updatePolicyRule(policyRule: SPPolicyRule): void;
 
-            getPolicyRule(policyRuleId:any, throwIfNull:boolean):SPPolicyRule;
+            getPolicyRule(policyRuleId: any, throwIfNull: boolean): SPPolicyRule;
 
-            deletePolicyRule(policyRuleId: any);void;
+            deletePolicyRule(policyRuleId: any); void;
 
-            notifyUnifiedPolicySync(notificationId, syncSvcUrl:string, changeInfos, syncNow:boolean, fullSyncForTenant):void;
+            notifyUnifiedPolicySync(notificationId, syncSvcUrl: string, changeInfos, syncNow: boolean, fullSyncForTenant): void;
 
-            updatePolicyDefinition(policyDefinition:SPPolicyDefinition):void;
-            
-            getPolicyDefinition(policyDefinitionId):SPPolicyDefinition;
+            updatePolicyDefinition(policyDefinition: SPPolicyDefinition): void;
 
-            deletePolicyDefinition(policyDefinitionId):void; 
-            
-            getPolicyDefinitions(scenario): ClientObjectList<SPPolicyDefinition>; 
+            getPolicyDefinition(policyDefinitionId): SPPolicyDefinition;
 
-            updatePolicyBinding(policyBinding:SPPolicyBinding):void;
+            deletePolicyDefinition(policyDefinitionId): void;
+
+            getPolicyDefinitions(scenario): ClientObjectList<SPPolicyDefinition>;
+
+            updatePolicyBinding(policyBinding: SPPolicyBinding): void;
 
             getPolicyBinding(policyBindingId): SPPolicyBinding;
 
             deletePolicyBinding(policyBindingId): void;
 
             updatePolicyAssociation(policyAssociation: SPPolicyAssociation): void;
-            
+
             getPolicyAssociation(policyAssociationId): SPPolicyAssociation;
 
             getPolicyAssociationForContainer(containerId: SPContainerId): SPPolicyAssociation;
@@ -9391,12 +9390,12 @@ declare module SP {
         }
     }
 }
-declare class SPClientAutoFill{
-    static MenuOptionType : {
+declare class SPClientAutoFill {
+    static MenuOptionType: {
         Option: number;
         Footer: number;
         Separator: number;
-        Loading:number;
+        Loading: number;
     }
 
     static KeyProperty: string; //= 'AutoFillKey';
@@ -9409,7 +9408,7 @@ declare class SPClientAutoFill{
     static GetAutoFillObjFromContainer(elmChild: HTMLElement): SPClientAutoFill;
     static GetAutoFillMenuItemFromOption(elmChild: HTMLElement): HTMLElement;
 
-    constructor(elmTextId: string, elmContainerId: string, fnPopulateAutoFill: (targetElement: HTMLInputElement) => void );
+    constructor(elmTextId: string, elmContainerId: string, fnPopulateAutoFill: (targetElement: HTMLInputElement) => void);
     public TextElementId: string;
     public AutoFillContainerId: string;
     public AutoFillMenuId: string;
@@ -9420,16 +9419,16 @@ declare class SPClientAutoFill{
     public AutoFillCallbackTimeoutID: string;
     public FuncOnAutoFillClose: (elmTextId: string, ojData: ISPClientAutoFillData) => void;
     public FuncPopulateAutoFill: (targetElement: HTMLElement) => void;
-    public AllOptionData: { [key:string]: ISPClientAutoFillData };
+    public AllOptionData: { [key: string]: ISPClientAutoFillData };
 
-    PopulateAutoFill(jsonObjSuggestions: ISPClientAutoFillData[], fnOnAutoFillCloseFuncName: (elmTextId: string, objData:ISPClientAutoFillData) => void ): void;
+    PopulateAutoFill(jsonObjSuggestions: ISPClientAutoFillData[], fnOnAutoFillCloseFuncName: (elmTextId: string, objData: ISPClientAutoFillData) => void): void;
     IsAutoFillOpen(): boolean;
     SetAutoFillHeight(): void;
-    SelectAutoFillOption(elemOption:HTMLElement): void;
-    FocusAutoFill() :void;
+    SelectAutoFillOption(elemOption: HTMLElement): void;
+    FocusAutoFill(): void;
     BlurAutoFill(): void;
     CloseAutoFill(ojData: ISPClientAutoFillData): void;
-    UpdateAutoFillMenuFocus(bMoveNextLink:boolean): void;
+    UpdateAutoFillMenuFocus(bMoveNextLink: boolean): void;
     UpdateAutoFillPosition(): void;
 }
 

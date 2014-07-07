@@ -1,4 +1,4 @@
-﻿// Type definitions for jquery.finger.js
+// Type definitions for jquery.finger.js
 // Project: http://ngryman.sh/jquery.finger/
 // Definitions by: Max Ackley <https://github.com/maxackley/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -50,38 +50,38 @@ interface JQueryFingerEventObject extends JQueryEventObject {
       * The x page coordinate.
       */
     x: number;
-    
+
     /**
       * The y page coordinate.
       */
     y: number;
-    
+
     /**
       * The x delta since the last event.
       */
     dx: number;
-    
+
     /**
       * The y delta since the last event.
       */
     dy: number;
-    
+
     /**
       * The absolute x delta since the last event.
       */
     adx: number;
-    
+
     /**
       * The absolute y delta since the last event.
       */
     ady: number;
-    
+
     /**
       * The orientation of the motion. Adjusted by $.Finger.motionThreshhold.
       * Value is 'horizontal' or 'vertical'.
       */
     orientation: string;
-    
+
     /**
       * The direction of the motion. Value is 1 if the motion is 'positive'
       * (left-to-right or top-to-bottom) or -1 if 'negative'(right-to-left or

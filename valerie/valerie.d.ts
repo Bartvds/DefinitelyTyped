@@ -411,7 +411,7 @@ declare module Valerie {
     }
 
     interface ValidatableModel<T> {
-        name: (value:string) => PropertyValidationState<T>;
+        name: (value: string) => PropertyValidationState<T>;
 
         // return original observableArray
         end: () => T;

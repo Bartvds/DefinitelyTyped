@@ -49,11 +49,11 @@ interface Database {
 
 declare var Database: {
     /** Constructor for Database object */
-    new(name: string,
+    new (name: string,
         version: string,
         displayname: string,
         size: number,
-        creationCallback: (database: Database)=> void): Database;
+        creationCallback: (database: Database) => void): Database;
 };
 
 interface SqlTransaction {
@@ -71,7 +71,7 @@ interface SqlTransaction {
 }
 
 declare var SqlTransaction: {
-    new(): SqlTransaction;
+    new (): SqlTransaction;
 };
 
 interface SqlResultSet {

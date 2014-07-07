@@ -69,9 +69,9 @@ interface Entry {
      * @param errorCallback   A callback that is called when errors happen.
      */
     moveTo(parent: DirectoryEntry,
-            newName?: string,
-            successCallback?: (entry: Entry) => void ,
-            errorCallback?: (error: Error) => void ): void;
+        newName?: string,
+        successCallback?: (entry: Entry) => void,
+        errorCallback?: (error: Error) => void): void;
     /**
      * Copy an entry to a different location on the file system. It is an error to try to:
      *     copy a directory inside itself or to any child at any depth;
@@ -88,24 +88,24 @@ interface Entry {
      * @param errorCallback A callback that is called when errors happen.
      */
     copyTo(parent: DirectoryEntry,
-            newName?: string,
-            successCallback?: (entry: Entry) => void ,
-            errorCallback?: (error: Error) => void ): void;
+        newName?: string,
+        successCallback?: (entry: Entry) => void,
+        errorCallback?: (error: Error) => void): void;
     toURL(): string;
     /**
      * Deletes a file or directory. It is an error to attempt to delete a directory that is not empty. It is an error to attempt to delete the root directory of a filesystem.
      * @param successCallback A callback that is called on success.
      * @param errorCallback   A callback that is called when errors happen.
      */
-    remove(successCallback: () => void ,
-            errorCallback?: (error: Error) => void ): void;
+    remove(successCallback: () => void,
+        errorCallback?: (error: Error) => void): void;
     /**
      * Look up the parent DirectoryEntry containing this Entry. If this Entry is the root of its filesystem, its parent is itself.
      * @param successCallback A callback that is called with the time of the last modification.
      * @param errorCallback   A callback that is called when errors happen.
      */
-    getParent(successCallback: (entry: Entry) => void ,
-            errorCallback?: (error: Error) => void ): void;
+    getParent(successCallback: (entry: Entry) => void,
+        errorCallback?: (error: Error) => void): void;
 }
 
 /** This interface supplies information about the state of a file or directory. */

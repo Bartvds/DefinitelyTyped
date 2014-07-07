@@ -169,10 +169,10 @@ declare var JSZip: {
      * @param data {any} serialized zip archive
      * @param options {JSZipOptions} description of the serialized zip archive
      */
-	new(data?: any, options?: jszip.JSZipOptions): jszip.JSZip;
+    new (data?: any, options?: jszip.JSZipOptions): jszip.JSZip;
 
     prototype: jszip.JSZip;
-    support : jszip.JSZipSupport;
+    support: jszip.JSZipSupport;
 }
 
 declare var JSZipBase64: {

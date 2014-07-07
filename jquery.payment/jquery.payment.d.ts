@@ -1,4 +1,4 @@
-﻿// Type definitions for jQuery.payment
+// Type definitions for jQuery.payment
 // Project: https://github.com/stripe/jquery.payment
 // Definitions by: Eric J. Smith <https://github.com/ejsmith/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -12,10 +12,10 @@ interface JQueryStatic {
 }
 
 interface JQueryPayment {
-    validateCardNumber(cardNumber: string) : boolean;
-    validateCardExpiry(year: string, month: string) : boolean;
-    validateCardExpiry(expiry: any) : boolean;
-    validateCardCVC(cvc: string, type: string) : boolean;
+    validateCardNumber(cardNumber: string): boolean;
+    validateCardExpiry(year: string, month: string): boolean;
+    validateCardExpiry(expiry: any): boolean;
+    validateCardCVC(cvc: string, type: string): boolean;
     cardType(cardNumber: string): string;
     cardExpiryVal(monthYear: string): JQueryPaymentExpiryInfo;
 }

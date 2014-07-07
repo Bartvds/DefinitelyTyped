@@ -2,14 +2,12 @@
 
 
 declare module D3 {
-    interface SuperformulaPath
-    {
+    interface SuperformulaPath {
         superformulaPath(params: number[], n: number, diameter: number): Superformula;
     }
 
 
-    interface SuperformulaType
-    {
+    interface SuperformulaType {
         (any: any): any;//hans
         m: number;
         n1: number;
@@ -19,8 +17,7 @@ declare module D3 {
         b: number;
     }
 
-    interface Superformula
-    {
+    interface Superformula {
         (): any;
         type(any: any): any;
         param(name: string, value: number): Superformula;
@@ -29,8 +26,7 @@ declare module D3 {
     }
 
 
-    interface Base extends Selectors
-    {
+    interface Base extends Selectors {
         superformula: Superformula;
         superformulaPath: SuperformulaPath;
         superformulaTypes: SuperformulaType[];

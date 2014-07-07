@@ -175,9 +175,9 @@ interface HighchartsColorOrGradient {
         cx: number; cy: number; r: number;
     };
     stops?: any[][];
-    
-    brighten?(amount: number): HighchartsColorOrGradient;
-    get?(type: string): string;
+
+    brighten? (amount: number): HighchartsColorOrGradient;
+    get? (type: string): string;
 }
 
 interface HighchartsBoolOrShadow {
@@ -1020,7 +1020,7 @@ interface HighchartsChartObject {
 
 interface HighchartsChart {
     new (options: HighchartsOptions): HighchartsChartObject;
-    new (options: HighchartsOptions, callback: (chart: HighchartsChartObject) => void ): HighchartsChartObject;
+    new (options: HighchartsOptions, callback: (chart: HighchartsChartObject) => void): HighchartsChartObject;
 }
 
 interface HighchartsElementObject {
@@ -1030,7 +1030,7 @@ interface HighchartsElementObject {
     css(hash: HighchartsCSSObject): HighchartsElementObject;
     destroy(): void;
     getBBox(): { x: number; y: number; height: number; width: number; };
-    on(eventType: string, handler: () => void ): HighchartsElementObject;
+    on(eventType: string, handler: () => void): HighchartsElementObject;
     toFront(): HighchartsElementObject;
 }
 
@@ -1057,7 +1057,7 @@ interface HighchartsStatic {
     numberFormat(value: number, decimals?: number, decimalPoint?: string, thousandsSep?: string): string;
     setOptions(options: HighchartsOptions): HighchartsOptions;
     getOptions(): HighchartsOptions;
-    
+
     map(array: any[], fn: Function): any[];
 }
 declare var Highcharts: HighchartsStatic;

@@ -213,75 +213,75 @@ interface Moment {
     max(date: string): Moment;
     max(date: string, format: string): Moment;
     max(clone: Moment): Moment;
-    
+
     min(date: Date): Moment;
     min(date: number): Moment;
     min(date: any[]): Moment;
     min(date: string): Moment;
     min(date: string, format: string): Moment;
     min(clone: Moment): Moment;
-    
+
     get(unit: string): number;
     set(unit: string, value: number): Moment;
-    
+
 }
 
 interface MomentCalendar {
 
-  lastDay: any;
-  sameDay: any;
-  nextDay: any;
-  lastWeek: any;
-  nextWeek: any;
-  sameElse: any;
+    lastDay: any;
+    sameDay: any;
+    nextDay: any;
+    lastWeek: any;
+    nextWeek: any;
+    sameElse: any;
 
 }
 
 interface MomentLanguage {
 
-  months?: any;
-  monthsShort?: any;
-  weekdays?: any;
-  weekdaysShort?: any;
-  weekdaysMin?: any;
-  longDateFormat?: MomentLongDateFormat;
-  relativeTime?: MomentRelativeTime;
-  meridiem?: (hour: number, minute: number, isLowercase: boolean) => string;
-  calendar?: MomentCalendar;
-  ordinal?: (num: number) => string;
+    months?: any;
+    monthsShort?: any;
+    weekdays?: any;
+    weekdaysShort?: any;
+    weekdaysMin?: any;
+    longDateFormat?: MomentLongDateFormat;
+    relativeTime?: MomentRelativeTime;
+    meridiem?: (hour: number, minute: number, isLowercase: boolean) => string;
+    calendar?: MomentCalendar;
+    ordinal?: (num: number) => string;
 
 }
 
 interface MomentLongDateFormat {
 
-  L: string;
-  LL: string;
-  LLL: string;
-  LLLL: string;
-  LT: string;
-  l?: string;
-  ll?: string;
-  lll?: string;
-  llll?: string;
-  lt?: string;
+    L: string;
+    LL: string;
+    LLL: string;
+    LLLL: string;
+    LT: string;
+    l?: string;
+    ll?: string;
+    lll?: string;
+    llll?: string;
+    lt?: string;
 
 }
 
 interface MomentRelativeTime {
 
-  future: any;
-  past: any;
-  s: any;
-  m: any;
-  mm: any;
-  h: any;
-  hh: any;
-  d: any;
-  dd: any;
-  M: any;
-  MM: any;
-  y: any;
-  yy: any;
+    future: any;
+    past: any;
+    s: any;
+    m: any;
+    mm: any;
+    h: any;
+    hh: any;
+    d: any;
+    dd: any;
+    M: any;
+    MM: any;
+    y: any;
+    yy: any;
 
 }
 
@@ -326,9 +326,9 @@ interface MomentStatic {
     duration(input: MomentInput): Duration;
     duration(object: any): Duration;
     duration(): Duration;
-    
+
     parseZone(date: string): Moment;
-    
+
     months(): string[];
     months(index: number): string;
     months(format: string): string[];
@@ -350,9 +350,9 @@ interface MomentStatic {
     weekdaysMin(index: number): string;
     weekdaysMin(format: string): string[];
     weekdaysMin(format: string, index: number): string;
-    
+
     normalizeUnits(unit: string): string;
-    
+
     invalid(parsingFlags?: Object): Moment;
 }
 

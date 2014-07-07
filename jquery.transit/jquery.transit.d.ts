@@ -8,12 +8,12 @@
 // Transit //////////////////////////////////////////////////
 
 interface JQueryTransitOptions {
-	opacity?: number;
-	duration?: number;
-	delay?: number;
-	easing?: string;
-	complete?: () => void;
-	scale?: any;
+    opacity?: number;
+    duration?: number;
+    delay?: number;
+    easing?: string;
+    complete?: () => void;
+    scale?: any;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

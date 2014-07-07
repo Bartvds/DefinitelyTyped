@@ -6,5 +6,5 @@
 /// <reference path="../jquery/jquery.d.ts" />
 
 interface JQueryStatic {
-    render(template?:string, data?:any):string;
+    render(template?: string, data?: any): string;
 }

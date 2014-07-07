@@ -8,23 +8,23 @@
 declare module protractor {
     //region Wrapped webdriver Items
 
-    class AbstractBuilder extends webdriver.AbstractBuilder {}
-    class ActionSequence extends webdriver.ActionSequence {}
-    class Alert extends webdriver.Alert {}
-    class Builder extends webdriver.Builder {}
-    class Button extends webdriver.Button {}
-    class Capabilities extends webdriver.Capabilities {}
-    class Command extends webdriver.Command {}
-    class EventEmitter extends webdriver.EventEmitter {}
-    class FirefoxDomExecutor extends webdriver.FirefoxDomExecutor {}
-    class Locator extends webdriver.Locator {}
-    class Session extends webdriver.Session {}
-    class WebDriver extends webdriver.WebDriver {}
-    class Browser extends webdriver.Browser {}
-    class Capability extends webdriver.Capability {}
-    class CommandName extends webdriver.CommandName {}
-    class Key extends webdriver.Key {}
-    class UnhandledAlertError extends webdriver.UnhandledAlertError {}
+    class AbstractBuilder extends webdriver.AbstractBuilder { }
+    class ActionSequence extends webdriver.ActionSequence { }
+    class Alert extends webdriver.Alert { }
+    class Builder extends webdriver.Builder { }
+    class Button extends webdriver.Button { }
+    class Capabilities extends webdriver.Capabilities { }
+    class Command extends webdriver.Command { }
+    class EventEmitter extends webdriver.EventEmitter { }
+    class FirefoxDomExecutor extends webdriver.FirefoxDomExecutor { }
+    class Locator extends webdriver.Locator { }
+    class Session extends webdriver.Session { }
+    class WebDriver extends webdriver.WebDriver { }
+    class Browser extends webdriver.Browser { }
+    class Capability extends webdriver.Capability { }
+    class CommandName extends webdriver.CommandName { }
+    class Key extends webdriver.Key { }
+    class UnhandledAlertError extends webdriver.UnhandledAlertError { }
 
     class WebElement extends webdriver.WebElement {
         /**
@@ -92,35 +92,35 @@ declare module protractor {
     }
 
     module command {
-        class Command extends webdriver.Command {}
-        class CommandName extends webdriver.CommandName {}
+        class Command extends webdriver.Command { }
+        class CommandName extends webdriver.CommandName { }
     }
 
     module error {
-        class Error extends webdriver.error.Error {}
-        class ErrorCode extends webdriver.error.ErrorCode {}
+        class Error extends webdriver.error.Error { }
+        class ErrorCode extends webdriver.error.ErrorCode { }
     }
 
     module events {
-        class EventEmitter extends webdriver.EventEmitter {}
+        class EventEmitter extends webdriver.EventEmitter { }
     }
 
     module logging {
         var Preferences: any;
 
-        class LevelName extends webdriver.logging.LevelName {}
-        class Type extends webdriver.logging.Type {}
-        class Level extends webdriver.logging.Level {}
-        class Entry extends webdriver.logging.Entry {}
+        class LevelName extends webdriver.logging.LevelName { }
+        class Type extends webdriver.logging.Type { }
+        class Level extends webdriver.logging.Level { }
+        class Entry extends webdriver.logging.Entry { }
 
         function getLevel(nameOrValue: string): webdriver.logging.Level;
         function getLevel(nameOrValue: number): webdriver.logging.Level;
     }
 
     module promise {
-        class Promise extends webdriver.promise.Promise {}
-        class Deferred extends webdriver.promise.Deferred {}
-        class ControlFlow extends webdriver.promise.ControlFlow {}
+        class Promise extends webdriver.promise.Promise { }
+        class Deferred extends webdriver.promise.Deferred { }
+        class ControlFlow extends webdriver.promise.ControlFlow { }
 
         /**
          * @return {!webdriver.promise.ControlFlow} The currently active control flow.
@@ -561,7 +561,7 @@ declare module protractor {
         isPresent(): webdriver.promise.Promise;
     }
 
-    interface ElementArrayFinder{
+    interface ElementArrayFinder {
         count(): webdriver.promise.Promise;
         get(index: number): protractor.WebElement;
         first(): protractor.WebElement;

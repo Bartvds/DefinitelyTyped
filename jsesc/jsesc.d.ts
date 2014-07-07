@@ -5,21 +5,21 @@
 
 declare module 'jsesc' {
 
-	function jsesc(str: string, opts?: any): string;
+    function jsesc(str: string, opts?: any): string;
 
-	module jsesc {
-		var version: string;
+    module jsesc {
+        var version: string;
 
-		interface Opts {
-			quotes?: string;
-			wrap?: boolean;
-			es6?: boolean;
-			escapeEverything?: boolean;
-			compact?: boolean;
-			indent?: string;
-			json?: boolean;
-		}
-	}
+        interface Opts {
+            quotes?: string;
+            wrap?: boolean;
+            es6?: boolean;
+            escapeEverything?: boolean;
+            compact?: boolean;
+            indent?: string;
+            json?: boolean;
+        }
+    }
 
-	export = jsesc;
+    export = jsesc;
 }

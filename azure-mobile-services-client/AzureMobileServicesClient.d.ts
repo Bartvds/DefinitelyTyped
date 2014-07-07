@@ -4,7 +4,7 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 declare module Microsoft.WindowsAzure {
-    
+
     // MobileServiceClient object based on Microsoft Azure documentation: http://msdn.microsoft.com/en-us/library/windowsazure/jj554219.aspx
     interface MobileServiceClient {
         new (applicationUrl: string, applicationKey: string): MobileServiceClient;
@@ -12,15 +12,15 @@ declare module Microsoft.WindowsAzure {
         applicationKey: string;
         currentUser: User;
         //for provider:string use one of ProviderEnum: 'microsoftaccount', 'facebook', 'twitter', 'google'
-        login(provider: string, token: string, callback: (error: any, user: User) => void ): void;
+        login(provider: string, token: string, callback: (error: any, user: User) => void): void;
         login(provider: string, token: string): asyncPromise;
-        login(provider: string, callback: (error: any, user: User) => void ): void;
+        login(provider: string, callback: (error: any, user: User) => void): void;
         login(provider: string): asyncPromise;
         logout(): void;
         getTable(tableName: string): MobileServiceTable;
-        withFilter(serviceFilter: (request: any, next: (request: any, callback: (error:any, response: any) => void ) => void, callback: (error: any, response: any) => void ) => void ) : MobileServiceClient;
+        withFilter(serviceFilter: (request: any, next: (request: any, callback: (error: any, response: any) => void) => void, callback: (error: any, response: any) => void) => void): MobileServiceClient;
     }
-    
+
     // User object based on Microsoft Azure documentation: http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx
     interface User {
         getIdentities(): any;// { [providerName: string]: { userId: string, accessToken: string, accessTokenSecret?: string }; };
@@ -33,7 +33,7 @@ declare module Microsoft.WindowsAzure {
     // Interface to Platform.async(func) => Platform.Promise based on code MobileServices.Web-1.0.0.js
     interface asyncPromise {
         then(onSuccess: (result: any) => any, onError?: (error: any) => any): asyncPromise;
-        done(onSuccess?: (result: any) => void , onError?: (error: any) => void ): void;
+        done(onSuccess?: (result: any) => void, onError?: (error: any) => void): void;
     }
 
     // MobileServiceTable object based on Microsoft Azure documentation: http://msdn.microsoft.com/en-us/library/windowsazure/jj554239.aspx
@@ -54,7 +54,7 @@ declare module Microsoft.WindowsAzure {
         lookup(id: number, paramsQS: Object): asyncPromise;
         lookup(id: number): asyncPromise;
 
-        del(instance: any, paramsQS: Object, callback: (error?: any) => void ): void;
+        del(instance: any, paramsQS: Object, callback: (error?: any) => void): void;
         del(instance: any, paramsQS: Object): asyncPromise;
         del(instance: any): asyncPromise;
 
@@ -69,7 +69,7 @@ declare module Microsoft.WindowsAzure {
     // Interface to describe Query object fluent creation based on Microsoft Azure documentation: http://msdn.microsoft.com/en-us/library/windowsazure/jj613353.aspx
     interface IQuery {
         read(paramsQS?: Object): asyncPromise;
-        
+
         orderBy(...propName: string[]): IQuery;
         orderByDescending(...propName: string[]): IQuery;
         select(...propNameSelected: string[]): IQuery;

@@ -25,8 +25,8 @@ declare module ng.ui {
     }
 
     interface IStateProvider extends IServiceProvider {
-        state(name:string, config:IState): IStateProvider;
-        state(config:IState): IStateProvider;
+        state(name: string, config: IState): IStateProvider;
+        state(config: IState): IStateProvider;
         decorator(name?: string, decorator?: (state: IState, parent: Function) => any): any;
     }
 
@@ -78,7 +78,7 @@ declare module ng.ui {
         transitionTo(state: string, params?: {}, updateLocation?: boolean): void;
         transitionTo(state: string, params?: {}, options?: IStateOptions): void;
         includes(state: string, params?: {}): boolean;
-        is(state:string, params?: {}): boolean;
+        is(state: string, params?: {}): boolean;
         is(state: IState, params?: {}): boolean;
         href(state: IState, params?: {}, options?: IHrefOptions): string;
         href(state: string, params?: {}, options?: IHrefOptions): string;
@@ -94,19 +94,19 @@ declare module ng.ui {
     }
 
     interface IUrlRouterService {
-    	/*
-    	 * Triggers an update; the same update that happens when the address bar
-    	 * url changes, aka $locationChangeSuccess.
-    	 *
-    	 * This method is useful when you need to use preventDefault() on the
-    	 * $locationChangeSuccess event, perform some custom logic (route protection,
-    	 * auth, config, redirection, etc) and then finally proceed with the transition
-    	 * by calling $urlRouter.sync().
-    	 *
-    	 */
+        /*
+         * Triggers an update; the same update that happens when the address bar
+         * url changes, aka $locationChangeSuccess.
+         *
+         * This method is useful when you need to use preventDefault() on the
+         * $locationChangeSuccess event, perform some custom logic (route protection,
+         * auth, config, redirection, etc) and then finally proceed with the transition
+         * by calling $urlRouter.sync().
+         *
+         */
         sync(): void;
     }
-    
+
     interface IUiViewScrollProvider {
         /*
          * Reverts back to using the core $anchorScroll service for scrolling 

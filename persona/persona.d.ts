@@ -31,12 +31,12 @@ declare module Persona {
     }
 
     export interface Persona {
-        watch( options: WatchOptions ): void
-        request( options: RequestOptions ): void
+        watch(options: WatchOptions): void
+        request(options: RequestOptions): void
         request(): void
         logout(): void
-        get( gotAssertion: (String) => void ): void
-        get( gotAssertion: (String) => void, options: GetOptions ): void
+        get(gotAssertion: (String) => void): void
+        get(gotAssertion: (String) => void, options: GetOptions): void
     }
 
 }

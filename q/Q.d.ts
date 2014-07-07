@@ -134,7 +134,7 @@ declare module Q {
          * });
          */
         keys(): Promise<string[]>;
-        
+
         /**
          * A sugar method, equivalent to promise.then(function () { return value; }).
          */
@@ -195,7 +195,7 @@ declare module Q {
     export function when<T, U>(value: IPromise<T>, onFulfilled: (val: T) => IPromise<U>, onRejected?: (reason: any) => U, onProgress?: (progress: any) => any): Promise<U>;
     export function when<T, U>(value: IPromise<T>, onFulfilled: (val: T) => U, onRejected?: (reason: any) => IPromise<U>, onProgress?: (progress: any) => any): Promise<U>;
     export function when<T, U>(value: IPromise<T>, onFulfilled: (val: T) => U, onRejected?: (reason: any) => U, onProgress?: (progress: any) => any): Promise<U>;
-    
+
     //export function try(method: Function, ...args: any[]): Promise<any>; // <- This is broken currently - not sure how to fix.
 
     export function fbind<T>(method: (...args: any[]) => IPromise<T>, ...args: any[]): (...args: any[]) => Promise<T>;
@@ -225,7 +225,7 @@ declare module Q {
      * Returns a promise that is fulfilled with an array containing the fulfillment value of each promise, or is rejected with the same rejection reason as the first promise to be rejected.
      */
     export function all<T>(promises: any[]): Promise<T[]>;
-    
+
     /**
      * Returns a promise that is fulfilled with an array of promise state snapshots, but only after all the original promises have settled, i.e. become either fulfilled or rejected.
      */
@@ -258,7 +258,7 @@ declare module Q {
      * This is especially useful in conjunction with all.
      */
     export function spread<U>(promises: any[], onFulfilled: (...args: any[]) => U, onRejected: (reason: any) => U): Promise<U>;
-    
+
     /**
      * Like then, but "spreads" the array into a variadic fulfillment handler. If any of the promises in the array are rejected, instead calls onRejected with the first rejected promise's rejection reason. 
      * This is especially useful in conjunction with all.
@@ -279,7 +279,7 @@ declare module Q {
      * This is especially useful in conjunction with all.
      */
     export function spread<T, U>(promises: IPromise<T>[], onFulfilled: (...args: T[]) => U, onRejected: (reason: any) => U): Promise<U>;
-    
+
     /**
      * Returns a promise that will have the same result as promise, except that if promise is not fulfilled or rejected before ms milliseconds, the returned promise will be rejected with an Error with the given message. If message is not supplied, the message will be "Timed out after " + ms + " ms".
      */
@@ -322,8 +322,8 @@ declare module Q {
      */
     export function reject(reason?: any): Promise<any>;
 
-    export function promise<T>(resolver: (resolve: (val: IPromise<T>) => void , reject: (reason: any) => void , notify: (progress: any) => void ) => void ): Promise<T>;
-    export function promise<T>(resolver: (resolve: (val: T) => void , reject: (reason: any) => void , notify: (progress: any) => void ) => void ): Promise<T>;
+    export function promise<T>(resolver: (resolve: (val: IPromise<T>) => void, reject: (reason: any) => void, notify: (progress: any) => void) => void): Promise<T>;
+    export function promise<T>(resolver: (resolve: (val: T) => void, reject: (reason: any) => void, notify: (progress: any) => void) => void): Promise<T>;
 
     /**
      * Creates a new version of func that accepts any combination of promise and non-promise values, converting them to their fulfillment values before calling the original func. The returned version also always returns a promise: if func does a return or throw, then Q.promised(func) will return fulfilled or rejected promise, respectively.

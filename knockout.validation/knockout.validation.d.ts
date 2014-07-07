@@ -50,8 +50,7 @@ interface KnockoutValidationAsyncCallback {
     (result: KnockoutValidationAsyncCallbackArgs): void;
 }
 
-interface KnockoutValidationRuleBase
-{
+interface KnockoutValidationRuleBase {
     message: string;
 }
 
@@ -146,7 +145,7 @@ interface KnockoutSubscribableFunctions<T> {
 }
 
 declare module "knockout.validation" {
-	export = validation;
+    export = validation;
 }
 
 declare var validation: KnockoutValidationStatic 

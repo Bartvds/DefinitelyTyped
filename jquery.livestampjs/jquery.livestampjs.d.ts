@@ -9,20 +9,20 @@
 /// <reference path="../moment/moment.d.ts"/>
 
 interface LivestampGlobal {
-	update(): void;
-	pause(): void;
-	resume(): void;
-	interval(): number;
-	interval(interval: number): void;
+    update(): void;
+    pause(): void;
+    resume(): void;
+    interval(): number;
+    interval(interval: number): void;
 }
 
 interface JQueryStatic {
-	livestamp: LivestampGlobal;
+    livestamp: LivestampGlobal;
 }
 
 interface JQuery {
-	livestamp(date: Date): JQuery;
-	livestamp(moment: Moment): JQuery;
-	livestamp(timestamp: number): JQuery;
-	livestamp(timestamp: string): JQuery;
+    livestamp(date: Date): JQuery;
+    livestamp(moment: Moment): JQuery;
+    livestamp(timestamp: number): JQuery;
+    livestamp(timestamp: string): JQuery;
 }

@@ -7,6 +7,6 @@
 
 interface JQueryStatic {
     riot: string;
-    observable(el:any):any;
-    route(to:any):void;
+    observable(el: any): any;
+    route(to: any): void;
 }

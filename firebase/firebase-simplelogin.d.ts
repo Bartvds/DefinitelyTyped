@@ -77,18 +77,18 @@ declare class FirebaseSimpleLogin {
     logout(): void;
 
     createUser(email: string,
-               password: string,
-               callback?: (err: IFirebaseSimpleLoginError, user: IFirebaseSimpleLoginUser) => any): void;
+        password: string,
+        callback?: (err: IFirebaseSimpleLoginError, user: IFirebaseSimpleLoginUser) => any): void;
 
     changePassword(email: string,
-                   oldPassword: string,
-                   newPassword: string,
-                   callback?: (err: IFirebaseSimpleLoginError, success: boolean) => any): void;
+        oldPassword: string,
+        newPassword: string,
+        callback?: (err: IFirebaseSimpleLoginError, success: boolean) => any): void;
 
     sendPasswordResetEmail(email: string,
-                           callback?: (err: IFirebaseSimpleLoginError, success: boolean) => any): void;
+        callback?: (err: IFirebaseSimpleLoginError, success: boolean) => any): void;
 
     removeUser(email: string,
-               password: string,
-               callback?: (err: IFirebaseSimpleLoginError, success: boolean) => any): void;
+        password: string,
+        callback?: (err: IFirebaseSimpleLoginError, success: boolean) => any): void;
 }

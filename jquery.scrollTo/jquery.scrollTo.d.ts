@@ -31,7 +31,7 @@ interface ScrollToOptions {
     * Add/deduct the height/width multiplied by 'over'.
     * Can be { top:x, left:y } when using both axes.
     */
-    over? : any;
+    over?: any;
     /**
     * If true, and both axis are given.
     * The 2nd axis will only be animated after the first one ends.

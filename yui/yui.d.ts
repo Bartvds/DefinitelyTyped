@@ -5,7 +5,7 @@
 
 /// <reference path="yui-test.d.ts" />
 
-interface YUI{
+interface YUI {
     Test: YUITest.YUITestStatic
     Assert: YUITest.IAssert
 
@@ -17,8 +17,8 @@ interface YUI{
     mix(receiver: Object, supplier: Object, overwrite?: boolean, whitelist?: string[], mode?: number, merge?: boolean): any//Function|Object|YUI
 }
 
-declare module Y{
-    interface IConfig{
+declare module Y {
+    interface IConfig {
         requires: string[]
         optional: string[]
         use: string[]

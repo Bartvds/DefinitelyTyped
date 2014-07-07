@@ -6,5 +6,5 @@
 /// <reference path='../jquery/jquery.d.ts'/>
 
 interface JQuery {
-    sortElements(comparator:Function, getSortable?:Function):JQuery;
+    sortElements(comparator: Function, getSortable?: Function): JQuery;
 }

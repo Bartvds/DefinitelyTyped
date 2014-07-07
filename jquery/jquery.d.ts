@@ -654,47 +654,47 @@ interface JQueryCoordinates {
     top: number;
 }
 
-interface JQueryAnimationOptions { 
+interface JQueryAnimationOptions {
     /**
      * A string or number determining how long the animation will run.
      */
-    duration?: any; 
+    duration?: any;
     /**
      * A string indicating which easing function to use for the transition.
      */
-    easing?: string; 
+    easing?: string;
     /**
      * A function to call once the animation is complete.
      */
-    complete?: Function; 
+    complete?: Function;
     /**
      * A function to be called for each animated property of each animated element. This function provides an opportunity to modify the Tween object to change the value of the property before it is set.
      */
-    step?: (now: number, tween: any) => any; 
+    step?: (now: number, tween: any) => any;
     /**
      * A function to be called after each step of the animation, only once per animated element regardless of the number of animated properties. (version added: 1.8)
      */
-    progress?: (animation: JQueryPromise<any>, progress: number, remainingMs: number) => any; 
+    progress?: (animation: JQueryPromise<any>, progress: number, remainingMs: number) => any;
     /**
      * A function to call when the animation begins. (version added: 1.8)
      */
-    start?: (animation: JQueryPromise<any>) => any; 
+    start?: (animation: JQueryPromise<any>) => any;
     /**
      * A function to be called when the animation completes (its Promise object is resolved). (version added: 1.8)
      */
-    done?: (animation: JQueryPromise<any>, jumpedToEnd: boolean) => any; 
+    done?: (animation: JQueryPromise<any>, jumpedToEnd: boolean) => any;
     /**
      * A function to be called when the animation fails to complete (its Promise object is rejected). (version added: 1.8)
      */
-    fail?: (animation: JQueryPromise<any>, jumpedToEnd: boolean) => any; 
+    fail?: (animation: JQueryPromise<any>, jumpedToEnd: boolean) => any;
     /**
      * A function to be called when the animation completes or stops without completing (its Promise object is either resolved or rejected). (version added: 1.8)
      */
-    always?: (animation: JQueryPromise<any>, jumpedToEnd: boolean) => any; 
+    always?: (animation: JQueryPromise<any>, jumpedToEnd: boolean) => any;
     /**
      * A Boolean indicating whether to place the animation in the effects queue. If false, the animation will begin immediately. As of jQuery 1.7, the queue option can also accept a string, in which case the animation is added to the queue represented by that string. When a custom queue name is used the animation does not automatically start; you must call .dequeue("queuename") to start it.
      */
-    queue?: any; 
+    queue?: any;
     /**
      * A map of one or more of the CSS properties defined by the properties argument and their corresponding easing functions. (version added: 1.4)
      */
@@ -736,11 +736,11 @@ interface JQueryStatic {
 
     ajaxSettings: JQueryAjaxSettings;
 
-     /**
-      * Set default values for future Ajax requests. Its use is not recommended.
-      *
-      * @param options A set of key/value pairs that configure the default Ajax request. All options are optional.
-      */
+    /**
+     * Set default values for future Ajax requests. Its use is not recommended.
+     *
+     * @param options A set of key/value pairs that configure the default Ajax request. All options are optional.
+     */
     ajaxSetup(options: JQueryAjaxSettings): void;
 
     /**
@@ -1399,7 +1399,7 @@ interface JQuery {
      * @param attributes An object of attribute-value pairs to set.
      */
     attr(attributes: Object): JQuery;
-    
+
     /**
      * Determine whether any of the matched elements are assigned the given class.
      *
@@ -1685,7 +1685,7 @@ interface JQuery {
      * @param value An integer representing the number of pixels, or an integer along with an optional unit of measure appended (as a string).
      */
     innerHeight(height: string): JQuery;
-    
+
     /**
      * Get the current computed width for the first element in the set of matched elements, including padding but not border.
      */
@@ -1704,7 +1704,7 @@ interface JQuery {
      * @param value An integer representing the number of pixels, or an integer along with an optional unit of measure appended (as a string).
      */
     innerWidth(width: string): JQuery;
-    
+
     /**
      * Get the current coordinates of the first element in the set of matched elements, relative to the document.
      */
@@ -1729,12 +1729,12 @@ interface JQuery {
      */
     outerHeight(includeMargin?: boolean): number;
 
-   /**
-    * Sets the outer height on elements in the set of matched elements, including padding and border.
-    *
-    * @param value An integer representing the number of pixels, or an integer along with an optional unit of measure appended (as a string).
-    */
-   outerHeight(height: number): JQuery;
+    /**
+     * Sets the outer height on elements in the set of matched elements, including padding and border.
+     *
+     * @param value An integer representing the number of pixels, or an integer along with an optional unit of measure appended (as a string).
+     */
+    outerHeight(height: number): JQuery;
 
     /**
      * Sets the outer height on elements in the set of matched elements, including padding and border.
@@ -1742,7 +1742,7 @@ interface JQuery {
      * @param value An integer representing the number of pixels, or an integer along with an optional unit of measure appended (as a string).
      */
     outerHeight(height: string): JQuery;
-    
+
     /**
      * Get the current computed width for the first element in the set of matched elements, including padding and border.
      *
@@ -2745,7 +2745,7 @@ interface JQuery {
      * @param data Data to be passed to the handler in event.data when an event is triggered.
      * @param handler A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false.
     */
-    on(events: string, data : any, handler: (eventObject: JQueryEventObject, ...args: any[]) => any): JQuery;
+    on(events: string, data: any, handler: (eventObject: JQueryEventObject, ...args: any[]) => any): JQuery;
     /**
      * Attach an event handler function for one or more events to the selected elements.
      *

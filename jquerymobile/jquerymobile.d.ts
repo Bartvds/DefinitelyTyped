@@ -207,7 +207,7 @@ interface FilterableOptions {
     defaults?: boolean;
     disabled?: boolean;
     enhanced?: boolean;
-    filterCallback?: {(index: number, searchValue?: string): boolean; };
+    filterCallback?: { (index: number, searchValue?: string): boolean; };
     filterPlaceholder?: string;
     filterReveal?: boolean;
     filterTheme?: string;
@@ -424,7 +424,7 @@ interface JQuery {
     button(command: string): JQuery;
     button(options?: ButtonOptions): JQuery;
     button(events: ButtonEvents): JQuery;
-    
+
     buttonMarkup(options?: ButtonOptions): JQuery;
 
     collapsible(): JQuery;

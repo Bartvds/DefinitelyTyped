@@ -63,7 +63,7 @@ declare module "dustjs-linkedin" {
         /**
         * Retrieves the value at key from the context stack.
         */
-        get (key: string): any;
+        get(key: string): any;
 
         /**
         * Pushes an arbitrary value onto the context stack and returns a new context instance. Specify index and/or length to enable enumeration helpers.

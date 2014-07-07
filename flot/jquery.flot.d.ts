@@ -21,7 +21,7 @@ declare module jquery.flot {
     }
 
     interface hooks {
-        processOptions: { (plot: plot, options: plotOptions): void; } [];
+        processOptions: { (plot: plot, options: plotOptions): void; }[];
         processRawData: { (plot: plot, series: dataSeries, data: any[], datapoints: datapoints): void; }[];
         processDatapoints: { (plot: plot, series: dataSeries, datapoints: datapoints): void; }[];
         processOffset: { (plot: plot, offset: canvasPoint): void; }[];
@@ -188,8 +188,8 @@ declare module jquery.flot {
     }
 
     interface axis extends axisOptions {
-        p2c(point):canvasPoint;
-        c2p(canvasPoint):point;
+        p2c(point): canvasPoint;
+        c2p(canvasPoint): point;
     }
 
     interface plot {

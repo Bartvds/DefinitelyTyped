@@ -6,10 +6,10 @@
 // Imported from: https://github.com/soywiz/typescript-node-definitions/form-data.d.ts
 
 declare module "form-data" {
-	export class FormData {
-		append(key: string, value: any): FormData;
-		getHeaders(): Object;
-		// TODO expand pipe
-		pipe(to: any): any;
-	}
+    export class FormData {
+        append(key: string, value: any): FormData;
+        getHeaders(): Object;
+        // TODO expand pipe
+        pipe(to: any): any;
+    }
 }

@@ -7,56 +7,56 @@
 ///<reference path="rx.virtualtime.d.ts" />
 
 declare module Rx {
-	export class TestScheduler extends VirtualTimeScheduler<number, number> {
-		constructor();
+    export class TestScheduler extends VirtualTimeScheduler<number, number> {
+        constructor();
 
-		createColdObservable<T>(...records: Recorded[]): Observable<T>;
-		createHotObservable<T>(...records: Recorded[]): Observable<T>;
-		createObserver<T>(): MockObserver<T>;
+        createColdObservable<T>(...records: Recorded[]): Observable<T>;
+        createHotObservable<T>(...records: Recorded[]): Observable<T>;
+        createObserver<T>(): MockObserver<T>;
 
-		startWithTiming<T>(create: () => Observable<T>, createdAt: number, subscribedAt: number, disposedAt: number): MockObserver<T>;
-		startWithDispose<T>(create: () => Observable<T>, disposedAt: number): MockObserver<T>;
-		startWithCreate<T>(create: () => Observable<T>): MockObserver<T>;
-	}
+        startWithTiming<T>(create: () => Observable<T>, createdAt: number, subscribedAt: number, disposedAt: number): MockObserver<T>;
+        startWithDispose<T>(create: () => Observable<T>, disposedAt: number): MockObserver<T>;
+        startWithCreate<T>(create: () => Observable<T>): MockObserver<T>;
+    }
 
-	export class Recorded {
-		constructor(time: number, value: any, equalityComparer?: (x: any, y: any) => boolean);
-		equals(other: Recorded): boolean;
-		toString(): string;
-		time: number;
-		value: any;
-	}
+    export class Recorded {
+        constructor(time: number, value: any, equalityComparer?: (x: any, y: any) => boolean);
+        equals(other: Recorded): boolean;
+        toString(): string;
+        time: number;
+        value: any;
+    }
 
-	export var ReactiveTest: {
-		created: number;
-		subscribed: number;
-		disposed: number;
+    export var ReactiveTest: {
+        created: number;
+        subscribed: number;
+        disposed: number;
 
-		onNext(ticks: number, value: any): Recorded;
-		onNext(ticks: number, predicate: (value: any) => boolean): Recorded;
-		onError(ticks: number, exception: any): Recorded;
-		onError(ticks: number, predicate: (exception: any) => boolean): Recorded;
-		onCompleted(ticks: number): Recorded;
+        onNext(ticks: number, value: any): Recorded;
+        onNext(ticks: number, predicate: (value: any) => boolean): Recorded;
+        onError(ticks: number, exception: any): Recorded;
+        onError(ticks: number, predicate: (exception: any) => boolean): Recorded;
+        onCompleted(ticks: number): Recorded;
 
-		subscribe(subscribeAt: number, unsubscribeAt?: number): Subscription;
-	};
+        subscribe(subscribeAt: number, unsubscribeAt?: number): Subscription;
+    };
 
-	export class Subscription {
-		constructor(subscribeAt: number, unsubscribeAt?: number);
-		equals(other: Subscription): boolean;
-	}
+    export class Subscription {
+        constructor(subscribeAt: number, unsubscribeAt?: number);
+        equals(other: Subscription): boolean;
+    }
 
-	export interface MockObserver<T> extends Observer<T> {
-		messages: Recorded[];
-	}
+    export interface MockObserver<T> extends Observer<T> {
+        messages: Recorded[];
+    }
 
-	interface MockObserverStatic extends ObserverStatic {
-		new <T>(scheduler: IScheduler): MockObserver<T>;
-	}
+    interface MockObserverStatic extends ObserverStatic {
+        new <T>(scheduler: IScheduler): MockObserver<T>;
+    }
 
-	export var MockObserver: MockObserverStatic;
+    export var MockObserver: MockObserverStatic;
 }
 
 declare module "rx.testing" {
-	export = Rx;
+    export = Rx;
 }

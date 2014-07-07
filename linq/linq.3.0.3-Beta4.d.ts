@@ -14,7 +14,7 @@ declare module linqjs {
         Utils: {
             createLambda(expression: any): (...params: any[]) => any;
             createEnumerable(getEnumerator: () => IEnumerator): Enumerable;
-            createEnumerator(initialize: () => void , tryGetNext: () => boolean, dispose: () => void ): IEnumerator;
+            createEnumerator(initialize: () => void, tryGetNext: () => boolean, dispose: () => void): IEnumerator;
             extendTo(type: any): void;
         };
         choice(...params: any[]): Enumerable;
@@ -33,7 +33,7 @@ declare module linqjs {
         rangeDown(start: number, count: number, step?: number): Enumerable;
         rangeTo(start: number, to: number, step?: number): Enumerable;
         repeat(element: any, count?: number): Enumerable;
-        repeatWithFinalize(initializer: () => any, finalizer: (element) => void ): Enumerable;
+        repeatWithFinalize(initializer: () => any, finalizer: (element) => void): Enumerable;
         generate(func: () => any, count?: number): Enumerable;
         toInfinity(start?: number, step?: number): Enumerable;
         toNegativeInfinity(start?: number, step?: number): Enumerable;
@@ -42,7 +42,7 @@ declare module linqjs {
     }
 
     interface Enumerable {
-        constructor (getEnumerator: () => IEnumerator);
+        constructor(getEnumerator: () => IEnumerator);
         getEnumerator(): IEnumerator;
 
         // Extension Methods
@@ -67,8 +67,8 @@ declare module linqjs {
         merge(second: Enumerable, resultSelector: (first: any, second: any, index: number) => any): Enumerable;
         merge(second: { length: number;[x: number]: any; }, resultSelector: (first: any, second: any, index: number) => any): Enumerable;
         merge(...params: any[]): Enumerable; // last one is selector
-        join(inner: Enumerable, outerKeySelector: (outer: any) =>any, innerKeySelector: (inner: any) =>any, resultSelector: (outer: any, inner: any) => any, compareSelector?: (obj: any) => any): Enumerable;
-        groupJoin(inner: Enumerable, outerKeySelector: (outer: any) =>any, innerKeySelector: (inner: any) =>any, resultSelector: (outer: any, inner: any) => any, compareSelector?: (obj: any) => any): Enumerable;
+        join(inner: Enumerable, outerKeySelector: (outer: any) => any, innerKeySelector: (inner: any) => any, resultSelector: (outer: any, inner: any) => any, compareSelector?: (obj: any) => any): Enumerable;
+        groupJoin(inner: Enumerable, outerKeySelector: (outer: any) => any, innerKeySelector: (inner: any) => any, resultSelector: (outer: any, inner: any) => any, compareSelector?: (obj: any) => any): Enumerable;
         all(predicate: (element: any) => boolean): boolean;
         any(predicate?: (element: any) => boolean): boolean;
         isEmpty(): boolean;
@@ -80,7 +80,7 @@ declare module linqjs {
         alternate(alternateSequence: any[]): Enumerable;
         alternate(alternateSequence: Enumerable): Enumerable;
         contains(value: any, compareSelector: (element: any) => any): Enumerable;
-		contains(value: any): Enumerable;
+        contains(value: any): Enumerable;
         defaultIfEmpty(defaultValue?: any): Enumerable;
         distinct(compareSelector?: (element: any) => any): Enumerable;
         distinctUntilChanged(compareSelector: (element: any) => any): Enumerable;
@@ -141,9 +141,9 @@ declare module linqjs {
         toJSONString(replacer: (key: string, value: any) => any, space: any): string;
         toJSONString(replacer: any[], space: any): string;
         toJoinedString(separator?: string, selector?: (element: any, index: number) => any): string;
-        doAction(action: (element: any, index: number) => void ): Enumerable;
+        doAction(action: (element: any, index: number) => void): Enumerable;
         doAction(action: (element: any, index: number) => boolean): Enumerable;
-        forEach(action: (element: any, index: number) => void ): void;
+        forEach(action: (element: any, index: number) => void): void;
         forEach(action: (element: any, index: number) => boolean): void;
         write(separator?: string, selector?: (element: any) => any): void;
         writeLine(selector?: (element: any) => any): void;
@@ -153,10 +153,10 @@ declare module linqjs {
         letBind(func: (source: Enumerable) => Enumerable): Enumerable;
         share(): DisposableEnumerable;
         memoize(): DisposableEnumerable;
-        catchError(handler: (exception: any) => void ): Enumerable;
-        finallyAction(finallyAction: () => void ): Enumerable;
-        log(selector?: (element: any) => void ): Enumerable;
-        trace(message?: string, selector?: (element: any) => void ): Enumerable;
+        catchError(handler: (exception: any) => void): Enumerable;
+        finallyAction(finallyAction: () => void): Enumerable;
+        log(selector?: (element: any) => void): Enumerable;
+        trace(message?: string, selector?: (element: any) => void): Enumerable;
     }
 
     interface OrderedEnumerable extends Enumerable {

@@ -4,45 +4,45 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 interface BootboxLocale {
-	OK: string;
-	CANCEL: string;
-	CONFIRM: string;
+    OK: string;
+    CANCEL: string;
+    CONFIRM: string;
 }
 
 interface BootboxIcons {
-	OK: any;
-	CANCEL: any;
-	CONFIRM: any;
+    OK: any;
+    CANCEL: any;
+    CONFIRM: any;
 }
 
 interface BootboxHandler {
-	label: string;
-	class: string;
-	callback: (result?: any) => void;
+    label: string;
+    class: string;
+    callback: (result?: any) => void;
 }
 
 interface BootboxOption {
-	header: string;
-	headerCloseButton: boolean;
+    header: string;
+    headerCloseButton: boolean;
 }
 
 interface BootboxStatic {
-	alert(message: string, callback: () => void): void;
-	alert(message: string, customButtonText?: string, callback?: () => void): void;
-	confirm(message: string, callback: (result: boolean) => void): void;
-	confirm(message: string, cancelButtonText?: string, confirmButtonText?: string, callback?: (result: boolean) => void): void;
-	prompt(message: string, callback: (result: string) => void, defaultValue?: string): void;
-	prompt(message: string, cancelButtonText?: string, confirmButtonText?: string, callback?: (result: string) => void, defaultValue?: string): void;
-	dialog(message: string, handlers: BootboxHandler[], options?: any): void;
-	dialog(message: string, handler: BootboxHandler): void;
-	dialog(message: string): void;
-	hideAll(): void;
-	animate(shouldAnimate: boolean): void;
-	backdrop(backdropValue: string): void;
-	classes(customCssClasses: string): void;
-	setIcons(icons: BootboxIcons): void;
-	setLocale(localeName: string): void;
-	addLocale(localeName: string, translations: BootboxLocale) : void;
+    alert(message: string, callback: () => void): void;
+    alert(message: string, customButtonText?: string, callback?: () => void): void;
+    confirm(message: string, callback: (result: boolean) => void): void;
+    confirm(message: string, cancelButtonText?: string, confirmButtonText?: string, callback?: (result: boolean) => void): void;
+    prompt(message: string, callback: (result: string) => void, defaultValue?: string): void;
+    prompt(message: string, cancelButtonText?: string, confirmButtonText?: string, callback?: (result: string) => void, defaultValue?: string): void;
+    dialog(message: string, handlers: BootboxHandler[], options?: any): void;
+    dialog(message: string, handler: BootboxHandler): void;
+    dialog(message: string): void;
+    hideAll(): void;
+    animate(shouldAnimate: boolean): void;
+    backdrop(backdropValue: string): void;
+    classes(customCssClasses: string): void;
+    setIcons(icons: BootboxIcons): void;
+    setLocale(localeName: string): void;
+    addLocale(localeName: string, translations: BootboxLocale): void;
 }
 
-declare var bootbox : BootboxStatic;
+declare var bootbox: BootboxStatic;

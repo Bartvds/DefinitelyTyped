@@ -5,7 +5,7 @@
 
 
 interface Cheerio {
-    
+
     addClass(classNames: string): Cheerio;
     hasClass(className: string): boolean;
     removeClass(className?: any): Cheerio;
@@ -27,10 +27,10 @@ interface Cheerio {
 
     each(func: (index: any, elem: any) => Cheerio);
 
-    map(callback: (index: any, domElement: Element) =>any): Cheerio;
+    map(callback: (index: any, domElement: Element) => any): Cheerio;
 
     filter(selector: string): Cheerio;
-    filter(func: (index: any) =>any): Cheerio;
+    filter(func: (index: any) => any): Cheerio;
 
     first(): Cheerio;
     last(): Cheerio;
@@ -53,8 +53,8 @@ interface Cheerio {
 
     toArray(): any[];
 
-    clone() : Cheerio;
-    root() : Cheerio;
+    clone(): Cheerio;
+    root(): Cheerio;
     dom(): any;
 
     contains(container: Element, contained: Element): boolean;
@@ -77,5 +77,5 @@ interface CheerioStatic {
 }
 
 declare module "cheerio" {
-    export function load (html : string, options?: CheerioOptionsInterface) : CheerioStatic;
+    export function load(html: string, options?: CheerioOptionsInterface): CheerioStatic;
 }

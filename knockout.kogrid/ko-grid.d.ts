@@ -24,7 +24,7 @@ declare module kg {
         rowCache: Row<EntityType>[];
     }
 
-    export interface SelectionService<EntityType>  {
+    export interface SelectionService<EntityType> {
         setSelection(row: Row<EntityType>, selected: boolean): void;
         multi: boolean;
         lastClickedRow: Row<EntityType>;
@@ -44,7 +44,7 @@ declare module kg {
 
     export interface GridOptions<EntityType> {
         /** Callback for when you want to validate something after selection. */
-        afterSelectionChange?(row: Row<EntityType>): void;
+        afterSelectionChange? (row: Row<EntityType>): void;
 
         /** Callback if you want to inspect something before selection,
         return false if you want to cancel the selection. return true otherwise. 
@@ -52,7 +52,7 @@ declare module kg {
         use rowItem.changeSelection(event) method after returning false initially. 
         Note: when shift+ Selecting multiple items in the grid this will only get called
         once and the rowItem will be an array of items that are queued to be selected. */
-        beforeSelectionChange?: Function;       
+        beforeSelectionChange?: Function;
 
         /** definitions of columns as an array [], if not defined columns are auto-generated. See github wiki for more details. */
         columnDefs?: ColumnDef[];
@@ -82,7 +82,7 @@ declare module kg {
         enableRowSelection?: boolean;
 
         /** Enables or disables sorting in grid. */
-        enableSorting?: boolean;    
+        enableSorting?: boolean;
 
         /** filterOptions -
         filterText: The text bound to the built-in search box. 
@@ -170,7 +170,7 @@ declare module kg {
 
         /** Sets the pretty display name of the column. default is the field given */
         displayName?: string;
-        
+
         /** Sets the width of the column. Can be a fixed width in pixels as an int (42), string px('42px'), percentage string ('42%'), weighted asterisks (width divided by total number of *'s is all column definition widths) See github wiki for more details. */
         width?: string;
     }

@@ -8,6 +8,6 @@ declare module crypto {
    // A cryptographically strong pseudo-random number generator seeded with
    // truly random values. The buffer passed in is modified, and a reference to
    // argument is returned for convenience.
-   function getRandomValues(array: ArrayBufferView) : ArrayBufferView
+   function getRandomValues(array: ArrayBufferView): ArrayBufferView
 
 }

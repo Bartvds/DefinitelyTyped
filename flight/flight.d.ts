@@ -18,7 +18,7 @@ declare module Flight {
          * However, for backwards compatibility, if you are using this.defaultAttrs 
          * then all the old attribute behavior remains in place.
          */
-        attributes(obj: Object): void; 
+        attributes(obj: Object): void;
 
         /**
          * Most Components and Mixins need to define attributes. In Flight, 

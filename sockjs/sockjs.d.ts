@@ -8,7 +8,7 @@ interface SockJSSimpleEvent {
     toString(): string;
 }
 
-interface SJSOpenEvent extends SockJSSimpleEvent {}
+interface SJSOpenEvent extends SockJSSimpleEvent { }
 
 interface SJSCloseEvent extends SockJSSimpleEvent {
     code: number;

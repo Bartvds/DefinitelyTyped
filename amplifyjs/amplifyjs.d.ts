@@ -13,13 +13,13 @@ interface amplifyRequestSettings {
 }
 
 interface amplifyDecoder {
-    (   
-        data?: any, 
-        status?: string, 
-        xhr?: JQueryXHR, 
+    (
+        data?: any,
+        status?: string,
+        xhr?: JQueryXHR,
         success?: (...args: any[]) => void,
         error?: (...args: any[]) => void
-    ): void
+        ): void
 }
 
 interface amplifyDecoders {
@@ -27,7 +27,7 @@ interface amplifyDecoders {
     jsSend: amplifyDecoder;
 }
 
-interface amplifyAjaxSettings extends JQueryAjaxSettings  {
+interface amplifyAjaxSettings extends JQueryAjaxSettings {
     cache?: any;
     decoder?: any /* string or amplifyDecoder */;
 }
@@ -73,7 +73,7 @@ interface amplifyRequest {
     *   error: Callback to invoke on error.
     */
     define(resourceId: string, resource: (settings: amplifyRequestSettings) => void): void;
-    
+
     decoders: amplifyDecoders;
     cache: any;
 }
@@ -122,7 +122,7 @@ interface amplifyStorageTypeStore {
     (): any;
 }
 
-interface amplifyStore extends amplifyStorageTypeStore{
+interface amplifyStore extends amplifyStorageTypeStore {
 
     /*** 
     * IE 8+, Firefox 3.5+, Safari 4+, Chrome, Opera 10.5+, iPhone 2+, Android 2+
@@ -138,7 +138,7 @@ interface amplifyStore extends amplifyStorageTypeStore{
     * Firefox 2+
     */
     globalStorage: amplifyStorageTypeStore;
-    
+
     /***
     * IE 5 - 7
     */
@@ -148,8 +148,8 @@ interface amplifyStore extends amplifyStorageTypeStore{
     * An in-memory store is provided as a fallback if none of the other storage types are available.
     */
     memory: amplifyStorageTypeStore;
-    
-    
+
+
 }
 
 interface amplifyStatic {

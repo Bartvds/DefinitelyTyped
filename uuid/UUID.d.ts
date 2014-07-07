@@ -85,4 +85,4 @@ declare module UUID {
     }
 }
 
-declare var UUID:  UUID.UUIDStatic;
+declare var UUID: UUID.UUIDStatic;

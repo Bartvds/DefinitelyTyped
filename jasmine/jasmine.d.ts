@@ -154,12 +154,12 @@ declare module jasmine {
         passed(): boolean;
     }
 
-    interface MessageResult extends Result  {
+    interface MessageResult extends Result {
         values: any;
         trace: Trace;
     }
 
-    interface ExpectationResult extends Result  {
+    interface ExpectationResult extends Result {
         matcherName: string;
         passed(): boolean;
         expected: any;

@@ -26,7 +26,7 @@ interface JQueryColorpickerOptions {
     hsv?: boolean;
     inline?: boolean;
     inlineFrame?: boolean;
-    layout?: {[part: string]: number[];};
+    layout?: { [part: string]: number[]; };
     limit?: string;
     modal?: boolean;
     mode?: string;

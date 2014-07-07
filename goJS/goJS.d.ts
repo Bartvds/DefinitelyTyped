@@ -812,7 +812,7 @@ declare module go {
         * @param {Function} derivedclass
         * @param {Function} baseclass
         */
-        static inherit(derivedclass: new(...args: any[]) => Object, baseclass: new(...args: any[]) => Object);
+        static inherit(derivedclass: new (...args: any[]) => Object, baseclass: new (...args: any[]) => Object);
 
         /**
         * Perform all invalid layouts.
@@ -4139,7 +4139,7 @@ declare module go {
         /**
         * This static method can be used to create a function that parses a string into an enumerated value, given the class that the enumeration values are defined on and a default value if the string cannot be parsed successfully.
         */
-        static parseEnum(ctor: new(...args: any[]) => Object, defval: EnumValue): (a: string) => EnumValue;
+        static parseEnum(ctor: new (...args: any[]) => Object, defval: EnumValue): (a: string) => EnumValue;
 
         /**
         * This static method can be used to convert an object to a string, looking for commonly defined data properties, such as "text", "name", "key", or "id".
@@ -4519,7 +4519,7 @@ declare module go {
         isReadOnly: boolean;
 
         /**Gets or sets a function that returns a unique id number or string for a node data object.*/
-        makeUniqueKeyFunction: (model: Model, obj:Object) => any;
+        makeUniqueKeyFunction: (model: Model, obj: Object) => any;
 
         /**Gets or sets the name of this model.*/
         name: string;
@@ -4554,7 +4554,7 @@ declare module go {
         * This registration does not raise a ChangedEvent.
         * @param {function(ChangedEvent)} listener a function that takes a ChangedEvent as its argument.
         */
-        addChangedListener(listener: (e: ChangedEvent)=>void);
+        addChangedListener(listener: (e: ChangedEvent) => void);
 
         /**
         * When you want to add a node or group to the diagram,
@@ -4696,7 +4696,7 @@ declare module go {
         * This deregistration does not raise a ChangedEvent.
         * @param {function(ChangedEvent)} listener a function that takes a ChangedEvent as its argument.
         */
-        removeChangedListener(listener: (e:ChangedEvent) => void);
+        removeChangedListener(listener: (e: ChangedEvent) => void);
 
         /**
         * When you want to remove a node or group from the diagram,
@@ -5391,7 +5391,7 @@ declare module go {
         cellSize: Size;
 
         /**Gets or sets the comparison function used to sort the parts.*/
-        comparer: (a:Part, b:Part) => number;
+        comparer: (a: Part, b: Part) => number;
 
         /**Gets or sets what order to place the parts.*/
         sorting: EnumValue;
@@ -6013,7 +6013,7 @@ declare module go {
         alternateCompaction: EnumValue;
 
         /**Gets or sets the default comparison function used for sorting.*/
-        alternateComparer: (a:TreeVertex, b:TreeVertex) => number;
+        alternateComparer: (a: TreeVertex, b: TreeVertex) => number;
 
         /**Gets or sets the object holding the default values for alternate layer TreeVertexes, used when the #treeStyle is #StyleAlternating or #StyleLastParents.*/
         alternateDefaults: TreeVertex;
@@ -6076,7 +6076,7 @@ declare module go {
         compaction: EnumValue;
 
         /**Gets or sets the default comparison function used for sorting.*/
-        comparer: (a:TreeVertex, b:TreeVertex) => number;
+        comparer: (a: TreeVertex, b: TreeVertex) => number;
 
         /**Gets or sets the distance between a parent node and its children.*/
         layerSpacing: number;
@@ -7813,7 +7813,7 @@ declare module go {
         * This creates a List that checks the type of the values to be instances of a particular kind of Object.
         * @param {function(...)} type this must be a class function/constructor.
         */
-        constructor(type: new(...args: any[]) => Object);
+        constructor(type: new (...args: any[]) => Object);
         /**
         * This creates a List that may check the types of the values.
         * @param {string=} type if supplied, this must be one of: 'number', 'string', 'boolean', or 'function' for the value type.
@@ -7943,19 +7943,19 @@ declare module go {
         * @param {function(...)} keytype if supplied, this must be a class function/constructor.
         * @param {function(...)} valtype if supplied, this must be a class function/constructor.
         */
-        constructor(keytype: new(...args: any[]) => Object, valtype: new(...args: any[]) => Object);
+        constructor(keytype: new (...args: any[]) => Object, valtype: new (...args: any[]) => Object);
         /**
         * This creates a Map that may check the types of the keys and/or values.
         * @param {string=} keytype if supplied, this must be one of: 'number' or 'string' for the key type.
         * @param {function(...)} valtype if supplied, this must be a class function/constructor.
         */
-        constructor(keytype: string, valtype: new(...args: any[]) => Object);
+        constructor(keytype: string, valtype: new (...args: any[]) => Object);
         /**
         * This creates a Map that may check the types of the keys and/or values.
         * @param {function(...)} keytype if supplied, this must be a class function/constructor.
         * @param {string} valtype if supplied, this must be one of: 'number', 'string', 'boolean', or 'function' for the value type.
         */
-        constructor(keytype: new(...args: any[]) => Object, valtype: string);
+        constructor(keytype: new (...args: any[]) => Object, valtype: string);
         /**
         * This creates a Map that may check the types of the keys and/or values.
         * @param {string=} keytype if supplied, this must be one of: 'number' or 'string' for the key type.
@@ -8030,7 +8030,7 @@ declare module go {
         * This creates a Set that checks the type of the values.
         * @param {function(...)} type this must be a class function/constructor.
         */
-        constructor(type: new(...args: any[]) => Object);
+        constructor(type: new (...args: any[]) => Object);
         /**
         * This creates a Set that may check the types of the values.
         * @param {string=} type if supplied, this must be one of: 'number' or 'string' for the key type.

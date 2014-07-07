@@ -8,9 +8,9 @@
 
 interface KnockoutObservableArrayFunctions<T> {
 
-  /****
-   Collections
-  *****/
+    /****
+     Collections
+    *****/
     each<TResult>(iterator: _.ListIterator<T, TResult>, context?: any): TResult[];
     each<TResult>(iterator: _.ObjectIterator<T, TResult>, context?: any): TResult[];
     forEach<TResult>(iterator: _.ObjectIterator<T, TResult>, context?: any): TResult[];

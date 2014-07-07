@@ -1,4 +1,4 @@
-﻿// Type definitions for jsTree v3.0.0
+// Type definitions for jsTree v3.0.0
 // Project: http://www.jstree.com/
 // Definitions by: Adam Pluciński <https://github.com/adaskothebeast>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -37,7 +37,7 @@ interface JSTreeStatic {
     */
     plugins: any[];
     path: string;
-    idregex:any;
+    idregex: any;
     /**
     * creates a jstree instance
     * @param el <DOMElement, jQuery, String> the element to create the instance on, can be jQuery extended or a selector
@@ -230,7 +230,7 @@ interface JSTreeStaticDefaultsCore {
     * @name $.jstree.defaults.core.strings
     */
     strings?: any;
-    
+
     /**
     * determines what happens when a user tries to modify the structure of the tree
     * If left as `false` all operations like create, rename, delete, move or copy are prevented.
@@ -352,7 +352,7 @@ interface JSTreeStaticDefaultsCheckbox {
     * @name $.jstree.defaults.checkbox.cascade
     * @plugin checkbox
     */
-    cascade:boolean;
+    cascade: boolean;
 }
 
 interface JSTreeStaticDefaultsContextMenu {
@@ -515,7 +515,7 @@ interface JSTreeStaticDefaultsUnique {
     * @name $.jstree.defaults.unique.case_sensitive
     * @plugin unique
     */
-    case_sensitive:boolean;
+    case_sensitive: boolean;
 }
 
 interface JQuery {
@@ -554,7 +554,7 @@ interface JSTree extends JQuery {
     * @param  {Boolean} ids if set to true build the path using ID, otherwise node text is used
     * @return {mixed}
     */
-    get_path: (obj:any, glue:string, ids:boolean) => JQuery;
+    get_path: (obj: any, glue: string, ids: boolean) => JQuery;
     /**
     * get the next visible node that is below the `obj` node. If `strict` is set to `true` only sibling nodes are returned.
     * @name get_next_dom(obj [, strict])
@@ -562,7 +562,7 @@ interface JSTree extends JQuery {
     * @param  {Boolean} strict
     * @return {jQuery}
     */
-    get_next_dom: (obj:any, strict?:boolean) => JQuery;
+    get_next_dom: (obj: any, strict?: boolean) => JQuery;
     /**
     * get the previous visible node that is above the `obj` node. If `strict` is set to `true` only sibling nodes are returned.
     * @name get_prev_dom(obj [, strict])
@@ -714,7 +714,7 @@ interface JSTree extends JQuery {
     * @param {Boolean} prevent_open if set to `true` parents of the selected node won't be opened
     * @trigger select_node.jstree, changed.jstree
     */
-    select_node: (obj: any, supress_event?: boolean, prevent_open?: boolean, e?:any) => void;
+    select_node: (obj: any, supress_event?: boolean, prevent_open?: boolean, e?: any) => void;
     /**
     * deselect a node
     * @name deselect_node(obj [, supress_event])
@@ -722,7 +722,7 @@ interface JSTree extends JQuery {
     * @param {Boolean} supress_event if set to `true` the `changed.jstree` event won't be triggered
     * @trigger deselect_node.jstree, changed.jstree
     */
-    deselect_node: (obj: any, supress_event?: boolean, e?:any) => void;
+    deselect_node: (obj: any, supress_event?: boolean, e?: any) => void;
     /**
     * select all nodes in the tree
     * @name select_all([supress_event])
@@ -771,14 +771,14 @@ interface JSTree extends JQuery {
     * @param {Boolean} skip_loading an option to skip showing the loading indicator
     * @trigger refresh.jstree
     */
-    refresh: (skip_loading:boolean) => void;
+    refresh: (skip_loading: boolean) => void;
     /**
     * refreshes a node in the tree (reload its children) all opened nodes inside that node are reloaded with calls to `load_node`.
     * @name refresh_node(obj)
     * @param {Boolean} skip_loading an option to skip showing the loading indicator
     * @trigger refresh.jstree
     */
-    refresh_node: (obj:any) => void;
+    refresh_node: (obj: any) => void;
     /**
     * set (change) the ID of a node
     * @name set_id(obj, id)
@@ -1006,7 +1006,7 @@ interface JSTree extends JQuery {
     show_icon: (obj: any) => void;
     /**
     */
-    redraw_node: (obj: any, deep:boolean, is_callback:boolean) => any;
+    redraw_node: (obj: any, deep: boolean, is_callback: boolean) => any;
     activate_node: (obj: any, e: any) => any;
 
     /**
@@ -1041,7 +1041,7 @@ interface JSTree extends JQuery {
     * @plugin contextmenu
     * @trigger show_contextmenu.jstree
     */
-    show_contextmenu: (obj: any, x?: number, y?: number, e?:any) => void;
+    show_contextmenu: (obj: any, x?: number, y?: number, e?: any) => void;
     /**
     * used to search the tree nodes for a given string
     * @name search(str [, skip_async])

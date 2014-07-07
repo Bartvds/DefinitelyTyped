@@ -22,7 +22,7 @@ declare module 'redis' {
     interface Command {
         (...args: any[]): any;
     }
-    
+
     interface Commands {
 
         get: Command;
@@ -104,7 +104,7 @@ declare module 'redis' {
         hvals: Command;
         hgetall: Command;
         hexists: Command;
-        
+
         incrby: Command;
         decrby: Command;
         getset: Command;
@@ -241,7 +241,7 @@ declare module 'redis' {
         HVALS: Command;
         HGETALL: Command;
         HEXISTS: Command;
-        
+
         INCRBY: Command;
         DECRBY: Command;
         GETSET: Command;
@@ -330,7 +330,7 @@ declare module 'redis' {
         connected: boolean;
         command_queue: any[];
         offline_queue: any[];
-        retry_delay : number;
+        retry_delay: number;
         retry_backoff: number;
 
         auth(password?: string, callback?: Function): void;
@@ -338,7 +338,7 @@ declare module 'redis' {
 
         end(): RedisClient;
 
-        on(eventName: string, callback: Function): void; 
+        on(eventName: string, callback: Function): void;
         once(eventName: string, callback: Function): void;
         removeListener(eventName: string, callback: Function): void;
 

@@ -5,8 +5,8 @@
 
 interface IAccountingCurrencyFormat {
     pos: string;         // for positive values, eg. "$ 1.00"
-	neg?: string;        // for negative values, eg. "$ (1.00)"
-	zero?: string;       // for zero values, eg. "$  --"
+    neg?: string;        // for negative values, eg. "$ (1.00)"
+    zero?: string;       // for zero values, eg. "$  --"
 }
 
 interface IAccountingCurrencySettings<TFormat> {

@@ -22,7 +22,7 @@ declare module linq {
         RangeDown(start: number, count: number, step?: number): Enumerable;
         RangeTo(start: number, to: number, step?: number): Enumerable;
         Repeat(obj: any, count?: number): Enumerable;
-        RepeatWithFinalize(initializer: () => any, finalizer: (resource: any) =>void ): Enumerable;
+        RepeatWithFinalize(initializer: () => any, finalizer: (resource: any) => void): Enumerable;
         Generate(func: () => any, count?: number): Enumerable;
         Generate(func: string, count?: number): Enumerable;
         ToInfinity(start?: number, step?: number): Enumerable;
@@ -104,9 +104,9 @@ declare module linq {
         Reverse(): Enumerable;
         Shuffle(): Enumerable;
         //Grouping Methods
-        GroupBy(keySelector: ($) => any, elementSelector?: ($) => any, resultSelector?: (key, e) => any, compareSelector?: ($) =>any): Enumerable;
+        GroupBy(keySelector: ($) => any, elementSelector?: ($) => any, resultSelector?: (key, e) => any, compareSelector?: ($) => any): Enumerable;
         GroupBy(keySelector: string, elementSelector?: string, resultSelector?: string, compareSelector?: string): Enumerable;
-        PartitionBy(keySelector: ($) => any, elementSelector?: ($) => any, resultSelector?: (key, e) => any, compareSelector?: ($) =>any): Enumerable;
+        PartitionBy(keySelector: ($) => any, elementSelector?: ($) => any, resultSelector?: (key, e) => any, compareSelector?: ($) => any): Enumerable;
         PartitionBy(keySelector: string, elementSelector?: string, resultSelector?: string, compareSelector?: string): Enumerable;
         BufferWithCount(count: number): Enumerable;
         // Aggregate Methods
@@ -163,29 +163,29 @@ declare module linq {
         ToDictionary(keySelector: string, elementSelector: string, compareSelector?: string): Dictionary;
         ToJSON(replacer?: (key, value) => any, space?: number): string;
         ToJSON(replacer?: string, space?: number): string;
-        ToString(separator?: string, selector?: ($) =>any): string;
+        ToString(separator?: string, selector?: ($) => any): string;
         ToString(separator?: string, selector?: string): string;
         //Action Methods
-        Do(action: ($, i: number) => void ): Enumerable;
+        Do(action: ($, i: number) => void): Enumerable;
         Do(action: string): Enumerable;
-        ForEach(action: ($, i: number) => void ): void;
+        ForEach(action: ($, i: number) => void): void;
         ForEach(func: ($, i: number) => boolean): void;
         ForEach(action_func: string): void;
-        Write(separator?: string, selector?: ($) =>any): void;
+        Write(separator?: string, selector?: ($) => any): void;
         Write(separator?: string, selector?: string): void;
-        WriteLine(selector?: ($) =>any): void;
+        WriteLine(selector?: ($) => any): void;
         Force(): void;
         //Functional Methods
         Let(func: (e: Enumerable) => Enumerable): Enumerable;
         Share(): Enumerable;
         MemoizeAll(): Enumerable;
         //Error Handling Methods
-        Catch(handler: (error: Error) => void ): Enumerable;
+        Catch(handler: (error: Error) => void): Enumerable;
         Catch(handler: string): Enumerable;
-        Finally(finallyAction: () => void ): Enumerable;
+        Finally(finallyAction: () => void): Enumerable;
         Finally(finallyAction: string): Enumerable;
         //For Debug Methods
-        Trace(message?: string, selector?: ($) =>any): Enumerable;
+        Trace(message?: string, selector?: ($) => any): Enumerable;
         Trace(message?: string, selector?: string): Enumerable;
     }
 

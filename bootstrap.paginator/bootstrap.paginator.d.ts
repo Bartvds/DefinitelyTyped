@@ -5,7 +5,7 @@
 
 /// <reference path="../jquery/jquery.d.ts"/>
 
-interface PaginatorOptions{
+interface PaginatorOptions {
     alignment?: string;
     size?: string;
     itemContainerClass?: (type, page, current) => string;
@@ -14,7 +14,7 @@ interface PaginatorOptions{
     totalPages?: number;
     pageUrl?: (type, page, current) => string;
     shouldShowPage?: boolean;
-    itemTexts?: (type:string, page:number, current:number) => string;
+    itemTexts?: (type: string, page: number, current: number) => string;
     tooltipTitles?: (type, page, current) => string;
     useBootstrapTooltip?: boolean;
     bootstrapTooltipOptions?: {};

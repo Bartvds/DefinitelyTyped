@@ -8,14 +8,14 @@ declare module fabric {
     function createCanvasForNode(width: number, height: number): ICanvas;
     function getCSSRules(doc: SVGElement);
     function getGradientDefs(doc: SVGElement);
-    function loadSVGFromString(text: string, callback: (results: IObject[], options) => void , reviver?: (el, obj) => void );
-    function loadSVGFromURL(url, callback: (results: IObject[], options) => void , reviver?: (el, obj) => void );
+    function loadSVGFromString(text: string, callback: (results: IObject[], options) => void, reviver?: (el, obj) => void);
+    function loadSVGFromURL(url, callback: (results: IObject[], options) => void, reviver?: (el, obj) => void);
     function log(values);
     function parseAttributes(element, attributes: any[]): any;
     function parseElements(elements: any[], callback, options, reviver);
     function parsePointsAttribute(points: string): any[];
     function parseStyleAttribute(element: SVGElement);
-    function parseSVGDocument(doc: SVGElement, callback: (results, options) => void , reviver?: (el, obj) => void );
+    function parseSVGDocument(doc: SVGElement, callback: (results, options) => void, reviver?: (el, obj) => void);
     function parseTransformAttribute(attributeValue: string);
     function warn(values);
 
@@ -274,13 +274,13 @@ declare module fabric {
 
         hasControls: boolean;
         hasRotatingPoint: boolean;
-        
+
         height: number;
         getHeight(): number;
         setHeight(value: number): IObject;
 
         includeDefaultValues: boolean;
-        
+
         left: number;
         getLeft(): number;
         setLeft(value: number): IObject;
@@ -296,7 +296,7 @@ declare module fabric {
         padding: number;
         perPixelTargetFind: boolean;
         rotatingPointOffset: number;
-        
+
         scaleX: number;
         getScaleX(): number;
         setScaleX(value: number): IObject;
@@ -310,7 +310,7 @@ declare module fabric {
         stroke: string;
         strokeDashArray: any[];
         strokeWidth: number;
-        
+
         top: number;
         getTop(): number;
         setTop(value: number): IObject;
@@ -318,7 +318,7 @@ declare module fabric {
         transformMatrix: any[];
         transparentCorners: boolean;
         type: string;
-        
+
         width: number;
         getWidth(): number;
         setWidth(value: number): IObject;
@@ -334,7 +334,7 @@ declare module fabric {
         complexity(): number;
         drawBorders(context: CanvasRenderingContext2D): IObject;
         drawCorners(context: CanvasRenderingContext2D): IObject;
-        get (property: string): any;
+        get(property: string): any;
         getBoundingRectHeight(): number;
         getBoundingRectWidth(): number;
         getSvgStyles(): string;
@@ -357,8 +357,8 @@ declare module fabric {
         sendBackwards(): IObject;
         sendToBack(): IObject;
 
-        set (properties: IObjectOptions): IObject;
-        set (name: string, value: any): IObject;
+        set(properties: IObjectOptions): IObject;
+        set(name: string, value: any): IObject;
         setActive(active: boolean): IObject;
         setCoords();
         setGradientFill(options);
@@ -452,7 +452,7 @@ declare module fabric {
         toSVG(): string;
     }
 
-    
+
 
     export interface IPath extends IObject {
         complexity(): number;
@@ -501,7 +501,7 @@ declare module fabric {
         backgroundImage: string;
         backgroundImageOpacity: number;
         backgroundImageStretch: number;
-        clipTo(clipFunction: (context: CanvasRenderingContext2D) => void );
+        clipTo(clipFunction: (context: CanvasRenderingContext2D) => void);
         controlsAboveOverlay: boolean;
         includeDefaultValues: boolean;
         overlayImage: string;
@@ -526,7 +526,7 @@ declare module fabric {
         complexity(): number;
         dispose(): ICanvas;
         drawControls();
-        forEachObject(callback: (object: IObject) => void , context?: CanvasRenderingContext2D): ICanvas;
+        forEachObject(callback: (object: IObject) => void, context?: CanvasRenderingContext2D): ICanvas;
         getActiveGroup(): IGroup;
         getActiveObject(): IObject;
         getCenter(): IObject;
@@ -658,7 +658,7 @@ declare module fabric {
     }
 
     export interface IRectOptions extends IObjectOptions {
-        x?: number; 
+        x?: number;
         y?: number;
         rx?: number;
         ry?: number;
@@ -769,7 +769,7 @@ declare module fabric {
         new (element: HTMLImageElement, objObjects: IObjectOptions): IImage;
         prototype: any;
 
-        filters: 
+        filters:
         {
             Grayscale: {
                 new (): IGrayscaleFilter;
@@ -781,7 +781,7 @@ declare module fabric {
                 new (options?: {
                     threshold?: string; // TODO: Check this
                     distance?: string; // TODO: Check this
-            }): IRemoveWhiteFilter;
+                }): IRemoveWhiteFilter;
             };
             Invert: {
                 new (): IInvertFilter;
@@ -794,23 +794,23 @@ declare module fabric {
             };
             Noise: {
                 new (options?: {
-                        noise?: number;
-            }): INoiseFilter;
+                    noise?: number;
+                }): INoiseFilter;
             };
             GradientTransparency: {
                 new (options?: {
-                        threshold?: number;
-            }): IGradientTransparencyFilter;
+                    threshold?: number;
+                }): IGradientTransparencyFilter;
             };
             Pixelate: {
                 new (options?: {
-                        color?: any;
-            }): IPixelateFilter;
+                    color?: any;
+                }): IPixelateFilter;
             };
             Convolute: {
-                    new (options?: {
-                        matrix: any;
-            }): IConvoluteFilter;
+                new (options?: {
+                    matrix: any;
+                }): IConvoluteFilter;
             };
         };
 

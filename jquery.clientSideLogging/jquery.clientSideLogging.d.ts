@@ -13,7 +13,7 @@ interface ClientSideLoggingClientInfoObject {
 }
 
 interface ClientSideLoggingObject {
-	error_url?: string;		// The url to which errors logs are sent
+    error_url?: string;		// The url to which errors logs are sent
     info_url?: string;		// The url to which info logs are sent
     log_url?: string;		// The url to which standard logs are sent
     log_level?: number;		// The level at which to log. This allows you to keep the calls to the logging in your code and just change this variable to log varying degrees. 1 = only error, 2 = error & log, 3 = error, log & info

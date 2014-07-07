@@ -4,6 +4,6 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 declare module 'deep-freeze' {
-	function df<T>(obj: T): T;
-	export = df;
+    function df<T>(obj: T): T;
+    export = df;
 }

@@ -54,7 +54,7 @@ declare module "pg" {
         constructor(connection: string);
         constructor(config: ClientConfig);
 
-        connect(callback?: (err:Error) => void): void;
+        connect(callback?: (err: Error) => void): void;
         end(): void;
 
         query(queryText: string, callback?: (err: Error, result: QueryResult) => void): Query;

@@ -26,7 +26,7 @@ interface JQueryTotalStorage {
     * @desc Set or get a key's value
     * @param key Key to set.
     * @param value Value to set for key. If ommited, current value for key is returned.
-	* @param options Not implemented.
+    * @param options Not implemented.
     */
     (key: string, value?: any, options?: JQueryTotalStorageOptions): any;
 

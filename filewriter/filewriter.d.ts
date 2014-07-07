@@ -21,25 +21,25 @@ interface FileSaver extends EventTarget {
      * <li> Terminate this algorithm. </li>
      * </ol>
      */
-    abort():void;
+    abort(): void;
 
     /**
      * The blob is being written.
      * @readonly
      */
-    INIT:number;
+    INIT: number;
 
     /**
      * The object has been constructed, but there is no pending write.
      * @readonly
      */
-    WRITING:number;
+    WRITING: number;
 
     /**
      * The entire Blob has been written to the file, an error occurred during the write, or the write was aborted using abort(). The FileSaver is no longer writing the blob.
      * @readonly
      */
-    DONE:number;
+    DONE: number;
 
     /**
      * The FileSaver object can be in one of 3 states. The readyState attribute, on getting, must return the current state, which must be one of the following values:
@@ -50,43 +50,43 @@ interface FileSaver extends EventTarget {
      * <ul>
      * @readonly
      */
-    readyState:number;
+    readyState: number;
 
     /**
      * The last error that occurred on the FileSaver.
      * @readonly     
      */
-    error:DOMError;
+    error: DOMError;
 
     /**
      * Handler for writestart events
      */
-    onwritestart:Function;
+    onwritestart: Function;
 
     /**
      * Handler for progress events.
      */
-    onprogress:Function;
+    onprogress: Function;
 
     /**
      * Handler for write events.
      */
-   	onwrite:Function;
+    onwrite: Function;
 
     /**
      * Handler for abort events.
      */
-    onabort:Function;
+    onabort: Function;
 
     /**
      * Handler for error events.
      */
-    onerror:Function;
+    onerror: Function;
 
     /**
      * Handler for writeend events.
      */
-    onwriteend:Function;
+    onwriteend: Function;
 }
 
 declare var FileSaver: {
@@ -94,7 +94,7 @@ declare var FileSaver: {
      * When the FileSaver constructor is called, the user agent must return a new FileSaver object with readyState set to INIT.
      * This constructor must be visible when the script's global object is either a Window object or an object implementing the WorkerUtils interface.
      */
-    new(data:Blob): FileSaver;
+    new (data: Blob): FileSaver;
 }
 
 /**
@@ -105,30 +105,30 @@ interface FileWriter extends FileSaver {
      * The byte offset at which the next write to the file will occur. This must be no greater than length.
      * A newly-created FileWriter must have position set to 0.
      */
-    position:number;
+    position: number;
 
     /**
      * The length of the file. If the user does not have read access to the file, this must be the highest byte offset at which the user has written.
      */
-    length:number;
+    length: number;
 
     /**
      * Write the supplied data to the file at position. 
      * @param data The blob to write.
      */
-    write(data:Blob):void;
+    write(data: Blob): void;
 
     /**
      * Seek sets the file position at which the next write will occur.
      * @param offset If nonnegative, an absolute byte offset into the file. If negative, an offset back from the end of the file.
      */
-    seek(offset:number):void;
+    seek(offset: number): void;
 
     /**
      * Changes the length of the file to that specified. If shortening the file, data beyond the new length must be discarded. If extending the file, the existing data must be zero-padded up to the new length.
      * @param size The size to which the length of the file is to be adjusted, measured in bytes.
      */
-    truncate(size:number):void;
+    truncate(size: number): void;
 }
 
 /**
@@ -139,24 +139,24 @@ interface FileWriterSync {
     /**
      * The byte offset at which the next write to the file will occur. This must be no greater than length.
      */
-    position:number;
+    position: number;
 
     /**
      * The length of the file. If the user does not have read access to the file, this must be the highest byte offset at which the user has written.
      */
-    length:number;
+    length: number;
 
     /**
      * Write the supplied data to the file at position. Upon completion, position will increase by data.size.
      * @param data The blob to write.
      */
-    write(data:Blob):void;
+    write(data: Blob): void;
 
     /**
      * Seek sets the file position at which the next write will occur.
      * @param offset An absolute byte offset into the file. If offset is greater than length, length is used instead. If offset is less than zero, length is added to it, so that it is treated as an offset back from the end of the file. If it is still less than zero, zero is used.
      */
-    seek(offset:number):void;
+    seek(offset: number): void;
 
     /**
      * Changes the length of the file to that specified. If shortening the file, data beyond the new length must be discarded. If extending the file, the existing data must be zero-padded up to the new length.
@@ -171,6 +171,6 @@ interface FileWriterSync {
      *      </li>
      *  </ul>
      * @param size The size to which the length of the file is to be adjusted, measured in bytes.
-     */     
-    truncate(size:number):void;
+     */
+    truncate(size: number): void;
 }

@@ -1,4 +1,4 @@
-﻿// Type definitions for jDataView
+// Type definitions for jDataView
 // Project: https://github.com/jDataView/jDataView
 // Definitions by: Ingvar Stepanyan <https://github.com/RReverser>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -82,24 +82,24 @@ declare class jDataView implements DataView {
 }
 
 declare module jDataView {
-	interface Bytes {
-		length: number;
-		[index: number]: number;
-	}
+    interface Bytes {
+        length: number;
+        [index: number]: number;
+    }
 
-	interface Buffer extends Bytes {
-		byteLength: number;
-	}
+    interface Buffer extends Bytes {
+        byteLength: number;
+    }
 
-	class Uint64 {
-		lo: number
+    class Uint64 {
+        lo: number
 		hi: number
 		constructor(lo: number, hi: number)
 		valueOf(): number
 		static fromNumber(number: number): Uint64
 	}
 
-	class Int64 extends Uint64 {
+    class Int64 extends Uint64 {
 		static fromNumber(number: number): Int64
 	}
 }

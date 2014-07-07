@@ -1,4 +1,4 @@
-﻿// Type definitions for jQuery tinycarousel 1.9
+// Type definitions for jQuery tinycarousel 1.9
 // Project: http://baijs.nl/tinycarousel/
 // Definitions by: Christiaan Rakowski <https://github.com/csrakowski/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -38,7 +38,7 @@ declare module JQueryTinyCarousel {
         /**
         * Interval time in milliseconds. (default: 3000)
         */
-        intervaltime?: number; 
+        intervaltime?: number;
         /**
         * Show animation when changing block? (default: true)
         */
@@ -50,7 +50,7 @@ declare module JQueryTinyCarousel {
         /**
         * Function that executes after every move (default: null)
         */
-        callback? : (element: HTMLElement, index: number) => void;
+        callback?: (element: HTMLElement, index: number) => void;
     }
 }
 interface JQuery {

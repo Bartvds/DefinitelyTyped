@@ -30,7 +30,7 @@ declare module Knockback {
     }
 
     class ViewModel extends Destroyable {
-        constructor (model?: Backbone.Model, options?: ViewModelOptions, viewModel?: ViewModel);
+        constructor(model?: Backbone.Model, options?: ViewModelOptions, viewModel?: ViewModel);
         shareOptions(): ViewModelOptions;
         extend(source: any);
         model(): Backbone.Model;
@@ -38,7 +38,7 @@ declare module Knockback {
 
     class EventWatcher extends Destroyable {
         static useOptionsOrCreate(options, emitter: KnockoutObservable<any>, obj: Backbone.Model, callback_options: any);
-        
+
         emitter(): Backbone.Model;
         emitter(newEmitter: Backbone.Model);
         registerCallbacks(obj: any, callback_info: any);
@@ -48,7 +48,7 @@ declare module Knockback {
     class Factory {
         static useOptionsOrCreate(options: FactoryOptions, obj: any, owner_path: string);
 
-        constructor (parent_factory: any);
+        constructor(parent_factory: any);
         hasPath(path: string): boolean;
         addPathMapping(path: string, create_info);
         addPathMappings(factories: any, owner_path: string);
@@ -58,38 +58,38 @@ declare module Knockback {
 
     class Store extends Destroyable {
         static useOptionsOrCreate(options: StoreOptions, obj: any, observable: KnockoutObservable<any>);
-        
-        constructor (model:Backbone.Model, options: StoreOptions);
+
+        constructor(model: Backbone.Model, options: StoreOptions);
         clear();
         register(obj: Backbone.Model, observable: KnockoutObservable<any>, options: StoreOptions);
         findOrCreate(obj: Backbone.Model, options: StoreOptions);
     }
 
     class DefaultObservable extends Destroyable {
-        constructor (targetObservable: KnockoutObservable<any>, defaultValue: any);
+        constructor(targetObservable: KnockoutObservable<any>, defaultValue: any);
         setToDefault();
     }
 
     class FormattedObservable extends Destroyable {
-        constructor (format: string, args: any[]);
-        constructor (format: KnockoutObservable<any>, args: any[]);
+        constructor(format: string, args: any[]);
+        constructor(format: KnockoutObservable<any>, args: any[]);
     }
 
     interface LocalizedObservable {
-        constructor (value: any, options: any, vm: any);
+        constructor(value: any, options: any, vm: any);
         destroy();
         resetToCurrent();
         observedValue(value: any);
     }
 
     class TriggeredObservable extends Destroyable {
-        constructor (emitter: Backbone.ModelBase, event: string);
+        constructor(emitter: Backbone.ModelBase, event: string);
         emitter(): Backbone.ModelBase;
         emitter(newEmitter: Backbone.ModelBase);
     }
 
     class Statistics {
-        constructor ();
+        constructor();
         clear();
         addModelEvent(event: string);
         modelEventsStatsString();
@@ -129,8 +129,8 @@ declare module Knockback {
         collection(colleciton: Backbone.Collection<Backbone.Model>);
         collection(): Backbone.Collection<Backbone.Model>;
         destroy();
-        shareOptions():  CollectionOptions;
-        filters(id: any) : Backbone.Model;
+        shareOptions(): CollectionOptions;
+        filters(id: any): Backbone.Model;
         filters(ids: any[]): CollectionObservable;
         filters(iterator: (element: Backbone.Model) => boolean): CollectionObservable;
         comparator(comparatorFunction: any);
@@ -164,27 +164,27 @@ declare module Knockback {
 
     interface Static extends Utils {
         collectionObservable(model?: Backbone.Collection<Backbone.Model>, options?: CollectionOptions): CollectionObservable;
-    	/** Base class for observing model attributes. */
-    	observable(
-			/** the model to observe (can be null) */
-			model: Backbone.Model,
-			/** the create options. String is a single attribute name, Array is an array of attribute names. */
-				options: IObservableOptions,
-			/** the viewModel */
-			vm?: ViewModel): KnockoutObservable<any>;
+        /** Base class for observing model attributes. */
         observable(
-			/** the model to observe (can be null) */
-        	model: Backbone.Model,
-    		/** the create options. String is a single attribute name, Array is an array of attribute names. */
-        	options_attributeName: string,
-			/** the viewModel */
-			vm?: ViewModel): KnockoutObservable<any>;
+            /** the model to observe (can be null) */
+            model: Backbone.Model,
+            /** the create options. String is a single attribute name, Array is an array of attribute names. */
+            options: IObservableOptions,
+            /** the viewModel */
+            vm?: ViewModel): KnockoutObservable<any>;
+        observable(
+            /** the model to observe (can be null) */
+            model: Backbone.Model,
+            /** the create options. String is a single attribute name, Array is an array of attribute names. */
+            options_attributeName: string,
+            /** the viewModel */
+            vm?: ViewModel): KnockoutObservable<any>;
         viewModel(model?: Backbone.Model, options?: any): KnockoutObservable<any>;
         defaultObservable(targetObservable: KnockoutObservable<any>, defaultValue: any): KnockoutObservable<any>;
         formattedObservable(format: string, args: any[]): KnockoutObservable<any>;
         formattedObservable(format: KnockoutObservable<any>, args: any[]): KnockoutObservable<any>;
         localizedObservable(data: any, options: any): KnockoutObservable<any>;
-        release(object: any, pre_release?: () => void );
+        release(object: any, pre_release?: () => void);
         releaseKeys(object: any);
         releaseOnNodeRemove(viewmodel: ViewModel, node: Element);
         renderTemplate(template: string, viewModel: ViewModel, options: any);
@@ -192,30 +192,30 @@ declare module Knockback {
         applyBindings(viewModel: ViewModel, node?: Element);
     }
 
-	/** parameter of ko.observable constructor
-	Options Hash: (option):
-	key (String) — the name of the attribute.
-	read (Function) — a function used to provide transform the attribute value before passing it to the caller. Signature: read()
-	write (Function) — a function used to provide transform the value before passing it to the model set function. Signature: write(value)
-	args (Array) — arguments to pass to the read and write functions (they can be ko.observables). Can be useful for passing arguments to a locale manager.
-	localizer (Constructor) — a concrete kb.LocalizedObservable constructor for localization.
-	default (Data|ko.observable) — the default value. Can be a value, string or ko.observable.
-	path (String) — the path to the value (used to create related observables from the factory).
-	store (kb.Store) — a store used to cache and share view models.
-	factory (kb.Factory) — a factory used to create view models.
-	options (Object) — a set of options merge into these options using _.defaults. Useful for extending options when deriving classes rather than merging them by hand.
-	*/
+    /** parameter of ko.observable constructor
+    Options Hash: (option):
+    key (String) — the name of the attribute.
+    read (Function) — a function used to provide transform the attribute value before passing it to the caller. Signature: read()
+    write (Function) — a function used to provide transform the value before passing it to the model set function. Signature: write(value)
+    args (Array) — arguments to pass to the read and write functions (they can be ko.observables). Can be useful for passing arguments to a locale manager.
+    localizer (Constructor) — a concrete kb.LocalizedObservable constructor for localization.
+    default (Data|ko.observable) — the default value. Can be a value, string or ko.observable.
+    path (String) — the path to the value (used to create related observables from the factory).
+    store (kb.Store) — a store used to cache and share view models.
+    factory (kb.Factory) — a factory used to create view models.
+    options (Object) — a set of options merge into these options using _.defaults. Useful for extending options when deriving classes rather than merging them by hand.
+    */
     interface IObservableOptions {
-    	key: string;
-    	read?: () => any;
-    	write?: (value: any) => void;
-    	args?: KnockoutObservable<any>[];
-    	localizer?: LocalizedObservable;
-    	default?: any;
-    	path?: string;
-    	store?: any;
-    	factory?: any;
-    	options?: any;
+        key: string;
+        read?: () => any;
+        write?: (value: any) => void;
+        args?: KnockoutObservable<any>[];
+        localizer?: LocalizedObservable;
+        default?: any;
+        path?: string;
+        store?: any;
+        factory?: any;
+        options?: any;
     }
 
 }

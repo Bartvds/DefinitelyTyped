@@ -29,12 +29,12 @@ declare module Backbone {
         any(iterator: (element: View<TModel>, index: number) => boolean, context?: any): boolean;
         contains(value: any): boolean;
         detect(iterator: (item: any) => boolean, context?: any): any;
-        each(iterator: (element: View<TModel>, index: number, list?: any) => void , context?: any);
+        each(iterator: (element: View<TModel>, index: number, list?: any) => void, context?: any);
         every(iterator: (element: View<TModel>, index: number) => boolean, context?: any): boolean;
         filter(iterator: (element: View<TModel>, index: number) => boolean, context?: any): View<TModel>[];
         find(iterator: (element: View<TModel>, index: number) => boolean, context?: any): View<TModel>;
         first(): View<TModel>;
-        forEach(iterator: (element: View<TModel>, index: number, list?: any) => void , context?: any);
+        forEach(iterator: (element: View<TModel>, index: number, list?: any) => void, context?: any);
         include(value: any): boolean;
         initial(): View<TModel>;
         initial(n: number): View<TModel>[];
@@ -110,8 +110,8 @@ declare module Marionette {
     function unbindEntityEvents(target, entity, bindings);
 
     class Callbacks {
-        add(callback:Function, contextOverride:any): void;
-        run(options:any, context:any): void;
+        add(callback: Function, contextOverride: any): void;
+        run(options: any, context: any): void;
         reset(): void;
     }
 
@@ -148,12 +148,12 @@ declare module Marionette {
         any(iterator: (element: Region<TModel>, index: number) => boolean, context?: any): boolean;
         contains(value: any): boolean;
         detect(iterator: (item: any) => boolean, context?: any): any;
-        each(iterator: (element: Region<TModel>, index: number, list?: any) => void , context?: any);
+        each(iterator: (element: Region<TModel>, index: number, list?: any) => void, context?: any);
         every(iterator: (element: Region<TModel>, index: number) => boolean, context?: any): boolean;
         filter(iterator: (element: Region<TModel>, index: number) => boolean, context?: any): Region<TModel>[];
         find(iterator: (element: Region<TModel>, index: number) => boolean, context?: any): Region<TModel>;
         first(): Region<TModel>;
-        forEach(iterator: (element: Region<TModel>, index: number, list?: any) => void , context?: any);
+        forEach(iterator: (element: Region<TModel>, index: number, list?: any) => void, context?: any);
         include(value: any): boolean;
         initial(): Region<TModel>;
         initial(n: number): Region<TModel>[];
@@ -174,7 +174,7 @@ declare module Marionette {
     }
 
     class TemplateCache {
-        static get (templateId): any;
+        static get(templateId): any;
         static clear(): void;
 
         loadTemplate(templateId): any;
@@ -268,7 +268,7 @@ declare module Marionette {
         render(): Layout<TModel>;
         removeRegion(name: string);
     }
-    
+
     interface AppRouterOptions extends Backbone.RouterOptions {
         appRoutes: any;
         controller: any;
@@ -278,8 +278,8 @@ declare module Marionette {
 
         constructor(options?: AppRouterOptions);
         processAppRoutes(controller: any, appRoutes: any);
-        appRoute(route:string, methodName:string):void;
-        
+        appRoute(route: string, methodName: string): void;
+
     }
 
     class Application<TModel extends Backbone.Model> extends Backbone.Events {

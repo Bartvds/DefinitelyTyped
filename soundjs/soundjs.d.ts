@@ -17,14 +17,14 @@
 declare module createjs {
     export class FlashPlugin {
         constructor();
-        
+
         // properties
         static buildDate: string;
         flashReady: boolean;
         showOutput: boolean;
         static swfPath: string;
         static version: string;
-        
+
         // methods
         create(src: string): SoundInstance;
         getVolume(): number;
@@ -32,20 +32,20 @@ declare module createjs {
         static isSupported(): boolean;
         preload(src: string, instance: Object): void;
         register(src: string, instances: number): Object;
-        removeAllSounds (): void;
+        removeAllSounds(): void;
         removeSound(src: string): void;
         setMute(value: boolean): boolean;
         setVolume(value: number): boolean;
     }
-    
+
     export class HTMLAudioPlugin {
         constructor();
-        
+
         // properties
         defaultNumChannels: number;
         enableIOS: boolean;
         static MAX_INSTANCES: number;
-        
+
         // methods
         create(src: string): SoundInstance;
         isPreloadStarted(src: string): boolean;
@@ -55,7 +55,7 @@ declare module createjs {
         removeAllSounds(): void;
         removeSound(src: string): void;
     }
-    
+
     export class Sound {
         // properties
         static activePlugin: Object;
@@ -72,8 +72,8 @@ declare module createjs {
         static PLAY_INTERRUPTED: string;
         static PLAY_SUCCEEDED: string;
         static SUPPORTED_EXTENSIONS: string[];
-        
-        
+
+
         // methods
         static createInstance(src: string): SoundInstance;
         static getCapabilities(): Object;
@@ -97,7 +97,7 @@ declare module createjs {
         static setMute(value: boolean): boolean;
         static setVolume(value: number): void;
         static stop(): void;
-        
+
         // EventDispatcher mixins
         static addEventListener(type: string, listener: (eventObj: Object) => boolean, useCapture?: boolean): Function;
         static addEventListener(type: string, listener: (eventObj: Object) => void, useCapture?: boolean): Function;
@@ -125,10 +125,10 @@ declare module createjs {
         static toString(): string;
         static willTrigger(type: string): boolean;
     }
-    
+
     export class SoundInstance extends EventDispatcher {
         constructor(src: string, owner: Object);
-        
+
         // properties
         gainNode: any;
         pan: number;
@@ -154,22 +154,22 @@ declare module createjs {
         setPosition(value: number): void;
         setVolume(value: number): boolean;
         stop(): boolean;
-        
+
     }
-    
+
     export class SoundJS {
         static buildDate: string;
         static version: string;
     }
-    
+
     export class WebAudioPlugin {
         constructor();
-        
+
         // properties
         context: any;
         dynamicsCompressorNode: any;
         gainNode: any;
-        
+
         // methods
         addPreloadResults(src: string): boolean;
         create(src: string): SoundInstance;

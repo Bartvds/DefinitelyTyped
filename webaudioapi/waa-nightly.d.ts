@@ -233,7 +233,7 @@ interface OscillatorNode extends AudioSourceNode {
     playbackState: number;
 
     frequency: AudioParam;
-    detune: AudioParam; 
+    detune: AudioParam;
     start(when: number): void;
     stop(when: number): void;
     setWaveTable(waveTable: WaveTable): void;
@@ -248,6 +248,6 @@ interface MediaStreamAudioSourceNode extends AudioSourceNode {
 
 }
 
-interface MediaStream { 
+interface MediaStream {
 
 }

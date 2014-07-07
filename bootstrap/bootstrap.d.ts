@@ -48,7 +48,7 @@ interface PopoverOptions {
 }
 
 interface CollapseOptions {
-    parent?: any;    
+    parent?: any;
     toggle?: boolean;
 }
 

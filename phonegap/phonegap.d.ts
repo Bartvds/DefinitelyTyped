@@ -15,7 +15,7 @@ interface Acceleration {
     timestamp: number; //DOMTimeStamp;
 }
 declare var Acceleration: {
-    new(): Acceleration;
+    new (): Acceleration;
 }
 
 interface AccelerometerOptions {
@@ -23,8 +23,8 @@ interface AccelerometerOptions {
 }
 
 interface Accelerometer {
-    getCurrentAcceleration(accelerometerSuccess: (acceleration: Acceleration) => void , accelerometerError: () => void ): void;
-    watchAcceleration(accelerometerSuccess: (acceleration: Acceleration) => void , accelerometerError: () => void , accelerometerOptions?: AccelerometerOptions): void;
+    getCurrentAcceleration(accelerometerSuccess: (acceleration: Acceleration) => void, accelerometerError: () => void): void;
+    watchAcceleration(accelerometerSuccess: (acceleration: Acceleration) => void, accelerometerError: () => void, accelerometerOptions?: AccelerometerOptions): void;
     clearWatch(watchID: number): void;
 }
 
@@ -36,7 +36,7 @@ interface CameraPopoverOptions {
     arrowDir?: number;
 }
 declare var CameraPopoverOptions: {
-    new(x: number, y: number, width: number, height: number, arrowDir: number): CameraPopoverOptions;
+    new (x: number, y: number, width: number, height: number, arrowDir: number): CameraPopoverOptions;
 }
 
 interface CameraOptions {
@@ -90,8 +90,8 @@ interface Camera {
     EncodingType: CameraEncodingTypeObject;
     MediaType: CameraMediaTypeObject;
     PopoverArrowDirection: CameraPopoverArrowDirectionObject;
-    getPicture(cameraSuccess: (imageData: string) => void , cameraError: (message: string) => void , cameraOptions?: CameraOptions): void;
-    cleanup(cameraSuccess: (imageData: string) => void , cameraError: (message: string) => void ): void;
+    getPicture(cameraSuccess: (imageData: string) => void, cameraError: (message: string) => void, cameraOptions?: CameraOptions): void;
+    cleanup(cameraSuccess: (imageData: string) => void, cameraError: (message: string) => void): void;
 }
 
 interface CaptureAudioOptions {
@@ -121,9 +121,9 @@ interface CaptureError {
 }
 
 interface Capture {
-    captureAudio(captureSuccess: (mediaFiles: MediaFile[]) => void , captureError: (error: CaptureError) =>void , options?: CaptureAudioOptions): void;
-    captureImage(captureSuccess: (mediaFiles: MediaFile[]) => void , captureError: (error: CaptureError) =>void , options?: CaptureImageOptions): void;
-    captureVideo(captureSuccess: (mediaFiles: MediaFile[]) => void , captureError: (error: CaptureError) =>void , options?: CaptureImageOptions): void;
+    captureAudio(captureSuccess: (mediaFiles: MediaFile[]) => void, captureError: (error: CaptureError) => void, options?: CaptureAudioOptions): void;
+    captureImage(captureSuccess: (mediaFiles: MediaFile[]) => void, captureError: (error: CaptureError) => void, options?: CaptureImageOptions): void;
+    captureVideo(captureSuccess: (mediaFiles: MediaFile[]) => void, captureError: (error: CaptureError) => void, options?: CaptureImageOptions): void;
 }
 
 interface Connection {
@@ -159,8 +159,8 @@ declare var CompassError: {
 }
 
 interface Compass {
-    getCurrentHeading(compassSuccess: (heading: CompassHeading) => void , compassError: (error: CompassError) => void , compassOptions?: CompassOptions): void;
-    watchHeading(compassSuccess: (heading: CompassHeading) => void , compassError: (error: CompassError) => void , compassOptions?: CompassOptions): void;
+    getCurrentHeading(compassSuccess: (heading: CompassHeading) => void, compassError: (error: CompassError) => void, compassOptions?: CompassOptions): void;
+    watchHeading(compassSuccess: (heading: CompassHeading) => void, compassError: (error: CompassError) => void, compassOptions?: CompassOptions): void;
     clearWatch(watchID: number): void;
 }
 
@@ -185,7 +185,7 @@ interface ContactField {
     pref: boolean;
 }
 declare var ContactField: {
-    new(type: string, calue: string, perf: boolean): ContactField;
+    new (type: string, calue: string, perf: boolean): ContactField;
 }
 
 interface Contact {
@@ -213,8 +213,8 @@ interface ContactFindOptions {
     filter?: string;
     multiple?: boolean;
 }
-declare var ContactFindOptions : {
-    new(): ContactFindOptions;
+declare var ContactFindOptions: {
+    new (): ContactFindOptions;
 }
 
 interface ContactName {
@@ -226,7 +226,7 @@ interface ContactName {
     honorificSuffix: string;
 }
 declare var ContactName: {
-    new(): ContactName;
+    new (): ContactName;
 }
 
 interface ContactOrganization {
@@ -253,7 +253,7 @@ declare var ContactError: {
 
 interface Contacts {
     create(properties?: any): Contact;
-    find(contactFields: string[], contactSuccess: (contacts: Contact[]) => void , contactError: (error: ContactError) => void , contactFindOptions?: ContactFindOptions): void;
+    find(contactFields: string[], contactSuccess: (contacts: Contact[]) => void, contactError: (error: ContactError) => void, contactFindOptions?: ContactFindOptions): void;
 }
 
 interface Device {
@@ -300,7 +300,7 @@ interface FileSystem {
     root: DirectoryEntry;
 }
 declare var DirectoryEntry: {
-    new(name: string, root: DirectoryEntry): DirectoryEntry;
+    new (name: string, root: DirectoryEntry): DirectoryEntry;
 }
 
 interface FileSystemEntry {
@@ -339,12 +339,12 @@ interface FileTransfer {
     onprogress: Function;
 
     //upload(filePath: string, server: string, successCallback: (metadata: Metadata) => void , errorCallback: (error: FileError) => void , options?: any): void;
-    upload(filePath: string, server: string, successCallback: (result: FileUploadResult) => void , errorCallback: (error: FileError) => void , options?: any): void;
-    download(source: string, target: string, successCallback: (fileEntry: FileEntry) => void , errorCallback: (error: FileError) => void, options?: any): void;
+    upload(filePath: string, server: string, successCallback: (result: FileUploadResult) => void, errorCallback: (error: FileError) => void, options?: any): void;
+    download(source: string, target: string, successCallback: (fileEntry: FileEntry) => void, errorCallback: (error: FileError) => void, options?: any): void;
     abort(): void;
 }
 declare var FileTransfer: {
-    new(): FileTransfer;
+    new (): FileTransfer;
 }
 
 interface FileUploadOptions {
@@ -356,7 +356,7 @@ interface FileUploadOptions {
     headers?: any;
 }
 declare var FileUploadOptions: {
-    new(): FileUploadOptions;
+    new (): FileUploadOptions;
 }
 
 interface FileUploadResult {
@@ -487,16 +487,16 @@ interface GlobalizationCurrencyPattern {
 }
 
 interface Globalization {
-    getPreferredLanguage(successCallback: (properties: {value: string}) => void, errorCallback: (error: GlobalizationError) => void): void;
-    getLocaleName(successCallback: (properties: {value: string}) => void, errorCallback: (error: GlobalizationError) => void): void;
-    dateToString(date: Date, successCallback: (properties: {value: string}) => void, errorCallback: (error: GlobalizationError) => void, options?: GlobalizationDateOptions): void;
+    getPreferredLanguage(successCallback: (properties: { value: string }) => void, errorCallback: (error: GlobalizationError) => void): void;
+    getLocaleName(successCallback: (properties: { value: string }) => void, errorCallback: (error: GlobalizationError) => void): void;
+    dateToString(date: Date, successCallback: (properties: { value: string }) => void, errorCallback: (error: GlobalizationError) => void, options?: GlobalizationDateOptions): void;
     stringToDate(dateString: string, successCallback: (properties: GlobalizationDate) => void, errorCallback: (error: GlobalizationError) => void, options?: GlobalizationDateOptions): void;
     getDatePattern(successCallback: (properties: GlobalizationDatePattern) => void, errorCallback: (error: GlobalizationError) => void, options?: GlobalizationDateOptions): void;
-    getDateNames(successCallback: (properties: {value: string[]}) => void, errorCallback: (error: GlobalizationError) => void, options?: GlobalizationDateNameOptions): void;
-    isDayLightSavingsTime(date: Date, successCallback: (properties: {dst: boolean}) => void, errorCallback: (error: GlobalizationError) => void): void;
-    getFirstDayOfWeek(successCallback: (properties: {value: number}) => void, errorCallback: (error: GlobalizationError) => void): void;
-    numberToString(number: number, successCallback: (properties: {value: string}) => void, errorCallback: (error: GlobalizationError) => void, options?: GlobalizationNumberOptions): void;
-    stringToNumber(string: string, successCallback: (properties: {value: number}) => void, errorCallback: (error: GlobalizationError) => void, options?: GlobalizationNumberOptions): void;
+    getDateNames(successCallback: (properties: { value: string[] }) => void, errorCallback: (error: GlobalizationError) => void, options?: GlobalizationDateNameOptions): void;
+    isDayLightSavingsTime(date: Date, successCallback: (properties: { dst: boolean }) => void, errorCallback: (error: GlobalizationError) => void): void;
+    getFirstDayOfWeek(successCallback: (properties: { value: number }) => void, errorCallback: (error: GlobalizationError) => void): void;
+    numberToString(number: number, successCallback: (properties: { value: string }) => void, errorCallback: (error: GlobalizationError) => void, options?: GlobalizationNumberOptions): void;
+    stringToNumber(string: string, successCallback: (properties: { value: number }) => void, errorCallback: (error: GlobalizationError) => void, options?: GlobalizationNumberOptions): void;
     getNumberPattern(successCallback: (parameters: GlobalizationNumberPattern) => void, errorCallback: (error: GlobalizationError) => void, options?: GlobalizationNumberOptions): void;
     getCurrencyPattern(currencyCode: string, successCallback: (parameters: GlobalizationCurrencyPattern) => void, errorCallback: (error: GlobalizationError) => void): void;
 }
@@ -523,13 +523,13 @@ interface Media {
     stop(): void;
 }
 declare var Media: {
-    new(src: string, onSuccess: (arg: any) => any, onError: (error: any) => any): Media;
+    new (src: string, onSuccess: (arg: any) => any, onError: (error: any) => any): Media;
 }
 
 interface Notification {
     alert(message: string, alertCallback: Function, title?: string, buttonName?: string): void;
     confirm(message: string, confirmCallback: Function, title?: string, buttonLabels?: string): void;
-	confirm(message: string, confirmCallback: Function, title?: string, buttonLabels?: string[]): void;
+    confirm(message: string, confirmCallback: Function, title?: string, buttonLabels?: string[]): void;
     beep(times: number): void;
     vibrate(milliseconds: number): void;
 }

@@ -124,7 +124,7 @@ declare module Backbone {
         has(attribute: string): boolean;
         hasChanged(attribute?: string): boolean;
         isNew(): boolean;
-        isValid(options?:any): boolean;
+        isValid(options?: any): boolean;
         previous(attribute: string): any;
         previousAttributes(): any[];
         save(attributes?: any, options?: ModelSaveOptions): any;
@@ -154,7 +154,7 @@ declare module Backbone {
 
         // TODO: this really has to be typeof TModel
         //model: typeof TModel;
-        model: { new(): TModel; }; // workaround
+        model: { new (): TModel; }; // workaround
         models: TModel[];
         collection: TModel;
         length: number;

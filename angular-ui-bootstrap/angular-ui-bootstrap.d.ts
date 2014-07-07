@@ -325,7 +325,7 @@ declare module ng.ui.bootstrap {
          *
          * @default null
          */
-        onSelectPage?(page: number): void;
+        onSelectPage? (page: number): void;
 
         /**
          * Whether to display Previous / Next buttons.
@@ -407,7 +407,7 @@ declare module ng.ui.bootstrap {
          *
          * @default null
          */
-        onSelectPage?(page: number): void;
+        onSelectPage? (page: number): void;
 
         /**
          * Text for Previous button.

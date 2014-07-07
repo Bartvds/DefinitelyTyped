@@ -16,28 +16,28 @@ interface webkitAudioContext {
     createBuffer(numberOfChannels: number, length: number, sampleRate: number): AudioBuffer;
     createBuffer(buffer: ArrayBuffer, mixToMono: boolean): AudioBuffer;
 
-    decodeAudioData(audioData: ArrayBuffer,  successCallback: any, errorCallback?: any): void;
-    
+    decodeAudioData(audioData: ArrayBuffer, successCallback: any, errorCallback?: any): void;
+
     createBufferSource(): AudioBufferSourceNode;
 
     createMediaElementSource(mediaElement: HTMLMediaElement): MediaElementAudioSourceNode;
-    
+
     createMediaStreamSource(mediaStream: any): MediaStreamAudioSourceNode;
 
     createAnalyser(): RealtimeAnalyserNode;
     createGainNode(): AudioGainNode;
     createDelayNode(maxDelayTime?: number): DelayNode;
     createBiquadFilter(): BiquadFilterNode;
-    createPanner():AudioPannerNode;
+    createPanner(): AudioPannerNode;
     createConvolver(): ConvolverNode;
 
-    createChannelSplitter(numberOfOutputs?: number):AudioChannelSplitter;
+    createChannelSplitter(numberOfOutputs?: number): AudioChannelSplitter;
     createChannelMerger(numberOfInputs?: number): AudioChannelMerger;
-    
+
     createDynamicsCompressor(): DynamicsCompressorNode;
 
     createOscillator(): Oscillator;
-    createWaveTable(real: any,imag: any): WaveTable;
+    createWaveTable(real: any, imag: any): WaveTable;
 }
 
 declare var webkitAudioContext: {
@@ -58,7 +58,7 @@ interface Oscillator extends AudioSourceNode {
 
 }
 
-interface AudioDestinationNode extends AudioNode { 
+interface AudioDestinationNode extends AudioNode {
 
     maxNumberOfChannels: number;
     numberOfChannels: number;
@@ -82,7 +82,7 @@ interface AudioSourceNode extends AudioNode {
 
 
 
-interface AudioParam { 
+interface AudioParam {
 
     value: number;
     minValue: number;
@@ -91,7 +91,7 @@ interface AudioParam {
     setValueAtTime(value: number, time: number): void;
     linearRampToValueAtTime(value: number, time: number): void;
     exponentialRampToValueAtTime(value: number, time: number): void;
-    setTargetValueAtTime(targetValue: number,time: number, timeConstant: number): void;
+    setTargetValueAtTime(targetValue: number, time: number, timeConstant: number): void;
     setValueCurveAtTime(values: number[], time: number, duration: number): void;
     cancelScheduledValues(startTime: number): void;
 
@@ -125,9 +125,9 @@ interface AudioBuffer {
 
 interface AudioBufferSourceNode extends AudioSourceNode {
 
-    playbackState: number; 
+    playbackState: number;
     buffer: AudioBuffer;
-    playbackRate: AudioParam; 
+    playbackRate: AudioParam;
     loop: boolean;
     noteOn(when: number): void;
     noteGrainOn(when: number, grainOffset: number, grainDuration: number): void;
@@ -141,7 +141,7 @@ interface MediaElementAudioSourceNode extends AudioSourceNode {
 
 interface JavaScriptAudioNode extends AudioNode {
 
-    onaudioprocess: EventListener;        
+    onaudioprocess: EventListener;
     bufferSize: number;
 
 }
@@ -151,7 +151,7 @@ interface AudioProcessingEvent extends Event {
     node: JavaScriptAudioNode;
     playbackTime: number;
     inputBuffer: AudioBuffer;
-    outputBuffer: AudioBuffer; 
+    outputBuffer: AudioBuffer;
 
 }
 
@@ -160,7 +160,7 @@ interface AudioPannerNode extends AudioNode {
     panningModel: number;
     setPosition(x: number, y: number, z: number): void;
     setOrientation(x: number, y: number, z: number): void;
-    setVelocity(x: number, y: number, z: number): void;       
+    setVelocity(x: number, y: number, z: number): void;
     distanceModel: number;
     refDistance: number;
     maxDistance: number;
@@ -175,7 +175,7 @@ interface AudioPannerNode extends AudioNode {
 
 interface AudioListener {
 
-    dopplerFactor: number;     
+    dopplerFactor: number;
     speedOfSound: number;
     setPosition(x: number, y: number, z: number): void;
     setOrientation(x: number, y: number, z: number, xUp: number, yUp: number, zUp: number): void;
@@ -184,7 +184,7 @@ interface AudioListener {
 }
 
 interface RealtimeAnalyserNode extends AudioNode {
-    
+
     getFloatFrequencyData(array: any): void;
     getByteFrequencyData(array: any): void;
     getByteTimeDomainData(array: any): void;
@@ -218,7 +218,7 @@ interface DynamicsCompressorNode extends AudioNode {
 interface BiquadFilterNode extends AudioNode {
 
     type: number;
-    frequency: AudioParam; 
+    frequency: AudioParam;
     Q: AudioParam;
     gain: AudioParam;
 

@@ -94,8 +94,8 @@ declare module webdriver {
              * @param {string=} opt_type The log type, if known.
              * @constructor
              */
-            constructor(level: webdriver.logging.Level, message: string, opt_timestamp?:number, opt_type?:string);
-            constructor(level: string, message: string, opt_timestamp?:number, opt_type?:string);
+            constructor(level: webdriver.logging.Level, message: string, opt_timestamp?: number, opt_type?: string);
+            constructor(level: string, message: string, opt_timestamp?: number, opt_type?: string);
 
             //endregion
 
@@ -124,7 +124,7 @@ declare module webdriver {
              * @param {string=} opt_type The log type.
              * @return {!webdriver.logging.Entry} The converted entry.
              */
-            static fromClosureLogRecord(logRecord: any, opt_type?:string): webdriver.logging.Entry;
+            static fromClosureLogRecord(logRecord: any, opt_type?: string): webdriver.logging.Entry;
 
             //endregion
 
@@ -363,7 +363,7 @@ declare module webdriver {
              * @return {!webdriver.promise.Promise} A new promise which will be resolved
              *     with the result of the invoked callback.
              */
-            addBoth(callback : (value: any) => any, opt_self?: any): Promise;
+            addBoth(callback: (value: any) => any, opt_self?: any): Promise;
 
             /**
              * An alias for {@code webdriver.promise.Promise.prototype.then} that permits
@@ -537,10 +537,10 @@ declare module webdriver {
              */
             static EventType: {
                 /** Emitted when all tasks have been successfully executed. */
-                    IDLE: string;
+                IDLE: string;
 
                 /** Emitted whenever a new task has been scheduled. */
-                    SCHEDULE_TASK: string;
+                SCHEDULE_TASK: string;
 
                 /**
                  * Emitted whenever a control flow aborts due to an unhandled promise
@@ -548,7 +548,7 @@ declare module webdriver {
                  * reason. Upon emitting this event, the control flow will empty its task
                  * queue and revert to its initial state.
                  */
-                    UNCAUGHT_EXCEPTION: string;
+                UNCAUGHT_EXCEPTION: string;
             };
 
             /**
@@ -710,7 +710,7 @@ declare module webdriver {
              * @param {string=} opt_message Optional error message.
              * @constructor
              */
-                constructor(code: number, opt_message?: string);
+            constructor(code: number, opt_message?: string);
 
             //endregion
 
@@ -784,7 +784,7 @@ declare module webdriver {
             //region Methods
 
             /** @return {string} The string representation of this error. */
-                toString(): string;
+            toString(): string;
 
             //endregion
         }
@@ -1412,7 +1412,7 @@ declare module webdriver {
         static SECURE_SSL: string;
 
         /** Whether the driver supports manipulating the app cache. */
-       static SUPPORTS_APPLICATION_CACHE: string;
+        static SUPPORTS_APPLICATION_CACHE: string;
 
         /**
          * Whether the driver supports controlling the browser's internet
@@ -1747,7 +1747,7 @@ declare module webdriver {
          * @param {function(Error, !bot.response.ResponseObject=)} callback the function
          *     to invoke when the command response is ready.
          */
-        execute(command: webdriver.Command, callback: (error: Error, responseObject: any) => any ): void;
+        execute(command: webdriver.Command, callback: (error: Error, responseObject: any) => any): void;
     }
 
     /**
@@ -1781,7 +1781,7 @@ declare module webdriver {
          *                   scope: (Object|undefined)}>} The registered listeners for
          *     the given event type.
          */
-        listeners(type: string): Array<{fn: any; oneshot: boolean; scope: any;}>;
+        listeners(type: string): Array<{ fn: any; oneshot: boolean; scope: any; }>;
 
         /**
          * Registers a listener.
@@ -1790,7 +1790,7 @@ declare module webdriver {
          * @param {Object=} opt_scope The object in whose scope to invoke the listener.
          * @return {!webdriver.EventEmitter} A self reference.
          */
-        addListener(type: string, listenerFn: any, opt_scope?:any): EventEmitter;
+        addListener(type: string, listenerFn: any, opt_scope?: any): EventEmitter;
 
         /**
          * Registers a one-time listener which will be called only the first time an
@@ -1809,7 +1809,7 @@ declare module webdriver {
          * @param {Object=} opt_scope The object in whose scope to invoke the listener.
          * @return {!webdriver.EventEmitter} A self reference.
          */
-        on(type: string, listenerFn: any, opt_scope?:any): EventEmitter;
+        on(type: string, listenerFn: any, opt_scope?: any): EventEmitter;
 
         /**
          * Removes a previously registered event listener.
@@ -1856,7 +1856,7 @@ declare module webdriver {
         //region Methods
 
         /** @override */
-        execute(command: webdriver.Command, callback: (error: Error, responseObject: any) => any ): void;
+        execute(command: webdriver.Command, callback: (error: Error, responseObject: any) => any): void;
 
         //endregion
     }
@@ -2277,8 +2277,8 @@ declare module webdriver {
          *     schedule commands through. Defaults to the active flow object.
          * @constructor
          */
-         constructor(session: webdriver.Session, executor: webdriver.CommandExecutor, opt_flow?: webdriver.promise.ControlFlow);
-         constructor(session: webdriver.promise.Promise, executor: webdriver.CommandExecutor, opt_flow?: webdriver.promise.ControlFlow);
+        constructor(session: webdriver.Session, executor: webdriver.CommandExecutor, opt_flow?: webdriver.promise.ControlFlow);
+        constructor(session: webdriver.promise.Promise, executor: webdriver.CommandExecutor, opt_flow?: webdriver.promise.ControlFlow);
 
         //endregion
 
@@ -2302,7 +2302,7 @@ declare module webdriver {
          * @param {string} sessionId ID of the session to attach to.
          * @return {!webdriver.WebDriver} A new client for the specified session.
          */
-         static attachToSession(executor: webdriver.CommandExecutor, sessionId: string): WebDriver;
+        static attachToSession(executor: webdriver.CommandExecutor, sessionId: string): WebDriver;
 
         /**
          * Creates a new WebDriver session.

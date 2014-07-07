@@ -4,44 +4,44 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 interface TV4ErrorCodes {
-	[key:string]:number;
+    [key: string]: number;
 }
 interface TV4Error {
-	code:number;
-	message:string;
-	dataPath:string;
-	schemaPath:string;
+    code: number;
+    message: string;
+    dataPath: string;
+    schemaPath: string;
 }
 interface TV4SchemaMap {
-	[uri:string]:any;
+    [uri: string]: any;
 }
 interface TV4BaseResult {
-	missing:string[];
-	valid:boolean;
+    missing: string[];
+    valid: boolean;
 }
 interface TV4SingleResult extends TV4BaseResult {
-	error:TV4Error;
+    error: TV4Error;
 }
 interface TV4MultiResult extends TV4BaseResult {
-	errors:TV4Error[];
+    errors: TV4Error[];
 }
 interface TV4 {
-	validateResult(data:any, schema:any):TV4SingleResult;
-	validateMultiple(data:any, schema:any):TV4MultiResult;
+    validateResult(data: any, schema: any): TV4SingleResult;
+    validateMultiple(data: any, schema: any): TV4MultiResult;
 
-	addSchema(uri:string, schema:any):boolean;
-	getSchema(uri:string):any;
-	normSchema(schema:any, baseUri:string):any;
-	resolveUrl(base:string, href:string):string;
-	freshApi():TV4;
-	dropSchemas():void;
-	reset():void;
+    addSchema(uri: string, schema: any): boolean;
+    getSchema(uri: string): any;
+    normSchema(schema: any, baseUri: string): any;
+    resolveUrl(base: string, href: string): string;
+    freshApi(): TV4;
+    dropSchemas(): void;
+    reset(): void;
 
-	getMissingUris(exp?:RegExp):string[];
-	getSchemaUris(exp?:RegExp):string[];
-	getSchemaMap():TV4SchemaMap;
-	errorCodes:TV4ErrorCodes;
+    getMissingUris(exp?: RegExp): string[];
+    getSchemaUris(exp?: RegExp): string[];
+    getSchemaMap(): TV4SchemaMap;
+    errorCodes: TV4ErrorCodes;
 }
 declare module "tv4" {
-export = TV4;
+    export = TV4;
 }

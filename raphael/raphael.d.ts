@@ -36,7 +36,7 @@ interface RaphaelElement {
     data(key: string): any;
     data(key: string, value: any): RaphaelElement;
     dblclick(handler: Function): RaphaelElement;
-    drag(onmove: (dx: number, dy: number, x: number, y: number, event: DragEvent) =>{ }, onstart: (x: number, y: number, event: DragEvent) =>{ }, onend: (DragEvent: any) =>{ }, mcontext?: any, scontext?: any, econtext?: any): RaphaelElement;
+    drag(onmove: (dx: number, dy: number, x: number, y: number, event: DragEvent) => {}, onstart: (x: number, y: number, event: DragEvent) => {}, onend: (DragEvent: any) => {}, mcontext?: any, scontext?: any, econtext?: any): RaphaelElement;
     getBBox(isWithoutTransform?: boolean): BoundingBox;
     glow(glow?: { width?: number; fill?: boolean; opacity?: number; offsetx?: number; offsety?: number; color?: string; }): RaphaelSet;
     hide(): RaphaelElement;
@@ -87,7 +87,7 @@ interface RaphaelElement {
     unmouseout(handler: Function): RaphaelElement;
     unmouseover(handler: Function): RaphaelElement;
     unmouseup(handler: Function): RaphaelElement;
-    untouchcancel(handler: Function ): RaphaelElement;
+    untouchcancel(handler: Function): RaphaelElement;
     untouchend(handler: Function): RaphaelElement;
     untouchmove(handler: Function): RaphaelElement;
     untouchstart(handler: Function): RaphaelElement;
@@ -123,7 +123,7 @@ interface RaphaelSet {
     data(key: string): any;
     data(key: string, value: any): RaphaelElement;
     dblclick(handler: Function): RaphaelElement;
-    drag(onmove: (dx: number, dy: number, x: number, y: number, event: DragEvent) =>{ }, onstart: (x: number, y: number, event: DragEvent) =>{ }, onend: (DragEvent: any) =>{ }, mcontext?: any, scontext?: any, econtext?: any): RaphaelElement;
+    drag(onmove: (dx: number, dy: number, x: number, y: number, event: DragEvent) => {}, onstart: (x: number, y: number, event: DragEvent) => {}, onend: (DragEvent: any) => {}, mcontext?: any, scontext?: any, econtext?: any): RaphaelElement;
     getBBox(isWithoutTransform?: boolean): BoundingBox;
     glow(glow?: { width?: number; fill?: boolean; opacity?: number; offsetx?: number; offsety?: number; color?: string; }): RaphaelSet;
     hide(): RaphaelElement;
@@ -244,7 +244,7 @@ interface RaphaelStatic {
     fn: any;
     format(token: string, ...parameters: any[]): string;
     fullfill(token: string, json: JSON): string;
-    getColor:{
+    getColor: {
         (value?: number): string;
         reset(): void;
     };

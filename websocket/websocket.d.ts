@@ -7,9 +7,9 @@
 
 declare module "websocket" {
     import events = require('events');
-    import http   = require('http');
-    import net    = require('net');
-    import url    = require('url');
+    import http = require('http');
+    import net = require('net');
+    import url = require('url');
 
     export interface IStringified {
         toString: (...args: any[]) => string;
@@ -118,7 +118,7 @@ declare module "websocket" {
          * together before going onto the wire. This however comes at the cost of latency.
          * @default true
          */
-        disableNagleAlgorithm?: boolean; 
+        disableNagleAlgorithm?: boolean;
     }
 
     export class server extends events.EventEmitter {
@@ -188,7 +188,7 @@ declare module "websocket" {
         key: string;
         /** Parsed resource, including the query string parameters */
         resourceURL: url.Url;
-        
+
         /**
          * Client's IP. If an `X-Forwarded-For` header is present, the value will be taken
          * from that header to facilitate WebSocket servers that live behind a reverse-proxy
@@ -218,7 +218,7 @@ declare module "websocket" {
          * converted to lower case.
          */
         requestedProtocols: string[];
-        protocolFullCaseMap: {[key: string]: string};
+        protocolFullCaseMap: { [key: string]: string };
 
         constructor(socket: net.Socket, httpRequest: http.ClientRequest, config: IServerConfig);
 
@@ -362,7 +362,7 @@ declare module "websocket" {
         connected: boolean;
 
         constructor(socket: net.Socket, extensions: IExtension[], protocol: string,
-                    maskOutgoingPackets: boolean, config: IConfig);
+            maskOutgoingPackets: boolean, config: IConfig);
 
         /**
          * Close the connection. A close frame will be sent to the remote peer indicating
@@ -451,13 +451,13 @@ declare module "websocket" {
          * a Protocol Error on the receiving peer.
          */
         rsv1: boolean;
-        
+
         /**
          * Represents the RSV1 field in the framing. Setting this to true will result in
          * a Protocol Error on the receiving peer.
          */
         rsv2: boolean;
-        
+
         /**
          * Represents the RSV1 field in the framing. Setting this to true will result in
          * a Protocol Error on the receiving peer.
@@ -554,9 +554,9 @@ declare module "websocket" {
          * @param requestUrl should be a standard websocket url
          */
         connect(requestUrl: url.Url, protocols?: string[], origin?: string, headers?: any[]): void;
-        connect(requestUrl: string,  protocols?: string[], origin?: string, headers?: any[]): void;
-        connect(requestUrl: url.Url, protocols?: string,   origin?: string, headers?: any[]): void;
-        connect(requestUrl: string,  protocols?: string,   origin?: string, headers?: any[]): void;
+        connect(requestUrl: string, protocols?: string[], origin?: string, headers?: any[]): void;
+        connect(requestUrl: url.Url, protocols?: string, origin?: string, headers?: any[]): void;
+        connect(requestUrl: string, protocols?: string, origin?: string, headers?: any[]): void;
 
         // Events
         on(event: string, listener: () => void): client;

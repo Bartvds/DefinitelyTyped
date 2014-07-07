@@ -124,7 +124,7 @@ declare module ng {
          * @param controllerConstructor Controller constructor fn (optionally decorated with DI annotations in the array notation).
          */
         controller(name: string, inlineAnnotatedConstructor: any[]): IModule;
-        controller(object : Object): IModule;
+        controller(object: Object): IModule;
         directive(name: string, directiveFactory: Function): IModule;
         directive(name: string, inlineAnnotatedFunction: any[]): IModule;
         directive(object: Object): IModule;
@@ -204,7 +204,7 @@ declare module ng {
         // The observer function will be invoked once during the next $digest
         // following compilation. The observer is then invoked whenever the
         // interpolated value changes.
-        $observe(name: string, fn:(value?:any)=>any): Function;
+        $observe(name: string, fn: (value?: any) => any): Function;
 
         // A map of DOM element attribute names to the normalized name. This is needed
         // to do reverse lookup from normalized name back to actual name.
@@ -295,7 +295,7 @@ declare module ng {
         $watchCollection(watchExpression: (scope: IScope) => any, listener: (newValue: any, oldValue: any, scope: IScope) => any): Function;
 
         $watchGroup(watchExpressions: any[], listener: (newValue: any, oldValue: any, scope: IScope) => any): Function;
-        $watchGroup(watchExpressions: {(scope: IScope) : any}[], listener: (newValue: any, oldValue: any, scope: IScope) => any): Function;
+        $watchGroup(watchExpressions: { (scope: IScope): any }[], listener: (newValue: any, oldValue: any, scope: IScope) => any): Function;
 
         $parent: IScope;
 
@@ -503,7 +503,7 @@ declare module ng {
     // DocumentService
     // see http://docs.angularjs.org/api/ng.$document
     ///////////////////////////////////////////////////////////////////////////
-    interface IDocumentService extends IAugmentedJQuery {}
+    interface IDocumentService extends IAugmentedJQuery { }
 
     ///////////////////////////////////////////////////////////////////////////
     // ExceptionHandlerService
@@ -517,7 +517,7 @@ declare module ng {
     // RootElementService
     // see http://docs.angularjs.org/api/ng.$rootElement
     ///////////////////////////////////////////////////////////////////////////
-    interface IRootElementService extends JQuery {}
+    interface IRootElementService extends JQuery { }
 
     ///////////////////////////////////////////////////////////////////////////
     // QService
@@ -525,7 +525,7 @@ declare module ng {
     ///////////////////////////////////////////////////////////////////////////
     interface IQService {
         all(promises: IPromise<any>[]): IPromise<any[]>;
-        all(promises: {[id: string]: IPromise<any>;}): IPromise<{[id: string]: any}>;
+        all(promises: { [id: string]: IPromise<any>; }): IPromise<{ [id: string]: any }>;
         defer<T>(): IDeferred<T>;
         reject(reason?: any): IPromise<void>;
         when<T>(value: IPromise<T>): IPromise<T>;
@@ -542,13 +542,13 @@ declare module ng {
         catch<TResult>(onRejected: (reason: any) => IPromise<TResult>): IPromise<TResult>;
         catch<TResult>(onRejected: (reason: any) => TResult): IPromise<TResult>;
 
-        finally<TResult>(finallyCallback: ()=>any):IPromise<TResult>;
+        finally<TResult>(finallyCallback: () => any): IPromise<TResult>;
     }
 
     interface IDeferred<T> {
         resolve(value?: T): void;
         reject(reason?: any): void;
-        notify(state?:any): void;
+        notify(state?: any): void;
         promise: IPromise<T>;
     }
 
@@ -577,7 +577,7 @@ declare module ng {
 
         // Methods bellow are not documented
         info(): any;
-        get (cacheId: string): ICacheObject;
+        get(cacheId: string): ICacheObject;
     }
 
     interface ICacheObject {
@@ -589,7 +589,7 @@ declare module ng {
             //capacity: number;
         };
         put(key: string, value?: any): void;
-        get (key: string): any;
+        get(key: string): any;
         remove(key: string): void;
         removeAll(): void;
         destroy(): void;
@@ -614,7 +614,7 @@ declare module ng {
 
         aHrefSanitizationWhitelist(): RegExp;
         aHrefSanitizationWhitelist(regexp: RegExp): ICompileProvider;
-        
+
         imgSrcSanitizationWhitelist(): RegExp;
         imgSrcSanitizationWhitelist(regexp: RegExp): ICompileProvider;
     }
@@ -867,13 +867,13 @@ declare module ng {
     // TemplateCacheService
     // see http://docs.angularjs.org/api/ng.$templateCache
     ///////////////////////////////////////////////////////////////////////////
-    interface ITemplateCacheService extends ICacheObject {}
+    interface ITemplateCacheService extends ICacheObject { }
 
     ///////////////////////////////////////////////////////////////////////////
     // RootScopeService
     // see http://docs.angularjs.org/api/ng.$rootScope
     ///////////////////////////////////////////////////////////////////////////
-    interface IRootScopeService extends IScope {}
+    interface IRootScopeService extends IScope { }
 
     ///////////////////////////////////////////////////////////////////////////
     // SCEService
@@ -934,21 +934,21 @@ declare module ng {
     // and http://docs.angularjs.org/guide/directive
     ///////////////////////////////////////////////////////////////////////////
 
-    interface IDirective{
+    interface IDirective {
         compile?:
-            (templateElement: IAugmentedJQuery,
-            templateAttributes: IAttributes,
-            transclude: ITranscludeFunction
-            ) => any;
+        (templateElement: IAugmentedJQuery,
+        templateAttributes: IAttributes,
+        transclude: ITranscludeFunction
+        ) => any;
         controller?: any;
         controllerAs?: string;
         link?:
-            (scope: IScope,
-            instanceElement: IAugmentedJQuery,
-            instanceAttributes: IAttributes,
-            controller: any,
-            transclude: ITranscludeFunction
-            ) => void;
+        (scope: IScope,
+        instanceElement: IAugmentedJQuery,
+        instanceAttributes: IAttributes,
+        controller: any,
+        transclude: ITranscludeFunction
+        ) => void;
         name?: string;
         priority?: number;
         replace?: boolean;
@@ -1024,7 +1024,7 @@ declare module ng {
             annotate(fn: Function): string[];
             annotate(inlineAnnotatedFunction: any[]): string[];
             get(name: string): any;
-            has(name: string): boolean; 
+            has(name: string): boolean;
             instantiate(typeConstructor: Function, locals?: any): any;
             invoke(inlineAnnotatedFunction: any[]): any;
             invoke(func: Function, context?: any, locals?: any): any;

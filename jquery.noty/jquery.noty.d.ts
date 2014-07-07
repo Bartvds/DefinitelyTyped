@@ -7,62 +7,62 @@
 /// <reference path='../jquery/jquery.d.ts'/>
 
 interface NotyOptions {
-	layout?: string;
-	theme?: string;
-	type?: string;
-	text?: string;
-	dismissQueue?: boolean;
-	template?: string;
-	animation?: NotyAnimationOptions;
-	timeout?: number;
-	force?: boolean;
-	modal?: boolean;
-	closeWith?: any[];
-	callback?: NotyCallbackOptions;
-	buttons?: any;
+    layout?: string;
+    theme?: string;
+    type?: string;
+    text?: string;
+    dismissQueue?: boolean;
+    template?: string;
+    animation?: NotyAnimationOptions;
+    timeout?: number;
+    force?: boolean;
+    modal?: boolean;
+    closeWith?: any[];
+    callback?: NotyCallbackOptions;
+    buttons?: any;
 }
 
 interface NotyAnimationOptions {
-	open?: any;
-	close?: any;
-	easing?: string;
-	speed?: number;
+    open?: any;
+    close?: any;
+    easing?: string;
+    speed?: number;
 }
 
 interface NotyCallbackOptions {
-	onShow?: Function;
-	afterShow?: Function;
-	onClose?: Function;
-	afterClose?: Function;
+    onShow?: Function;
+    afterShow?: Function;
+    onClose?: Function;
+    afterClose?: Function;
 }
 
 interface NotyStatic {
 
-	(notyOptions: NotyOptions);
+    (notyOptions: NotyOptions);
 
-	get(id: any);
-	close(id: any);
-	clearQueue();
-	closeAll();
-	setText(id: any, text: string);
-	setType(id: any, type: string);
+    get(id: any);
+    close(id: any);
+    clearQueue();
+    closeAll();
+    setText(id: any, text: string);
+    setType(id: any, type: string);
 
 }
 
 interface JQueryStatic {
-	noty: NotyStatic;
+    noty: NotyStatic;
 }
 
 declare var noty: {
 
-	(notyOptions: NotyOptions);
+    (notyOptions: NotyOptions);
 
-	show();
-	close();
-	setText(text: string);
-	setType(type: string);
-	setTimeout(timeout: number);
+    show();
+    close();
+    setText(text: string);
+    setType(type: string);
+    setTimeout(timeout: number);
 
-	closed: boolean;
-	shown: boolean;
+    closed: boolean;
+    shown: boolean;
 }

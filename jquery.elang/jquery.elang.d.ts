@@ -1,4 +1,4 @@
-﻿// Type definitions for eLang 0.5.1
+// Type definitions for eLang 0.5.1
 // Project: https://github.com/sumegizoltan/ELang/
 // Definitions by: Zoltan Sumegi <https://github.com/sumegizoltan/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -141,12 +141,12 @@ interface IELangBase {
     createContent(): void;
 
     createRadioGroup(node: JQuery,
-                     isMethodAppend: boolean,
-                     buttonNumber: number,
-                     defaultButton: number,
-                     btnLabels: string[],
-                     clickHandler: Function,
-                     btnTooltips?: string[]): void;
+        isMethodAppend: boolean,
+        buttonNumber: number,
+        defaultButton: number,
+        btnLabels: string[],
+        clickHandler: Function,
+        btnTooltips?: string[]): void;
     appendAsLastChild(node: JQuery, element: JQuery): JQuery;
     getLastChild(node: JQuery): JQuery;
     isRdoChecked(eSrc: HTMLElement, rdoId: string): boolean;
@@ -301,14 +301,14 @@ interface IELangTest extends IELangBase {
 
 interface IFnNewInstance {
     createInstance(el: HTMLElement,
-                   options: any,
-                   pluginName: string): JQuery;
+        options: any,
+        pluginName: string): JQuery;
 }
 
 interface IFnJQuery {
     fnPlugin(context: JQuery,
-             options: any,
-             command: string,
-             pluginName: string,
-             pluginDataAttribute: string): JQuery;
+        options: any,
+        command: string,
+        pluginName: string,
+        pluginDataAttribute: string): JQuery;
 }

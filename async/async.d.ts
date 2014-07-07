@@ -25,7 +25,7 @@ interface AsyncQueue<T> {
 interface Async {
 
     // Collections
-    forEach<T,R>(arr: T[], iterator: AsyncIterator<T, R>, callback: AsyncMultipleResultsCallback<R>): void;
+    forEach<T, R>(arr: T[], iterator: AsyncIterator<T, R>, callback: AsyncMultipleResultsCallback<R>): void;
     forEachSeries<T, R>(arr: T[], iterator: AsyncIterator<T, R>, callback: AsyncMultipleResultsCallback<R>): void;
     forEachLimit<T, R>(arr: T[], limit: number, iterator: AsyncIterator<T, R>, callback: AsyncMultipleResultsCallback<R>): void;
     map<T, R>(arr: T[], iterator: AsyncIterator<T, R>, callback: AsyncMultipleResultsCallback<R>): any;
@@ -47,7 +47,7 @@ interface Async {
     some<T>(arr: T[], iterator: AsyncIterator<T, boolean>, callback: AsyncMultipleResultsCallback<T>): any;
     any<T>(arr: T[], iterator: AsyncIterator<T, boolean>, callback: AsyncMultipleResultsCallback<T>): any;
     every<T>(arr: T[], iterator: AsyncIterator<T, boolean>, callback: (result: boolean) => any): any;
-	all<T>(arr: T[], iterator: AsyncIterator<T, boolean>, callback: (result: boolean) => any): any;
+    all<T>(arr: T[], iterator: AsyncIterator<T, boolean>, callback: (result: boolean) => any): any;
     concat<T, R>(arr: T[], iterator: AsyncIterator<T, R[]>, callback: AsyncMultipleResultsCallback<R>): any;
     concatSeries<T, R>(arr: T[], iterator: AsyncIterator<T, R[]>, callback: AsyncMultipleResultsCallback<R>): any;
 
@@ -69,8 +69,8 @@ interface Async {
     apply(fn: Function, ...arguments: any[]): void;
     nextTick<T>(callback: Function): void;
 
-    times<T> (n: number, callback: AsyncTimesCallback<T>): void;
-    timesSeries<T> (n: number, callback: AsyncTimesCallback<T>): void;
+    times<T>(n: number, callback: AsyncTimesCallback<T>): void;
+    timesSeries<T>(n: number, callback: AsyncTimesCallback<T>): void;
 
     // Utils
     memoize(fn: Function, hasher?: Function): Function;

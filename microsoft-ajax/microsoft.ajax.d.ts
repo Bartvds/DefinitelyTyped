@@ -3551,7 +3551,7 @@ declare module Sys {
         * @see {@link http://msdn.microsoft.com/en-us/library/bb383992(v=vs.100).aspx}        * 
         */
         class Point {
-           
+
             //#region Constructors
 
             /**

@@ -6,8 +6,8 @@
 
 /// <reference path="scroller.d.ts"/>
 
-declare class EasyScroller  {
-    constructor (content: any, options: ScrollerOptions);
+declare class EasyScroller {
+    constructor(content: any, options: ScrollerOptions);
 
     render(): void;
     reflow(): void;

@@ -6,10 +6,10 @@
 /// <reference path="../minimatch/minimatch.d.ts" />
 
 declare module 'findup-sync' {
-	import minimatch = require('minimatch');
+    import minimatch = require('minimatch');
 
-	function mod(pattern: string, opts?: minimatch.IOptions): string;
-	function mod(pattern: string[], opts?: minimatch.IOptions): string;
+    function mod(pattern: string, opts?: minimatch.IOptions): string;
+    function mod(pattern: string[], opts?: minimatch.IOptions): string;
 
-	export = mod;
+    export = mod;
 }

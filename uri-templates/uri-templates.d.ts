@@ -4,15 +4,15 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 declare module 'uri-templates' {
-	function utpl(template: string): utpl.URITemplate;
+    function utpl(template: string): utpl.URITemplate;
 
-	module utpl {
-		export interface URITemplate {
-			fillFromObject(vars: Object): string;
-			fill(callback: (varName: string) => string): string;
-			fromUri(uri: string): Object;
-		}
-	}
+    module utpl {
+        export interface URITemplate {
+            fillFromObject(vars: Object): string;
+            fill(callback: (varName: string) => string): string;
+            fromUri(uri: string): Object;
+        }
+    }
 
-	export = utpl;
+    export = utpl;
 }

@@ -658,7 +658,7 @@ declare module 'couchbase' {
 
         get(key: string, callback: KeyCallback): void;
         get(key: string, options: GetOptions, callback: KeyCallback): void;
-        getMulti(kv: string[], options: { [key: string]: GetMultiOptions }, callback:MultiCallback): void;
+        getMulti(kv: string[], options: { [key: string]: GetMultiOptions }, callback: MultiCallback): void;
 
         getDesignDoc(name: string, callback: DDocCallback): void;
 

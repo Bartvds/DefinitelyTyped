@@ -1,4 +1,4 @@
-﻿// Type definitions for stripe
+// Type definitions for stripe
 // Project: https://stripe.com/
 // Definitions by: Eric J. Smith <https://github.com/ejsmith/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped

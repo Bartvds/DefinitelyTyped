@@ -1945,7 +1945,7 @@ declare module _ {
         * @param whereValue _.where style callback
         **/
         unique<W>(
-            whereValue: W): LoDashArrayWrapper<T>;        
+            whereValue: W): LoDashArrayWrapper<T>;
     }
 
     //_.without
@@ -1999,7 +1999,7 @@ declare module _ {
         xor(
             ...others: List<T>[]): LoDashArrayWrapper<T>;
     }
-    
+
     //_.zip
     interface LoDashStatic {
         /**
@@ -3917,9 +3917,9 @@ declare module _ {
     }
 
     interface LoDashArrayWrapper<T> {
-         /**
-        * @see _.reduce
-        **/
+        /**
+       * @see _.reduce
+       **/
         reduce<TResult>(
             callback: MemoIterator<T, TResult>,
             accumulator: TResult,
@@ -3964,9 +3964,9 @@ declare module _ {
     }
 
     interface LoDashObjectWrapper<T> {
-         /**
-        * @see _.reduce
-        **/
+        /**
+       * @see _.reduce
+       **/
         reduce<TValue, TResult>(
             callback: MemoIterator<TValue, TResult>,
             accumulator: TResult,

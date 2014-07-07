@@ -1,4 +1,4 @@
-﻿// Type definitions for Google Url Shortener API
+// Type definitions for Google Url Shortener API
 // Project: https://developers.google.com/url-shortener/
 // Definitions by: Frank M <https://github.com/sgtfrankieboy>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -6,9 +6,9 @@
 /// <reference path="../gapi/gapi.d.ts" />
 
 declare module gapi.client.urlshortener {
-    
+
     export interface url {
-        
+
         /**
          * Expands a short URL or gets creation time and analytics.
          */

@@ -3,7 +3,7 @@
 // Definitions by: Dave McKeown <http://github.com/davemckeown>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-interface EventEmitter {}
+interface EventEmitter { }
 
 declare module 'zmq' {
 
@@ -83,7 +83,7 @@ declare module 'zmq' {
          * @param addr Socket address
          * @param cb Bind callback
          */
-        bind(addr: string, callback: (error: string) => void ): Socket;
+        bind(addr: string, callback: (error: string) => void): Socket;
 
         /**
          * Sync bind.

@@ -1,4 +1,4 @@
-﻿// Type definitions for Knockout Viewmodel 1.1.3
+// Type definitions for Knockout Viewmodel 1.1.3
 // Project: http://coderenaissance.github.com/knockout.viewmodel/
 // Definitions by: Oisin Grehan <https://github.com/oising>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -9,7 +9,7 @@ interface KnockoutViewModelStatic {
     toModel(viewmodel: any): any;
     fromModel(model: any, options?: any): any;
     updateFromModel(viewmodel: any, model: any);
-    
+
     // INTERNAL flag: enable logging of conversions
     // logs will be written to console
     logging: boolean;

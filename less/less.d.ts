@@ -20,19 +20,19 @@ declare module "less" {
     }
 
     interface Options {
-        contents?;
+        contents? ;
         rootpath?: string;
-        files?;
+        files? ;
         paths?: string[];
         mime?: string;
         filename?: string;
         optimization?: number;
         dumpLineNumbers?: boolean;
-        strictImports?;
+        strictImports? ;
         entryPath?: string;
-        relativeUrls?;
+        relativeUrls? ;
         errback? (path: string, paths: string[], callback: Function, env: Options);
-        frames?;
+        frames? ;
         compress?: boolean;
     }
 
@@ -144,7 +144,7 @@ declare module "less" {
             eval(env: Options): IEvalable;
         }
 
-        interface IInjectable extends ICSSable, IEvalable {}
+        interface IInjectable extends ICSSable, IEvalable { }
 
         interface IOperable {
             operate(op: Operation, other: IOperable): IOperable;
@@ -187,7 +187,7 @@ declare module "less" {
             name;
             value: ICSSable;
             ruleset: Ruleset;
-            
+
             toCSS(ctx?, env?: Options): string;
             eval(env: Options): Directive;
 
@@ -409,7 +409,7 @@ declare module "less" {
 
         export class Value implements IInjectable {
             constructor(value: IEvalable[]);
-            
+
             value: IEvalable[];
             is: string;
 
@@ -493,11 +493,11 @@ declare module "less" {
             constructor(value: string);
 
             value: string;
-            
+
             toCSS(env?: Options): string;
             eval(): UnicodeDescriptor;
         }
-        
+
         export class Attribute implements IInjectable {
             constructor(value: string);
 
@@ -535,7 +535,7 @@ declare module "less" {
             push(path: string, callback: (e, root, imported) => void);
         }; // TODO
 
-        parse: (str: string, callback: (error: LessError, root: ParserNode) => void ) => void;
+        parse: (str: string, callback: (error: LessError, root: ParserNode) => void) => void;
 
         parsers: { // Major TODO
         };

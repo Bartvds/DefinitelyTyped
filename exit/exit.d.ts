@@ -4,6 +4,6 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 declare module 'exit' {
-	function exit(code: number): void;
-	export = exit;
+    function exit(code: number): void;
+    export = exit;
 }

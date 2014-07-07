@@ -5,7 +5,7 @@
 
 
 interface FinchCallback {
-    (bindings?: any, childCallback? : () => void): any;
+    (bindings?: any, childCallback?: () => void): any;
 }
 
 interface ExpandedCallback {
@@ -26,14 +26,14 @@ interface FinchOptions {
 interface FinchStatic {
     route(route: string, callback: FinchCallback): void;
     route(route: string, callbacks: ExpandedCallback): void;
-    call( uri: string ): void;
+    call(uri: string): void;
 
-    observe(argN: string[], callback: (params: ObserveCallback ) => void): void;
+    observe(argN: string[], callback: (params: ObserveCallback) => void): void;
     observe(callback: (params: ObserveCallback) => void): void;
     observe(...args: any[]): void;
-    navigate(uri:string, queryParams?:any, doUpdate?:boolean ): void;
-    navigate(uri:string, doUpdate:boolean ): void;
-    navigate(queryParams:any, doUpdate?:boolean ): void;
+    navigate(uri: string, queryParams?: any, doUpdate?: boolean): void;
+    navigate(uri: string, doUpdate: boolean): void;
+    navigate(queryParams: any, doUpdate?: boolean): void;
     listen(): boolean;
     ignore(): boolean;
     abort(): void;

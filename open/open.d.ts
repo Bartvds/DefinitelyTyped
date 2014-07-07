@@ -4,6 +4,6 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 declare module 'open' {
-	function open(target: string, app?: string): void;
-	export = open;
+    function open(target: string, app?: string): void;
+    export = open;
 }

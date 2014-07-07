@@ -1,4 +1,4 @@
-﻿// Type definitions for Google API Client
+// Type definitions for Google API Client
 // Project: https://code.google.com/p/google-api-javascript-client/
 // Definitions by: Frank M <https://github.com/sgtfrankieboy>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -140,7 +140,7 @@ declare module gapi.client {
                 status: number;
                 statusText: string;
             }
-            ) => any):void;
+            ) => any): void;
     }
     /**
      * Represents an HTTP Batch operation. Individual HTTP requests are added with the add method and the batch is executed using execute.
@@ -166,7 +166,7 @@ declare module gapi.client {
              */
             rawBatchResponse: any
             ) => any
-        }):void;
+        }): void;
         /**
          * Executes all requests in the batch. The supplied callback is executed on success or failure.
          * @param callback The callback to execute when the batch returns.
@@ -180,7 +180,7 @@ declare module gapi.client {
              * is the same response, but as an unparsed JSON-string.
              */
             rawBatchResponse: string
-            ) => any):void;
+            ) => any): void;
     }
 
     /**
@@ -201,7 +201,7 @@ declare module gapi.client {
              * is the same as jsonResp, except it is a raw string that has not been parsed. It is typically used when the response is not JSON.
              */
             rawResp: string
-            ) => void ):void;
+            ) => void): void;
     }
 
 }

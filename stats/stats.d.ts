@@ -5,16 +5,16 @@
 
 declare class Stats {
 
-	REVISION: number;
+    REVISION: number;
 
-	domElement: HTMLDivElement;
-	
-	// 0: fps, 1: ms
-	setMode(value: number): void;
-	
-	begin(): void;
-	
-	end(): number;
-	
-	update(): void;
+    domElement: HTMLDivElement;
+
+    // 0: fps, 1: ms
+    setMode(value: number): void;
+
+    begin(): void;
+
+    end(): number;
+
+    update(): void;
 }

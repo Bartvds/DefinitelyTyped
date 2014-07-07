@@ -41,13 +41,13 @@ interface Signal {
      */
     add(listener: Function, listenerContext?: any, priority?: Number): SignalBinding;
 
-     /**
-     * Add listener to the signal that should be removed after first execution (will be executed only once).
-     *
-     * @param listener Signal handler function.
-     * @param listenercontext Context on which listener will be executed (object that should represent the `this` variable inside listener function).
-     * @param priority The priority level of the event listener. Listeners with higher priority will be executed before listeners with lower priority. Listeners with same priority level will be executed at the same order as they were added. (default = 0)
-     */
+    /**
+    * Add listener to the signal that should be removed after first execution (will be executed only once).
+    *
+    * @param listener Signal handler function.
+    * @param listenercontext Context on which listener will be executed (object that should represent the `this` variable inside listener function).
+    * @param priority The priority level of the event listener. Listeners with higher priority will be executed before listeners with lower priority. Listeners with same priority level will be executed at the same order as they were added. (default = 0)
+    */
     addOnce(listener: Function, listenerContext, priority): SignalBinding;
 
     /**

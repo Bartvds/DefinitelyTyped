@@ -3,7 +3,7 @@
 // Definitions by: Kon <http://phyzkit.net/>, Satoru Kimura <https://github.com/gyohk>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped  
 
-interface WebGLRenderingContext {}
+interface WebGLRenderingContext { }
 
 declare module THREE {
     export var REVISION: string;
@@ -337,7 +337,7 @@ declare module THREE {
         setXYZW(index: number, x: number, y: number, z: number, w: number): void;
     }
 
-    export class Int8Attribute extends BufferAttribute{
+    export class Int8Attribute extends BufferAttribute {
         constructor(size: number, itemSize: number);
     }
     export class Uint8Attribute extends BufferAttribute {
@@ -382,7 +382,7 @@ declare module THREE {
          * Unique number of this buffergeometry instance
          */
         id: number;
-        
+
         uuid: number;
         name: string;
         attributes: BufferAttribute[];
@@ -535,7 +535,7 @@ declare module THREE {
          * @param type The type of the listener that gets removed.
          * @param listener The listener function that gets removed.
          */
-        addEventListener(type: string, listener: (event: any) => void ): void;
+        addEventListener(type: string, listener: (event: any) => void): void;
 
         /**
          * Adds a listener to an event type.
@@ -702,7 +702,7 @@ declare module THREE {
          * Normal vectors are nessecary for lighting
          * To signal an update in this array, Geometry.normalsNeedUpdate needs to be set to true.
          */
-//        normals: Vector3[];
+        //        normals: Vector3[];
 
         /**
          * Array of triangles or/and quads.
@@ -716,7 +716,7 @@ declare module THREE {
          * Each UV layer is an array of UV matching order and number of faces.
          * To signal an update in this array, Geometry.uvsNeedUpdate needs to be set to true.
          */
-//        faceUvs: Vector2[][];
+        //        faceUvs: Vector2[][];
 
         /**
          * Array of face UV layers.
@@ -864,7 +864,7 @@ declare module THREE {
          */
         computeBoundingSphere(): void;
 
-        merge( geometry: Geometry, matrix: Matrix, materialIndexOffset: number): void;
+        merge(geometry: Geometry, matrix: Matrix, materialIndexOffset: number): void;
 
         /**
          * Checks for duplicate vertices using hashmap.
@@ -1190,7 +1190,7 @@ declare module THREE {
         clone(): AmbientLight;
     }
 
-    export class AreaLight extends Light{
+    export class AreaLight extends Light {
         constructor(hex: number, intensity?: number);
 
         position: Vector3;
@@ -1620,7 +1620,7 @@ declare module THREE {
 
     }
 
-    export class Cache{
+    export class Cache {
         constructor();
 
         files: any[];
@@ -1659,9 +1659,9 @@ declare module THREE {
          * @param callback. This function will be called with the loaded model as an instance of geometry when the load is completed.
          * @param texturePath If not specified, textures will be assumed to be in the same folder as the Javascript model file.
          */
-        load(url: string, callback: (geometry: Geometry, materials: Material[]) => void , texturePath?: string): void;
-        parse(json:string, texturePath:string): any;
-        loadAjaxJSON(context: JSONLoader, url: string, callback: (geometry: Geometry, materials: Material[]) => void , texturePath?: string, callbackProgress?: (progress: Progress) => void ): void;
+        load(url: string, callback: (geometry: Geometry, materials: Material[]) => void, texturePath?: string): void;
+        parse(json: string, texturePath: string): any;
+        loadAjaxJSON(context: JSONLoader, url: string, callback: (geometry: Geometry, materials: Material[]) => void, texturePath?: string, callbackProgress?: (progress: Progress) => void): void;
 
     }
 
@@ -1681,7 +1681,7 @@ declare module THREE {
          * Will be called while load progresses.
          * The default is a function with empty body.
          */
-        onProgress: (item:any, loaded:number, total:number) => void;
+        onProgress: (item: any, loaded: number, total: number) => void;
 
         /**
          * Will be called when each element in the scene completes loading.
@@ -1713,21 +1713,21 @@ declare module THREE {
         parseObject<T extends Object3D>(data: any, geometries: any[], materials: Material[]): T;
     }
 
-    interface SceneLoaderResult{
+    interface SceneLoaderResult {
         scene: Scene;
-        geometries: {[id:string]:Geometry;};
-        face_materials: {[id:string]:Material;};
-        materials: {[id:string]:Material;};
-        textures: {[id:string]:Texture;};
-        objects: {[id:string]:Object3D;};
-        cameras: {[id:string]:Camera;};
-        lights: {[id:string]:Light;};
-        fogs: {[id:string]:IFog;};
-        empties: {[id:string]:any;};
-        groups: {[id:string]:any;};
+        geometries: { [id: string]: Geometry; };
+        face_materials: { [id: string]: Material; };
+        materials: { [id: string]: Material; };
+        textures: { [id: string]: Texture; };
+        objects: { [id: string]: Object3D; };
+        cameras: { [id: string]: Camera; };
+        lights: { [id: string]: Light; };
+        fogs: { [id: string]: IFog; };
+        empties: { [id: string]: any; };
+        groups: { [id: string]: any; };
     }
 
-    interface SceneLoaderProgress{
+    interface SceneLoaderProgress {
         totalModels: number;
         totalTextures: number;
         loadedModels: number;
@@ -1911,7 +1911,7 @@ declare module THREE {
          */
         needsUpdate: boolean;
 
-        clone(material?:Material): Material;
+        clone(material?: Material): Material;
 
         dispose(): void;
         setValues(values: Object): void;
@@ -2477,7 +2477,7 @@ declare module THREE {
         set(x: number, y: number, z: number, order?: string): Euler;
         copy(euler: Euler): Euler;
         setFromRotationMatrix(m: Matrix4, order: string): Euler;
-        setFromQuaternion(q:Quaternion, order: string): Euler;
+        setFromQuaternion(q: Quaternion, order: string): Euler;
         reorder(newOrder: string): Euler;
         fromArray(xyzo: any[]): Euler;
         toArray(): any[];
@@ -3738,7 +3738,7 @@ declare module THREE {
         clone(object?: Line): Line;
     }
 
-    enum LineType{}
+    enum LineType { }
     var LineStrip: LineType;
     var LinePieces: LineType;
 
@@ -4209,7 +4209,7 @@ declare module THREE {
         getMaxAnisotropy(): number;
         getPrecision(): string;
         setMaterialFaces(material: Material): void;
-        clearTarget(renderTarget:WebGLRenderTarget, color: boolean, depth: boolean, stencil: boolean): void;
+        clearTarget(renderTarget: WebGLRenderTarget, color: boolean, depth: boolean, stencil: boolean): void;
 
         /**
          * Sets the clear color, using hex for the color and alpha for the opacity.
@@ -4410,20 +4410,20 @@ declare module THREE {
 
 
     // Renderers / WebGL /////////////////////////////////////////////////////////////////////
-    export class WebGLProgram{
+    export class WebGLProgram {
         constructor(renderer: WebGLRenderer, code: string, material: ShaderMaterial, parameters: WebGLRendererParameters);
     }
 
-    export class WebGLShader{
+    export class WebGLShader {
         constructor(gl: any, type: string, string: string);
     }
 
     // Scenes /////////////////////////////////////////////////////////////////////
 
     export interface IFog {
-        name:string;
+        name: string;
         color: Color;
-        clone():IFog;
+        clone(): IFog;
     }
 
 
@@ -4433,7 +4433,7 @@ declare module THREE {
     export class Fog implements IFog {
         constructor(hex: number, near?: number, far?: number);
 
-        name:string;
+        name: string;
 
         /**
          * Fog color.
@@ -4652,7 +4652,7 @@ declare module THREE {
         loadTexture(url: string, mapping?: Mapping, onLoad?: (texture: Texture) => void, onError?: (message: string) => void): Texture;
         getNormalMap(image: HTMLImageElement, depth?: number): HTMLCanvasElement;
         loadCompressedTextureCube(array: string[], mapping?: Mapping, onLoad?: () => void, onError?: (message: string) => void): Texture;
-        loadTextureCube(array: string[], mapping?: Mapping, onLoad?: () => void , onError?: (message: string) => void ): Texture;
+        loadTextureCube(array: string[], mapping?: Mapping, onLoad?: () => void, onError?: (message: string) => void): Texture;
     };
 
     export var SceneUtils: {
@@ -4804,17 +4804,17 @@ declare module THREE {
 
     // Extras / Curves /////////////////////////////////////////////////////////////////////
     export class ArcCurve extends EllipseCurve {
-        constructor(aX: number, aY: number, xRadius: number, yRadius: number, aStartAngle: number, aEndAngle: number, aClockwise: boolean );
+        constructor(aX: number, aY: number, xRadius: number, yRadius: number, aStartAngle: number, aEndAngle: number, aClockwise: boolean);
     }
     export class ClosedSplineCurve3 extends Curve {
-        constructor( points:Vector3[] );
+        constructor(points: Vector3[]);
 
-        points:Vector3[];
+        points: Vector3[];
 
         getPoint(t: number): Vector3;
     }
     export class CubicBezierCurve extends Curve {
-        constructor( v0: Vector2, v1: Vector2, v2: Vector2, v3: Vector2 );
+        constructor(v0: Vector2, v1: Vector2, v2: Vector2, v3: Vector2);
 
         v0: Vector2;
         v1: Vector2;
@@ -4824,7 +4824,7 @@ declare module THREE {
         getPoint(t: number): Vector2;
     }
     export class CubicBezierCurve3 extends Curve {
-        constructor( v0: Vector3, v1: Vector3, v2: Vector3, v3: Vector3 );
+        constructor(v0: Vector3, v1: Vector3, v2: Vector3, v3: Vector3);
 
         v0: Vector2;
         v1: Vector2;
@@ -4834,7 +4834,7 @@ declare module THREE {
         getPoint(t: number): Vector3;
     }
     export class EllipseCurve extends Curve {
-        constructor( aX: number, aY: number, xRadius: number, yRadius: number, aStartAngle: number, aEndAngle: number, aClockwise: boolean );
+        constructor(aX: number, aY: number, xRadius: number, yRadius: number, aStartAngle: number, aEndAngle: number, aClockwise: boolean);
 
         ax: number;
         ay: number;
@@ -4847,7 +4847,7 @@ declare module THREE {
         getPoint(t: number): Vector2;
     }
     export class LineCurve extends Curve {
-        constructor( v1: Vector2, v2: Vector2 );
+        constructor(v1: Vector2, v2: Vector2);
 
         v1: Vector2;
         v2: Vector2;
@@ -4857,7 +4857,7 @@ declare module THREE {
         getTangent(t: number): Vector2;
     }
     export class LineCurve3 extends Curve {
-        constructor( v1: Vector3, v2: Vector3 );
+        constructor(v1: Vector3, v2: Vector3);
 
         v1: Vector2;
         v2: Vector2;
@@ -4865,7 +4865,7 @@ declare module THREE {
         getPoint(t: number): Vector3;
     }
     export class QuadraticBezierCurve extends Curve {
-        constructor( v0: Vector2, v1: Vector2, v2: Vector2 );
+        constructor(v0: Vector2, v1: Vector2, v2: Vector2);
 
         v0: Vector2;
         v1: Vector2;
@@ -4875,7 +4875,7 @@ declare module THREE {
         getTangent(t: number): Vector2;
     }
     export class QuadraticBezierCurve3 extends Curve {
-        constructor( v0: Vector3, v1: Vector3, v2: Vector3 );
+        constructor(v0: Vector3, v1: Vector3, v2: Vector3);
 
         v0: Vector2;
         v1: Vector2;
@@ -4884,16 +4884,16 @@ declare module THREE {
         getPoint(t: number): Vector3;
     }
     export class SplineCurve extends Curve {
-        constructor( points: Vector2[] );
+        constructor(points: Vector2[]);
 
-        points:Vector2[];
+        points: Vector2[];
 
         getPoint(t: number): Vector2;
     }
     export class SplineCurve3 extends Curve {
-        constructor( points: Vector3[] );
+        constructor(points: Vector3[]);
 
-        points:Vector3[];
+        points: Vector3[];
 
         getPoint(t: number): Vector3;
     }
@@ -5359,7 +5359,7 @@ declare module THREE {
     export class ImmediateRenderObject extends Object3D {
         constructor();
 
-        render(renderCallback:Function): void;
+        render(renderCallback: Function): void;
     }
 
     export interface LensFlareProperty {

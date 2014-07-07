@@ -22,14 +22,14 @@ declare module "ffi" {
          * @param funcs hash of [retType, [...argType], opts?: {abi?, async?, varargs?}]
          * @param lib hash that will be extended
          */
-        new (libFile: string, funcs?: {[key: string]: any[]}, lib?: Object): any;
+        new (libFile: string, funcs?: { [key: string]: any[] }, lib?: Object): any;
 
         /**
          * @param libFile name of library
          * @param funcs hash of [retType, [...argType], opts?: {abi?, async?, varargs?}]
          * @param lib hash that will be extended
          */
-        (libFile: string, funcs?: {[key: string]: any[]}, lib?: Object): any;
+        (libFile: string, funcs?: { [key: string]: any[] }, lib?: Object): any;
     };
 
     /** Get value of errno. */
@@ -160,7 +160,7 @@ declare module "ffi" {
     export var CIF: (retType: any, types: any[], abi?: any) => Buffer
     export var CIF_var: (retType: any, types: any[], numFixedArgs: number, abi?: any) => Buffer;
     export var HAS_OBJC: boolean;
-    export var FFI_TYPES: {[key: string]: Buffer};
+    export var FFI_TYPES: { [key: string]: Buffer };
     export var FFI_OK: number;
     export var FFI_BAD_TYPEDEF: number;
     export var FFI_BAD_ABI: number;
@@ -182,14 +182,14 @@ declare module "ffi" {
 
     /** Default types. */
     export var types: {
-        void: ref.Type;                 int64: ref.Type;                 ushort: ref.Type;
-        int: ref.Type;                  uint64: ref.Type;                float: ref.Type;
-        uint: ref.Type;                 long: ref.Type;                  double: ref.Type;
-        int8: ref.Type;                 ulong: ref.Type;                 Object: ref.Type;
-        uint8: ref.Type;                longlong: ref.Type;              CString: ref.Type;
-        int16: ref.Type;                ulonglong: ref.Type;             bool: ref.Type;
-        uint16: ref.Type;               char: ref.Type;                  byte: ref.Type;
-        int32: ref.Type;                uchar: ref.Type;                 size_t: ref.Type;
-        uint32: ref.Type;               short: ref.Type;
+        void: ref.Type; int64: ref.Type; ushort: ref.Type;
+        int: ref.Type; uint64: ref.Type; float: ref.Type;
+        uint: ref.Type; long: ref.Type; double: ref.Type;
+        int8: ref.Type; ulong: ref.Type; Object: ref.Type;
+        uint8: ref.Type; longlong: ref.Type; CString: ref.Type;
+        int16: ref.Type; ulonglong: ref.Type; bool: ref.Type;
+        uint16: ref.Type; char: ref.Type; byte: ref.Type;
+        int32: ref.Type; uchar: ref.Type; size_t: ref.Type;
+        uint32: ref.Type; short: ref.Type;
     };
 }

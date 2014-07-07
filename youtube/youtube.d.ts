@@ -19,33 +19,33 @@ declare module YT {
         onStateChange?: EventHandler;
     }
 
-	export enum ListType {
-		search,
-		user_uploads,
-		playlist,
-	}
+    export enum ListType {
+        search,
+        user_uploads,
+        playlist,
+    }
 
     export interface PlayerVars {
         autohide?: number;
         autoplay?: number;
         cc_load_policy?: any;
         color?: string;
-		controls?: number;
-		disablekb?: number;
-		enablejsapi?: number;
-		end?: number;
-		fs?: number;
-		iv_load_policy?: number;
-		list?: string;
-		listType?: ListType;
-		loop?;
-		modestbranding?: number;
-		origin?;
+        controls?: number;
+        disablekb?: number;
+        enablejsapi?: number;
+        end?: number;
+        fs?: number;
+        iv_load_policy?: number;
+        list?: string;
+        listType?: ListType;
+        loop? ;
+        modestbranding?: number;
+        origin? ;
         playerpiid?: string;
-		playlist?;
-		rel?: number;
+        playlist? ;
+        rel?: number;
         showinfo?: number;
-		start?: number;
+        start?: number;
         theme?: string;
     }
 
@@ -88,12 +88,12 @@ declare module YT {
 
         // Properties
         size;
-        
+
         // Playing
         playVideo(): void;
         pauseVideo(): void;
         stopVideo(): void;
-        seekTo(seconds:number, allowSeekAhead:boolean): void;
+        seekTo(seconds: number, allowSeekAhead: boolean): void;
         clearVideo(): void;
 
         // Playlist
@@ -113,9 +113,9 @@ declare module YT {
 
         // Playback
         getPlaybackRate(): number;
-        setPlaybackRate(suggestedRate:number): void;
+        setPlaybackRate(suggestedRate: number): void;
         getAvailablePlaybackRates(): number[];
-        
+
         // Behavior
         setLoop(loopPlaylists: boolean): void;
         setShuffle(shufflePlaylist: boolean): void;
@@ -136,7 +136,7 @@ declare module YT {
         // Playlist
         getPlaylist(): any[];
         getPlaylistIndex(): number;
-        
+
         // Event Listener
         addEventListener(event: string, listener: string): void;
     }

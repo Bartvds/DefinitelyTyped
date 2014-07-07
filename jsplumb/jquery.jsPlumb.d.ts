@@ -1,4 +1,4 @@
-﻿// Type definitions for jsPlumb 1.3.16 jQuery adapter
+// Type definitions for jsPlumb 1.3.16 jQuery adapter
 // Project: http://jsplumb.org
 // Definitions by: Steve Shearn <https://github.com/shearnie/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -8,28 +8,28 @@
 declare var jsPlumb: jsPlumbInstance;
 
 interface jsPlumbInstance {
-	setRenderMode(renderMode: string): string;
-	bind(event: string, callback: (e) => void ): void;
-	unbind(event?: string): void;
-	ready(callback: () => void): void;
-	importDefaults(defaults: Defaults): void;
-	Defaults: Defaults;
-	restoreDefaults(): void;
-	addClass(el: any, clazz: string): void;
-	addEndpoint(ep: string): any;
-	removeClass(el: any, clazz: string): void;
-	hasClass(el: any, clazz: string): void;
+    setRenderMode(renderMode: string): string;
+    bind(event: string, callback: (e) => void): void;
+    unbind(event?: string): void;
+    ready(callback: () => void): void;
+    importDefaults(defaults: Defaults): void;
+    Defaults: Defaults;
+    restoreDefaults(): void;
+    addClass(el: any, clazz: string): void;
+    addEndpoint(ep: string): any;
+    removeClass(el: any, clazz: string): void;
+    hasClass(el: any, clazz: string): void;
     draggable(el: string, options?: DragOptions): jsPlumbInstance;
     draggable(ids: string[], options?: DragOptions): jsPlumbInstance;
     connect(connection: ConnectParams, referenceParams?: ConnectParams): Connection;
-	makeSource(el: string, options: SourceOptions): void;
-	makeTarget(el: string, options: TargetOptions): void;
-	repaintEverything(): void;
-	detachEveryConnection(): void;
-	detachAllConnections(el: string): void;
+    makeSource(el: string, options: SourceOptions): void;
+    makeTarget(el: string, options: TargetOptions): void;
+    repaintEverything(): void;
+    detachEveryConnection(): void;
+    detachAllConnections(el: string): void;
     removeAllEndpoints(el: string, recurse?: boolean): jsPlumbInstance;
     removeAllEndpoints(el: Element, recurse?: boolean): jsPlumbInstance;
-	select(params: SelectParams): Connections;
+    select(params: SelectParams): Connections;
     getConnections(options?: any, flat?: any): any[];
     deleteEndpoint(uuid: string, doNotRepaintAfterwards?: boolean): jsPlumbInstance;
     deleteEndpoint(endpoint: Endpoint, doNotRepaintAfterwards?: boolean): jsPlumbInstance;
@@ -42,80 +42,80 @@ interface jsPlumbInstance {
 }
 
 interface Defaults {
-	Endpoint?: any[];
-	PaintStyle?: PaintStyle;
-	HoverPaintStyle?: PaintStyle;
-	ConnectionsDetachable?: boolean;
-	ReattachConnections?: boolean;
-	ConnectionOverlays?: any[][];
+    Endpoint?: any[];
+    PaintStyle?: PaintStyle;
+    HoverPaintStyle?: PaintStyle;
+    ConnectionsDetachable?: boolean;
+    ReattachConnections?: boolean;
+    ConnectionOverlays?: any[][];
     Container?: any; // string(selector or id) or element
     DragOptions?: DragOptions;
 }
 
 interface PaintStyle {
-	strokeStyle: string;
-	lineWidth: number;
+    strokeStyle: string;
+    lineWidth: number;
 }
 
 interface ArrowOverlay {
-	location: number;
-	id: string;
-	length: number;
-	foldback: number;
+    location: number;
+    id: string;
+    length: number;
+    foldback: number;
 }
 
 interface LabelOverlay {
-	label: string;
-	id: string;
-	location: number;
+    label: string;
+    id: string;
+    location: number;
 }
 
 interface Connections {
-	detach(): void;
-	length: number;
+    detach(): void;
+    length: number;
 }
 
 interface ConnectParams {
     source?: any; // string, element or endpoint
     target?: any; // string, element or endpoint
-	detachable?: boolean;
-	deleteEndpointsOnDetach?: boolean;
-	endPoint?: string;
-	anchor?: string;
-	anchors?: any[];
-	label?: string;
+    detachable?: boolean;
+    deleteEndpointsOnDetach?: boolean;
+    endPoint?: string;
+    anchor?: string;
+    anchors?: any[];
+    label?: string;
 }
 
 interface DragOptions {
-	containment?: string;
+    containment?: string;
 }
 
 interface SourceOptions {
-	parent: string;
-	endpoint?: string;
-	anchor?: string;
-	connector?: any[];
-	connectorStyle?: PaintStyle;
+    parent: string;
+    endpoint?: string;
+    anchor?: string;
+    connector?: any[];
+    connectorStyle?: PaintStyle;
 }
 
 interface TargetOptions {
-	isTarget?: boolean;
-	maxConnections?: number;
-	uniqueEndpoint?: boolean;
-	deleteEndpointsOnDetach?: boolean;
-	endpoint?: string;
-	dropOptions?: DropOptions;
-	anchor?: any;
+    isTarget?: boolean;
+    maxConnections?: number;
+    uniqueEndpoint?: boolean;
+    deleteEndpointsOnDetach?: boolean;
+    endpoint?: string;
+    dropOptions?: DropOptions;
+    anchor?: any;
 }
 
 interface DropOptions {
-	hoverClass: string;
+    hoverClass: string;
 }
 
 interface SelectParams {
-	scope?: string;
-	source: string;
-	target: string;
+    scope?: string;
+    source: string;
+    target: string;
 }
 
 interface Connection {

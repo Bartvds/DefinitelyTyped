@@ -3,8 +3,7 @@
 // Definitions by: Sergey Gerasimov <https://github.com/gerich-home/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-interface IHashtable<TKey, TValue>
-{
+interface IHashtable<TKey, TValue> {
     put(key: TKey, value: TValue): TValue;
     putAll(hashtable: IHashtable<TKey, TValue>, conflictCallback?: (key: TKey, thisValue: TValue, value: TValue) => TValue): void;
 

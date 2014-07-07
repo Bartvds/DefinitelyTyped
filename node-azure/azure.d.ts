@@ -48,29 +48,29 @@ declare module "azure" {
         */
         constructor(storageAccount: string, storageAccessKey: string, host?: string, authenticationProvider?: string);
 
-        getServiceProperties(callback?: (error: any, servicePropertiesResult: any, response: any) => void ): void;
-        getServiceProperties(options: TimeoutIntervalOptions, callback?: (error: any, servicePropertiesResult: any, response: any) => void ): void;
+        getServiceProperties(callback?: (error: any, servicePropertiesResult: any, response: any) => void): void;
+        getServiceProperties(options: TimeoutIntervalOptions, callback?: (error: any, servicePropertiesResult: any, response: any) => void): void;
 
         setServiceProperties(serviceProperties: any, options: TimeoutIntervalOptions, callback?: Function): void;
 
-        getTable(table: string, callback?: TableRequestCallback ): void;
-        getTable(table: string, options: TimeoutIntervalOptions, callback?: TableRequestCallback ): void;
+        getTable(table: string, callback?: TableRequestCallback): void;
+        getTable(table: string, options: TimeoutIntervalOptions, callback?: TableRequestCallback): void;
 
-        createTable(table: string, callback?: TableRequestCallback ): void;
-        createTable(table: string, options: TimeoutIntervalOptions, callback?: TableRequestCallback ): void;
+        createTable(table: string, callback?: TableRequestCallback): void;
+        createTable(table: string, options: TimeoutIntervalOptions, callback?: TableRequestCallback): void;
 
-        createTableIfNotExists(table: string, callback?: CreateTableIfNotExistsCallback ): void;
+        createTableIfNotExists(table: string, callback?: CreateTableIfNotExistsCallback): void;
         createTableIfNotExists(table: string, options: TimeoutIntervalOptions, callback?: CreateTableIfNotExistsCallback): void;
 
-        deleteTable(table: string, callback?: DeleteTableCallback ): void;
-        deleteTable(table: string, options: TimeoutIntervalOptions, callback?: DeleteTableCallback ): void;
+        deleteTable(table: string, callback?: DeleteTableCallback): void;
+        deleteTable(table: string, options: TimeoutIntervalOptions, callback?: DeleteTableCallback): void;
 
-        queryTables(callback?: QueryTablesCallback ): void;
-        queryTables(options: QueryTablesOptions, callback?: QueryTablesCallback ): void;
+        queryTables(callback?: QueryTablesCallback): void;
+        queryTables(options: QueryTablesOptions, callback?: QueryTablesCallback): void;
 
-        queryEntity(table: string, partitionKey: string, rowKey: string, callback?: QueryEntityCallback ): void;
-        queryEntity(table: string, partitionKey: string, rowKey: string, options: TimeoutIntervalOptions, callback?: QueryEntityCallback ): void;
-        
+        queryEntity(table: string, partitionKey: string, rowKey: string, callback?: QueryEntityCallback): void;
+        queryEntity(table: string, partitionKey: string, rowKey: string, options: TimeoutIntervalOptions, callback?: QueryEntityCallback): void;
+
         queryEntities(tableQuery: TableQuery, callback?: QueryEntitiesCallback): void;
         queryEntities(tableQuery: TableQuery, options: TimeoutIntervalOptions, callback?: QueryEntitiesCallback): void;
 
@@ -142,7 +142,7 @@ declare module "azure" {
 
     interface RoleEnvironmentInterface extends events.EventEmitter {
         getCurrentRoleInstance(callback: (error: any, instance: any) => void): void;
-        getDeploymentId(callback: (error: any, id:string) => void): void;
+        getDeploymentId(callback: (error: any, id: string) => void): void;
         isAvailable(callback: (error: any, available: boolean) => void): void;
         isEmulated(callback: (error: any, emulated: boolean) => void): void;
         getRoles(callback: (error: any, roles: any) => void): void;
@@ -154,7 +154,7 @@ declare module "azure" {
     }
 
     export var RoleEnvironment: RoleEnvironmentInterface;
-    
+
 
     //#region Export of internal classes
     export class WebResource {
@@ -217,8 +217,8 @@ declare module "azure" {
         rollback(): void;
         hasOperations(): boolean;
         addOperation(webResource: WebResource, outputData: any): void;
-        commitBatch(callback: (error: any, operationResponses: any[], response: any) => void ): void;
-        commitBatch(options: any, callback: (error: any, operationResponses: any[], response: any) => void ): void;
+        commitBatch(callback: (error: any, operationResponses: any[], response: any) => void): void;
+        commitBatch(options: any, callback: (error: any, operationResponses: any[], response: any) => void): void;
         processResponse(responseObject: any, requestOperations: any[]): any[];
         processOperation(webResource: WebResource, rawResponse: string): any;
     }
@@ -302,18 +302,18 @@ declare module "azure" {
     export interface WebResponse {
         isSuccessful: boolean;
         statusCode: number;
-        body: { 
-            entry: { 
-                id: string; 
-                title: any; 
-                updated: string; 
-                author: { 
-                    name: any; 
-                }; 
-                link: any; 
-                category: any; 
-                content: any; 
-            }; 
+        body: {
+            entry: {
+                id: string;
+                title: any;
+                updated: string;
+                author: {
+                    name: any;
+                };
+                link: any;
+                category: any;
+                content: any;
+            };
         };
         headers: any;
         md5: any;
@@ -393,7 +393,7 @@ declare module "azure" {
     class StorageServiceClient extends ServiceClient {
         static incorrectStorageAccountErr: string;
         static incorrectStorageAccessKeyErr: string;
-        static getStorageSettings(connectionString: string) : StorageServiceSettings;
+        static getStorageSettings(connectionString: string): StorageServiceSettings;
         static getStorageSettings(storageAccount?: string, storageAccessKey?: string, host?: string): StorageServiceSettings;
 
         apiVersion: string;

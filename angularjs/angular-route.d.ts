@@ -32,8 +32,8 @@ declare module ng.route {
         // to a controller that was not initialized as a result of a route maching.
         current?: ICurrentRoute;
     }
-    
-    
+
+
     /**
      * see http://docs.angularjs.org/api/ngRoute/provider/$routeProvider#when for API documentation
      */

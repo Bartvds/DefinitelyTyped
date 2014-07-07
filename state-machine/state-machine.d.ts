@@ -14,7 +14,7 @@ interface StateMachineEventDef {
 }
 
 interface StateMachineEvent {
-	(...args: any[]): void;
+    (...args: any[]): void;
 }
 
 interface StateMachineConfig {
@@ -50,16 +50,16 @@ interface StateMachineStatic {
 }
 
 interface StateMachineTransition {
-	(): void;
-	cancel(): void;
+    (): void;
+    cancel(): void;
 }
 
 interface StateMachineIs {
-	(state: string): boolean;
+    (state: string): boolean;
 }
 
 interface StateMachineCan {
-	(evt: string): boolean;
+    (evt: string): boolean;
 }
 
 interface StateMachine {
@@ -78,6 +78,6 @@ interface StateMachine {
 
 declare var StateMachine: StateMachineStatic;
 
-declare module "state-machine" { 
-    export = StateMachineStatic; 
+declare module "state-machine" {
+    export = StateMachineStatic;
 }

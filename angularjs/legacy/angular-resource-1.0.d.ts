@@ -19,10 +19,10 @@ declare module ng.resource {
     // that deeply.
     ///////////////////////////////////////////////////////////////////////////
     interface IResourceService {
-    	(url: string, paramDefaults?: any,
-			/** example:  {update: { method: 'PUT' }, delete: deleteDescriptor } 
-			where deleteDescriptor : IActionDescriptor */
-			actionDescriptors?: any): IResourceClass;
+        (url: string, paramDefaults?: any,
+            /** example:  {update: { method: 'PUT' }, delete: deleteDescriptor } 
+            where deleteDescriptor : IActionDescriptor */
+            actionDescriptors?: any): IResourceClass;
     }
 
     // Just a reference to facilitate describing new actions

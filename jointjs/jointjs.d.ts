@@ -76,7 +76,7 @@ declare module joint {
             snapToGrid(p): { x: number; y: number; };
         }
 
-        class ElementView extends CellView  {
+        class ElementView extends CellView {
             scale(sx: number, sy: number);
         }
 
@@ -92,7 +92,7 @@ declare module joint {
             getConnectionLength(): number;
             getPointAtLength(length: number): { x: number; y: number; };
         }
-    
+
     }
 
     module ui { }

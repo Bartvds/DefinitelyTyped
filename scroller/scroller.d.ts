@@ -21,7 +21,7 @@ interface ScrollerOptions {
 
 interface ScrollValues {
     left: number;
-    top: number;    
+    top: number;
 }
 
 interface ScrollValuesWithZoom extends ScrollValues {
@@ -29,7 +29,7 @@ interface ScrollValuesWithZoom extends ScrollValues {
 }
 
 declare class Scroller {
-    constructor (callback: (left: number, top: number, zoom: number) => void , options: ScrollerOptions);
+    constructor(callback: (left: number, top: number, zoom: number) => void, options: ScrollerOptions);
 
     setDimensions(clientWidth: number, clientHeight: number, contentWidth: number, contentHeight: number): void;
     setPosition(left: number, top: number): void;

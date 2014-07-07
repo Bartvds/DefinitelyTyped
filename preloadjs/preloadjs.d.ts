@@ -20,13 +20,13 @@ declare module createjs {
         canceled: boolean;
         loaded: boolean;
         progress: number;
-        
+
         // methods
         buildPath(src: string, data?: Object): string;
         close(): void;
         load(): void;
     }
-    
+
     export class LoadQueue extends AbstractLoader {
         constructor(useXHR?: boolean, basePath?: string, crossOrigin?: string);
         constructor(useXHR?: boolean, basePath?: string, crossOrigin?: boolean);
@@ -48,7 +48,7 @@ declare module createjs {
         static TEXT: string;
         useXHR: boolean;
         static XML: string;
-        
+
         // methods
         getItem(value: string): Object;
         getResult(value: string, rawResult?: boolean): Object;
@@ -66,12 +66,12 @@ declare module createjs {
         setPaused(value: boolean): void;
         setUseXHR(value: boolean): void;
     }
-    
+
     export class PreloadJS {
         static buildDate: string;
         static version: string;
     }
-    
+
     /*
         NOTE: It is commented out because it conflicts with SamplePlugin class of TweenJS.
               this class is mainly for documentation purposes.
@@ -86,18 +86,18 @@ declare module createjs {
     */
 
     export class TagLoader extends AbstractLoader {
-        constructor (item: Object);
-        
+        constructor(item: Object);
+
         // methods
         getResult(): any;
     }
-    
+
     export class XHRLoader extends AbstractLoader {
-        constructor (item: Object, crossOrigin?: string);
-        
+        constructor(item: Object, crossOrigin?: string);
+
         // methods
         getAllResponseHeaders(): string;
         getResponseHeader(header: string): string;
-        getResult (rawResult?: boolean): Object;
+        getResult(rawResult?: boolean): Object;
     }
 }

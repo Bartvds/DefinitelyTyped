@@ -4,6 +4,6 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 declare module "ansicolors" {
-	var colors: {[index: string]: (s: string) => string;};
-	export = colors;
+    var colors: { [index: string]: (s: string) => string; };
+    export = colors;
 }

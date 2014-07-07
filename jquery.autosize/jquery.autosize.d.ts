@@ -6,16 +6,16 @@
 /// <reference path="../jquery/jquery.d.ts" />
 
 interface AutosizeOptions {
-	className?: string;
-	append?: string;
-	callback?: Function;
+    className?: string;
+    append?: string;
+    callback?: Function;
 }
 
 interface Autosize {
-	(): JQuery;
-	(options: AutosizeOptions): JQuery;
+    (): JQuery;
+    (options: AutosizeOptions): JQuery;
 }
 
 interface JQuery {
-	autosize: Autosize;
+    autosize: Autosize;
 }

@@ -1,4 +1,4 @@
-﻿// Type definitions for jQuery tinyscrollbar 1.8
+// Type definitions for jQuery tinyscrollbar 1.8
 // Project: http://baijs.nl/tinyscrollbar/
 // Definitions by: Christiaan Rakowski <https://github.com/csrakowski/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -34,7 +34,7 @@ declare module JQueryTinyScrollbar {
         /**
         * Set the size of the thumb to auto or a fixed number. (default: 'auto')
         */
-        sizethumb?: any; 
+        sizethumb?: any;
     }
 }
 interface JQuery {

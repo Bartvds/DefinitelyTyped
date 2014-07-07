@@ -20,10 +20,10 @@ declare module "noble" {
     export function on(event: "discover", listener: (peripheral: Peripheral) => void): events.EventEmitter;
 
     export class Peripheral extends events.EventEmitter {
-        uuid:          string;
+        uuid: string;
         advertisement: Advertisement;
-        rssi:          number;
-        services:      string[];
+        rssi: number;
+        services: string[];
 
         connect(callback?: (error: string) => void): void;
         disconnect(callback?: () => void): void;
@@ -44,19 +44,19 @@ declare module "noble" {
     }
 
     export interface Advertisement {
-        localName:        string;
-        serviceData:      NodeBuffer;
-        txPowerLevel:     number;
+        localName: string;
+        serviceData: NodeBuffer;
+        txPowerLevel: number;
         manufacturerData: NodeBuffer;
-        serviceUuids:     string[];
+        serviceUuids: string[];
     }
 
     export class Service extends events.EventEmitter {
-        uuid:                 string;
-        name:                 string;
-        type:                 string;
+        uuid: string;
+        name: string;
+        type: string;
         includedServiceUuids: string[];
-        characteristics:      Characteristic[];
+        characteristics: Characteristic[];
 
         discoverIncludedServices(serviceUUIDs: string[], callback?: (error: string, includedServiceUuids: string[]) => void): void;
         discoverCharacteristics(characteristicUUIDs: string[], callback?: (error: string, characteristics: Characteristic[]) => void): void;
@@ -68,10 +68,10 @@ declare module "noble" {
     }
 
     export class Characteristic extends events.EventEmitter {
-        uuid:        string;
-        name:        string;
-        type:        string;
-        properties:  string[];
+        uuid: string;
+        name: string;
+        type: string;
+        properties: string[];
         descriptors: Descriptor[];
 
         read(callback?: (error: string, data: NodeBuffer) => void): void;

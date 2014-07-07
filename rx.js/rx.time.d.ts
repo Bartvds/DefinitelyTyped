@@ -7,29 +7,29 @@
 ///<reference path="rx.time-lite.d.ts" />
 
 declare module Rx {
-	export interface Observable<T> {
-		windowWithTime(timeSpan: number, timeShift: number, scheduler?: IScheduler): Observable<Observable<T>>;
-		windowWithTime(timeSpan: number, scheduler?: IScheduler): Observable<Observable<T>>;
-		windowWithTimeOrCount(timeSpan: number, count: number, scheduler?: IScheduler): Observable<Observable<T>>;
-		bufferWithTime(timeSpan: number, timeShift: number, scheduler?: IScheduler): Observable<T[]>;
-		bufferWithTime(timeSpan: number, scheduler?: IScheduler): Observable<T[]>;
-		bufferWithTimeOrCount(timeSpan: number, count: number, scheduler?: IScheduler): Observable<T[]>;
-	}
+    export interface Observable<T> {
+        windowWithTime(timeSpan: number, timeShift: number, scheduler?: IScheduler): Observable<Observable<T>>;
+        windowWithTime(timeSpan: number, scheduler?: IScheduler): Observable<Observable<T>>;
+        windowWithTimeOrCount(timeSpan: number, count: number, scheduler?: IScheduler): Observable<Observable<T>>;
+        bufferWithTime(timeSpan: number, timeShift: number, scheduler?: IScheduler): Observable<T[]>;
+        bufferWithTime(timeSpan: number, scheduler?: IScheduler): Observable<T[]>;
+        bufferWithTimeOrCount(timeSpan: number, count: number, scheduler?: IScheduler): Observable<T[]>;
+    }
 
-	interface ObservableStatic {
-		timer(dueTime: Date, period: number, scheduler: IScheduler): Observable<number>;
-		timer(dueTime: Date, scheduler: IScheduler): Observable<number>;
+    interface ObservableStatic {
+        timer(dueTime: Date, period: number, scheduler: IScheduler): Observable<number>;
+        timer(dueTime: Date, scheduler: IScheduler): Observable<number>;
 
-		generateWithAbsoluteTime<TState, TResult>(
-			initialState: TState,
-			condition: (state: TState) => boolean,
-			iterate: (state: TState) => TState,
-			resultSelector: (state: TState) => TResult,
-			timeSelector: (state: TState) => Date,
-			scheduler?: IScheduler): Observable<TResult>;
-	}
+        generateWithAbsoluteTime<TState, TResult>(
+            initialState: TState,
+            condition: (state: TState) => boolean,
+            iterate: (state: TState) => TState,
+            resultSelector: (state: TState) => TResult,
+            timeSelector: (state: TState) => Date,
+            scheduler?: IScheduler): Observable<TResult>;
+    }
 }
 
 declare module "rx.time" {
-	export = Rx;
+    export = Rx;
 }

@@ -295,7 +295,7 @@ interface DurandalViewEngineModule {
      * @param {string} id The view id whose view should be cached.
      * @param {DOMElement} view The view to cache.
      */
-    putViewInCache(id:string, view:HTMLElement);
+    putViewInCache(id: string, view: HTMLElement);
 
     /**
      * Creates the view associated with the view id.
@@ -1107,7 +1107,7 @@ declare module 'plugins/serializer' {
     * @param {object} [settings] Settings can specify any of the options allowed by the serialize or deserialize methods.
     * @return {object} The new clone.
     */
-    export function clone<T>(obj:T, settings?:Object): T;
+    export function clone<T>(obj: T, settings?: Object): T;
 }
 
 /**
@@ -1262,8 +1262,8 @@ interface DurandalEventModule {
 }
 
 interface DialogButton {
-  text: string;
-  value: any;
+    text: string;
+    value: any;
 }
 
 interface DurandalAppModule extends DurandalEventSupport<DurandalAppModule> {
@@ -1515,7 +1515,7 @@ interface DurandalRouteConfiguration {
     isActive?: KnockoutComputed<boolean>;
     nav?: any;
     hasChildRoutes?: boolean;
-    viewUrl?:string;
+    viewUrl?: string;
 }
 
 interface DurandalRouteInstruction {

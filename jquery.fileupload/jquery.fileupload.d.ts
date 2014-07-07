@@ -9,7 +9,7 @@
 // Interface options for the plugin 
 interface JQueryFileInputOptions {
 
-	// The drop target element(s), by the default the complete document.
+    // The drop target element(s), by the default the complete document.
     // Set to null to disable drag & drop support:
     dropZone?: HTMLElement;
 
@@ -154,11 +154,10 @@ interface JQueryFileInputOptions {
 
 interface JQueryFileUpload {
 
-    contentType:string;
+    contentType: string;
 }
 
-interface JQuery
-{
+interface JQuery {
     // Interface to the main method of jQuery File Upload
     fileupload(settings: JQueryFileInputOptions): JQueryFileUpload;
 }

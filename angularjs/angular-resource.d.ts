@@ -20,17 +20,17 @@ declare module ng.resource {
     ///////////////////////////////////////////////////////////////////////////
     interface IResourceService {
         (url: string, paramDefaults?: any,
-                                 /** example:  {update: { method: 'PUT' }, delete: deleteDescriptor }
-                                  where deleteDescriptor : IActionDescriptor */
-                                 actionDescriptors?: any): IResourceClass<IResource<any>>;
+            /** example:  {update: { method: 'PUT' }, delete: deleteDescriptor }
+             where deleteDescriptor : IActionDescriptor */
+            actionDescriptors?: any): IResourceClass<IResource<any>>;
         <T, U>(url: string, paramDefaults?: any,
-                                 /** example:  {update: { method: 'PUT' }, delete: deleteDescriptor }
-                                  where deleteDescriptor : IActionDescriptor */
-                                 actionDescriptors?: any): U;
+            /** example:  {update: { method: 'PUT' }, delete: deleteDescriptor }
+             where deleteDescriptor : IActionDescriptor */
+            actionDescriptors?: any): U;
         <T>(url: string, paramDefaults?: any,
-                                 /** example:  {update: { method: 'PUT' }, delete: deleteDescriptor }
-                                  where deleteDescriptor : IActionDescriptor */
-                                 actionDescriptors?: any): IResourceClass<T>;
+            /** example:  {update: { method: 'PUT' }, delete: deleteDescriptor }
+             where deleteDescriptor : IActionDescriptor */
+            actionDescriptors?: any): IResourceClass<T>;
     }
 
     // Just a reference to facilitate describing new actions
@@ -59,7 +59,7 @@ declare module ng.resource {
     // Also, static calls always return the IResource (or IResourceArray) retrieved
     // https://github.com/angular/angular.js/blob/v1.2.0/src/ngResource/resource.js#L538-L549
     interface IResourceClass<T> {
-        new(dataOrParams? : any) : T;
+        new (dataOrParams?: any): T;
         get(): T;
         get(params: Object): T;
         get(success: Function, error?: Function): T;
@@ -115,8 +115,8 @@ declare module ng.resource {
         $delete(success: Function, error?: Function): ng.IPromise<T>;
 
         /** the promise of the original server interaction that created this instance. **/
-        $promise : ng.IPromise<T>;
-        $resolved : boolean;
+        $promise: ng.IPromise<T>;
+        $resolved: boolean;
     }
 
     /**
@@ -124,8 +124,8 @@ declare module ng.resource {
      */
     interface IResourceArray<T> extends Array<T> {
         /** the promise of the original server interaction that created this collection. **/
-        $promise : ng.IPromise<IResourceArray<T>>;
-        $resolved : boolean;
+        $promise: ng.IPromise<IResourceArray<T>>;
+        $resolved: boolean;
     }
 
     /** when creating a resource factory via IModule.factory */
@@ -144,9 +144,8 @@ declare module ng {
     }
 }
 
-interface Array<T>
-{
+interface Array<T> {
     /** the promise of the original server interaction that created this collection. **/
-    $promise : ng.IPromise<Array<T>>;
-    $resolved : boolean;
+    $promise: ng.IPromise<Array<T>>;
+    $resolved: boolean;
 }

@@ -16,7 +16,7 @@ interface CycleOptions {
     autostop?: boolean;                                                                                                                          // true to end slideshow after X transitions (where X == slide count)
     autostopCount?: number;                                                                                                                   // number of transitions (optionally used with autostop to define X)
     backwards?: boolean;                                                                                                                         // true to start slideshow at last slide and move backwards through the stack
-    before?: (currSlideElement: Element, nextSlideElement: Element, options:CycleOptions, forwardFlag: boolean) => void;                         // transition callback (scope set to element to be shown):     function(currSlideElement, nextSlideElement, options, forwardFlag)
+    before?: (currSlideElement: Element, nextSlideElement: Element, options: CycleOptions, forwardFlag: boolean) => void;                         // transition callback (scope set to element to be shown):     function(currSlideElement, nextSlideElement, options, forwardFlag)
     center?: boolean;                                                                                                                            // set to true to have cycle add top/left margin to each slide (use with width and height options)
     cleartype?: boolean;                                                                                                                         // true if clearType corrections should be applied (for IE)
     cleartypeNoBg?: boolean;                                                                                                                     // set to true to disable extra cleartype fixing (leave false to force background color setting on slides)
@@ -83,7 +83,7 @@ interface Cycle {
     custom: (currSlideElement: Element, nextSlideElement: Element, options: CycleOptions, afterCalback: Function, forwardFlag: boolean, speedOverride?: number) => void; // the actual fn for effecting a transition
     commonReset: (currSlideElement: Element, nextSlideElement: Element, options: CycleOptions, w?: boolean, h?: boolean, rev?: boolean) => void;                               // reset common props before the next transition
     hopsFromLast: (options: CycleOptions, forwardFlag?: boolean) => number;                                                                                              // helper fn to calculate the number of slides between the current and the next
-    createPagerAnchor: (index: number, DOMElement: Element, $pager: JQuery, els: any, options: CycleOptions) => string;                                               
+    createPagerAnchor: (index: number, DOMElement: Element, $pager: JQuery, els: any, options: CycleOptions) => string;
     updateActivePagerLink: (pager: any, currSlide: number, clsName: string) => void;                                                                                  // invoked after transition
     resetState: (options: CycleOptions, fx?: string) => void;                                                                                                         // reset internal state; we do this on every pass in order to support multiple effects
 }

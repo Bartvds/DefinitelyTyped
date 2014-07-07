@@ -70,7 +70,7 @@ declare module "express" {
              * @param callbacks
              * @param options
              */
-            new (method: string, path: string, callbacks: Function[], options: any): Route;
+            new(method: string, path: string, callbacks: Function[], options: any): Route;
         }
 
         interface IRouter<T> {
@@ -133,44 +133,44 @@ declare module "express" {
             del(name: string, ...handlers: RequestFunction[]): T;
 
             del(name: RegExp, ...handlers: RequestFunction[]): T;
-            
+
             patch(name: string, ...handlers: RequestFunction[]): T;
- 
+
             patch(name: RegExp, ...handlers: RequestFunction[]): T;
         }
 
         export class Router implements IRouter<Router> {
-          new (options?: any): Router;
+            new(options?: any): Router;
 
-          middleware (): any;
+            middleware(): any;
 
-          param(name: string, fn: Function): Router;
+            param(name: string, fn: Function): Router;
 
-          param(name: any[], fn: Function): Router;
+            param(name: any[], fn: Function): Router;
 
-          all(path: string, fn?: (req: Request, res: Response, next: Function) => any): Router;
+            all(path: string, fn?: (req: Request, res: Response, next: Function) => any): Router;
 
-          all(path: string, ...callbacks: Function[]): void;
+            all(path: string, ...callbacks: Function[]): void;
 
-          get(name: string, ...handlers: RequestFunction[]): Router;
+            get(name: string, ...handlers: RequestFunction[]): Router;
 
-          get(name: RegExp, ...handlers: RequestFunction[]): Router;
+            get(name: RegExp, ...handlers: RequestFunction[]): Router;
 
-          post(name: string, ...handlers: RequestFunction[]): Router;
+            post(name: string, ...handlers: RequestFunction[]): Router;
 
-          post(name: RegExp, ...handlers: RequestFunction[]): Router;
+            post(name: RegExp, ...handlers: RequestFunction[]): Router;
 
-          put(name: string, ...handlers: RequestFunction[]): Router;
+            put(name: string, ...handlers: RequestFunction[]): Router;
 
-          put(name: RegExp, ...handlers: RequestFunction[]): Router;
+            put(name: RegExp, ...handlers: RequestFunction[]): Router;
 
-          del(name: string, ...handlers: RequestFunction[]): Router;
+            del(name: string, ...handlers: RequestFunction[]): Router;
 
-          del(name: RegExp, ...handlers: RequestFunction[]): Router;
-          
-          patch(name: string, ...handlers: RequestFunction[]): Router;
- 
-          patch(name: RegExp, ...handlers: RequestFunction[]): Router;
+            del(name: RegExp, ...handlers: RequestFunction[]): Router;
+
+            patch(name: string, ...handlers: RequestFunction[]): Router;
+
+            patch(name: RegExp, ...handlers: RequestFunction[]): Router;
         }
 
         interface Handler {
@@ -265,7 +265,7 @@ declare module "express" {
              *
              * @param name
              */
-            get (name: string): string;
+            get(name: string): string;
 
             header(name: string): string;
 
@@ -548,7 +548,7 @@ declare module "express" {
             value: string;
             quality: number;
             type: string;
-            subtype:  string;
+            subtype: string;
         }
 
         interface Send {
@@ -782,9 +782,9 @@ declare module "express" {
              *
              * Aliased as `res.header()`.
              */
-            set (field: any): Response;
+            set(field: any): Response;
 
-            set (field: string, value?: string): Response;
+            set(field: string, value?: string): Response;
 
             header(field: any): Response;
 
@@ -795,7 +795,7 @@ declare module "express" {
              *
              * @param field
              */
-            get (field: string): string;
+            get(field: string): string;
 
             /**
              * Clear cookie `name`.
@@ -891,9 +891,9 @@ declare module "express" {
              *  - `filename`  filename of the view being rendered
              */
 
-            render(view: string, options?: Object, callback?: (err: Error, html: string) => void ): void;
-            
-            render(view: string, callback?: (err: Error, html: string) => void ): void;
+            render(view: string, options?: Object, callback?: (err: Error, html: string) => void): void;
+
+            render(view: string, callback?: (err: Error, html: string) => void): void;
 
             locals: any;
 
@@ -977,8 +977,8 @@ declare module "express" {
              * @param setting
              * @param val
              */
-            set (setting: string, val: string): Application;
-            
+            set(setting: string, val: string): Application;
+
             get(name: string): string;
 
             get(name: string, ...handlers: RequestFunction[]): Application;
@@ -1108,7 +1108,7 @@ declare module "express" {
              * @param fn
              */
             render(name: string, options?: Object, callback?: (err: Error, html: string) => void): void;
-            
+
             render(name: string, callback: (err: Error, html: string) => void): void;
 
 
@@ -1476,7 +1476,7 @@ declare module "express" {
          * @param callback or username
          * @param realm
          */
-        export function basicAuth(callback: (user: string, pass: string, fn : Function) => void, realm?: string): Handler;
+        export function basicAuth(callback: (user: string, pass: string, fn: Function) => void, realm?: string): Handler;
 
         export function basicAuth(callback: (user: string, pass: string) => boolean, realm?: string): Handler;
 
@@ -1561,7 +1561,7 @@ declare module "express" {
          *
          * @param options
          */
-        export function csrf(options?: {value?: Function}): Handler;
+        export function csrf(options?: { value?: Function }): Handler;
 
         /**
          * Directory:

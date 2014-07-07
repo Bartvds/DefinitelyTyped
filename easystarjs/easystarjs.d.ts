@@ -8,9 +8,8 @@ easystarjs.d.ts may be freely distributed under the MIT license.
 
 declare module "easystarjs"
 {
-    class js
-    {
-        new (): js;
+    class js {
+        new(): js;
         setGrid(grid: number[][]): void;
         setAcceptableTiles(tiles: number[]): void;
         findPath(startX: number, startY: number, endX: number, endY: number, callback: (path: Position[]) => void): void;
@@ -24,11 +23,9 @@ declare module "easystarjs"
         setTileCost(tileType: number, multiplicativeCost: number): void;
     }
 
-    interface Position
-    {
+    interface Position {
         x: number;
         y: number;
     }
 }
 
- 

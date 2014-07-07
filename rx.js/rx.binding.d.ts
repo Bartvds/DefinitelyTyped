@@ -7,11 +7,11 @@
 ///<reference path="rx.binding-lite.d.ts" />
 
 declare module Rx {
-	export interface Observable<T> {
-		replayWhileObserved(bufferSize?: number, window?: number, scheduler?: IScheduler): Observable<T>;
-	}
+    export interface Observable<T> {
+        replayWhileObserved(bufferSize?: number, window?: number, scheduler?: IScheduler): Observable<T>;
+    }
 }
 
 declare module "rx.binding" {
-	export = Rx;
+    export = Rx;
 }

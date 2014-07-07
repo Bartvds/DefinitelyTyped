@@ -6,18 +6,18 @@
 /// <reference path="../node/node.d.ts" />
 
 declare module 'through2' {
-	import stream = require('stream');
+    import stream = require('stream');
 
-	var mod: mod.Through2;
+    var mod: mod.Through2;
 
-	module mod {
-		interface Through2 {
-			(transform?: (entry: any, enc: string, callback: () => void) => void, flush?: () => void): NodeJS.ReadWriteStream;
-			(opts: stream.DuplexOptions, transform?: (entry: any, enc: string, callback: () => void) => void, flush?: () => void): NodeJS.ReadWriteStream;
-			obj(transform: (entry: any, enc: string, callback: () => void) => void, flush?: () => void): NodeJS.ReadWriteStream;
-			push(data: any): void;
-		}
-	}
-	export = mod;
+    module mod {
+        interface Through2 {
+            (transform?: (entry: any, enc: string, callback: () => void) => void, flush?: () => void): NodeJS.ReadWriteStream;
+            (opts: stream.DuplexOptions, transform?: (entry: any, enc: string, callback: () => void) => void, flush?: () => void): NodeJS.ReadWriteStream;
+            obj(transform: (entry: any, enc: string, callback: () => void) => void, flush?: () => void): NodeJS.ReadWriteStream;
+            push(data: any): void;
+        }
+    }
+    export = mod;
 }
 

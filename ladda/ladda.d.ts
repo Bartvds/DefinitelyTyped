@@ -30,6 +30,6 @@ declare module Ladda {
     function bind(cssSelector: string, options?: ILaddaOptions): void;
 
     function create(button: Element): ILaddaButton;
-    
+
     function stopAll(): void;
 }

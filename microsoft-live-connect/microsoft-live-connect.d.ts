@@ -1452,7 +1452,7 @@ declare module Microsoft.Live {
          */
         updated_time: string;
     }
-    
+
     /**
      * The Video object contains info about a user's videos on SkyDrive. The
      * Live Connect REST API supports creating, reading, updating, and deleting
@@ -2092,7 +2092,7 @@ declare module Microsoft.Live {
          *   corresponding WL.api method, respectively.
          */
         api<T>(properties: IAPIProperties,
-              callback?: (response: any) => void): IPromise<T>;
+            callback?: (response: any) => void): IPromise<T>;
         /**
          * Makes a call to download a file from Microsoft SkyDrive.
          *

@@ -5,8 +5,7 @@
 
 /// <reference path="../hashtable/hashtable.d.ts" />
 
-interface IHashSet<TValue>
-{
+interface IHashSet<TValue> {
     add(value: TValue): void;
     addAll(arr: TValue[]): void;
     contains(value: TValue): boolean;

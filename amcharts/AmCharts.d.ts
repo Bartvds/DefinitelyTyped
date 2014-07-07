@@ -199,7 +199,7 @@ declare module AmCharts {
         */
         addListener(type: string, handler: (e: {/** Always "rollOverSlice". */
             type: string; dataItem: Slice;
-        }) => void );
+        }) => void);
     }
 
     /** AmRadarChart is the class you have to use for radar and polar chart types.
@@ -571,7 +571,7 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
             /** Either "dataUpdated" or "init". */
             type: string;
             chart: AmStockChart;
-        }) => void );
+        }) => void);
 
         /** Adds event listener of the type "rollOutStockEvent" or "rollOverStockEvent" or "clickStockEvent" to the object.
             @param type     // Either "rollOutStockEvent" or "rollOverStockEvent" or "clickStockEvent".
@@ -588,7 +588,7 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
             graph: AmGraph;
             date: Date;
             chart: AmStockChart;
-        }) => void );
+        }) => void);
 
         /** Adds event listener of the type "zoomed" to the object.
             @param type Always "zoomed".
@@ -600,7 +600,7 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
             endDate: Date;
             period: string;
             chart: AmStockChart;
-        }) => void );
+        }) => void);
 
         /** Adds event listener of the type "panelRemoved" to the object.
             @param type Always "panelRemoved".
@@ -611,7 +611,7 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
             type: string;
             panel: StockPanel;
             chart: AmStockChart;
-        }) => void );
+        }) => void);
 
         /** Removes event listener from chart object. */
         removeListener(chart: AmChart, type: string, handler: any);
@@ -819,7 +819,7 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
         */
         addListener(type: string, handler: (e: {/** Always "showItem". */
             type: string; dataItem: Object; chart: AmChart;
-        }) => void );
+        }) => void);
 
         /** Removes event listener from chart object. */
         removeListener(chart: AmChart, type: string, handler: any);
@@ -885,9 +885,9 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
 
     /** AmChart is a base class of all charts. It can not be instantiated explicitly. AmCoordinateChart, AmPieChart and AmMap extend AmChart class. */
     class AmChart {
-    	/** used when constructing a chart with a theme */
-    	constructor(theme: any);
-    	/** Background color. You should set backgroundAlpha to >0 value in order background to be visible. We recommend setting background color directly on a chart's DIV instead of using this property. #FFFFFF */
+        /** used when constructing a chart with a theme */
+        constructor(theme: any);
+        /** Background color. You should set backgroundAlpha to >0 value in order background to be visible. We recommend setting background color directly on a chart's DIV instead of using this property. #FFFFFF */
         backgroundColor: string;
         /** The chart creates AmBalloon class itself. If you want to customize balloon, get balloon instance using this property, and then change balloon's properties.  AmBalloon */
         balloon: AmBalloon;
@@ -988,7 +988,7 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
             /** Either "dataUpdated" or "init". */
             type: string;
             chart: AmChart;
-        }) => void );
+        }) => void);
         /** Removes event listener from chart object. */
         removeListener(chart: AmChart, type: string, handler: any);
     }
@@ -1101,7 +1101,7 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
             item: GraphDataItem;
             index: number;
             chart: AmChart;
-        }) => void );
+        }) => void);
     }
 
     /** GraphDataItem holds all the information about the graph's data item. When working with a chart, you do not create GraphDataItem objects or change it's properties directly. GraphDataItem is passed to you by events when user interacts with data item on the chart. The list of properties below will help you to extract data item's value/coordinate/etc. */
@@ -1140,33 +1140,33 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
 
     /** SerialDataItem holds all the information about each series. When working with a chart, you do not create SerialDataItem objects or change it's properties directly. Consider properties of a SerialDataItem read-only - change values in chart's data provider if you need to. When serial chart parses dataProvider, it generates "chartData" array. Objects of this array are SerialDataItem objects. */
     class SerialDataItem {
-        
+
         /** You can access each GraphDataItem using this object. The data structure is: graphDataItem = serialDataItem.axes[axisId].graphs[graphId]. */
         axes: Object;
-        
+
         /** category value. String if parseDates is false, Date if true. */
         category: any;
-        
+
         /** Timestamp of a series date. Avalable only if parseDates property of CategoryAxis is set to true. */
         time: number;
-        
+
         /** Coordinate (horizontal or vertical, depends on chart's rotate property) of the series. */
         x: number;
     }
 
     class CategoryAxis extends AxisBase {
-        
+
         /** When parse dates is on for the category axis, the chart will try to highlight the beginning of the periods, like month, in bold. Set this to false to disable the functionality.
             @default true
         */
         boldPeriodBeginning: boolean;
-        
+
         /** Date formats of different periods. Possible period values: fff - milliseconds, ss - seconds, mm - minutes, hh - hours, DD - days, MM - months, WW - weeks, YYYY - years. Check this page for date formatting strings. [{period:'fff',format:'JJ:NN:SS'},{period:'ss',format:'JJ:NN:SS'},{period:'mm',format:'JJ:NN'},{period:'hh',format:'JJ:NN'},{period:'DD',format:'MMM DD'},{period:'WW',format:'MMM DD'},{period:'MM',format:'MMM'},{period:'YYYY',format:'YYYY'}] */
         dateFormats: any[];
-        
+
         /** In case your category axis values are Date objects and parseDates is set to true, the chart will parse dates and will place your data points at irregular intervals. However if you want dates to be parsed (displayed on the axis, baloons, etc), but data points to be placed at equal intervals (omiting dates with no data), set equalSpacing to true. */
         equalSpacing: boolean;
-        
+
         /** Field in data provider which specifies if the category value should always be shown. For example: categoryAxis.forceShowField = "forceShow"; Field in data provider which specifies if the category value should always be shown. For example: categoryAxis.forceShowField = "forceShow";
         And in data:
         {category:"one", forceShow:true, value:100}
@@ -1193,7 +1193,7 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
 
         /** Number Returns coordinate of the date, in case parseDates is set to true. if parseDates is false, use categoryToCoordinate method. date - Date object */
         dateToCoordinate(date);
-        
+
         /** Number Returns index of the category which is most close to specified coordinate. x - coordinate */
         xToIndex(x);
     }
@@ -1401,13 +1401,13 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
             @param handler Dispatched when cursor position is changed. "index" is a series index over which chart cursors currently is. "zooming" specifies if user is currently zooming (is selecting) the chart. mostCloseGraph property is set only when oneBalloonOnly is set to true.*/
         addListener(type: string, handler: (e: {/** Always "changed". */
             type: string; index: number; zooming: boolean; mostCloseGraph: AmGraph; chart: AmChart;
-        }) => void );
+        }) => void);
         /** Adds event listener of the type "onHideCursor" to the object.
             @param type Always "onHideCursor".
             @param handler Dispatched when cursor is hidden.*/
         addListener(type: string, handler: (e: {/** Always "onHideCursor". */
             type: string; chart: AmChart;
-        }) => void );
+        }) => void);
         /** Adds event listener of the type "selected" or "zoomed" to the object.
             @param type "selected" or "zoomed".
             @param handler
@@ -1416,7 +1416,7 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
         */
         addListener(type: string, handler: (e: {/** Always "zoomed". */
             type: string; index: number; zooming: boolean; chart: AmChart;
-        }) => void );
+        }) => void);
 
         /** Removes event listener from chart object. */
         removeListener(chart: AmChart, type: string, handler: any);
@@ -1439,7 +1439,7 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
             chart.write("chartdiv");
     */
     class AmSerialChart extends AmRectangularChart {
-    	/** Read-only. Chart creates category axis itself. If you want to change some properties, you should get this axis from the chart and set properties to this object. */
+        /** Read-only. Chart creates category axis itself. If you want to change some properties, you should get this axis from the chart and set properties to this object. */
         categoryAxis: CategoryAxis;
         /** Category field name tells the chart the name of the field in your dataProvider object which will be used for category axis values. */
         categoryField: string;
@@ -1530,7 +1530,7 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
             endDate: Date;
             predefinedPeriod: string;
             count: number;
-        }) => void );
+        }) => void);
 
         /** Removes event listener from chart object. */
         removeListener(chart: AmChart, type: string, handler: any);
@@ -2250,9 +2250,9 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
         titleFontSize: number;
 
         /** Adds guide to the axis. */
-        addGuide(guide:Guide);
+        addGuide(guide: Guide);
         /** Removes guide from the axis. */
-        removeGuide(guide:Guide);
+        removeGuide(guide: Guide);
     }
 
     /** ValueAxis is the class which displays value axis for the chart. The chart can have any number of value axes. For Serial chart one value axis is created automatically. For XY Chart two value axes (horizontal and vertical) are created automatically. */
@@ -2320,12 +2320,12 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
         coordinateToValue(coordinate);
         /** Number - coordinate Returns coordinate of the value in pixels. value - Number */
         getCoordinate(value);
-        
+
         /** Removes event listener from the object. */
         removeListener(obj, type, handler);
-        
+
         /** One value axis can be synchronized with another value axis. You should set synchronizationMultiplyer in order for this to work. */
-        synchronizeWithAxis(axis:ValueAxis);
+        synchronizeWithAxis(axis: ValueAxis);
         /** XY Chart only. Zooms-in the axis to the provided values. */
         zoomToValues(startValue, endValue);
 
@@ -2335,14 +2335,14 @@ If you do not set properties such as dashLength, lineAlpha, lineColor, etc - val
         addListener(type: string, handler: (e: {
             /** Always "axisZoomed". */
             type: string; startValue: Date; endValue: Date; chart: AmChart;
-        }) => void );
+        }) => void);
         /** Adds event listener of the type "logarithmicAxisFailed" to the object.
             @param type Always "logarithmicAxisFailed".
             @param handler Dispatched when valueAxis is logarithmic and values equal or less then zero were found in data.*/
         addListener(type: string, handler: (e: {
             /** Always "logarithmicAxisFailed". */
             type: string; chart: AmChart;
-        }) => void );
+        }) => void);
 
         /** Removes event listener from chart object. */
         removeListener(chart: AmChart, type: string, handler: any);

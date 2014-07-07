@@ -3,7 +3,7 @@
 // Definitions by: Roland Zwaga <https://github.com/rolandzwaga>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-declare function createStoryJS(config:knightlab.ITimeLineConfiguration):void;
+declare function createStoryJS(config: knightlab.ITimeLineConfiguration): void;
 
 declare module knightlab {
 
@@ -96,41 +96,41 @@ declare module knightlab {
     }
 
     export interface ITimelineModel {
-        timeline:ITimeLine;
+        timeline: ITimeLine;
     }
 
     export interface ITimeLine {
-        headline?:string;
-        type?:string;
-        text?:string;
-        asset?:ITimeLineAsset;
-        date?:ITimelineDate[];
-        era?:ITimelineEra[];
+        headline?: string;
+        type?: string;
+        text?: string;
+        asset?: ITimeLineAsset;
+        date?: ITimelineDate[];
+        era?: ITimelineEra[];
     }
 
     export interface ITimeLineAsset {
-        media:string;
-        thumbnail?:string;
-        credit:string;
-        caption:string;
+        media: string;
+        thumbnail?: string;
+        credit: string;
+        caption: string;
     }
 
     export interface ITimelineDate extends ITimelineEra {
-        classname?:string;
-        asset?:ITimeLineAsset;
+        classname?: string;
+        asset?: ITimeLineAsset;
     }
 
     export interface ITimelineEra {
         /*
          * format example: 2011,12,10
          */
-        startDate:string;
+        startDate: string;
         /*
          * format example: 2011,12,10
          */
-        endDate:string;
-        headline:string;
-        text:string;
-        tag?:string;
+        endDate: string;
+        headline: string;
+        text: string;
+        tag?: string;
     }
 }

@@ -199,7 +199,7 @@ interface appFrameworkStatic {
      * @title $.getJSON(url,data,success)
      */
     getJSON(url: string, fn: (data: any, status?: string, xhr?: XMLHttpRequest) => void): XMLHttpRequest;
-    getJSON(url: string, data: any, fn: (data: any, status: string, xhr: XMLHttpRequest) => void ): XMLHttpRequest;
+    getJSON(url: string, data: any, fn: (data: any, status: string, xhr: XMLHttpRequest) => void): XMLHttpRequest;
 
     /**
      * Converts an object into a key/value par with an optional prefix.  Used for converting objects to a query string

@@ -4,98 +4,98 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 interface External {
-	getUnityObject(version:number):Unity;
+    getUnityObject(version: number): Unity;
 }
 
 declare class UnitySettings {
-   public name:String;
-   public iconUrl:String;
-   public onInit:Function;
+    public name: String;
+    public iconUrl: String;
+    public onInit: Function;
 }
 
 declare enum UnityPlaybackState {
-   Playing,
-   Paused
+    Playing,
+    Paused
 }
 
 declare class UnityTrackMetadata {
-   title:String;
+    title: String;
 
-   // Optionals
-   album:String;
-   artist:String;
-   artLocation:String;
+    // Optionals
+    album: String;
+    artist: String;
+    artLocation: String;
 }
 
 interface UnityMediaPlayer {
-   setTrack(trackMetadata:UnityTrackMetadata);
+    setTrack(trackMetadata: UnityTrackMetadata);
 
-   onPrevious(onPreviousCallback:Function);
-   onNext(onNextCallback:Function);
-   onPlayPause(onPlayPauseCallback:Function);
+    onPrevious(onPreviousCallback: Function);
+    onNext(onNextCallback: Function);
+    onPlayPause(onPlayPauseCallback: Function);
 
-   getPlaybackstate(response:Function);
-   setPlaybackstate(state:UnityPlaybackState);
+    getPlaybackstate(response: Function);
+    setPlaybackstate(state: UnityPlaybackState);
 
-   setCanGoNext(cangonext:Boolean);
-   setCanGoPrev(cangoprev:Boolean);
-   setCanPlay(canplay:Boolean);
-   setCanPause(canpause:Boolean);
-}	      
+    setCanGoNext(cangonext: Boolean);
+    setCanGoPrev(cangoprev: Boolean);
+    setCanPlay(canplay: Boolean);
+    setCanPause(canpause: Boolean);
+}
 
 interface UnityNotification {
-   showNotification (summary:String, body:String, iconUrl?:String);
-} 
+    showNotification(summary: String, body: String, iconUrl?: String);
+}
 
 declare class UnityIndicatorProperties {
-   public count:Number;
-   public time:Date;
-   public iconURI:String;
-   public onIndicatorActivated:Function;
+    public count: Number;
+    public time: Date;
+    public iconURI: String;
+    public onIndicatorActivated: Function;
 }
 
 interface UnityMessagingIndicator {
-   showIndicator(name:String, indicatorProperties:UnityIndicatorProperties);
-   clearIndicator(name:String);
-   clearIndicators();
+    showIndicator(name: String, indicatorProperties: UnityIndicatorProperties);
+    clearIndicator(name: String);
+    clearIndicators();
 
-   addAction(name:String, onActionInvoked:Function);
-   removeAction(name:String);
-   removeActions();
-   onPresenceChanged(onPresenceChanged:Function);
-   
-   // This is suppose to be readonly, but i'm not sure how to do this
-   // in a definition file.
-   presence:String;
+    addAction(name: String, onActionInvoked: Function);
+    removeAction(name: String);
+    removeActions();
+    onPresenceChanged(onPresenceChanged: Function);
+
+    // This is suppose to be readonly, but i'm not sure how to do this
+    // in a definition file.
+    presence: String;
 }
 
- interface UnityLauncher {
-   setCount(count:number);
-   clearCount();
-	
-   setProgress(progress:number);
-   clearProgress();
+interface UnityLauncher {
+    setCount(count: number);
+    clearCount();
 
-   setUrgent(urgent:Boolean);
+    setProgress(progress: number);
+    clearProgress();
 
-   addAction(name:String, onActionInvoked:Function);
-   removeAction(name:String);
-   removeActions();
-} 
+    setUrgent(urgent: Boolean);
+
+    addAction(name: String, onActionInvoked: Function);
+    removeAction(name: String);
+    removeActions();
+}
 
 interface Unity {
-	init(settings:UnitySettings);
-	addAction(name:String, callback:Function);
-	removeAction(actionName:String);
-   	removeActions();
+    init(settings: UnitySettings);
+    addAction(name: String, callback: Function);
+    removeAction(actionName: String);
+    removeActions();
 
-	Notification:UnityNotification;
-	MediaPlayer:UnityMediaPlayer;
-	MessagingIndicator:UnityMessagingIndicator;
-	Launcher:UnityLauncher;
+    Notification: UnityNotification;
+    MediaPlayer: UnityMediaPlayer;
+    MessagingIndicator: UnityMessagingIndicator;
+    Launcher: UnityLauncher;
 }
 
 interface BrowserPublic {
-	getUnityObject(version:number):Unity;
+    getUnityObject(version: number): Unity;
 }
 

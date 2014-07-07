@@ -6,12 +6,12 @@
 ///<reference path="../chai/chai-assert.d.ts" />
 
 declare module chai {
-	interface Assert {
-		like(act:any, exp:any, msg?:string);
-		notLike(act:any, exp:any, msg?:string);
-		containOneLike(act:any, exp:any, msg?:string);
-		notContainOneLike(act:any, exp:any, msg?:string);
-		jsonOf(act:any, exp:any, msg?:string);
-		notJsonOf(act:any, exp:any, msg?:string);
-	}
+    interface Assert {
+        like(act: any, exp: any, msg?: string);
+        notLike(act: any, exp: any, msg?: string);
+        containOneLike(act: any, exp: any, msg?: string);
+        notContainOneLike(act: any, exp: any, msg?: string);
+        jsonOf(act: any, exp: any, msg?: string);
+        notJsonOf(act: any, exp: any, msg?: string);
+    }
 }
