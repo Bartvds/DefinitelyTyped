@@ -211,7 +211,7 @@ interface FileSystem {
     workingDirectory: string;
 
     // Function
-	
+
     // Query Functions
     list(path: string): string[];
     absolute(path: string): string;

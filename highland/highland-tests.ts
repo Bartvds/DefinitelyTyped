@@ -48,18 +48,18 @@ var anyArrStream: Highland.Stream<any[]>;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 interface Foo {
-	foo(): string;
+    foo(): string;
 }
 interface Bar {
-	bar(): string;
+    bar(): string;
 }
 
 interface StrFooArrMap {
-	[key:string]: Foo[];
+    [key: string]: Foo[];
 }
 
 interface StrBarArrMap {
-	[key:string]: Bar[];
+    [key: string]: Bar[];
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -127,9 +127,9 @@ fooStream = streamRedirect.to;
 fooStream = _<Foo>();
 fooStream = _(fooArr);
 fooStream = _<Foo>((push, next) => {
-	push(null, foo);
-	push(err);
-	next();
+    push(null, foo);
+    push(err);
+    next();
 });
 
 fooStream = _(fooStream);
@@ -236,15 +236,15 @@ fooStream.destroy();
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barStream = fooStream.consume((err: Error, x: Foo, push: (err: Error, value?: Bar) => void, next: () => void) => {
-	push(err);
-	push(null, bar);
-	next();
+    push(err);
+    push(null, bar);
+    next();
 });
 
 barStream = fooStream.consume<Bar>((err, x, push, next) => {
-	push(err);
-	push(null, bar);
-	next();
+    push(err);
+    push(null, bar);
+    next();
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -270,15 +270,15 @@ fooStream = fooStream.observe();
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooStream = fooStream.errors((err: Error, push: (e: Error, x?: Foo) => void) => {
-	push(err);
-	push(null, x);
-	push(null, foo);
+    push(err);
+    push(null, x);
+    push(null, foo);
 });
 
 fooStream = fooStream.errors((err, push) => {
-	push(err);
-	push(null, x);
-	push(null, foo);
+    push(err);
+    push(null, x);
+    push(null, foo);
 });
 
 fooStream = fooStream.stopOnError((e: Error) => {
@@ -300,15 +300,15 @@ fooStream.toArray((arr: Foo[]) => {
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barStream = fooStream.map((x: Foo) => {
-	return bar;
+    return bar;
 });
 
 barStream = fooStream.flatMap((x: Foo) => {
-	return barStream;
+    return barStream;
 });
 
 barStream = fooStream.flatMap((x: Foo) => {
-	return bar;
+    return bar;
 });
 
 barStream = fooStream.pluck<Bar>(str);
@@ -316,25 +316,25 @@ barStream = fooStream.pluck<Bar>(str);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooStream = fooStream.filter((x: Foo) => {
-	return bool;
+    return bool;
 });
 
 fooStream = fooStream.flatFilter((x: Foo) => {
-	return boolStream;
+    return boolStream;
 });
 
 fooStream = fooStream.reject((x: Foo) => {
-	return bool;
+    return bool;
 });
 
 fooStream = fooStream.find((x: Foo) => {
-	return bool;
+    return bool;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 strFooArrMapStream = fooStream.group((x: Foo) => {
-	return str;
+    return str;
 });
 strFooArrMapStream = fooStream.group(str);
 
@@ -367,17 +367,17 @@ fooStream = fooStream.append(foo);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barStream = fooStream.reduce(bar, (memo: Bar, x: Foo) => {
-	return memo;
+    return memo;
 });
 
 barStream = fooStream.reduce1(bar, (memo: Bar, x: Foo) => {
-	return memo;
+    return memo;
 });
 
 fooArrStream = fooStream.collect();
 
 barStream = fooStream.scan(bar, (memo: Bar, x: Foo) => {
-	return memo;
+    return memo;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

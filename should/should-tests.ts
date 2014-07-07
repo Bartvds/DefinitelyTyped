@@ -11,21 +11,21 @@ should.deepEqual('actual', 'expected');
 should.notDeepEqual('actual', 'expected');
 should.strictEqual('actual', 'expected');
 should.notStrictEqual('actual', 'expected');
-should.throws(() => {});
-should.doesNotThrow(() => {});
+should.throws(() => { });
+should.doesNotThrow(() => { });
 should.ifError('value');
 
 
 class User {
-  name: string;
-  pets: string[];
-  age: number;
+    name: string;
+    pets: string[];
+    age: number;
 }
 
 var user = {
-  name: 'tj',
-  pets: ['tobi', 'loki', 'jane', 'bandit'],
-  age: 17
+    name: 'tj',
+    pets: ['tobi', 'loki', 'jane', 'bandit'],
+    age: 17
 };
 
 user.should.have.property('name', 'tj');
@@ -145,23 +145,23 @@ tj.should.not.include({ name: 'Someone' });
 [[1], [2], [3]].should.includeEql([2]);
 [[1], [2], [3]].should.not.includeEql([4]);
 
-(function () {
-  throw new Error('fail');
+(function() {
+    throw new Error('fail');
 }).should.throw();
 
-(function () {
+(function() {
 }).should.not.throw();
 
-(function () {
-  throw new Error('fail');
+(function() {
+    throw new Error('fail');
 }).should.throw('fail');
 
-(function () {
-  throw new Error('failed to foo');
+(function() {
+    throw new Error('failed to foo');
 }).should.throw(/^fail/);
 
-(function () {
-  throw new Error('failed to baz');
+(function() {
+    throw new Error('failed to baz');
 }).should.throwError(/^fail.*/);
 
 var obj = { foo: 'bar', baz: 'raz' };

@@ -8,10 +8,10 @@ var uid3: string = uuid.v3()
 var uid4: string = uuid.v4()
 
 var options: UUIDOptions = {
-  node: [],
-  clockseq: 2,
-  nsecs: 3,
-  msecs: new Date()
+    node: [],
+    clockseq: 2,
+    nsecs: 3,
+    msecs: new Date()
 }
 
 var padding: number[] = [0, 1, 2]

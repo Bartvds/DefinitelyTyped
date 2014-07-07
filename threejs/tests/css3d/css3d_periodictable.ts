@@ -1,4 +1,4 @@
-﻿/// <reference path="../../three.d.ts" />
+/// <reference path="../../three.d.ts" />
 /// <reference path="../../../tween.js/tween.js.d.ts" />
 /// <reference path="../three-tests-setup.ts" />
 
@@ -262,28 +262,28 @@
         controls.addEventListener('change', render);
 
         var button = document.getElementById('table');
-        button.addEventListener('click', function (event) {
+        button.addEventListener('click', function(event) {
 
             transform(targets.table, 2000);
 
         }, false);
 
         var button = document.getElementById('sphere');
-        button.addEventListener('click', function (event) {
+        button.addEventListener('click', function(event) {
 
             transform(targets.sphere, 2000);
 
         }, false);
 
         var button = document.getElementById('helix');
-        button.addEventListener('click', function (event) {
+        button.addEventListener('click', function(event) {
 
             transform(targets.helix, 2000);
 
         }, false);
 
         var button = document.getElementById('grid');
-        button.addEventListener('click', function (event) {
+        button.addEventListener('click', function(event) {
 
             transform(targets.grid, 2000);
 

@@ -3,7 +3,7 @@
 var assert: any;
 var mode: any;
 var exports = {
-    "test: token iterator initialization in JavaScript document": function () {
+    "test: token iterator initialization in JavaScript document": function() {
         var lines = [
             "function foo(items) {",
             "    for (var i=0; i<items.length; i++) {",
@@ -11,7 +11,7 @@ var exports = {
             "    } // Real Tab.",
             "}"
         ];
-        var session = new AceAjax.EditSession(lines.join("\n"),mode);
+        var session = new AceAjax.EditSession(lines.join("\n"), mode);
 
         var iterator = new AceAjax.TokenIterator(session, 0, 0);
         assert.equal(iterator.getCurrentToken().value, "function");
@@ -57,7 +57,7 @@ var exports = {
         assert.equal(iterator.getCurrentToken(), null);
     },
 
-    "test: token iterator initialization in text document": function () {
+    "test: token iterator initialization in text document": function() {
         var lines = [
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit,",
             "sed do eiusmod tempor incididunt ut labore et dolore magna",
@@ -90,7 +90,7 @@ var exports = {
         assert.equal(iterator.getCurrentToken(), null);
     },
 
-    "test: token iterator step forward in JavaScript document": function () {
+    "test: token iterator step forward in JavaScript document": function() {
         var lines = [
             "function foo(items) {",
             "    for (var i=0; i<items.length; i++) {",
@@ -98,7 +98,7 @@ var exports = {
             "    } // Real Tab.",
             "}"
         ];
-        var session = new AceAjax.EditSession(lines.join("\n"),mode);
+        var session = new AceAjax.EditSession(lines.join("\n"), mode);
 
         var tokens = [];
         var len = session.getLength();
@@ -112,7 +112,7 @@ var exports = {
         assert.equal(iterator.getCurrentToken(), null);
     },
 
-    "test: token iterator step backward in JavaScript document": function () {
+    "test: token iterator step backward in JavaScript document": function() {
         var lines = [
             "function foo(items) {",
             "     for (var i=0; i<items.length; i++) {",
@@ -120,7 +120,7 @@ var exports = {
             "     } // Real Tab.",
             "}"
         ];
-        var session = new AceAjax.EditSession(lines.join("\n"),mode);
+        var session = new AceAjax.EditSession(lines.join("\n"), mode);
 
         var tokens = [];
         var len = session.getLength();
@@ -134,7 +134,7 @@ var exports = {
         assert.equal(iterator.getCurrentToken(), null);
     },
 
-    "test: token iterator reports correct row and column": function () {
+    "test: token iterator reports correct row and column": function() {
         var lines = [
             "function foo(items) {",
             "    for (var i=0; i<items.length; i++) {",
@@ -142,7 +142,7 @@ var exports = {
             "    } // Real Tab.",
             "}"
         ];
-        var session = new AceAjax.EditSession(lines.join("\n"),mode);
+        var session = new AceAjax.EditSession(lines.join("\n"), mode);
 
         var iterator = new AceAjax.TokenIterator(session, 0, 0);
 

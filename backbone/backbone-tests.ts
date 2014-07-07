@@ -248,9 +248,9 @@ module v1Changes {
             var model = new Employee;
 
             model.save({
-                    name: 'Joe Doe',
-                    age: 21
-                },
+                name: 'Joe Doe',
+                age: 21
+            },
                 {
                     wait: true,
                     validate: false,
@@ -259,9 +259,9 @@ module v1Changes {
                 });
 
             model.save({
-                    name: 'Joe Doe',
-                    age: 21
-                },
+                name: 'Joe Doe',
+                age: 21
+            },
                 {
                     success: () => { },
                     error: (m?, jqxhr?) => { }

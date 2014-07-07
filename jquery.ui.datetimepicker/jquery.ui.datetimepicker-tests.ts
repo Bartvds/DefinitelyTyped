@@ -3,7 +3,7 @@
 
 // basic no options
 $('#datetimepicker').datetimepicker({
-    
+
 });
 
 // basic with some options

@@ -6,7 +6,7 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 // Tests taken from the getting started section of the Tooltipster website
 
-$(document).ready(function () {
+$(document).ready(function() {
 
     $('.tooltip').tooltipster();
 
@@ -16,7 +16,7 @@ $(document).ready(function () {
 });
 
 
-$(document).ready(function () {
+$(document).ready(function() {
     $('.tooltip').tooltipster({
         contentAsHTML: true
     });
@@ -70,7 +70,7 @@ $('.tooltip').tooltipster('elementIcon');
 
 $('.tooltip').tooltipster({
     content: 'Loading...',
-    functionBefore: function (origin, continueTooltip) {
+    functionBefore: function(origin, continueTooltip) {
 
         // we'll make this function asynchronous and allow the tooltip to go ahead and show the loading notification while fetching our data
         continueTooltip();
@@ -80,7 +80,7 @@ $('.tooltip').tooltipster({
             $.ajax({
                 type: 'POST',
                 url: 'example.php',
-                success: function (data) {
+                success: function(data) {
                     // update our tooltip content with our returned data and cache it
                     origin.tooltipster('content', data).data('ajax', 'cached');
                 }
@@ -103,7 +103,7 @@ $('.tooltip').tooltipster({
             $.ajax({
                 type: 'POST',
                 url: 'example.php',
-                success: function (data) {
+                success: function(data) {
                     // update our tooltip content with our returned data and cache it
                     origin.tooltipster('content', data).data('ajax', 'cached');
                 }
@@ -113,7 +113,7 @@ $('.tooltip').tooltipster({
 });
 
 $('.tooltip').tooltipster({
-    functionInit: function (origin, content) {
+    functionInit: function(origin, content) {
 
         if (content === 'This is bad content') {
 
@@ -121,7 +121,7 @@ $('.tooltip').tooltipster({
             $.ajax({
                 type: 'POST',
                 url: 'example.php',
-                success: function (data) {
+                success: function(data) {
                     origin.tooltipster('content', 'New content has been loaded : ' + data);
                 }
             });
@@ -144,7 +144,7 @@ $('.tooltip').tooltipster({
             $.ajax({
                 type: 'POST',
                 url: 'example.php',
-                success: function (data) {
+                success: function(data) {
                     origin.tooltipster('content', 'New content has been loaded : ' + data);
                 }
             });
@@ -158,7 +158,7 @@ $('.tooltip').tooltipster({
     }
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
 
     // first on page load, initiate the Tooltipster plugin
     $('.tooltip').tooltipster();
@@ -167,16 +167,16 @@ $(document).ready(function () {
     $('#example').tooltipster('show');
 
     // as soon as a key is pressed on the keyboard, hide the tooltip.
-    $(window).keypress(function () {
+    $(window).keypress(function() {
         $('#example').tooltipster('hide');
     });
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
 
     $('.tooltip').tooltipster();
 
-    $('#example').tooltipster('show', function () {
+    $('#example').tooltipster('show', function() {
         alert('The tooltip is now fully open. The content is: ' + this.tooltipster('content'));
     });
 
@@ -184,8 +184,8 @@ $(document).ready(function () {
         alert('The tooltip is now fully open. The content is: ' + this.tooltipster('content'));
     });
 
-    $(window).keypress(function () {
-        $('#example').tooltipster('hide', function () {
+    $(window).keypress(function() {
+        $('#example').tooltipster('hide', function() {
             alert('The tooltip is now fully closed');
         });
     });

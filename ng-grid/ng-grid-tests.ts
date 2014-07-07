@@ -7,7 +7,7 @@ var options1: ngGrid.IGridOptions = {
 
 var options2: ngGrid.IGridOptions = {
     afterSelectionChange: () => { },
-    beforeSelectionChange: () => {return true; },
+    beforeSelectionChange: () => { return true; },
     dataUpdated: () => { }
 };
 
@@ -28,26 +28,26 @@ var options4: ngGrid.IGridOptions = {
 };
 
 var columnDef: ngGrid.IColumnDef = {
-	width:{},
-	minWidth:{},
-	visible:false,
-	field:'',
-	displayName:'',
-	sortable:false,
-	resizable:false,
-	groupable:false,
-	pinnable:false,
-	editableCellTemplate:'',
-	enableCellEdit:false,
-	cellEditableCondition:'',
-	sortFn:(a:any, b:any):number=> { return 0 },
-	cellTemplate:'',
-	cellClass:'',
-	headerClass:'',
-	headerCellTemplate:'',
-	cellFilter:'',
-	aggLabelFilter:'',
-	pinned:false
+    width: {},
+    minWidth: {},
+    visible: false,
+    field: '',
+    displayName: '',
+    sortable: false,
+    resizable: false,
+    groupable: false,
+    pinnable: false,
+    editableCellTemplate: '',
+    enableCellEdit: false,
+    cellEditableCondition: '',
+    sortFn: (a: any, b: any): number=> { return 0 },
+    cellTemplate: '',
+    cellClass: '',
+    headerClass: '',
+    headerCellTemplate: '',
+    cellFilter: '',
+    aggLabelFilter: '',
+    pinned: false
 }
 
 var searchProvider: ngGrid.ISearchProvider = <ngGrid.ISearchProvider>{};
@@ -55,7 +55,7 @@ searchProvider.fieldMap = {};
 searchProvider.extFilter = false;
 searchProvider.evalFilter();
 
-var nr:number;
+var nr: number;
 
 var selectionProvider: ngGrid.ISelectionProvider = <ngGrid.ISelectionProvider>{};
 selectionProvider.multi = false;
@@ -118,19 +118,19 @@ renderedRange.bottomRow = 0;
 renderedRange.topRow = 0;
 
 var rowFactory: ngGrid.IRowFactory = <ngGrid.IRowFactory>{};
-rowFactory.aggCache= null;
-rowFactory.dataChanged= false;
-rowFactory.groupedData= null;
+rowFactory.aggCache = null;
+rowFactory.dataChanged = false;
+rowFactory.groupedData = null;
 rowFactory.numberOfAggregates = 0;
-rowFactory.parentCache= [];
-rowFactory.parsedData= [];
+rowFactory.parentCache = [];
+rowFactory.parsedData = [];
 rowFactory.renderedRange = <ngGrid.IRenderedRange>{};
 rowFactory.rowConfig = <ngGrid.IRowConfig>{};
 rowFactory.rowHeight = 0;
 rowFactory.selectionProvider = <ngGrid.ISelectionProvider>{};
 rowFactory.UpdateViewableRange(<ngGrid.IRenderedRange>{});
 aggregate = rowFactory.buildAggregateRow({}, 0);
-var row:ngGrid.IRow = rowFactory.buildEntityRow({}, 0);
+var row: ngGrid.IRow = rowFactory.buildEntityRow({}, 0);
 rowFactory.filteredRowsChanged();
 rowFactory.fixRowCache();
 rowFactory.getGrouping({});
@@ -152,11 +152,11 @@ elmDimension.scrollH = 0;
 elmDimension.scrollW = 0;
 
 var row: ngGrid.IRow = <ngGrid.IRow>{};
-row.entity= {};
+row.entity = {};
 row.config = <ngGrid.IRowConfig>{};
 row.selectionProvider = <ngGrid.ISelectionProvider>{};
 row.rowIndex = 0;
-row.utils= {};
+row.utils = {};
 row.selected = false;
 row.cursor = '';
 row.offsetTop = 0;
@@ -166,10 +166,10 @@ row.beforeSelectionChange();
 row.setSelection(false);
 row.continueSelection({});
 row.ensureEntity({});
-var b:boolean = row.toggleSelected({});
+var b: boolean = row.toggleSelected({});
 row.alternatingRowClass();
-var a:any = row.getProperty('');
-var r:ngGrid.IRow = row.copy();
+var a: any = row.getProperty('');
+var r: ngGrid.IRow = row.copy();
 row.setVars(<ngGrid.IRow>{});
 
 var column: ngGrid.IColumn = <ngGrid.IColumn>{};
@@ -198,12 +198,12 @@ column.pinned = false;
 column.originalIndex = 0;
 column.groupable = false;
 column.sortDirection = '';
-column.sortingAlgorithm = ()=>{};
+column.sortingAlgorithm = () => { };
 column.headerClass = '';
 column.cursor = '';
 column.headerCellTemplate = '';
 column.cellTemplate = '';
-var s:string = column.groupedByClass();
+var s: string = column.groupedByClass();
 column.toggleVisible();
 b = column.showSortButtonUp();
 b = column.showSortButtonDown();
@@ -213,7 +213,7 @@ a = column.gripClick();
 a = column.gripOnMouseDown({});
 column.onMouseMove({});
 column.gripOnMouseUp({});
-var c:ngGrid.IColumn = column.copy();
+var c: ngGrid.IColumn = column.copy();
 column.setVars(c);
 
 var gridScope: ngGrid.IGridScope = <ngGrid.IGridScope>{};
@@ -290,7 +290,7 @@ gridInstance.clearSortingData();
 gridInstance.configureColumnWidths();
 gridInstance.fixColumnIndexes();
 gridInstance.fixGroupIndexes();
-var p:ng.IPromise<any> = gridInstance.getTemplate('');
+var p: ng.IPromise<any> = gridInstance.getTemplate('');
 p = gridInstance.init();
 p = gridInstance.initTemplates();
 gridInstance.minRowsToRender();
@@ -301,13 +301,13 @@ gridInstance.sortActual();
 gridInstance.sortColumnsInit();
 gridInstance.sortData(<ngGrid.IColumn>{}, {});
 
-var test_styleProvider:ngGrid.IStyleProvider = new ngStyleProvider(<ngGrid.IGridScope>{}, <ngGrid.IGridInstance>{});
-var test_searchProvider:ngGrid.ISearchProvider = new ngSearchProvider(<ngGrid.IGridScope>{}, <ngGrid.IGridInstance>{}, <ng.IFilterService>{});
-var test_selectionProvider:ngGrid.ISelectionProvider = new ngSelectionProvider(<ngGrid.IGridInstance>{}, <ngGrid.IGridScope>{}, <ng.IParseService>{});
-var test_eventProvider:ngGrid.IEventProvider = new ngEventProvider(<ngGrid.IGridInstance>{}, <ngGrid.IGridScope>{}, <ngGrid.service.IDomUtilityService>{}, <ng.ITimeoutService>{});
-var test_aggregate:ngGrid.IAggregate = new ngAggregate({}, <ngGrid.IRowFactory>{}, 10, true);
-var test_renderedRange:ngGrid.IRenderedRange = new ngRenderedRange(1, 2);
-var test_dimension:ngGrid.IDimension = new ngDimension({});
-var test_row:ngGrid.IRow = new ngRow({}, <ngGrid.IRowConfig>{}, <ngGrid.ISelectionProvider>{}, 0, {});
-var test_column:ngGrid.IColumn = new ngColumn(<ngGrid.IGridOptions>{}, <ngGrid.IGridScope>{}, <ngGrid.IGridInstance>{}, <ngGrid.service.IDomUtilityService>{}, <ng.ITemplateCacheService>{}, {});
-var test_footer:ngGrid.IFooter = new ngFooter(<ngGrid.IGridScope>{}, <ngGrid.IGridInstance>{});
+var test_styleProvider: ngGrid.IStyleProvider = new ngStyleProvider(<ngGrid.IGridScope>{}, <ngGrid.IGridInstance>{});
+var test_searchProvider: ngGrid.ISearchProvider = new ngSearchProvider(<ngGrid.IGridScope>{}, <ngGrid.IGridInstance>{}, <ng.IFilterService>{});
+var test_selectionProvider: ngGrid.ISelectionProvider = new ngSelectionProvider(<ngGrid.IGridInstance>{}, <ngGrid.IGridScope>{}, <ng.IParseService>{});
+var test_eventProvider: ngGrid.IEventProvider = new ngEventProvider(<ngGrid.IGridInstance>{}, <ngGrid.IGridScope>{}, <ngGrid.service.IDomUtilityService>{}, <ng.ITimeoutService>{});
+var test_aggregate: ngGrid.IAggregate = new ngAggregate({}, <ngGrid.IRowFactory>{}, 10, true);
+var test_renderedRange: ngGrid.IRenderedRange = new ngRenderedRange(1, 2);
+var test_dimension: ngGrid.IDimension = new ngDimension({});
+var test_row: ngGrid.IRow = new ngRow({}, <ngGrid.IRowConfig>{}, <ngGrid.ISelectionProvider>{}, 0, {});
+var test_column: ngGrid.IColumn = new ngColumn(<ngGrid.IGridOptions>{}, <ngGrid.IGridScope>{}, <ngGrid.IGridInstance>{}, <ngGrid.service.IDomUtilityService>{}, <ng.ITemplateCacheService>{}, {});
+var test_footer: ngGrid.IFooter = new ngFooter(<ngGrid.IGridScope>{}, <ngGrid.IGridInstance>{});

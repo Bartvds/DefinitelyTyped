@@ -10,10 +10,10 @@ HTML({ lang: "en" },
         STYLE({ type: "text/css" },
             STYLE.on("body", { textAlign: "center", fontSize: 50 }),
             STYLE.on("h1", opacity(50), { background: "#000", color: "#fff" })
-        )
-    ),
+            )
+        ),
     BODY(H1("Welcome to d?mo"))
-);
+    );
 
 var withDomo = A({ href: "http://domo-js.com" }, "Learn about d?mo");
 
@@ -25,7 +25,7 @@ var styleSheet =
     STYLE({ type: "text/css" },
         STYLE.on("a", { color: "red" }),
         STYLE.on("*", { margin: 0, padding: 0 })
-    );
+        );
 
 var blue = "#3B5998";
 var gray = "#3B3B3B";
@@ -43,24 +43,24 @@ var styleSheet2 =
     STYLE({ type: "text/css" },
         STYLE.on("h2", { color: gray }, roundedCorners(defaultRadius)),
         STYLE.on("h1", { color: blue }, roundedCorners(defaultRadius * 2))
-    );
+        );
 
 var nestedStyles =
     STYLE({ type: "text/css" },
         STYLE.on("a", { color: "red" },
             STYLE.on("img", { borderWidth: 0 })
-        )
-    );
+            )
+        );
 
 var normalStyles =
     STYLE({ type: "text/css" },
         STYLE.on("a", { color: "red" }),
         STYLE.on("a img", { borderWidth: 0 })
-    );
+        );
 
 var domo = domo.global(false);
 
 domo.HTML(
-  domo.HEAD(domo.TITLE("Hello, world.")),
-  domo.BODY("Hello, world.")
-);
+    domo.HEAD(domo.TITLE("Hello, world.")),
+    domo.BODY("Hello, world.")
+    );

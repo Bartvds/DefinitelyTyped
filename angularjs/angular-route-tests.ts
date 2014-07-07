@@ -8,10 +8,10 @@
 
 declare var $routeProvider: ng.route.IRouteProvider;
 $routeProvider
-        .when('/projects/:projectId/dashboard',{
-            controller: '',
-            templateUrl: '',
-            caseInsensitiveMatch: true,
-            reloadOnSearch: false
-        })
-        .otherwise({redirectTo: '/'});
+    .when('/projects/:projectId/dashboard', {
+        controller: '',
+        templateUrl: '',
+        caseInsensitiveMatch: true,
+        reloadOnSearch: false
+    })
+    .otherwise({ redirectTo: '/' });

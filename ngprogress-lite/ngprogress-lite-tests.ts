@@ -1,4 +1,4 @@
-﻿///<reference path="../angularjs/angular.d.ts" />
+///<reference path="../angularjs/angular.d.ts" />
 /// <reference path="./ngprogress-lite.d.ts" />
 
 var app = angular.module('testApp', ['ngProgressLite']);
@@ -15,7 +15,7 @@ app.config(
         }
     ]);
 
-app.controller('testCtrl', ($scope: ng.IScope, ngProgressLite : ng.progressLite.INgProgressLite) => {
+app.controller('testCtrl', ($scope: ng.IScope, ngProgressLite: ng.progressLite.INgProgressLite) => {
 
     ngProgressLite.set(0.4);
 

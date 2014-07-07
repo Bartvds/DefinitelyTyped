@@ -13,11 +13,11 @@ gantt.config.scale_height = 40;
 gantt.config.xml_date = "%m-%d-%Y";
 
 //templates
-gantt.templates.task_class = function (start: Date, end: Date, task: any) {
-	if (task.some)
-		return "classA";
-	else
-		return "classB";
+gantt.templates.task_class = function(start: Date, end: Date, task: any) {
+    if (task.some)
+        return "classA";
+    else
+        return "classB";
 }
 
 //locale
@@ -28,6 +28,6 @@ gantt.init("scheduler_here", start);
 gantt.load("/data/events");
 
 //events
-gantt.attachEvent("onBeforeLightbox", function (id?: string) {
-	gantt.showTask(id);
+gantt.attachEvent("onBeforeLightbox", function(id?: string) {
+    gantt.showTask(id);
 });

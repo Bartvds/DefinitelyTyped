@@ -1,15 +1,15 @@
-﻿///<reference path="SharePoint.d.ts" />
+///<reference path="SharePoint.d.ts" />
 
 // Website tasks
-function retrieveWebsite(resultpanel:HTMLElement) {
+function retrieveWebsite(resultpanel: HTMLElement) {
     var clientContext = SP.ClientContext.get_current();
     var oWebsite = clientContext.get_web();
     clientContext.load(oWebsite);
 
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
         resultpanel.innerHTML = "Web site title: " + oWebsite.get_title();
@@ -21,17 +21,17 @@ function retrieveWebsite(resultpanel:HTMLElement) {
 }
 
 function retrieveWebsiteProps(resultpanel: HTMLElement) {
-    
+
     var clientContext = SP.ClientContext.get_current();
     var oWebsite = clientContext.get_web();
 
     clientContext.load(oWebsite, "Description", "Created");
 
-    clientContext.executeQueryAsync(successHandler,errorHandler);
+    clientContext.executeQueryAsync(successHandler, errorHandler);
 
     function successHandler() {
         resultpanel.innerHTML = "Description: " + oWebsite.get_description() +
-            "<br/>Date created: " + oWebsite.get_created();
+        "<br/>Date created: " + oWebsite.get_created();
     }
 
     function errorHandler() {
@@ -50,9 +50,9 @@ function writeWebsiteProps(resultpanel: HTMLElement) {
     clientContext.load(oWebsite, "Description");
 
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
 
     function successHandler() {
@@ -74,19 +74,19 @@ function readAllProps(resultpanel: HTMLElement) {
     clientContext.load(collList);
 
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
 
         var listEnumerator = collList.getEnumerator();
-        
+
         var listInfo = "";
         while (listEnumerator.moveNext()) {
             var oList = listEnumerator.get_current();
             listInfo += "Title: " + oList.get_title() + " Created: " +
-                oList.get_created().toString() + "<br/>";
+            oList.get_created().toString() + "<br/>";
         }
 
         resultpanel.innerHTML = listInfo;
@@ -107,19 +107,19 @@ function readSpecificProps(resultpanel: HTMLElement) {
     clientContext.load(collList, "Include(Title, Id)");
 
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
-       
+
         var listEnumerator = collList.getEnumerator();
 
         var listInfo = "";
         while (listEnumerator.moveNext()) {
             var oList = listEnumerator.get_current();
             listInfo += "Title: " + oList.get_title() +
-                " ID: " + oList.get_id().toString() + "<br/>";
+            " ID: " + oList.get_id().toString() + "<br/>";
         }
 
         resultpanel.innerHTML = listInfo;
@@ -139,18 +139,18 @@ function readColl(resultpanel: HTMLElement) {
     var listInfoCollection = clientContext.loadQuery(collList, "Include(Title, Id)");
 
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
         var listInfo = "";
         for (var i = 0; i < listInfoCollection.length; i++) {
             var oList = listInfoCollection[i];
             listInfo += "Title: " + oList.get_title() +
-                " ID: " + oList.get_id().toString() + "<br/>";
+            " ID: " + oList.get_id().toString() + "<br/>";
         }
-        
+
         resultpanel.innerHTML = listInfo;
     }
 
@@ -168,9 +168,9 @@ function readFilter(resultpanel: HTMLElement) {
         "Include(Title,Fields.Include(Title,InternalName))");
 
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
 
@@ -186,8 +186,8 @@ function readFilter(resultpanel: HTMLElement) {
 
                 if (regEx.test(oField.get_internalName())) {
                     listInfo += "List: " + oList.get_title() +
-                        "<br/>&nbsp;&nbsp;&nbsp;&nbsp;Field Title: " + oField.get_title() +
-                        "<br/>&nbsp;&nbsp;&nbsp;&nbsp;Field Internal name: " + oField.get_internalName();
+                    "<br/>&nbsp;&nbsp;&nbsp;&nbsp;Field Title: " + oField.get_title() +
+                    "<br/>&nbsp;&nbsp;&nbsp;&nbsp;Field Internal name: " + oField.get_internalName();
                 }
             }
         }
@@ -214,9 +214,9 @@ function createList(resultpanel: HTMLElement) {
     clientContext.load(oList);
 
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
         resultpanel.innerHTML = "Go to the <a href='../Lists/My Announcements List'>list</a>.";
@@ -238,9 +238,9 @@ function updateList(resultpanel: HTMLElement) {
 
     clientContext.load(oList);
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
         resultpanel.innerHTML = "Check the description in the <a href='../Lists/My Announcements List'>list</a>.";
@@ -261,7 +261,7 @@ function addField(resultpanel: HTMLElement) {
         "<Field DisplayName='MyField' Type='Number' />",
         true,
         SP.AddFieldOptions.defaultValue
-    );
+        );
 
     var fieldNumber = <SP.FieldNumber>clientContext.castTo(oField, SP.FieldNumber);
     fieldNumber.set_maximumValue(100);
@@ -271,9 +271,9 @@ function addField(resultpanel: HTMLElement) {
     clientContext.load(oField);
 
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
         resultpanel.innerHTML = "The <a href='../Lists/My Announcements List'>list</a> with a new field.";
@@ -293,9 +293,9 @@ function deleteList(resultpanel: HTMLElement) {
     oList.deleteObject();
 
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
         resultpanel.innerHTML = listTitle + " deleted.";
@@ -320,9 +320,9 @@ function createFolder(resultpanel: HTMLElement) {
 
     clientContext.load(oListItem);
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
         resultpanel.innerHTML = "Go to the <a href='../Lists/Shared Documents'>document library</a> to see your new folder.";
@@ -338,15 +338,15 @@ function updateFolder(resultpanel: HTMLElement) {
     var oWebsite = clientContext.get_web();
     var oList = oWebsite.get_lists().getByTitle("Shared Documents");
 
-    var  oListItem = oList.getItemById(1);
+    var oListItem = oList.getItemById(1);
     oListItem.set_item("FileLeafRef", "My updated folder");
     oListItem.update();
 
     clientContext.load(oListItem);
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
         resultpanel.innerHTML = "Go to the <a href='../Lists/Shared Documents'>document library</a> to see your updated folder.";
@@ -358,7 +358,7 @@ function updateFolder(resultpanel: HTMLElement) {
 }
 
 function deleteFolder(resultpanel: HTMLElement) {
-    var clientContext =     SP.ClientContext.get_current();
+    var clientContext = SP.ClientContext.get_current();
     var oWebsite = clientContext.get_web();
     var oList = oWebsite.get_lists().getByTitle("Shared Documents");
 
@@ -366,9 +366,9 @@ function deleteFolder(resultpanel: HTMLElement) {
     oListItem.deleteObject();
 
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
         resultpanel.innerHTML = "Go to the <a href='../Lists/Shared Documents'>document library</a> to make sure the folder is no longer there.";
@@ -389,14 +389,14 @@ function readItems(resultpanel: HTMLElement) {
         '<View><Query><Where><Geq><FieldRef Name=\'ID\'/>' +
         '<Value Type=\'Number\'>1</Value></Geq></Where></Query>' +
         '<RowLimit>10</RowLimit></View>'
-    );
+        );
     var collListItem = oList.getItems(camlQuery);
 
     clientContext.load(collListItem);
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
         var listItemEnumerator = collListItem.getEnumerator();
@@ -405,8 +405,8 @@ function readItems(resultpanel: HTMLElement) {
         while (listItemEnumerator.moveNext()) {
             var oListItem = listItemEnumerator.get_current();
             listItemInfo += "ID: " + oListItem.get_id() + "<br/>" +
-                "Title: " + oListItem.get_item("Title") + "<br/>" +
-                "Body: " + oListItem.get_item("Body") + "<br/>";
+            "Title: " + oListItem.get_item("Title") + "<br/>" +
+            "Body: " + oListItem.get_item("Body") + "<br/>";
         }
 
         resultpanel.innerHTML = listItemInfo;
@@ -428,9 +428,9 @@ function readInclude(resultpanel: HTMLElement) {
 
     clientContext.load(collListItem, "Include(Id, DisplayName, HasUniqueRoleAssignments)");
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
         var listItemEnumerator = collListItem.getEnumerator();
@@ -462,12 +462,12 @@ function createListItem(resultpanel: HTMLElement) {
     oListItem.set_item("Title", "My New Item!");
     oListItem.set_item("Body", "Hello World!");
     oListItem.update();
-    
+
     clientContext.load(oListItem);
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
         resultpanel.innerHTML = "Go to the <a href='../Lists/Announcements'>list</a> to see your new item.";
@@ -489,9 +489,9 @@ function updateListItem(resultpanel: HTMLElement) {
 
     clientContext.load(oListItem);
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
         resultpanel.innerHTML = "Go to the <a href='../Lists/Announcements'>list</a> to see your updated item.";
@@ -511,9 +511,9 @@ function deleteListItem(resultpanel: HTMLElement) {
     oListItem.deleteObject();
 
     clientContext.executeQueryAsync(
-      successHandler,
-       errorHandler
-    );
+        successHandler,
+        errorHandler
+        );
 
     function successHandler() {
         resultpanel.innerHTML = "Go to the <a href='../Lists/Announcements'>list</a> to make sure the item is no longer there.";

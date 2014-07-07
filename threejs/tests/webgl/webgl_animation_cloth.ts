@@ -1,4 +1,4 @@
-﻿/// <reference path="../../three.d.ts" />
+/// <reference path="../../three.d.ts" />
 /// <reference path="../three-tests-setup.ts" />
 
 // https://github.com/mrdoob/three.js/blob/master/examples/webgl_animation_cloth.html
@@ -156,7 +156,7 @@
 
         var groundMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff, specular: 0x111111, map: initTexture });
 
-        var groundTexture = THREE.ImageUtils.loadTexture("textures/terrain/grasslight-big.jpg", undefined, function () { groundMaterial.map = groundTexture });
+        var groundTexture = THREE.ImageUtils.loadTexture("textures/terrain/grasslight-big.jpg", undefined, function() { groundMaterial.map = groundTexture });
         groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
         groundTexture.repeat.set(25, 25);
         groundTexture.anisotropy = 16;

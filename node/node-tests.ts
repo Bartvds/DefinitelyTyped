@@ -42,13 +42,13 @@ var content: string,
     buffer: Buffer;
 
 content = fs.readFileSync('testfile', 'utf8');
-content = fs.readFileSync('testfile', {encoding : 'utf8'});
+content = fs.readFileSync('testfile', { encoding: 'utf8' });
 buffer = fs.readFileSync('testfile');
-buffer = fs.readFileSync('testfile', {flag : 'r'});
+buffer = fs.readFileSync('testfile', { flag: 'r' });
 fs.readFile('testfile', 'utf8', (err, data) => content = data);
-fs.readFile('testfile', {encoding : 'utf8'}, (err, data) => content = data);
+fs.readFile('testfile', { encoding: 'utf8' }, (err, data) => content = data);
 fs.readFile('testfile', (err, data) => buffer = data);
-fs.readFile('testfile', {flag : 'r'}, (err, data) => buffer = data);
+fs.readFile('testfile', { flag: 'r' }, (err, data) => buffer = data);
 
 class Networker extends events.EventEmitter {
     constructor() {
@@ -62,9 +62,9 @@ url.format(url.parse('http://www.example.com/xyz'));
 
 // https://google.com/search?q=you're%20a%20lizard%2C%20gary
 url.format({
-    protocol: 'https', 
-    host: "google.com", 
-    pathname: 'search', 
+    protocol: 'https',
+    host: "google.com",
+    pathname: 'search',
     query: { q: "you're a lizard, gary" }
 });
 
@@ -97,7 +97,7 @@ http.createServer().listen(0).close().address();
 net.createServer().listen(0).close().address();
 
 var request = http.request('http://0.0.0.0');
-request.once('error', function () {});
+request.once('error', function() { });
 request.setNoDelay(true);
 request.abort();
 

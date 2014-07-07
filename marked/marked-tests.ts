@@ -10,15 +10,15 @@ var options: MarkedOptions = {
     sanitize: true,
     smartLsts: true,
     silent: false,
-    highlight: function (code: string, lang: string) {
-    	return '';
+    highlight: function(code: string, lang: string) {
+        return '';
     },
     langPrefix: 'lang-',
     smartypants: false
 };
 
 function callback() {
-	console.log('callback called');
+    console.log('callback called');
 }
 
 marked.setOptions(options);

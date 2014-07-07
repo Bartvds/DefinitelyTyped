@@ -16,7 +16,7 @@ var oScroll6 = $('#scrollbar6');
 oScroll6.tinyscrollbar();
 
 //add a click event to a button
-$('#scrollbar6-anchor').click(function () {
+$('#scrollbar6-anchor').click(function() {
     oScroll6.tinyscrollbar_update(50);
     return false;
 });

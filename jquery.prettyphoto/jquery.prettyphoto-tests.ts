@@ -1,4 +1,4 @@
-﻿// Tests for prettyPhoto library 
+// Tests for prettyPhoto library 
 
 /// <reference path="../jquery/jquery.d.ts" />
 /// <reference path="jquery.prettyphoto.d.ts" />

@@ -47,7 +47,7 @@ function TestActionSequence() {
 
     // DragAndDrop
     sequence = sequence.dragAndDrop(element, element);
-    sequence = sequence.dragAndDrop(element, {x: 1, y: 2});
+    sequence = sequence.dragAndDrop(element, { x: 1, y: 2 });
 
     // KeyDown
     sequence = sequence.keyDown(webdriver.Key.ADD);
@@ -63,8 +63,8 @@ function TestActionSequence() {
 
     // MouseMove
     sequence = sequence.mouseMove(element);
-    sequence = sequence.mouseMove({x: 1, y: 1});
-    sequence = sequence.mouseMove(element, {x: 1, y: 2});
+    sequence = sequence.mouseMove({ x: 1, y: 1 });
+    sequence = sequence.mouseMove(element, { x: 1, y: 2 });
 
     // MouseUp
     sequence = sequence.mouseUp();
@@ -181,7 +181,7 @@ function TestCommand() {
 }
 
 function TestCommandExecutor() {
-    var c: webdriver.CommandExecutor = { execute: function(command: webdriver.Command, callback: (error: Error, obj: any) => any) {} };
+    var c: webdriver.CommandExecutor = { execute: function(command: webdriver.Command, callback: (error: Error, obj: any) => any) { } };
 }
 
 function TestCommandName() {
@@ -288,7 +288,7 @@ function TestCommandName() {
 function TestEventEmitter() {
     var emitter: webdriver.EventEmitter = new webdriver.EventEmitter();
 
-    var callback = function (a: number, b: number, c: number) {};
+    var callback = function(a: number, b: number, c: number) { };
 
     emitter = emitter.addListener('ABC', callback);
 
@@ -314,7 +314,7 @@ function TestEventEmitter() {
 function TestFirefoxDomExecutor() {
     if (webdriver.FirefoxDomExecutor.isAvailable()) {
         var executor: webdriver.CommandExecutor = new webdriver.FirefoxDomExecutor();
-        var callback = function(error: Error, responseObject: any) {};
+        var callback = function(error: Error, responseObject: any) { };
         executor.execute(new webdriver.Command(webdriver.CommandName.CLICK), callback);
     }
 }
@@ -395,9 +395,9 @@ function TestLocator() {
     var value: string = locator.value;
 
     locator = webdriver.Locator.checkLocator(webdriver.Locator.Strategy.id('ABC'));
-    locator = webdriver.Locator.checkLocator({id: 'ABC'});
+    locator = webdriver.Locator.checkLocator({ id: 'ABC' });
 
-    locator = webdriver.Locator.createFromObj({id: 'ABC'});
+    locator = webdriver.Locator.createFromObj({ id: 'ABC' });
 
     locator = webdriver.Locator.Strategy.id('ABC');
 
@@ -538,9 +538,9 @@ function TestWebDriver() {
 
     // Call
     var actions: webdriver.ActionSequence = driver.actions();
-    promise = driver.call(function(){});
-    promise = driver.call(function(){ var d: any = this;}, driver);
-    promise = driver.call(function(a: number){}, driver, 1);
+    promise = driver.call(function() { });
+    promise = driver.call(function() { var d: any = this; }, driver);
+    promise = driver.call(function(a: number) { }, driver, 1);
 
     promise = driver.close();
     flow = driver.controlFlow();
@@ -548,25 +548,25 @@ function TestWebDriver() {
     // ExecuteAsyncScript
     promise = driver.executeAsyncScript('function(){}');
     promise = driver.executeAsyncScript('function(){}', 1, 2, 3);
-    promise = driver.executeAsyncScript(function(){});
-    promise = driver.executeAsyncScript(function(a: number){}, 1);
+    promise = driver.executeAsyncScript(function() { });
+    promise = driver.executeAsyncScript(function(a: number) { }, 1);
 
     // ExecuteScript
     promise = driver.executeScript('function(){}');
     promise = driver.executeScript('function(){}', 1, 2, 3);
-    promise = driver.executeScript(function(){});
-    promise = driver.executeScript(function(a: number){}, 1);
+    promise = driver.executeScript(function() { });
+    promise = driver.executeScript(function(a: number) { }, 1);
 
     var element: webdriver.WebElement;
     element = driver.findElement(webdriver.By.id('ABC'));
-    element = driver.findElement({id: 'ABC'});
+    element = driver.findElement({ id: 'ABC' });
     element = driver.findElement(webdriver.By.js('function(){}'), 1, 2, 3);
-    element = driver.findElement({js: 'function(){}'}, 1, 2, 3);
+    element = driver.findElement({ js: 'function(){}' }, 1, 2, 3);
 
     promise = driver.findElements(webdriver.By.className('ABC'));
-    promise = driver.findElements({className: 'ABC'});
+    promise = driver.findElements({ className: 'ABC' });
     promise = driver.findElements(webdriver.By.js('function(){}'), 1, 2, 3);
-    promise = driver.findElements({js: 'function(){}'}, 1, 2, 3);
+    promise = driver.findElements({ js: 'function(){}' }, 1, 2, 3);
 
     promise = driver.get('http://www.google.com');
     promise = driver.getAllWindowHandles();
@@ -578,9 +578,9 @@ function TestWebDriver() {
     promise = driver.getWindowHandle();
 
     promise = driver.isElementPresent(webdriver.By.className('ABC'));
-    promise = driver.isElementPresent({className: 'ABC'});
+    promise = driver.isElementPresent({ className: 'ABC' });
     promise = driver.isElementPresent(webdriver.By.js('function(){}'), 1, 2, 3);
-    promise = driver.isElementPresent({js: 'function(){}'}, 1, 2, 3);
+    promise = driver.isElementPresent({ js: 'function(){}' }, 1, 2, 3);
 
     var options: webdriver.WebDriverOptions = driver.manage();
     var navigation: webdriver.WebDriverNavigation = driver.navigate();
@@ -617,19 +617,19 @@ function TestWebElement() {
     promise = element.click();
 
     element = element.findElement(webdriver.By.id('ABC'));
-    element = element.findElement({id: 'ABC'});
+    element = element.findElement({ id: 'ABC' });
     element = element.findElement(webdriver.By.js('function(){}'), 1, 2, 3);
-    element = element.findElement({js: 'function(){}'}, 1, 2, 3);
+    element = element.findElement({ js: 'function(){}' }, 1, 2, 3);
 
     promise = element.findElements(webdriver.By.className('ABC'));
-    promise = element.findElements({className: 'ABC'});
+    promise = element.findElements({ className: 'ABC' });
     promise = element.findElements(webdriver.By.js('function(){}'), 1, 2, 3);
-    promise = element.findElements({js: 'function(){}'}, 1, 2, 3);
+    promise = element.findElements({ js: 'function(){}' }, 1, 2, 3);
 
     promise = element.isElementPresent(webdriver.By.className('ABC'));
-    promise = element.isElementPresent({className: 'ABC'});
+    promise = element.isElementPresent({ className: 'ABC' });
     promise = element.isElementPresent(webdriver.By.js('function(){}'), 1, 2, 3);
-    promise = element.isElementPresent({js: 'function(){}'}, 1, 2, 3);
+    promise = element.isElementPresent({ js: 'function(){}' }, 1, 2, 3);
 
     promise = element.getAttribute('class');
     promise = element.getCssValue('display');
@@ -716,8 +716,8 @@ function TestProcess() {
 function TestPromise() {
     var promise: webdriver.promise.Promise = new webdriver.promise.Promise();
 
-    webdriver.promise.asap(promise, function(value: any){ return true; });
-    webdriver.promise.asap(promise, function(value: any){}, function(err: any) { return 'ABC'; });
+    webdriver.promise.asap(promise, function(value: any) { return true; });
+    webdriver.promise.asap(promise, function(value: any) { }, function(err: any) { return 'ABC'; });
 
     promise = webdriver.promise.checkedNodeCall(function(err: any, value: any) { return 123; });
 
@@ -726,19 +726,19 @@ function TestPromise() {
     promise = webdriver.promise.createFlow(function(newFlow: webdriver.promise.ControlFlow) { });
 
     var deferred: webdriver.promise.Deferred;
-    deferred = webdriver.promise.defer(function() {});
-    deferred = webdriver.promise.defer(function(reason?: any) {});
+    deferred = webdriver.promise.defer(function() { });
+    deferred = webdriver.promise.defer(function(reason?: any) { });
 
     promise = webdriver.promise.delayed(123);
 
     promise = webdriver.promise.fulfilled();
-    promise = webdriver.promise.fulfilled({a: 123});
+    promise = webdriver.promise.fulfilled({ a: 123 });
 
-    promise = webdriver.promise.fullyResolved({a: 123});
+    promise = webdriver.promise.fullyResolved({ a: 123 });
 
     var isPromise: boolean = webdriver.promise.isPromise('ABC');
 
-    promise = webdriver.promise.rejected({a: 123});
+    promise = webdriver.promise.rejected({ a: 123 });
 
     webdriver.promise.setDefaultFlow(new webdriver.promise.ControlFlow());
 
@@ -748,10 +748,12 @@ function TestPromise() {
 function TestControlFlow() {
     var flow: webdriver.promise.ControlFlow;
     flow = new webdriver.promise.ControlFlow();
-    flow = new webdriver.promise.ControlFlow({clearInterval: function(a: number) {},
-                                            clearTimeout: function(a: number) {},
-                                            setInterval: function(a: () => void, b: number) { return 2; },
-                                            setTimeout: function(a: () => void, b: number) { return 2; }});
+    flow = new webdriver.promise.ControlFlow({
+        clearInterval: function(a: number) { },
+        clearTimeout: function(a: number) { },
+        setInterval: function(a: () => void, b: number) { return 2; },
+        setTimeout: function(a: () => void, b: number) { return 2; }
+    });
 
     var emitter: webdriver.EventEmitter = flow;
 
@@ -795,9 +797,9 @@ function TestDeferred() {
     var deferred: webdriver.promise.Deferred;
 
     deferred = new webdriver.promise.Deferred();
-    deferred = new webdriver.promise.Deferred(function() {});
+    deferred = new webdriver.promise.Deferred(function() { });
     deferred = new webdriver.promise.Deferred(function(reason: any) { });
-    deferred = new webdriver.promise.Deferred(function() {}, new webdriver.promise.ControlFlow());
+    deferred = new webdriver.promise.Deferred(function() { }, new webdriver.promise.ControlFlow());
 
     var promise: webdriver.promise.Promise = deferred;
 
@@ -818,27 +820,27 @@ function TestPromiseClass() {
         a: 5
     }
 
-    promise = promise.addBoth(function( a: any ) { });
-    promise = promise.addBoth(function( a: any ) { return 123; });
-    promise = promise.addBoth(function( a: any ) { }, obj);
+    promise = promise.addBoth(function(a: any) { });
+    promise = promise.addBoth(function(a: any) { return 123; });
+    promise = promise.addBoth(function(a: any) { }, obj);
 
-    promise = promise.addCallback(function( a: any ) { });
-    promise = promise.addCallback(function( a: any ) { return 123; });
-    promise = promise.addCallback(function( a: any ) { }, obj);
+    promise = promise.addCallback(function(a: any) { });
+    promise = promise.addCallback(function(a: any) { return 123; });
+    promise = promise.addCallback(function(a: any) { }, obj);
 
-    promise = promise.addErrback(function( e: any ) { });
-    promise = promise.addErrback(function( e: any ) { return 123; });
-    promise = promise.addErrback(function( e: any ) { }, obj);
+    promise = promise.addErrback(function(e: any) { });
+    promise = promise.addErrback(function(e: any) { return 123; });
+    promise = promise.addErrback(function(e: any) { }, obj);
 
     promise.cancel(obj);
 
     var isPending: boolean = promise.isPending();
 
     promise = promise.then();
-    promise = promise.then(function( a: any ) { });
-    promise = promise.then(function( a: any ) { return 123; });
-    promise = promise.then(function( a: any ) {}, function( e: any) {});
-    promise = promise.then(function( a: any ) {}, function( e: any) { return 123; });
+    promise = promise.then(function(a: any) { });
+    promise = promise.then(function(a: any) { return 123; });
+    promise = promise.then(function(a: any) { }, function(e: any) { });
+    promise = promise.then(function(a: any) { }, function(e: any) { return 123; });
 }
 
 function TestErrorCode() {

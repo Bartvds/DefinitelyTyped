@@ -22,16 +22,16 @@ var throwsError = () => {
 
 try {
     throwsError();
-} catch(e) {
+} catch (e) {
     Raven.captureException(e);
-    Raven.captureException(e, {tags: { key: "value" }});
+    Raven.captureException(e, { tags: { key: "value" } });
 }
 
 Raven.context(throwsError);
-Raven.context({tags: { key: "value" }}, throwsError);
+Raven.context({ tags: { key: "value" } }, throwsError);
 
 setTimeout(Raven.wrap(throwsError), 1000);
-Raven.wrap({logger: "my.module"}, throwsError)();
+Raven.wrap({ logger: "my.module" }, throwsError)();
 
 Raven.setUser({
     email: 'matt@example.com',
@@ -39,4 +39,4 @@ Raven.setUser({
 });
 
 Raven.captureMessage('Broken!');
-Raven.captureMessage('Broken!', {tags: { key: "value" }});
+Raven.captureMessage('Broken!', { tags: { key: "value" } });

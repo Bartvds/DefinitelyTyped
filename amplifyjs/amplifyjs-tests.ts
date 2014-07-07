@@ -5,7 +5,7 @@
 
 // Subscribe and publish with no data
 
-amplify.subscribe("nodataexample", function () {
+amplify.subscribe("nodataexample", function() {
     alert("nodataexample topic published!");
 });
 
@@ -13,14 +13,14 @@ amplify.subscribe("nodataexample", function () {
 
 amplify.publish("nodataexample");
 
-amplify.subscribe("dataexample", function (data) {
+amplify.subscribe("dataexample", function(data) {
     alert(data.foo); // bar
 });
 
 
 amplify.publish("dataexample", { foo: "bar" });
 
-amplify.subscribe("dataexample2", function (param1, param2) {
+amplify.subscribe("dataexample2", function(param1, param2) {
     alert(param1 + param2); // barbaz
 });
 
@@ -30,7 +30,7 @@ amplify.publish("dataexample2", "bar", "baz");
 
 // Subscribe and publish with context and data
 
-amplify.subscribe("datacontextexample", $("p:first"), function (data) {
+amplify.subscribe("datacontextexample", $("p:first"), function(data) {
     this.text(data.exampleText); // first p element would have "foo bar baz" as text
 });
 
@@ -38,11 +38,11 @@ amplify.publish("datacontextexample", { exampleText: "foo bar baz" });
 
 // Subscribe to a topic with high priority
 
-amplify.subscribe("priorityexample", function (data) {
+amplify.subscribe("priorityexample", function(data) {
     alert(data.foo);
 });
 
-amplify.subscribe("priorityexample", function (data) {
+amplify.subscribe("priorityexample", function(data) {
     if (data.foo === "oops") {
         return false;
     }
@@ -85,7 +85,7 @@ amplify.request.define("ajaxExample1", "ajax", {
 });
 
 // later in code
-amplify.request("ajaxExample1", function (data) {
+amplify.request("ajaxExample1", function(data) {
     data.foo; // bar
 });
 
@@ -99,12 +99,12 @@ amplify.request.define("ajaxExample2", "ajax", {
 });
 
 // later in code
-amplify.request("ajaxExample2", function (data) {
+amplify.request("ajaxExample2", function(data) {
     data.foo; // bar
 });
 
 // a second call will result in pulling from the cache
-amplify.request("ajaxExample2", function (data) {
+amplify.request("ajaxExample2", function(data) {
     data.baz; // qux
 })
 
@@ -121,7 +121,7 @@ amplify.request("ajaxRESTFulExample",
         type: "foo",
         id: "bar"
     },
-    function (data) {
+    function(data) {
         // /myRESTFulApi/foo/bar was the URL used
         data.foo; // bar
     }
@@ -130,9 +130,9 @@ amplify.request("ajaxRESTFulExample",
 // POST data with Ajax
 
 amplify.request.define("ajaxPostExample", "ajax", {
-        url: "/myRestFulApi",
-        type: "POST"
-    })
+    url: "/myRestFulApi",
+    type: "POST"
+})
 
 // later in code
 amplify.request("ajaxPostExample",
@@ -140,7 +140,7 @@ amplify.request("ajaxPostExample",
         type: "foo",
         id: "bar"
     },
-    function (data) {
+    function(data) {
         data.foo; // bar
     }
     );
@@ -156,19 +156,19 @@ amplify.request.define("twitter-search", "ajax", {
     }
 });
 
-amplify.request("twitter-search", { term: "amplifyjs" } );
+amplify.request("twitter-search", { term: "amplifyjs" });
 
 // Similarly, we can create a request that searches for mentions, by accepting a username:
 
-    amplify.request.define("twitter-mentions", "ajax", {
-        url: "http://search.twitter.com/search.json",
-        dataType: "jsonp",
-        dataMap: function (data) {
-            return {
-                q: "@" + data.user
-            };
-        }
-    });
+amplify.request.define("twitter-mentions", "ajax", {
+    url: "http://search.twitter.com/search.json",
+    dataType: "jsonp",
+    dataMap: function(data) {
+        return {
+            q: "@" + data.user
+        };
+    }
+});
 
 amplify.request("twitter-mentions", { user: "amplifyjs" });
 
@@ -176,7 +176,7 @@ amplify.request("twitter-mentions", { user: "amplifyjs" });
 
 //Example:
 
-var appEnvelopeDecoder: amplifyDecoder = function (data, status, xhr, success, error) {
+var appEnvelopeDecoder: amplifyDecoder = function(data, status, xhr, success, error) {
     if (data.status === "success") {
         success(data.data);
     } else if (data.status === "fail" || data.status === "error") {
@@ -205,10 +205,10 @@ amplify.request.define("decoderExample", "ajax", {
 
 amplify.request({
     resourceId: "decoderExample",
-    success: function (data) {
+    success: function(data) {
         data.foo; // bar
     },
-    error: function (message, level) {
+    error: function(message, level) {
         alert("always handle errors with alerts.");
     }
 });
@@ -220,7 +220,7 @@ amplify.request({
 amplify.request.define("decoderSingleExample", "ajax", {
     url: "/myAjaxUrl",
     type: "POST",
-    decoder: function (data, status, xhr, success, error) {
+    decoder: function(data, status, xhr, success, error) {
         if (data.status === "success") {
             success(data.data);
         } else if (data.status === "fail" || data.status === "error") {
@@ -233,10 +233,10 @@ amplify.request.define("decoderSingleExample", "ajax", {
 
 amplify.request({
     resourceId: "decoderSingleExample",
-    success: function (data) {
+    success: function(data) {
         data.foo; // bar
     },
-    error: function (message, level) {
+    error: function(message, level) {
         alert("always handle errors with alerts.");
     }
 });
@@ -245,15 +245,15 @@ amplify.request({
 
 // amplify.request comes with built in support for status.The status parameter appears in the default success or error callbacks when using an ajax definition.
 
-    amplify.request.define("statusExample1", "ajax", {
-        //...
-    });
+amplify.request.define("statusExample1", "ajax", {
+    //...
+});
 
- amplify.request({
+amplify.request({
     resourceId: "statusExample1",
-    success: function (data, status) {
+    success: function(data, status) {
     },
-    error: function (data, status) {
+    error: function(data, status) {
     }
 });
 

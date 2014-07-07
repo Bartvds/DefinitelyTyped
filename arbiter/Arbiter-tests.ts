@@ -12,7 +12,7 @@
 Arbiter.publish('component/msg');
 
 // Subscribe to a message
-Arbiter.subscribe('component/msg', function () { });
+Arbiter.subscribe('component/msg', function() { });
 
 // Pass data to subscribers
 Arbiter.publish('component/msg', { "data": "value" });
@@ -27,33 +27,33 @@ Arbiter.publish('component/msg', null, { persist: true });
 Arbiter.publish('component/msg', null, { async: true });
 
 // Subscribe to multiple messages at once
-Arbiter.subscribe('component/msg, component/msg2', function () { });
-Arbiter.subscribe(['component/msg', 'component/msg2'], function () { });
+Arbiter.subscribe('component/msg, component/msg2', function() { });
+Arbiter.subscribe(['component/msg', 'component/msg2'], function() { });
 
 // Subscribe to multiple messages using a wildcard
-Arbiter.subscribe('component/*', function () { });
+Arbiter.subscribe('component/*', function() { });
 
 // Subscribe to ALL messages
-Arbiter.subscribe('*', function () { });
+Arbiter.subscribe('*', function() { });
 
 // Set subscriber priority
-Arbiter.subscribe('msg', { priority: 10 }, function () { });
-Arbiter.subscribe('msg', { priority: 20 }, function () { } ); // Called first!
+Arbiter.subscribe('msg', { priority: 10 }, function() { });
+Arbiter.subscribe('msg', { priority: 20 }, function() { }); // Called first!
 
 // Execute a subscriber asynchronously
-Arbiter.subscribe('msg', { async: true }, function () { });
+Arbiter.subscribe('msg', { async: true }, function() { });
 
 // Ignore persisted messages
-Arbiter.subscribe('msg', { persist: false }, function () { });
+Arbiter.subscribe('msg', { persist: false }, function() { });
 
 // Set the value of "this"
 Arbiter.subscribe('msg', null, document.getElementById('x'),
-    function () {
+    function() {
         this.innerHTML = "Message handled!";
     });
 
 // Unsubscribe from messages
-var subscription_id = Arbiter.subscribe('msg', function () { });
+var subscription_id = Arbiter.subscribe('msg', function() { });
 Arbiter.unsubscribe(subscription_id);
 
 // Re-subscribe to messages

@@ -1,14 +1,14 @@
 /// <reference path="../../yui/yui.d.ts" />
 /// <reference path="../cryptojs.d.ts" />
 
-YUI.add('lib-wordarray-test', function (Y) {
+YUI.add('lib-wordarray-test', function(Y) {
     var C = CryptoJS;
 
     if (typeof ArrayBuffer != 'undefined') {
         Y.Test.Runner.add(new Y.Test.Case({
             name: 'TypedArrays',
 
-            setUp: function () {
+            setUp: function() {
                 this.data = {};
 
                 this.data.buffer = new ArrayBuffer(8);
@@ -24,37 +24,37 @@ YUI.add('lib-wordarray-test', function (Y) {
                 uint8View[7] = 0xef;
             },
 
-            testInt8Array: function () {
+            testInt8Array: function() {
                 Y.Assert.areEqual('0123456789abcdef', C.lib.WordArray.create(new Int8Array(this.data.buffer)).toString());
             },
 
-            testUint8Array: function () {
+            testUint8Array: function() {
                 Y.Assert.areEqual('0123456789abcdef', C.lib.WordArray.create(new Uint8Array(this.data.buffer)).toString());
             },
 
-            testUint8ClampedArray: function () {
+            testUint8ClampedArray: function() {
                 //Note also: Uint8ClampedArray is not defined in lib.d.ts & not supported in IE
                 //@see http://compatibility.shwups-cms.ch/en/home?&property=Uint8ClampedArray
-//                Y.Assert.areEqual('0123456789abcdef', C.lib.WordArray.create(new Uint8ClampedArray(this.data.buffer)).toString());
+                //                Y.Assert.areEqual('0123456789abcdef', C.lib.WordArray.create(new Uint8ClampedArray(this.data.buffer)).toString());
             },
 
-            testInt16Array: function () {
+            testInt16Array: function() {
                 Y.Assert.areEqual('0123456789abcdef', C.lib.WordArray.create(new Int16Array(this.data.buffer)).toString());
             },
 
-            testUint16Array: function () {
+            testUint16Array: function() {
                 Y.Assert.areEqual('0123456789abcdef', C.lib.WordArray.create(new Uint16Array(this.data.buffer)).toString());
             },
 
-            testInt32Array: function () {
+            testInt32Array: function() {
                 Y.Assert.areEqual('0123456789abcdef', C.lib.WordArray.create(new Int32Array(this.data.buffer)).toString());
             },
 
-            testUint32Array: function () {
+            testUint32Array: function() {
                 Y.Assert.areEqual('0123456789abcdef', C.lib.WordArray.create(new Uint32Array(this.data.buffer)).toString());
             },
 
-            testPartialView: function () {
+            testPartialView: function() {
                 Y.Assert.areEqual('456789ab', C.lib.WordArray.create(new Int16Array(this.data.buffer, 2, 2)).toString());
             }
         }));

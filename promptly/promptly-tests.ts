@@ -8,41 +8,41 @@ process.stdin
 // Options
 var options: promptly.Options = {}
 options = {
-  default: 'value'
+    default: 'value'
 }
 options = {
-  trim: false
+    trim: false
 }
 options = {
-  retry: false
+    retry: false
 }
 options = {
-  silent: false
+    silent: false
 }
 options = {
-  input: process.stdin
+    input: process.stdin
 }
 options = {
-  output: process.stdout
+    output: process.stdout
 }
 
 // Validator
 options = {
-  validator: () => {}
+    validator: () => { }
 }
 options = {
-  validator: (value: string) => {}
+    validator: (value: string) => { }
 }
 options = {
-  validator: (value: string) => {
-    return 'result';
-  }
+    validator: (value: string) => {
+        return 'result';
+    }
 }
 options = {
-  validator: [
-    (value: string) => { return 'result' },
-    (value: string) => { return 'result' }
-  ]
+    validator: [
+        (value: string) => { return 'result' },
+        (value: string) => { return 'result' }
+    ]
 }
 
 // Prompt

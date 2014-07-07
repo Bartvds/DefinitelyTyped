@@ -5,7 +5,7 @@
 function test_map() {
     viewporter.preventPageScroll = true;
     var eventName = viewporter.ACTIVE ? 'viewportready' : "load";
-    google.maps.event.addDomListener(window, eventName, function () {
+    google.maps.event.addDomListener(window, eventName, function() {
         var map = new google.maps.Map(document.getElementById("map"), {
             zoom: 2,
             center: new google.maps.LatLng(10, 0),
@@ -13,11 +13,11 @@ function test_map() {
         });
         window.addEventListener("resize", viewporter.refresh);
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
+            navigator.geolocation.getCurrentPosition(function(position) {
                 map.setCenter(new google.maps.LatLng(
                     position.coords.latitude,
                     position.coords.longitude
-                ));
+                    ));
                 map.setZoom(14);
             });
         }
@@ -26,9 +26,9 @@ function test_map() {
 
 function test_resize() {
     viewporter.preventPageScroll = true;
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         // listen for "resize" events and trigger "refresh" method.
-        window.addEventListener("resize", function () {
+        window.addEventListener("resize", function() {
             viewporter.refresh();
             document.getElementById("events").innerHTML += "resize<br>";
         });
@@ -44,7 +44,7 @@ function test_resize() {
 
 function test_swipey() {
     function rainbow(numOfSteps, step) {
-            var r, g, b, h = step / numOfSteps, i = ~~(h * 6), f = h * 6 - i, q = 1 - f;
+        var r, g, b, h = step / numOfSteps, i = ~~(h * 6), f = h * 6 - i, q = 1 - f;
         switch (i % 6) {
             case 0: r = 1, g = f, b = 0; break;
             case 1: r = q, g = 1, b = 0; break;
@@ -64,26 +64,26 @@ function test_swipey() {
         this.painting = false;
         var timestamp = null;
 
-        this.addPoint = function (x, y, dragging) {
+        this.addPoint = function(x, y, dragging) {
             clickX.push(x);
             clickY.push(y);
             clickDrag.push(dragging);
         };
-        this.start = function () {
+        this.start = function() {
             this.clear();
             this.painting = true;
         };
-        this.clear = function () {
+        this.clear = function() {
             clickX = [];
             clickY = [];
             clickDrag = [];
             timestamp = null;
         };
-        this.stop = function () {
+        this.stop = function() {
             this.painting = false;
             timestamp = Date.now();
         };
-        this.redraw = function () {
+        this.redraw = function() {
             var opacity = timestamp ? (300 - (Date.now() - timestamp)) / 300 : 1;
             if (opacity <= 0) {
                 this.clear();
@@ -106,18 +106,18 @@ function test_swipey() {
         };
     };
 
-    $(window).bind(viewporter.ACTIVE ? 'viewportready' : 'load', function () {
+    $(window).bind(viewporter.ACTIVE ? 'viewportready' : 'load', function() {
         var canvas = <HTMLCanvasElement>$('canvas')[0];
         var context = canvas.getContext('2d');
         var iOS = (/iphone|ipad/i).test(navigator.userAgent);
         var pointers = {};
         // handle resizing / rotating of the viewport
         var width, height;
-        $(window).bind(viewporter.ACTIVE ? 'viewportchange' : 'resize', function () {
+        $(window).bind(viewporter.ACTIVE ? 'viewportchange' : 'resize', function() {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight
         }).trigger(viewporter.ACTIVE ? 'viewportchange' : 'resize');
-        $('canvas').bind(iOS ? 'touchstart' : 'mousedown', function (e) {
+        $('canvas').bind(iOS ? 'touchstart' : 'mousedown', function(e) {
             e.preventDefault();
             var touches = iOS ? (<any>e.originalEvent).changedTouches : [e.originalEvent];
             var identifier;
@@ -132,8 +132,8 @@ function test_swipey() {
             }
         });
 
-        $('canvas').bind(iOS ? 'touchmove' : 'mousemove', function (e) {
-			var touches = iOS ? (<any>e.originalEvent).changedTouches : [e.originalEvent];
+        $('canvas').bind(iOS ? 'touchmove' : 'mousemove', function(e) {
+            var touches = iOS ? (<any>e.originalEvent).changedTouches : [e.originalEvent];
             var identifier;
             for (var i = 0; i < touches.length; i++) {
                 identifier = touches[i].identifier || 'mouse';
@@ -143,15 +143,15 @@ function test_swipey() {
             }
         });
 
-        $('canvas').bind(iOS ? 'touchend' : 'mouseup', function (e) {
-			var touches = iOS ? (<any>e.originalEvent).changedTouches : [e.originalEvent];
+        $('canvas').bind(iOS ? 'touchend' : 'mouseup', function(e) {
+            var touches = iOS ? (<any>e.originalEvent).changedTouches : [e.originalEvent];
             var identifier;
             for (var i = 0; i < touches.length; i++) {
                 identifier = touches[i].identifier || 'mouse';
                 if (pointers[identifier]) {
                     pointers[identifier].stop();
-                    (function (identifier) {
-                        setTimeout(function () {
+                    (function(identifier) {
+                        setTimeout(function() {
                             delete pointers[identifier];
                         }, 300);
                     })(identifier);
@@ -159,7 +159,7 @@ function test_swipey() {
             }
         });
 
-        window.setInterval(function () {
+        window.setInterval(function() {
             context.clearRect(0, 0, width, height);
             var counter = 0, ratio = (<any>window).devicePixelRatio || 1;
             for (var identifier in pointers) {

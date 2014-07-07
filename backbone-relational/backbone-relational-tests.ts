@@ -35,8 +35,7 @@ class Person extends Backbone.RelationalModel {
         }
     ];
 
-    initialize()
-    {
+    initialize() {
         // do whatever you want :)
     }
 }
@@ -82,20 +81,17 @@ ourHouse.fetchRelated('occupants');
 // Use the `add` and `remove` events to listen for additions/removals on a HasMany relation.
 // Here, we listen for changes to `ourHouse.occupants`.
 ourHouse
-    .on('add:occupants', function (model, coll)
-    {
+    .on('add:occupants', function(model, coll) {
         console.log('add %o', model);
         // Do something. Create a View?
     })
-    .on('remove:occupants', function (model, coll)
-    {
+    .on('remove:occupants', function(model, coll) {
         console.log('remove %o', model);
         // Do somehting. Destroy a View?
     });
 
 // Use the 'update' event to listen for changes on a HasOne relation (like 'Person.livesIn').
-paul.on('change:livesIn', function (model, attr)
-{
+paul.on('change:livesIn', function(model, attr) {
     console.log('change `livesIn` to %o', attr);
 });
 

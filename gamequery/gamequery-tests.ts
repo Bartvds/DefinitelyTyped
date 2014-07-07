@@ -2,7 +2,7 @@
 
 //Original examples: https://github.com/onaluf/gameQuery/tree/master/tests/human
 
-$(function () {
+$(function() {
     var simpleVerticalAnimation = new $.gameQuery.Animation({ imageURL: "sv.png", type: $.gameQuery.ANIMATION_VERTICAL, numberOfFrame: 4, delta: 32, rate: 300 });
     var simpleHorizontalAnimation = new $.gameQuery.Animation({ imageURL: "sh.png", type: $.gameQuery.ANIMATION_HORIZONTAL, numberOfFrame: 4, delta: 32, rate: 300 });
 
@@ -34,9 +34,9 @@ $(function () {
         .addSprite("pingpong", { animation: pingpongAnimation, posx: 286, width: 64, height: 64 })
         .addSprite("multiPingpong", { animation: multiPingpongAnimation, posx: 350, width: 64, height: 64 })
         .addSprite("callback", {
-            animation: callbackAnim, posx: 414, callback: function () {
+            animation: callbackAnim, posx: 414, callback: function() {
                 counter++;
-                if (counter > 1) { 
+                if (counter > 1) {
                     $("#callback").remove();
                 }
             }
@@ -50,7 +50,7 @@ $(function () {
 
     $.playground().startGame();
 });
-$(function () {
+$(function() {
 
     var red = new $.gameQuery.Animation({
         imageURL: "red.png",
@@ -72,7 +72,7 @@ $(function () {
     $.playground()
         .addSprite("a2", { animation: red, width: 30, height: 30, posx: 0, posy: 50 })
         .addGroup("g1", { width: 100, height: 100, posx: -55, posy: -5 })
-            .addSprite("b2", { animation: red, width: 30, height: 30, posx: 70, posy: 70 });
+        .addSprite("b2", { animation: red, width: 30, height: 30, posx: 70, posy: 70 });
 
     // no group, absolute translation, no rotation
     $.playground()
@@ -113,42 +113,42 @@ $(function () {
 
 
     // now we try to turn every b* sprites blue
-    $("#a1").collision().each(function () {
+    $("#a1").collision().each(function() {
         $(this).setAnimation(blue);
     });
 
-    $("#a2").collision().each(function () {
+    $("#a2").collision().each(function() {
         $(this).setAnimation(blue);
     });
 
-    $("#a3").collision().each(function () {
+    $("#a3").collision().each(function() {
         $(this).setAnimation(blue);
     });
 
-    $("#a4").collision().each(function () {
+    $("#a4").collision().each(function() {
         $(this).setAnimation(blue);
     });
 
-    $("#a5").collision().each(function () {
+    $("#a5").collision().each(function() {
         $(this).setAnimation(blue);
     });
 
-    $("#a6").collision().each(function () {
+    $("#a6").collision().each(function() {
         $(this).setAnimation(blue);
     });
 
-    $("#a7").collision().each(function () {
+    $("#a7").collision().each(function() {
         $(this).setAnimation(blue);
     });
 
-    $("#a8").collision({ x: 35 }).each(function () {
+    $("#a8").collision({ x: 35 }).each(function() {
         $(this).setAnimation(blue);
     });
 
     $.playground().startGame();
 });
 
-$(function () {
+$(function() {
     var multiAnimation = new $.gameQuery.Animation({
         imageURL: "m.png",
         type: $.gameQuery.ANIMATION_HORIZONTAL | $.gameQuery.ANIMATION_MULTI,
@@ -213,7 +213,7 @@ $(function () {
     });
 
     var tileDef = [[1, 2, 3], [2, 3, 1], [3, 1, 2]];
-    var tileFun = function (i, j) { return 1 + (i + j) % 3; };
+    var tileFun = function(i, j) { return 1 + (i + j) % 3; };
     $("#playground").playground({ height: 64, width: 350 });
 
     $.playground()
@@ -228,7 +228,7 @@ $(function () {
     $.playground().startGame();
 });
 
-$(function () {
+$(function() {
     var multiAnimation = new $.gameQuery.Animation({
         imageURL: "m.png",
         type: $.gameQuery.ANIMATION_HORIZONTAL | $.gameQuery.ANIMATION_MULTI,
@@ -239,18 +239,18 @@ $(function () {
     });
 
     var tileDef = [[1, 2, 3, 1, 2, 3, 1, 2, 3],
-                   [2, 3, 1, 2, 3, 1, 2, 3, 1],
-                   [3, 1, 2, 3, 1, 2, 3, 1, 2]];
+        [2, 3, 1, 2, 3, 1, 2, 3, 1],
+        [3, 1, 2, 3, 1, 2, 3, 1, 2]];
 
     $("#playground").playground({ height: 60, width: 90 });
 
     $.playground()
         .addGroup("testGroup1", { height: 60, width: 180, posx: 0 })
-            .addTilemap("map1", tileDef, multiAnimation, { width: 10, height: 10, sizex: 9, sizey: 3, posx: 0 }).end()
-            .addTilemap("map2", tileDef, multiAnimation, { width: 10, height: 10, sizex: 9, sizey: 3, posx: 90 }).end()
+        .addTilemap("map1", tileDef, multiAnimation, { width: 10, height: 10, sizex: 9, sizey: 3, posx: 0 }).end()
+        .addTilemap("map2", tileDef, multiAnimation, { width: 10, height: 10, sizex: 9, sizey: 3, posx: 90 }).end()
         .end()
         .addGroup("testGroup2", { height: 60, width: 90, posy: 60 })
-            .addTilemap("map3", tileDef, multiAnimation, { width: 10, height: 10, sizex: 9, sizey: 3, posx: 0 });
+        .addTilemap("map3", tileDef, multiAnimation, { width: 10, height: 10, sizex: 9, sizey: 3, posx: 0 });
 
 
     $("#testGroup1").x(-45);
@@ -258,7 +258,7 @@ $(function () {
     $.playground().startGame();
 });
 
-$(function () {
+$(function() {
     var animation = new $.gameQuery.Animation({ imageURL: "sh.png", type: $.gameQuery.ANIMATION_HORIZONTAL, numberOfFrame: 4, delta: 32, rate: 300 });
 
     $("#playground").playground({ height: 64, width: 480 });

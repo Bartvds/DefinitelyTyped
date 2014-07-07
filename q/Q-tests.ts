@@ -5,13 +5,13 @@ import q = require('q');
 
 Q(8).then(x => console.log(x.toExponential()));
 
-var delay = function (delay: number) {
+var delay = function(delay: number) {
     var d = Q.defer<void>();
     setTimeout(d.resolve, delay);
     return d.promise;
 };
 
-Q.when(delay(1000), function (val: void) {
+Q.when(delay(1000), function(val: void) {
     console.log('Hello, World!');
     return;
 });
@@ -26,42 +26,42 @@ Q.delay("asdf", 1000).then(x => x.length);
 var eventualAdd = Q.promised((a?: number, b?: number) => a + b);
 eventualAdd(Q(1), Q(2)).then(x => x.toExponential());
 
-var eventually = function (eventually: any) {
+var eventually = function(eventually: any) {
     return Q.delay(eventually, 1000);
 };
 
 var x = Q.all([1, 2, 3].map(eventually));
-Q.when(x, function (x) {
+Q.when(x, function(x) {
     console.log(x);
 });
 
 Q.all([
     eventually(10),
     eventually(20)
-]).spread(function (x: any, y: any) {
-    console.log(x, y);
-});
+]).spread(function(x: any, y: any) {
+        console.log(x, y);
+    });
 
 
-Q.fcall(function () { })
-    .then(function () { })
-    .then(function () { })
-    .then(function () { })
-    .then(function (value4) {
+Q.fcall(function() { })
+    .then(function() { })
+    .then(function() { })
+    .then(function() { })
+    .then(function(value4) {
         // Do something with value4
-    }, function (error) {
+    }, function(error) {
         // Handle any error from step1 through step4
     }).done();
 
 Q.allResolved([])
-.then(function (promises: Q.Promise<any>[]) {
-    promises.forEach(function (promise) {
-        if (promise.isFulfilled()) {
-            var value = promise.valueOf();
-        } else {
-            var exception = promise.valueOf().exception;
-        }
-    })
+    .then(function(promises: Q.Promise<any>[]) {
+        promises.forEach(function(promise) {
+            if (promise.isFulfilled()) {
+                var value = promise.valueOf();
+            } else {
+                var exception = promise.valueOf().exception;
+            }
+        })
 });
 
 declare var arrayPromise: Q.IPromise<number[]>;
@@ -97,7 +97,7 @@ Q.when(Q(8), num => num + "!").then(str => str.split(','));
 
 declare function saveToDisk(): Q.Promise<any>;
 declare function saveToCloud(): Q.Promise<any>;
-Q.allSettled([saveToDisk(), saveToCloud()]).spread(function (disk: any, cloud: any) {
+Q.allSettled([saveToDisk(), saveToCloud()]).spread(function(disk: any, cloud: any) {
     console.log("saved to disk:", disk.state === "fulfilled");
     console.log("saved to cloud:", cloud.state === "fulfilled");
 
@@ -113,10 +113,10 @@ var nodeStyle = (input: string, cb: Function) => {
     cb(null, input);
 };
 
-Q.nfapply(nodeStyle, ["foo"]).done((result: string) => {});
-Q.nfcall(nodeStyle, "foo").done((result: string) => {});
-Q.denodeify(nodeStyle)('foo').done((result: string) => {});
-Q.nfbind(nodeStyle)('foo').done((result: string) => {});
+Q.nfapply(nodeStyle, ["foo"]).done((result: string) => { });
+Q.nfcall(nodeStyle, "foo").done((result: string) => { });
+Q.denodeify(nodeStyle)('foo').done((result: string) => { });
+Q.nfbind(nodeStyle)('foo').done((result: string) => { });
 
 
 class Repo {
@@ -137,4 +137,4 @@ class Repo {
 }
 
 var kitty = new Repo();
-Q.nbind(kitty.find, kitty)({ cute: true }).done((kitties: any[]) => {});
+Q.nbind(kitty.find, kitty)({ cute: true }).done((kitties: any[]) => { });

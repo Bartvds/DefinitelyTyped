@@ -34,10 +34,10 @@ inst = inst.reply(num, str);
 inst = inst.reply(num, str, headers);
 inst = inst.reply(num, obj, headers);
 inst = inst.reply(num, (uri: string, body: string) => {
-	return str;
+    return str;
 });
 inst = inst.reply(num, (uri: string, body: string) => {
-	return str;
+    return str;
 }, headers);
 inst = inst.replyWithFile(num, str);
 
@@ -46,11 +46,11 @@ inst = inst.matchHeader(str, str);
 
 inst = inst.filteringPath(regex, str);
 inst = inst.filteringPath((path: string) => {
-	return str;
+    return str;
 });
 inst = inst.filteringRequestBody(regex, str);
 inst = inst.filteringRequestBody((path: string) => {
-	return str;
+    return str;
 });
 
 inst = inst.persist();

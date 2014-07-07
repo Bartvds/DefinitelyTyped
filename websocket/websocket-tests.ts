@@ -22,10 +22,10 @@ import http = require('http');
     function originIsAllowed(origin: string) { return true; }
 
     wsServer.on('request', (request: websocket.request) => {
-        if(!originIsAllowed(request.origin)) {
-          request.reject();
-          console.log((new Date()) + ' Connection from origin ' + request.origin + ' rejected.');
-          return;
+        if (!originIsAllowed(request.origin)) {
+            request.reject();
+            console.log((new Date()) + ' Connection from origin ' + request.origin + ' rejected.');
+            return;
         }
 
         var connection = request.accept('echo-protocol', request.origin);
@@ -78,7 +78,7 @@ import http = require('http');
                 setTimeout(sendNumber, 1000);
             }
         }
-        
+
         sendNumber();
     });
 

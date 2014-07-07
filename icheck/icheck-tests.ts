@@ -25,10 +25,10 @@ $('input.some').iCheck({
     // different options
 });
 
-$('input').on('ifChecked', function (event) {
+$('input').on('ifChecked', function(event) {
     alert(event.type + ' callback');
 });
 
-$('input').iCheck('check', function () {
+$('input').iCheck('check', function() {
     alert('Well done, Sir');
 });

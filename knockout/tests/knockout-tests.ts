@@ -15,11 +15,11 @@ function test_creatingVMs() {
     myViewModel.personName('Mary');
     myViewModel.personAge(50);
 
-    myViewModel.personName.subscribe(function (newValue) {
+    myViewModel.personName.subscribe(function(newValue) {
         alert("The person's new name is " + newValue);
     });
 
-    var subscription = myViewModel.personName.subscribe(function (newValue) { });
+    var subscription = myViewModel.personName.subscribe(function(newValue) { });
     subscription.dispose();
 }
 
@@ -29,7 +29,7 @@ function test_computed() {
 
         self.firstName = ko.observable('Bob');
         self.lastName = ko.observable('Smith');
-        self.fullName = ko.computed(function () {
+        self.fullName = ko.computed(function() {
             return self.firstName() + " " + self.lastName();
         });
     }
@@ -39,10 +39,10 @@ function test_computed() {
         this.lastName = ko.observable('Earth');
 
         this.fullName = ko.computed<string>({
-            read: function () {
+            read: function() {
                 return this.firstName() + " " + this.lastName();
             },
-            write: function (value) {
+            write: function(value) {
                 var lastSpacePos = value.lastIndexOf(" ");
                 if (lastSpacePos > 0) {
                     this.firstName(value.substring(0, lastSpacePos));
@@ -57,10 +57,10 @@ function test_computed() {
         this.price = ko.observable(25.99);
 
         this.formattedPrice = ko.computed<string>({
-            read: function () {
+            read: function() {
                 return '$' + this.price().toFixed(2);
             },
-            write: function (value) {
+            write: function(value) {
                 var num = parseFloat(value.replace(/[^\.\d]/g, ""));
                 this.price(isNaN(num) ? 0 : num);
             },
@@ -74,7 +74,7 @@ function test_computed() {
 
         this.attemptedValue = ko.computed({
             read: this.acceptedNumericValue,
-            write: function (value) {
+            write: function(value) {
                 if (isNaN(value))
                     this.lastInputWasValid(false);
                 else {
@@ -124,19 +124,19 @@ function test_observableArrays() {
     myObservableArray.unshift('Some new value');
     myObservableArray.shift();
     myObservableArray.reverse();
-    myObservableArray.sort(function (left, right) { return left == right ? 0 : (left < right ? -1 : 1) });
+    myObservableArray.sort(function(left, right) { return left == right ? 0 : (left < right ? -1 : 1) });
     myObservableArray.splice(1, 3);
 
     myObservableArray.remove('Blah');
-    myObservableArray.remove(function (item) { return item.age < 18 });
+    myObservableArray.remove(function(item) { return item.age < 18 });
     myObservableArray.removeAll(['Chad', 132, undefined]);
     myObservableArray.removeAll();
     myObservableArray.destroy('Blah');
-    myObservableArray.destroy(function (someItem) { return someItem.age < 18 });
+    myObservableArray.destroy(function(someItem) { return someItem.age < 18 });
     myObservableArray.destroyAll(['Chad', 132, undefined]);
     myObservableArray.destroyAll();
 
-    ko.utils.arrayForEach(myObservableArray(), function (item) { });
+    ko.utils.arrayForEach(myObservableArray(), function(item) { });
 }
 
 // You have to extend knockout for your own handlers
@@ -162,13 +162,13 @@ function test_bindings() {
     viewModel.availableCountries.push('China');
 
     ko.bindingHandlers.yourBindingName = {
-        init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+        init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
         },
-        update: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+        update: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
         }
     };
     ko.bindingHandlers.slideVisible = {
-        update: function (element, valueAccessor, allBindingsAccessor) {
+        update: function(element, valueAccessor, allBindingsAccessor) {
             var value = valueAccessor(), allBindings = allBindingsAccessor();
             var valueUnwrapped = ko.utils.unwrapObservable(value);
             var duration = allBindings.slideDuration || 400;
@@ -177,23 +177,23 @@ function test_bindings() {
             else
                 $(element).slideUp(duration);
         },
-        init: function (element, valueAccessor) {
+        init: function(element, valueAccessor) {
             var value = ko.utils.unwrapObservable(valueAccessor());
             $(element).toggle(value);
         }
     };
     ko.bindingHandlers.hasFocus = {
-        init: function (element, valueAccessor) {
-            $(element).focus(function () {
+        init: function(element, valueAccessor) {
+            $(element).focus(function() {
                 var value = valueAccessor();
                 value(true);
             });
-            $(element).blur(function () {
+            $(element).blur(function() {
                 var value = valueAccessor();
                 value(false);
             });
         },
-        update: function (element, valueAccessor) {
+        update: function(element, valueAccessor) {
             var value = valueAccessor();
             if (ko.utils.unwrapObservable(value))
                 element.focus();
@@ -202,13 +202,13 @@ function test_bindings() {
         }
     };
     ko.bindingHandlers.allowBindings = {
-        init: function (elem, valueAccessor) {
+        init: function(elem, valueAccessor) {
             var shouldAllowBindings = ko.utils.unwrapObservable(valueAccessor());
             return { controlsDescendantBindings: !shouldAllowBindings };
         }
     };
     ko.bindingHandlers.withProperties = {
-        init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+        init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
             var newProperties = valueAccessor(),
                 innerBindingContext = bindingContext.extend(newProperties);
             ko.applyBindingsToDescendants(innerBindingContext, element);
@@ -216,7 +216,7 @@ function test_bindings() {
         }
     };
     ko.bindingHandlers.withProperties = {
-        init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+        init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
             var newProperties = valueAccessor(),
                 childBindingContext = bindingContext.createChildContext(viewModel);
             ko.utils.extend(childBindingContext, newProperties);
@@ -225,7 +225,7 @@ function test_bindings() {
         }
     };
     ko.bindingHandlers.randomOrder = {
-        init: function (elem, valueAccessor) {
+        init: function(elem, valueAccessor) {
             var child = ko.virtualElements.firstChild(elem),
                 childElems = [];
             while (child) {
@@ -271,22 +271,22 @@ function test_more() {
         type: "Customer",
         hasALotOfPets: <any>null
     };
-    viewModel.hasALotOfPets = ko.computed(function () {
+    viewModel.hasALotOfPets = ko.computed(function() {
         return this.pets().length > 2
     }, viewModel);
     var plainJs = ko.toJS(viewModel);
 
-    ko.extenders.logChange = function (target, option) {
-        target.subscribe(function (newValue) {
+    ko.extenders.logChange = function(target, option) {
+        target.subscribe(function(newValue) {
             console.log(option + ": " + newValue);
         });
         return target;
     };
 
-    ko.extenders.numeric = function (target, precision) {
+    ko.extenders.numeric = function(target, precision) {
         var result = ko.computed({
             read: target,
-            write: function (newValue) {
+            write: function(newValue) {
                 var current = target(),
                     roundingMultiplier = Math.pow(10, precision),
                     newValueAsNum = isNaN(newValue) ? 0 : parseFloat(newValue),
@@ -314,7 +314,7 @@ function test_more() {
 
     ko.applyBindings(new AppViewModel(221.2234, 123.4525));
 
-    ko.extenders.required = function (target, overrideMessage) {
+    ko.extenders.required = function(target, overrideMessage) {
 
         target.hasError = ko.observable();
         target.validationMessage = ko.observable();
@@ -341,17 +341,17 @@ function test_more() {
     var first;
     this.firstName = ko.observable(first).extend({ required: "Please enter a first name", logChange: "first name" });
 
-    var upperCaseName = ko.computed(function () {
+    var upperCaseName = ko.computed(function() {
         return name.toUpperCase();
     }).extend({ throttle: 500 });
 
     function AppViewModel3() {
         this.instantaneousValue = ko.observable();
         this.throttledValue = ko.computed(this.instantaneousValue)
-                                .extend({ throttle: 400 });
+            .extend({ throttle: 400 });
 
         this.loggedValues = ko.observableArray([]);
-        this.throttledValue.subscribe(function (val) {
+        this.throttledValue.subscribe(function(val) {
             if (val !== '')
                 this.loggedValues.push(val);
         }, this);
@@ -362,29 +362,29 @@ function test_more() {
         this.pageIndex = ko.observable(1);
         this.currentPageData = ko.observableArray();
 
-        ko.computed(function () {
+        ko.computed(function() {
             var params = { page: this.pageIndex(), size: this.pageSize() };
             $.getJSON('/Some/Json/Service', params, this.currentPageData);
         }, this);
     }
-    this.setPageSize = function (newPageSize) {
+    this.setPageSize = function(newPageSize) {
         this.pageSize(newPageSize);
         this.pageIndex(1);
     }
 
-    ko.computed(function () {
+    ko.computed(function() {
         var params = { page: this.pageIndex(), size: this.pageSize() };
         $.getJSON('/Some/Json/Service', params, this.currentPageData);
     }, this).extend({ throttle: 1 });
 
-    $(".remove").click(function () {
+    $(".remove").click(function() {
         viewModel.pets.remove(ko.dataFor(this));
     });
-    $(".remove").live("click", function () {
+    $(".remove").live("click", function() {
         viewModel.pets.remove(ko.dataFor(this));
     });
 
-    $("#people").delegate(".remove", "click", function () {
+    $("#people").delegate(".remove", "click", function() {
 
         var context = ko.contextFor(this),
             parentArray = context.$parent.people || context.$parent.children;
@@ -393,7 +393,7 @@ function test_more() {
 
         return false;
     });
-    $("#people").delegate(".add", "click", function () {
+    $("#people").delegate(".add", "click", function() {
         var context = ko.contextFor(this),
             childName = context.$data.name() + " child",
             parentArray = context.$data.people || context.$data.children;
@@ -402,8 +402,8 @@ function test_more() {
 
         return false;
     });
-    ko.observableArray.fn.filterByProperty = function (propName, matchValue) {
-        return ko.computed(function () {
+    ko.observableArray.fn.filterByProperty = function(propName, matchValue) {
+        return ko.computed(function() {
             var allItems = this(), matchingItems = [];
             for (var i = 0; i < allItems.length; i++) {
                 var current = allItems[i];
@@ -429,8 +429,8 @@ function test_more() {
     }
 
     ko.applyBindings(new AppViewModel4());
-    this.doneTasks = ko.computed(function () {
-    var all = this.tasks(), done = [];
+    this.doneTasks = ko.computed(function() {
+        var all = this.tasks(), done = [];
         for (var i = 0; i < all.length; i++)
             if (all[i].done())
                 done.push(all[i]);
@@ -457,10 +457,10 @@ function test_mappingplugin() {
     var viewModel = ko.mapping.fromJS(data);
     ko.mapping.fromJS(data, viewModel);
 
-    var myChildModel = function (data) {
+    var myChildModel = function(data) {
         ko.mapping.fromJS(data, {}, this);
 
-        this.nameLength = ko.computed(function () {
+        this.nameLength = ko.computed(function() {
             return this.name().length;
         }, this);
     }
@@ -481,7 +481,7 @@ function test_mappingplugin() {
 
     var obj;
     var result = ko.mapping.fromJS(obj, {
-        key: function (item) {
+        key: function(item) {
             return ko.utils.unwrapObservable(item.id);
         }
     });
@@ -511,13 +511,13 @@ function test_misc() {
     var postbox = new ko.subscribable();
     postbox.subscribe(callback, target, topic);
 
-    postbox.subscribe(function (newValue) {
+    postbox.subscribe(function(newValue) {
         this.latestTopic(newValue);
     }, vm, "mytopic");
     postbox.notifySubscribers(value, "mytopic");
 
-    ko.subscribable.fn.publishOn = function (topic) {
-        this.subscribe(function (newValue) {
+    ko.subscribable.fn.publishOn = function(topic) {
+        this.subscribe(function(newValue) {
             postbox.notifySubscribers(newValue, topic);
         });
 
@@ -526,7 +526,7 @@ function test_misc() {
 
     this.myObservable = <KnockoutObservable<string>>ko.observable("myValue").publishOn("myTopic");
 
-    ko.subscribable.fn.subscribeTo = function (topic) {
+    ko.subscribable.fn.subscribeTo = function(topic) {
         postbox.subscribe(this, null, topic);
 
         return this;
@@ -534,15 +534,15 @@ function test_misc() {
 
     this.observableFromAnotherVM = <KnockoutObservable<any>>ko.observable().subscribeTo("myTopic");
 
-    postbox.subscribe(function (newValue) {
+    postbox.subscribe(function(newValue) {
         this(newValue);
     }, this, topic);
 
     ko.bindingHandlers.isolatedOptions = {
-        init: function (element, valueAccessor) {
+        init: function(element, valueAccessor) {
             var args = arguments;
             ko.computed({
-                read: function () {
+                read: function() {
                     ko.utils.unwrapObservable(valueAccessor());
                     ko.bindingHandlers.options.update.apply(this, args);
                 },
@@ -552,8 +552,8 @@ function test_misc() {
         }
     };
 
-    ko.subscribable.fn.publishOn = function (topic) {
-        this.subscribe(function (newValue) {
+    ko.subscribable.fn.publishOn = function(topic) {
+        this.subscribe(function(newValue) {
             postbox.notifySubscribers(newValue, topic);
         });
 
@@ -565,22 +565,22 @@ function test_misc() {
     var x = ko.observableArray([1, 2, 3]);
 
     var element;
-    ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
+    ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
         $(element).datepicker("destroy");
     });
-	
-	this.observableFactory = function(): KnockoutObservable<number>{
-	    if (true) {
-			return ko.computed({
-				read:function(){ 
-					return 3; 
-				}
-			});
-		} else {
-			return ko.observable(3);
-		}
-	}
-	
+
+    this.observableFactory = function(): KnockoutObservable<number> {
+        if (true) {
+            return ko.computed({
+                read: function() {
+                    return 3;
+                }
+            });
+        } else {
+            return ko.observable(3);
+        }
+    }
+
 }
 
 interface KnockoutBindingHandlers {

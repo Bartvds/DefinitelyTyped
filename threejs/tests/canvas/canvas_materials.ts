@@ -1,4 +1,4 @@
-﻿/// <reference path="../../three.d.ts" />
+/// <reference path="../../three.d.ts" />
 /// <reference path="../three-tests-setup.ts" />
 
 // https://github.com/mrdoob/three.js/blob/master/examples/canvas_materials.html
@@ -95,7 +95,7 @@
         }
 
         var PI2 = Math.PI * 2;
-        var program = function (context) {
+        var program = function(context) {
 
             context.beginPath();
             context.arc(0, 0, 0.5, 0, PI2, true);
@@ -163,7 +163,7 @@
         var image = document.createElement('img');
         var texture = new THREE.Texture(image, THREE.UVMapping)
 
-				image.onload = function () { texture.needsUpdate = true; };
+				image.onload = function() { texture.needsUpdate = true; };
         image.src = path;
 
         return texture;

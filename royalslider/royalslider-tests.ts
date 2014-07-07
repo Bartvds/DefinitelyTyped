@@ -8,7 +8,7 @@ $(".royalSlider").royalSlider({
     keyboardNavEnabled: true
 });
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
     $(".royalSlider").royalSlider({
         // general options go gere
         autoScaleSlider: true,
@@ -20,7 +20,7 @@ jQuery(document).ready(function () {
     });
 });
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
     $(".royalSlider").royalSlider({
         // general options go gere
         autoScaleSlider: true,
@@ -32,7 +32,7 @@ jQuery(document).ready(function () {
     });
 });
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
     $(".royalSlider").royalSlider({
         // general options go gere
         autoScaleSlider: true,
@@ -45,7 +45,7 @@ jQuery(document).ready(function () {
 });
 
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
     $(".royalSlider").royalSlider({
         // general options go gere
         autoScaleSlider: true,
@@ -57,7 +57,7 @@ jQuery(document).ready(function () {
     });
 });
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
     $(".royalSlider").royalSlider({
         // general options go gere
         autoScaleSlider: true,
@@ -69,7 +69,7 @@ jQuery(document).ready(function () {
     });
 });
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
     $(".royalSlider").royalSlider({
         // general options go gere
         autoScaleSlider: true,
@@ -81,7 +81,7 @@ jQuery(document).ready(function () {
     });
 });
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
     $(".royalSlider").royalSlider({
         // general options go gere
         keyboardNavEnabled: true,
@@ -165,66 +165,66 @@ slider.ev // jQuery object with slider events
 
 // In each listener event.target is slider instance
 
-slider.ev.on('rsAfterSlideChange', function (event) {
+slider.ev.on('rsAfterSlideChange', function(event) {
     // triggers after slide change
 });
-slider.ev.on('rsBeforeAnimStart', function (event) {
+slider.ev.on('rsBeforeAnimStart', function(event) {
     // before animation between slides start
 });
-slider.ev.on('rsBeforeMove', function (event: JQueryEventObject, type?: string, userAction?: boolean) {
+slider.ev.on('rsBeforeMove', function(event: JQueryEventObject, type?: string, userAction?: boolean) {
     // before any transition start (including after drag release)
     // "type" - can be "next", "prev", or ID of slide to move
     // userAction (Boolean) - defines if action is triggered by user (e.g. will be false if movement is triggered by autoPlay)
 });
-slider.ev.on('rsBeforeSizeSet', function (event) {
+slider.ev.on('rsBeforeSizeSet', function(event) {
     // before size of slider is changed
 });
-slider.ev.on('rsDragStart', function (event) {
+slider.ev.on('rsDragStart', function(event) {
     // mouse/touch drag start
 });
-slider.ev.on('rsDragRelease', function () {
+slider.ev.on('rsDragRelease', function() {
     // mouse/touch drag end
 });
-slider.ev.on('rsBeforeDestroy', function () {
+slider.ev.on('rsBeforeDestroy', function() {
     // triggers before slider in destroyed
 });
-slider.ev.on('rsOnCreateVideoElement', function (e: JQueryEventObject, url?: string) {
+slider.ev.on('rsOnCreateVideoElement', function(e: JQueryEventObject, url?: string) {
     // triggers before video element is created, after click on play button. 
     // Read more in Tips&Tricks section
 });
-slider.ev.on('rsSlideClick', function () {
+slider.ev.on('rsSlideClick', function() {
     // triggers when user clicks on slide
     // doesn't trigger after click and drag
 });
-slider.ev.on('rsEnterFullscreen', function () {
+slider.ev.on('rsEnterFullscreen', function() {
     // enter fullscreen mode 
 });
-slider.ev.on('rsExitFullscreen', function () {
+slider.ev.on('rsExitFullscreen', function() {
     // exit fullscreen mode 
 });
 
-slider.ev.on('rsVideoPlay', function () {
+slider.ev.on('rsVideoPlay', function() {
     // video start
 });
-slider.ev.on('rsVideoStop', function () {
+slider.ev.on('rsVideoStop', function() {
     // video stop
 });
 
-slider.slides[2].holder.on('rsAfterContentSet', function () {
+slider.slides[2].holder.on('rsAfterContentSet', function() {
     // fires when third slide content is loaded and added to DOM
 });
 // or globally
-slider.ev.on('rsAfterContentSet', function (e: JQueryEventObject, slideObject?: RoyalSlider.RoyalSlider) {
+slider.ev.on('rsAfterContentSet', function(e: JQueryEventObject, slideObject?: RoyalSlider.RoyalSlider) {
     // fires when every time when slide content is loaded and added to DOM
 });
 
 // Next events TRIGGER DIRECTLY ON SLIDER INITIALIZATION
 // if you bind them after slider init they'll not fire
 // used for module development
-slider.ev.on('rsAfterInit', function () {
+slider.ev.on('rsAfterInit', function() {
     // after slider is initialized, 
 });
-slider.ev.on('rsBeforeParseNode', function (e: JQueryEventObject, content?: any, obj?: any) {
+slider.ev.on('rsBeforeParseNode', function(e: JQueryEventObject, content?: any, obj?: any) {
     // before slide node is parsed
     // content - HTML object of slide that is parsed
     // obj - RoyalSlider data object (stores image URLs)

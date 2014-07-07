@@ -1,4 +1,4 @@
-﻿/// <reference path="accounting.d.ts"/>
+/// <reference path="accounting.d.ts"/>
 
 // formatMoney
 

@@ -3,7 +3,7 @@
 
 var selector = '#elementId';
 
-$(function () {
+$(function() {
     $(selector).pagination({
         items: 100,
         itemsOnPage: 10,
@@ -11,56 +11,56 @@ $(function () {
     });
 });
 
-$(function () {
+$(function() {
     $(selector).pagination({
         onPageClick: (page) => {
         }
     });
 });
 
-$(function () {
+$(function() {
     $(selector).pagination({
         onPageClick: (page, event) => {
         }
     });
 });
 
-$(function () {
+$(function() {
     $(selector).pagination('selectPage', 1);
 });
 
-$(function () {
+$(function() {
     $(selector).pagination('prevPage');
 });
 
-$(function () {
+$(function() {
     $(selector).pagination('nextPage');
 });
 
-$(function () {
+$(function() {
     $(selector).pagination('getPagesCount');
 });
 
-$(function () {
+$(function() {
     $(selector).pagination('getCurrentPage');
 });
 
-$(function () {
+$(function() {
     $(selector).pagination('disable');
 });
 
-$(function () {
+$(function() {
     $(selector).pagination('enable');
 });
 
-$(function () {
+$(function() {
     $(selector).pagination('destroy');
 });
 
-$(function () {
+$(function() {
     $(selector).pagination('redraw');
 });
 
-$(function () {
+$(function() {
     $(selector).pagination('updateItems', 100);
 });

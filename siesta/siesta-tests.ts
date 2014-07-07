@@ -1,6 +1,6 @@
 /// <reference path="siesta.d.ts" />
 
-StartTest(function (t: Siesta.Test.ExtJS) {
+StartTest(function(t: Siesta.Test.ExtJS) {
     t.waitForComponentQuery('#myItemId', () => {
         t.ajaxRequestAndThen('http://some/url', () => {
             t.isBoolean(123, 'not a boolean');
@@ -8,11 +8,11 @@ StartTest(function (t: Siesta.Test.ExtJS) {
     }, null, 2000);
 });
 
-startTest(function (t: Siesta.Test.Browser) {
+startTest(function(t: Siesta.Test.Browser) {
     t.waitForSelectors(['.class', '#id'], () => { });
 });
 
-describe(function (t: Siesta.Test.jQuery) {
+describe(function(t: Siesta.Test.jQuery) {
     var library = t.get$();
 
     t.describe('My Module', () => {

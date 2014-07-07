@@ -57,7 +57,7 @@ function test_droppable() {
             $(this)
                 .addClass("ui-state-highlight")
                 .find("p")
-                    .html("Dropped!");
+                .html("Dropped!");
         }
     });
     $("#draggable").draggable();
@@ -104,7 +104,7 @@ function test_droppable() {
                 $item
                     .animate({ width: "48px" })
                     .find("img")
-                        .animate({ height: "36px" });
+                    .animate({ height: "36px" });
             });
         });
     }
@@ -114,12 +114,12 @@ function test_droppable() {
         $item.fadeOut(() => {
             $item
                 .find("a.ui-icon-refresh")
-                    .remove()
+                .remove()
                 .end()
                 .css("width", "96px")
                 .append(trash_icon)
                 .find("img")
-                    .css("height", "72px")
+                .css("height", "72px")
                 .end()
                 .appendTo($gallery)
                 .fadeIn();
@@ -171,7 +171,7 @@ function test_droppable() {
             $(this)
                 .addClass("ui-state-highlight")
                 .find("> p")
-                    .html("Dropped!");
+                .html("Dropped!");
             return false;
         }
     });
@@ -184,7 +184,7 @@ function test_droppable() {
             $(this)
                 .addClass("ui-state-highlight")
                 .find("> p")
-                    .html("Dropped!");
+                .html("Dropped!");
         }
     });
 
@@ -197,7 +197,7 @@ function test_droppable() {
             $(this)
                 .addClass("ui-state-highlight")
                 .find("p")
-                    .html("Dropped!");
+                .html("Dropped!");
         }
     });
     $("#catalog").accordion();
@@ -214,13 +214,13 @@ function test_droppable() {
             $("<li></li>").text(ui.draggable.text()).appendTo(this);
         }
     }).sortable({
-        items: "li:not(.placeholder)",
-        sort: () => {
-            // gets added unintentionally by droppable interacting with sortable
-            // using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
-            $(this).removeClass("ui-state-default");
-        }
-    });
+            items: "li:not(.placeholder)",
+            sort: () => {
+                // gets added unintentionally by droppable interacting with sortable
+                // using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
+                $(this).removeClass("ui-state-default");
+            }
+        });
 
     $("#draggable").draggable();
     $("#droppable").droppable({
@@ -229,7 +229,7 @@ function test_droppable() {
             $(this)
                 .addClass("ui-state-highlight")
                 .find("p")
-                    .html("Dropped!");
+                .html("Dropped!");
         }
     });
 
@@ -241,7 +241,7 @@ function test_droppable() {
             $(this)
                 .addClass("ui-state-highlight")
                 .find("p")
-                    .html("Dropped!");
+                .html("Dropped!");
         }
     });
 
@@ -353,9 +353,9 @@ function test_resizable() {
 function test_selectable() {
     $("#selectable").selectable();
     $("#selectable").selectable({
-        stop: function () {
+        stop: function() {
             var result = $("#select-result").empty();
-            $(".ui-selected", this).each(function () {
+            $(".ui-selected", this).each(function() {
                 var index = $("#selectable li").index(this);
                 result.append(" #" + (index + 1));
             });
@@ -404,11 +404,11 @@ function test_sortable() {
     var $tab_items = $("ul:first li", $tabs).droppable({
         accept: ".connectedSortable li",
         hoverClass: "ui-state-hover",
-        drop: function (event, ui) {
+        drop: function(event, ui) {
             var $item = $(this);
             var $list = $($item.find("a").attr("href"))
                 .find(".connectedSortable");
-            ui.draggable.hide("slow", function () {
+            ui.draggable.hide("slow", function() {
                 $tabs.tabs("select", $tab_items.index($item));
                 $(this).appendTo($list).show("slow");
             });
@@ -442,11 +442,11 @@ function test_sortable() {
     });
     $(".portlet").addClass("ui-widget ui-widget-content ui-helper-clearfix ui-corner-all")
         .find(".portlet-header")
-            .addClass("ui-widget-header ui-corner-all")
-            .prepend("<span class='ui-icon ui-icon-minusthick'></span>")
-            .end()
+        .addClass("ui-widget-header ui-corner-all")
+        .prepend("<span class='ui-icon ui-icon-minusthick'></span>")
+        .end()
         .find(".portlet-content");
-    $(".portlet-header .ui-icon").click(function () {
+    $(".portlet-header .ui-icon").click(function() {
         $(this).toggleClass("ui-icon-minusthick").toggleClass("ui-icon-plusthick");
         $(this).parents(".portlet:first").find(".portlet-content").toggle();
     });
@@ -616,15 +616,15 @@ function test_autocomplete() {
     });
 
     var data = [
-                { label: "anders", category: "" },
-                { label: "andreas", category: "" },
-                { label: "antal", category: "" },
-                { label: "annhhx10", category: "Products" },
-                { label: "annk K12", category: "Products" },
-                { label: "annttop C13", category: "Products" },
-                { label: "anders andersson", category: "People" },
-                { label: "andreas andersson", category: "People" },
-                { label: "andreas johnson", category: "People" }
+        { label: "anders", category: "" },
+        { label: "andreas", category: "" },
+        { label: "antal", category: "" },
+        { label: "annhhx10", category: "Products" },
+        { label: "annk K12", category: "Products" },
+        { label: "annttop C13", category: "Products" },
+        { label: "anders andersson", category: "People" },
+        { label: "andreas andersson", category: "People" },
+        { label: "andreas johnson", category: "People" }
     ];
 
     $("#search").autocomplete({
@@ -687,7 +687,7 @@ function test_autocomplete() {
                                             "(?![^&;]+;)(?!<[^<>]*)(" +
                                             $.ui.autocomplete.escapeRegex(request.term) +
                                             ")(?![^<>]*>)(?![^&;]+;)", "gi"
-                                        ), "<strong>$1</strong>"),
+                                            ), "<strong>$1</strong>"),
                                     value: text,
                                     option: this
                                 };
@@ -770,7 +770,7 @@ function test_autocomplete() {
             return false;
         }
     })
-    .data("autocomplete")._renderItem = (ul, item) => {
+        .data("autocomplete")._renderItem = (ul, item) => {
         return $("<li>")
             .data("item.autocomplete", item)
             .append("<a>" + item.label + "<br>" + item.desc + "</a>")
@@ -811,7 +811,7 @@ function test_autocomplete() {
     $("#birds")
         .bind("keydown", (event) => {
             if (event.keyCode === $.ui.keyCode.TAB &&
-                    $(this).data("autocomplete").menu.active) {
+                $(this).data("autocomplete").menu.active) {
                 event.preventDefault();
             }
         })
@@ -838,7 +838,7 @@ function test_autocomplete() {
     $("#tags")
         .bind("keydown", (event) => {
             if (event.keyCode === $.ui.keyCode.TAB &&
-                    $(this).data("autocomplete").menu.active) {
+                $(this).data("autocomplete").menu.active) {
                 event.preventDefault();
             }
         })
@@ -941,49 +941,49 @@ function test_button() {
         },
         text: false
     }).next().button({
-        icons: {
-            primary: "ui-icon-locked"
-        }
-    }).next().button({
-        icons: {
-            primary: "ui-icon-gear",
-            secondary: "ui-icon-triangle-1-s"
-        }
-    }).next().button({
-        icons: {
-            primary: "ui-icon-gear",
-            secondary: "ui-icon-triangle-1-s"
-        },
-        text: false
-    });
+            icons: {
+                primary: "ui-icon-locked"
+            }
+        }).next().button({
+            icons: {
+                primary: "ui-icon-gear",
+                secondary: "ui-icon-triangle-1-s"
+            }
+        }).next().button({
+            icons: {
+                primary: "ui-icon-gear",
+                secondary: "ui-icon-triangle-1-s"
+            },
+            text: false
+        });
     $("#rerun")
-            .button()
-            .click(function () {
-                alert("Running the last action");
-            })
-            .next()
-                .button({
-                    text: false,
-                    icons: {
-                        primary: "ui-icon-triangle-1-s"
-                    }
-                })
-                .click(function () {
-                    var menu = $(this).parent().next().show().position({
-                        my: "left top",
-                        at: "left bottom",
-                        of: this
-                    });
-                    $(document).one("click", function () {
-                        menu.hide();
-                    });
-                    return false;
-                })
-                .parent()
-                    .buttonset()
-                    .next()
-                        .hide()
-                        .menu();
+        .button()
+        .click(function() {
+            alert("Running the last action");
+        })
+        .next()
+        .button({
+            text: false,
+            icons: {
+                primary: "ui-icon-triangle-1-s"
+            }
+        })
+        .click(function() {
+            var menu = $(this).parent().next().show().position({
+                my: "left top",
+                at: "left bottom",
+                of: this
+            });
+            $(document).one("click", function() {
+                menu.hide();
+            });
+            return false;
+        })
+        .parent()
+        .buttonset()
+        .next()
+        .hide()
+        .menu();
     $("#beginning").button({
         text: false,
         icons: {
@@ -1002,39 +1002,39 @@ function test_button() {
             primary: "ui-icon-play"
         }
     })
-    .click(function () {
-        var options;
-        if ($(this).text() === "play") {
-            options = {
-                label: "pause",
-                icons: {
-                    primary: "ui-icon-pause"
-                }
-            };
-        } else {
-            options = {
-                label: "play",
-                icons: {
-                    primary: "ui-icon-play"
-                }
-            };
-        }
-        $(this).button("option", options);
-    });
+        .click(function() {
+            var options;
+            if ($(this).text() === "play") {
+                options = {
+                    label: "pause",
+                    icons: {
+                        primary: "ui-icon-pause"
+                    }
+                };
+            } else {
+                options = {
+                    label: "play",
+                    icons: {
+                        primary: "ui-icon-play"
+                    }
+                };
+            }
+            $(this).button("option", options);
+        });
     $("#stop").button({
         text: false,
         icons: {
             primary: "ui-icon-stop"
         }
     })
-    .click(function () {
-        $("#play").button("option", {
-            label: "play",
-            icons: {
-                primary: "ui-icon-play"
-            }
+        .click(function() {
+            $("#play").button("option", {
+                label: "play",
+                icons: {
+                    primary: "ui-icon-play"
+                }
+            });
         });
-    });
     $("#forward").button({
         text: false,
         icons: {
@@ -1091,7 +1091,7 @@ function test_datepicker() {
     });
     $.datepicker.setDefaults($.datepicker.regional[<string>""]);
     $("#datepicker").datepicker($.datepicker.regional["fr"]);
-    $("#locale").change(function () {
+    $("#locale").change(function() {
         $("#datepicker").datepicker("option",
             $.datepicker.regional[$(this).val()]);
     });
@@ -1104,7 +1104,7 @@ function test_datepicker() {
         defaultDate: "+1w",
         changeMonth: true,
         numberOfMonths: 3,
-        onClose: function (selectedDate) {
+        onClose: function(selectedDate) {
             $("#to").datepicker("option", "minDate", selectedDate);
         }
     });
@@ -1112,7 +1112,7 @@ function test_datepicker() {
         defaultDate: "+1w",
         changeMonth: true,
         numberOfMonths: 3,
-        onClose: function (selectedDate) {
+        onClose: function(selectedDate) {
             $("#from").datepicker("option", "maxDate", selectedDate);
         }
     });
@@ -1259,7 +1259,7 @@ function test_datepicker() {
             if (week < 1) {
                 week = 52 + week;
             }
-            return 'FW: '+week;
+            return 'FW: ' + week;
         }
 
         $(".selector").datepicker({ calculateWeek: myWeekCalc });
@@ -1399,7 +1399,7 @@ function test_dialog() {
         show: "blind",
         hide: "explode"
     });
-    $("#opener").click(function () {
+    $("#opener").click(function() {
         var $el = $("#dialog").dialog("open");
         return false;
     });
@@ -1412,10 +1412,10 @@ function test_dialog() {
         height: 140,
         modal: true,
         buttons: {
-            "Delete all items": function () {
+            "Delete all items": function() {
                 var $el = $(this).dialog("close");
             },
-            Cancel: function () {
+            Cancel: function() {
                 $(this).dialog("close");
             }
         }
@@ -1426,23 +1426,23 @@ function test_dialog() {
         width: 350,
         modal: true,
         buttons: {},
-        Cancel: function () {
+        Cancel: function() {
             $(this).dialog("close");
         },
-        close: function () {
-		    var $el = $(this).dialog("destroy");
+        close: function() {
+            var $el = $(this).dialog("destroy");
         }
     });
     $("#dialog-message").dialog({
         modal: true,
         buttons: {
-            Ok: function () {
+            Ok: function() {
                 $(this).dialog("close");
             }
         }
     });
     $(".selector").dialog({ autoOpen: false });
-    $(".selector").dialog({ buttons: { Ok: function () { $(this).dialog("close"); } } });
+    $(".selector").dialog({ buttons: { Ok: function() { $(this).dialog("close"); } } });
     $(".selector").dialog({ closeOnEscape: false });
     $(".selector").dialog({ closeText: "hide" });
     $(".selector").dialog({ dialogClass: "alert" });
@@ -1462,8 +1462,8 @@ function test_dialog() {
     $(".selector").dialog({ title: "Dialog Title" });
     $(".selector").dialog({ width: 500 });
     $(".selector").dialog({ zIndex: 20 });
-	var $el = $( ".selector" ).dialog( "moveToTop" );
-	var isOpen = $( ".selector" ).dialog( "isOpen" );
+    var $el = $(".selector").dialog("moveToTop");
+    var isOpen = $(".selector").dialog("isOpen");
 }
 
 
@@ -1500,7 +1500,7 @@ function test_slider() {
         min: 0,
         max: 500,
         values: [75, 300],
-        slide: function (event, ui) {
+        slide: function(event, ui) {
             $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
         }
     });
@@ -1509,11 +1509,11 @@ function test_slider() {
     var scrollPane = $(".scroll-pane"),
         scrollContent = $(".scroll-content");
     var scrollbar = $(".scroll-bar").slider({
-        slide: function (event, ui) {
+        slide: function(event, ui) {
             if (scrollContent.width() > scrollPane.width()) {
                 scrollContent.css("margin-left", Math.round(
                     ui.value / 100 * (scrollPane.width() - scrollContent.width())
-                ) + "px");
+                    ) + "px");
             } else {
                 scrollContent.css("margin-left", 0);
             }
@@ -1521,10 +1521,10 @@ function test_slider() {
     });
 
     var handleHelper = scrollbar.find(".ui-slider-handle")
-        .mousedown(function () {
+        .mousedown(function() {
             scrollbar.width(handleHelper.width());
         })
-        .mouseup(function () {
+        .mouseup(function() {
             scrollbar.width("100%");
         })
         .append("<span class='ui-icon ui-icon-grip-dotted-vertical'></span>")
@@ -1534,7 +1534,7 @@ function test_slider() {
         min: 0,
         max: 500,
         step: 50,
-        slide: function (event, ui) {
+        slide: function(event, ui) {
             $("#amount").val("$" + ui.value);
         }
     });
@@ -1554,26 +1554,26 @@ function test_slider() {
 function test_spinner() {
     var spinner = $("#spinner").spinner();
 
-    $("#disable").click(function () {
+    $("#disable").click(function() {
         if (spinner.spinner("option", "disabled")) {
             spinner.spinner("enable");
         } else {
             spinner.spinner("disable");
         }
     });
-    $("#destroy").click(function () {
+    $("#destroy").click(function() {
         if (spinner.data("ui-spinner")) {
             spinner.spinner("destroy");
         } else {
             spinner.spinner();
         }
     });
-    $("#getvalue").click(function () { });
-    $("#setvalue").click(function () {
+    $("#getvalue").click(function() { });
+    $("#setvalue").click(function() {
         spinner.spinner("value", 5);
     });
     $("button").button();
-    $("#currency").change(function () {
+    $("#currency").change(function() {
         $("#spinner").spinner("option", "culture", $(this).val());
     });
 
@@ -1589,7 +1589,7 @@ function test_spinner() {
         numberFormat: "n"
     });
 
-    $("#culture").change(function () {
+    $("#culture").change(function() {
         var current = $("#spinner").spinner("value");
         $("#spinner").spinner("value", current);
     });
@@ -1599,7 +1599,7 @@ function test_spinner() {
         stop: 321
     });
     $("#spinner").spinner({
-        spin: function (event, ui) {
+        spin: function(event, ui) {
             if (ui.value > 10) {
                 $(this).spinner("value", -10);
                 return false;
@@ -1616,7 +1616,7 @@ function test_spinner() {
             // hours
             page: 60
         },
-        _parse: function (value) {
+        _parse: function(value) {
             if (typeof value === "string") {
                 if (Number(value) == value) {
                     return Number(value);
@@ -1625,7 +1625,7 @@ function test_spinner() {
             }
             return value;
         },
-        _format: function (value) {
+        _format: function(value) {
         }
     });
     $(".selector").spinner({ culture: "fr" });
@@ -1646,8 +1646,8 @@ function test_tabs() {
         collapsible: true
     });
     $("#tabs").tabs({
-        beforeLoad: function (event, ui) {
-            ui.jqXHR.error(function () {
+        beforeLoad: function(event, ui) {
+            ui.jqXHR.error(function() {
                 ui.panel.html(
                     "Couldn't load this tab. We'll try to fix this as soon as possible. " +
                     "If this wouldn't be a demo.");
@@ -1660,7 +1660,7 @@ function test_tabs() {
     var tabs = $("#tabs").tabs();
     tabs.find(".ui-tabs-nav").sortable({
         axis: "x",
-        stop: function () {
+        stop: function() {
             tabs.tabs("refresh");
         }
     });
@@ -1682,7 +1682,7 @@ function test_tooltip() {
         position: {
             my: "center bottom-20",
             at: "center top",
-            using: function (position, feedback) {
+            using: function(position, feedback) {
                 $(this).css(position);
                 $("<div>")
                     .addClass("arrow")
@@ -1700,7 +1700,7 @@ function test_tooltip() {
     });
     $(document).tooltip({
         items: "img, [data-geo], [title]",
-        content: function () {
+        content: function() {
             var element = $(this);
             if (element.is("[data-geo]")) {
                 var text = element.text();
@@ -1721,7 +1721,7 @@ function test_tooltip() {
     $("<button>")
         .text("Show help")
         .button()
-        .click(function () {
+        .click(function() {
             tooltips.tooltip("open");
         })
         .insertAfter("form");
@@ -1791,7 +1791,7 @@ function test_methods() {
         at: "right bottom",
         of: "#targetElement"
     });
-    $(document).mousemove(function (event) {
+    $(document).mousemove(function(event) {
         $("#position4").position({
             my: "left+3 bottom-3",
             of: event,
@@ -1807,7 +1807,7 @@ function test_ui() {
     $(".selector").jQuery.ui.mouse({ delay: 300 });
     $(".selector").jQuery.ui.mouse({ distance: 10 });
     $(".selector").jQuery.ui.mouse("_mouseCapture");
-    $("aDialog").keypress(function (e) {
+    $("aDialog").keypress(function(e) {
         return (e.keyCode == $.ui.keyCode.ENTER);
     });
 }

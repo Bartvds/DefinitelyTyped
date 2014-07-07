@@ -1,4 +1,4 @@
-﻿/// <reference path="../jquery/jquery.d.ts"/>
+/// <reference path="../jquery/jquery.d.ts"/>
 /// <reference path="typeahead.d.ts"/>
 
 //
@@ -76,12 +76,12 @@ $('.example-films .typeahead').typeahead([
 // Specifies options to display hint with a highlight and adds a minimum length restriction for search
 // Prefetches data, stores it in localStorage, and searches it on the client
 $('.example-countries .typeahead').typeahead({
-  hint: true,
-  highlight: true,
-  minLength: 2
+    hint: true,
+    highlight: true,
+    minLength: 2
 },
-{
-  name: 'countries',
-  prefetch: '../data/countries.json',
-  limit: 10
-});
+    {
+        name: 'countries',
+        prefetch: '../data/countries.json',
+        limit: 10
+    });

@@ -5,7 +5,7 @@
 store.set('username', 'marcus');
 
 // Get 'username'
-var userName:any = store.get('username');
+var userName: any = store.get('username');
 
 var all: Object = store.getAll();
 

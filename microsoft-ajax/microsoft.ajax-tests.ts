@@ -93,21 +93,21 @@ function BaseClassExtensions_String_Tests() {
 function BaseClassExtensions_Function_Tests() {
 
     /** Sample code from http://msdn.microsoft.com/en-us/library/dd409287(v=vs.100).aspx */
-    var createDelegateTest = function () {
+    var createDelegateTest = function() {
         var context = "";
         var method: MicrosoftAjaxBaseTypeExtensions.Function;
         var a = (<MicrosoftAjaxBaseTypeExtensions.Function>Function).createCallback(method, context);
     }
 
     /** Sample code from http://msdn.microsoft.com/en-us/library/dd393582(v=vs.100).aspx */
-    var createDelegateTest = function () {
+    var createDelegateTest = function() {
         var instance = this;
         var method: MicrosoftAjaxBaseTypeExtensions.Function;
         var a = (<MicrosoftAjaxBaseTypeExtensions.Function>Function).createDelegate(instance, method);
     }
 
     /** Sample code from http://msdn.microsoft.com/en-us/library/dd393712(v=vs.100).aspx */
-    var validateParametersTest = function () {
+    var validateParametersTest = function() {
         var arguments = ['test1', 'test2'];
         var insert = function Array$insert(array: any[], index: number, item: any) {
             var e = (<MicrosoftAjaxBaseTypeExtensions.Function>Function).validateParameters(arguments, [
@@ -232,11 +232,11 @@ function Sys_Browser_Tests() {
     var name = browser.name;
     var version = browser.version;
     var hasDebuggerStatement = browser.hasDebuggerStatement;
-    
+
 }
 
 function Sys_EventArgs_Tests() {
-    
+
     var anEventArgs = new Sys.EventArgs();
     var eventArgs = anEventArgs.Empty;
 
@@ -251,7 +251,7 @@ function Sys_CancelEventArgs_Tests() {
 
     Sys.WebForms.PageRequestManager.getInstance().add_initializeRequest(CheckStatus);
 
-    var CheckStatus = function (sender: any, args: any) {
+    var CheckStatus = function(sender: any, args: any) {
 
         var prm = Sys.WebForms.PageRequestManager.getInstance();
 
@@ -268,7 +268,7 @@ function Sys_CancelEventArgs_Tests() {
         }
     }
 
-    var ActivateAlertDiv = function (visString: string, msg: string) {
+    var ActivateAlertDiv = function(visString: string, msg: string) {
         var adiv = <HTMLElement> $get(divElem);
         var aspan = <HTMLElement> $get(messageElem);
         adiv.style.visibility = visString;
@@ -413,14 +413,14 @@ function Sys_UI_DomEvent_Tests() {
 }
 
 function Sys_UI_DomElement_Tests() {
-    
+
     // Add CSS class
     Sys.UI.DomElement.addCssClass($get("Button1"), "redBackgroundColor");
 
     var elementRef: Sys.UI.DomElement = $get("Label1");
     var elementBounds = Sys.UI.DomElement.getBounds(elementRef);
-    var toggleCssClassMethod = () => {};
-    var removeCssClassMethod = () => {};
+    var toggleCssClassMethod = () => { };
+    var removeCssClassMethod = () => { };
     var containsClass = Sys.UI.DomElement.containsCssClass(elementRef, "class-name");
 
     // Add handler using the getElementById method
@@ -446,7 +446,7 @@ function Sys_UI_DomElement_Tests() {
             Sys.UI.DomElement.setVisible(anElement, true);
         }
     }
-    
+
     // This method is called when Button1 is clicked.
     function toggleVisibilityMode() {
 
@@ -484,7 +484,7 @@ function Sys_UI_DomElement_Tests() {
 }
 
 function Sys_Debug_Tests() {
-    
+
     var condition = true;
 
     Sys.Debug.assert(condition);
@@ -552,7 +552,7 @@ function Sys_Res_Tests() {
 }
 
 function Sys_StringBuilder_Tests() {
-    
+
     // Example taken from http://msdn.microsoft.com/en-us/library/bb310852(v=vs.100).aspx
     function buildAString(title: string) {
         var headTagStart = "<head>";
@@ -616,7 +616,7 @@ function Sys_Net_NetworkRequestEventArgs_Tests() {
 }
 
 function Sys_Net_WebRequestManager_Tests() {
-    
+
     var handler = (sender: any, args: any) => { }
 
     Sys.Net.WebRequestManager.add_completedRequest(handler);
@@ -667,7 +667,7 @@ function Sys_WebForms_PageRequestManager_Tests() {
 
 
     var isInAsyncPostBack: boolean = pageRequestManager.get_isInAsyncPostBack();
-    
+
     pageRequestManager.add_beginRequest(beginRequestHandler);
     pageRequestManager.add_endRequest(endRequestHandler);
     pageRequestManager.add_initializeRequest(initializeRequestHandler);
@@ -682,11 +682,11 @@ function Sys_WebForms_PageRequestManager_Tests() {
 }
 
 function Sys_WebForms_EndRequestEventArgs_Tests() {
-    
+
     var pageRequestManager: Sys.WebForms.PageRequestManager = Sys.WebForms.PageRequestManager.getInstance();
 
     var handler = (sender: any, args: Sys.WebForms.EndRequestEventArgs) => {
-        
+
         var error: Error = args.get_error();
         var message: string = error.message;
         var name: string = error.name;
@@ -707,16 +707,16 @@ function AspNetTypes_Tests() {
 
     var Samples: any;
 
-    Samples.A = function () { };
+    Samples.A = function() { };
     var a = <Type> Samples.A;
     a.registerClass('Samples.A');
 
 
-    Samples.B = function () { };
+    Samples.B = function() { };
     var b = <Type> Samples.B;
     b.registerClass('Samples.B');
 
-    Samples.C = function () {
+    Samples.C = function() {
         var c = <Type> Samples.C;
         c.initializeBase(this);
     };
@@ -744,7 +744,7 @@ function CreatingCustomNonVisualClientComponentsTests() {
     var Demo: any;
     Type.registerNamespace("Demo");
 
-    Demo.Timer = function () {
+    Demo.Timer = function() {
         Demo.Timer.initializeBase(this);
 
         this._interval = 1000;
@@ -755,11 +755,11 @@ function CreatingCustomNonVisualClientComponentsTests() {
     Demo.Timer.prototype = {
         // OK to declare value types in the prototype
 
-        get_interval: function () {
+        get_interval: function() {
             /// <value type="Number">Interval in milliseconds</value>
             return this._interval;
         },
-        set_interval: function (value: any) {
+        set_interval: function(value: any) {
             if (this._interval !== value) {
                 this._interval = value;
                 this.raisePropertyChanged('interval');
@@ -770,11 +770,11 @@ function CreatingCustomNonVisualClientComponentsTests() {
             }
         },
 
-        get_enabled: function () {
+        get_enabled: function() {
             /// <value type="Boolean">True if timer is enabled, false if disabled.</value>
             return this._enabled;
         },
-        set_enabled: function (value: any) {
+        set_enabled: function(value: any) {
             if (value !== this.get_enabled()) {
                 this._enabled = value;
                 this.raisePropertyChanged('enabled');
@@ -790,18 +790,18 @@ function CreatingCustomNonVisualClientComponentsTests() {
         },
 
         // events
-        add_tick: function (handler: Function) {
+        add_tick: function(handler: Function) {
             /// <summary>Adds a event handler for the tick event.</summary>
             /// <param name="handler" type="Function">The handler to add to the event.</param>
             this.get_events().addHandler("tick", handler);
         },
-        remove_tick: function (handler: Function) {
+        remove_tick: function(handler: Function) {
             /// <summary>Removes a event handler for the tick event.</summary>
             /// <param name="handler" type="Function">The handler to remove from the event.</param>
             this.get_events().removeHandler("tick", handler);
         },
 
-        dispose: function () {
+        dispose: function() {
             // call set_enabled so the property changed event fires, for potentially attached listeners.
             this.set_enabled(false);
             // make sure it stopped so we aren't called after disposal
@@ -810,7 +810,7 @@ function CreatingCustomNonVisualClientComponentsTests() {
             Demo.Timer.callBaseMethod(this, 'dispose');
         },
 
-        updated: function () {
+        updated: function() {
             Demo.Timer.callBaseMethod(this, 'updated');
             // called after batch updates, this.beginUpdate(), this.endUpdate().
             if (this._enabled) {
@@ -818,24 +818,24 @@ function CreatingCustomNonVisualClientComponentsTests() {
             }
         },
 
-        _timerCallback: function () {
+        _timerCallback: function() {
             var handler = this.get_events().getHandler("tick");
             if (handler) {
                 handler(this, Sys.EventArgs.Empty);
             }
         },
 
-        _restartTimer: function () {
+        _restartTimer: function() {
             this._stopTimer();
             this._startTimer();
         },
 
-        _startTimer: function () {
+        _startTimer: function() {
             // save timer cookie for removal later
             this._timer = window.setInterval((<MicrosoftAjaxBaseTypeExtensions.Function>Function).createDelegate(this, this._timerCallback), this._interval);
         },
 
-        _stopTimer: function () {
+        _stopTimer: function() {
             if (this._timer) {
                 window.clearInterval(this._timer);
                 this._timer = null;

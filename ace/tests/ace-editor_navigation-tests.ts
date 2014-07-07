@@ -3,13 +3,13 @@
 var assert: any;
 var renderer: AceAjax.VirtualRenderer;
 var exports = {
-    createEditSession: function (rows, cols) {
+    createEditSession: function(rows, cols) {
         var line = new Array(cols + 1).join("a");
         var text = new Array(rows).join(line + "\n") + line;
         return new AceAjax.EditSession(text);
     },
 
-    "test: navigate to end of file should scroll the last line into view": function () {
+    "test: navigate to end of file should scroll the last line into view": function() {
         var doc = this.createEditSession(200, 10);
         var editor = new AceAjax.Editor(renderer, doc);
 
@@ -20,7 +20,7 @@ var exports = {
         assert.ok(editor.getLastVisibleRow() >= cursor.row);
     },
 
-    "test: navigate to start of file should scroll the first row into view": function () {
+    "test: navigate to start of file should scroll the first row into view": function() {
         var doc = this.createEditSession(200, 10);
         var editor = new AceAjax.Editor(renderer, doc);
 
@@ -30,7 +30,7 @@ var exports = {
         assert.equal(editor.getFirstVisibleRow(), 0);
     },
 
-    "test: goto hidden line should scroll the line into the middle of the viewport": function () {
+    "test: goto hidden line should scroll the line into the middle of the viewport": function() {
         var editor = new AceAjax.Editor(renderer, this.createEditSession(200, 5));
 
         editor.navigateTo(0, 0);
@@ -64,7 +64,7 @@ var exports = {
         assert.equal(editor.getFirstVisibleRow(), 180);
     },
 
-    "test: goto visible line should only move the cursor and not scroll": function () {
+    "test: goto visible line should only move the cursor and not scroll": function() {
         var editor = new AceAjax.Editor(renderer, this.createEditSession(200, 5));
 
         editor.navigateTo(0, 0);
@@ -78,7 +78,7 @@ var exports = {
         assert.equal(editor.getFirstVisibleRow(), 30);
     },
 
-    "test: navigate from the end of a long line down to a short line and back should maintain the curser column": function () {
+    "test: navigate from the end of a long line down to a short line and back should maintain the curser column": function() {
         var editor = new AceAjax.Editor(renderer, new AceAjax.EditSession(["123456", "1"]));
 
         editor.navigateTo(0, 6);
@@ -91,7 +91,7 @@ var exports = {
         assert.position(editor.getCursorPosition(), 0, 6);
     },
 
-    "test: reset desired column on navigate left or right": function () {
+    "test: reset desired column on navigate left or right": function() {
         var editor = new AceAjax.Editor(renderer, new AceAjax.EditSession(["123456", "12"]));
 
         editor.navigateTo(0, 6);
@@ -107,7 +107,7 @@ var exports = {
         assert.position(editor.getCursorPosition(), 0, 1);
     },
 
-    "test: typing text should update the desired column": function () {
+    "test: typing text should update the desired column": function() {
         var editor = new AceAjax.Editor(renderer, new AceAjax.EditSession(["1234", "1234567890"]));
 
         editor.navigateTo(0, 3);

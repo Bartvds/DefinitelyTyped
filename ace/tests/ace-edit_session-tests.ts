@@ -29,15 +29,15 @@ function assertArray(a, b) {
 
 var exports = {
 
-   "test: find matching opening bracket in Text mode": function() {
-       var session = new AceAjax.EditSession(["(()(", "())))"]);
+    "test: find matching opening bracket in Text mode": function() {
+        var session = new AceAjax.EditSession(["(()(", "())))"]);
 
-       assert.position(session.findMatchingBracket({ row: 0, column: 3 }), 0, 1);
-       assert.position(session.findMatchingBracket({ row: 1, column: 2 }), 1, 0);
-       assert.position(session.findMatchingBracket({ row: 1, column: 3 }), 0, 3);
-       assert.position(session.findMatchingBracket({ row: 1, column: 4 }), 0, 0);
-       assert.equal(session.findMatchingBracket({ row: 1, column: 5 }), null);
-   } ,
+        assert.position(session.findMatchingBracket({ row: 0, column: 3 }), 0, 1);
+        assert.position(session.findMatchingBracket({ row: 1, column: 2 }), 1, 0);
+        assert.position(session.findMatchingBracket({ row: 1, column: 3 }), 0, 3);
+        assert.position(session.findMatchingBracket({ row: 1, column: 4 }), 0, 0);
+        assert.equal(session.findMatchingBracket({ row: 1, column: 5 }), null);
+    },
 
     "test: find matching closing bracket in Text mode": function() {
         var session = new AceAjax.EditSession(["(()(", "())))"]);
@@ -48,7 +48,7 @@ var exports = {
         assert.position(session.findMatchingBracket({ row: 0, column: 2 }), 0, 2);
         assert.position(session.findMatchingBracket({ row: 0, column: 1 }), 1, 3);
         assert.equal(session.findMatchingBracket({ row: 0, column: 0 }), null);
-    } ,
+    },
 
     "test: find matching opening bracket in JavaScript mode": function() {
         var lines = [
@@ -70,7 +70,7 @@ var exports = {
         assert.position(session.findMatchingBracket({ row: 3, column: 31 }), 3, 21);
         assert.position(session.findMatchingBracket({ row: 4, column: 24 }), 4, 19);
         assert.equal(session.findMatchingBracket({ row: 0, column: 1 }), null);
-    } ,
+    },
 
     "test: find matching closing bracket in JavaScript mode": function() {
         var lines = [
@@ -91,7 +91,7 @@ var exports = {
         assert.position(session.findMatchingBracket({ row: 1, column: 21 }), 1, 21);
         assert.position(session.findMatchingBracket({ row: 3, column: 22 }), 3, 30);
         assert.position(session.findMatchingBracket({ row: 4, column: 20 }), 4, 23);
-    } ,
+    },
 
     "test: handle unbalanced brackets in JavaScript mode": function() {
         var lines = [
@@ -109,7 +109,7 @@ var exports = {
         assert.equal(session.findMatchingBracket({ row: 0, column: 16 }), null);
         assert.equal(session.findMatchingBracket({ row: 3, column: 30 }), null);
         assert.equal(session.findMatchingBracket({ row: 1, column: 16 }), null);
-    } ,
+    },
 
     "test: match different bracket types": function() {
         var session = new AceAjax.EditSession(["({[", ")]}"]);
@@ -121,7 +121,7 @@ var exports = {
         assert.position(session.findMatchingBracket({ row: 1, column: 1 }), 0, 0);
         assert.position(session.findMatchingBracket({ row: 1, column: 2 }), 0, 2);
         assert.position(session.findMatchingBracket({ row: 1, column: 3 }), 0, 1);
-    } ,
+    },
 
     "test: move lines down": function() {
         var session = new AceAjax.EditSession(["a1", "a2", "a3", "a4"]);
@@ -137,7 +137,7 @@ var exports = {
 
         session.moveLinesDown(2, 2);
         assert.equal(session.getValue(), ["a3", "a4", "a2", "a1"].join("\n"));
-    } ,
+    },
 
     "test: move lines up": function() {
         var session = new AceAjax.EditSession(["a1", "a2", "a3", "a4"]);
@@ -153,28 +153,28 @@ var exports = {
 
         session.moveLinesUp(2, 2);
         assert.equal(session.getValue(), ["a3", "a1", "a4", "a2"].join("\n"));
-    } ,
+    },
 
     "test: duplicate lines": function() {
         var session = new AceAjax.EditSession(["1", "2", "3", "4"]);
 
         session.duplicateLines(1, 2);
         assert.equal(session.getValue(), ["1", "2", "3", "2", "3", "4"].join("\n"));
-    } ,
+    },
 
     "test: duplicate last line": function() {
         var session = new AceAjax.EditSession(["1", "2", "3"]);
 
         session.duplicateLines(2, 2);
         assert.equal(session.getValue(), ["1", "2", "3", "3"].join("\n"));
-    } ,
+    },
 
     "test: duplicate first line": function() {
         var session = new AceAjax.EditSession(["1", "2", "3"]);
 
         session.duplicateLines(0, 0);
         assert.equal(session.getValue(), ["1", "1", "2", "3"].join("\n"));
-    } ,
+    },
 
     "test: getScreenLastRowColumn": function() {
         var session = new AceAjax.EditSession([
@@ -186,7 +186,7 @@ var exports = {
         assert.equal(session.getScreenLastRowColumn(0), 4);
         assert.equal(session.getScreenLastRowColumn(1), 10);
         assert.equal(session.getScreenLastRowColumn(2), 5);
-    } ,
+    },
 
     "test: convert document to screen coordinates": function() {
         var session = new AceAjax.EditSession("01234\t567890\t1234");
@@ -208,7 +208,7 @@ var exports = {
         assert.equal(session.documentToScreenColumn(0, 7), 7);
         assert.equal(session.documentToScreenColumn(0, 12), 12);
         assert.equal(session.documentToScreenColumn(0, 13), 14);
-    } ,
+    },
 
     "test: convert document to screen coordinates with leading tabs": function() {
         var session = new AceAjax.EditSession("\t\t123");
@@ -218,7 +218,7 @@ var exports = {
         assert.equal(session.documentToScreenColumn(0, 1), 4);
         assert.equal(session.documentToScreenColumn(0, 2), 8);
         assert.equal(session.documentToScreenColumn(0, 3), 9);
-    } ,
+    },
 
     "test: documentToScreen without soft wrap": function() {
         var session = new AceAjax.EditSession([
@@ -231,7 +231,7 @@ var exports = {
         assert.position(session.documentToScreenPosition(1, 3), 1, 4);
         assert.position(session.documentToScreenPosition(1, 4), 1, 8);
         assert.position(session.documentToScreenPosition(2, 2), 2, 4);
-    } ,
+    },
 
     "test: documentToScreen with soft wrap": function() {
         var session = new AceAjax.EditSession(["foo bar foo bar"]);
@@ -241,7 +241,7 @@ var exports = {
 
         assert.position(session.documentToScreenPosition(0, 11), 0, 11);
         assert.position(session.documentToScreenPosition(0, 12), 1, 0);
-    } ,
+    },
 
     "test: documentToScreen with soft wrap and multibyte characters": function() {
         var session = new AceAjax.EditSession(["??a"]);
@@ -252,14 +252,14 @@ var exports = {
         assert.position(session.documentToScreenPosition(0, 1), 1, 0);
         assert.position(session.documentToScreenPosition(0, 2), 2, 0);
         assert.position(session.documentToScreenPosition(0, 4), 2, 1);
-    } ,
+    },
 
     "test: documentToScreen should clip position to the document boundaries": function() {
         var session = new AceAjax.EditSession("foo bar\njuhu kinners");
 
         assert.position(session.documentToScreenPosition(-1, 4), 0, 0);
         assert.position(session.documentToScreenPosition(3, 0), 1, 12);
-    } ,
+    },
 
     "test: convert screen to document coordinates": function() {
         var session = new AceAjax.EditSession("01234\t567890\t1234");
@@ -284,7 +284,7 @@ var exports = {
         assert.equal(session.screenToDocumentColumn(0, 12), 12);
         assert.equal(session.screenToDocumentColumn(0, 13), 12);
         assert.equal(session.screenToDocumentColumn(0, 14), 13);
-    } ,
+    },
 
     "test: screenToDocument with soft wrap": function() {
         var session = new AceAjax.EditSession(["foo bar foo bar"]);
@@ -297,7 +297,7 @@ var exports = {
         // Check if the position is clamped the right way.
         assert.position(session.screenToDocumentPosition(0, 12), 0, 11);
         assert.position(session.screenToDocumentPosition(0, 20), 0, 11);
-    } ,
+    },
 
     "test: screenToDocument with soft wrap and multi byte characters": function() {
         var session = new AceAjax.EditSession(["? a"]);
@@ -309,7 +309,7 @@ var exports = {
         assert.position(session.screenToDocumentPosition(0, 3), 0, 2);
         assert.position(session.screenToDocumentPosition(0, 4), 0, 3);
         assert.position(session.screenToDocumentPosition(0, 5), 0, 3);
-    } ,
+    },
 
     "test: screenToDocument should clip position to the document boundaries": function() {
         var session = new AceAjax.EditSession("foo bar\njuhu kinners");
@@ -329,7 +329,7 @@ var exports = {
         session.setUseWrapMode(true);
         session.setWrapLimitRange(5, 5);
         assert.position(session.screenToDocumentPosition(4, 1), 1, 12);
-    } ,
+    },
 
     "test: wrapLine split function": function() {
         function computeAndAssert(line, assertEqual, wrapLimit?, tabSize?) {
@@ -376,7 +376,7 @@ var exports = {
         computeAndAssert(" ab.c;ef++", [1, 3, 5, 7, 8], 2);
         computeAndAssert(" a.b", [1, 2, 3], 1);
         computeAndAssert("#>>", [1, 2], 1);
-    } ,
+    },
 
     "test get longest line": function() {
         var session = new AceAjax.EditSession(["12"]);
@@ -394,7 +394,7 @@ var exports = {
 
         session.setTabSize(2);
         assert.equal(session.getScreenWidth(), 4);
-    } ,
+    },
 
     "test issue 83": function() {
         var session = new AceAjax.EditSession("");
@@ -406,7 +406,7 @@ var exports = {
         document.insertLines(0, ["a", "b"]);
         document.insertLines(2, ["c", "d"]);
         document.removeLines(1, 2);
-    } ,
+    },
 
     "test wrapMode init has to create wrapData array": function() {
         var session = new AceAjax.EditSession("foo bar\nfoo bar");
@@ -416,13 +416,13 @@ var exports = {
         session.setUseWrapMode(true);
         session.setWrapLimitRange(3, 3);
         session.adjustWrapLimit(80);
-    } ,
+    },
 
     "test first line blank with wrap": function() {
         var session = new AceAjax.EditSession("\nfoo");
         session.setUseWrapMode(true);
         assert.equal(session.doc.getValue(), ["", "foo"].join("\n"));
-    } ,
+    },
 
     "test first line blank with wrap 2": function() {
         var session = new AceAjax.EditSession("");
@@ -430,7 +430,7 @@ var exports = {
         session.setValue("\nfoo");
 
         assert.equal(session.doc.getValue(), ["", "foo"].join("\n"));
-    } ,
+    },
 
     "test fold getFoldDisplayLine": function() {
         var session = createFoldTestSession();
@@ -440,7 +440,7 @@ var exports = {
                 session.getFoldDisplayLine(foldLine, foldLine.end.row, line.length);
             assert.equal(displayLine, str);
         }
-    } ,
+    },
 
     "test foldLine idxToPosition": function() {
         var session = createFoldTestSession();
@@ -469,7 +469,7 @@ var exports = {
         assertIdx2Pos(1, 26, 2, 20);
         assertIdx2Pos(1, 27, 2, 20);
         assertIdx2Pos(1, 32, 2, 25);
-    } ,
+    },
 
     "test fold documentToScreen": function() {
         var session = createFoldTestSession();
@@ -477,7 +477,7 @@ var exports = {
             assert.position(
                 session.documentToScreenPosition(docRow, docCol),
                 screenRow, screenCol
-            );
+                );
         }
 
         // One fold ending in the same row.
@@ -510,7 +510,7 @@ var exports = {
 
         // Test one position after the folds. Should be all like normal.
         assertDoc2Screen(3, 0, 2, 0);
-    } ,
+    },
 
     "test fold screenToDocument": function() {
         var session = createFoldTestSession();
@@ -518,7 +518,7 @@ var exports = {
             assert.position(
                 session.screenToDocumentPosition(screenRow, screenCol),
                 docRow, docCol
-            );
+                );
         }
 
         // One fold ending in the same row.
@@ -549,7 +549,7 @@ var exports = {
 
         // Test one position after the folds. Should be all like normal.
         assertScreen2Doc(3, 0, 2, 0);
-    } ,
+    },
 
     "test getFoldsInRange()": function() {
         var session = createFoldTestSession();
@@ -576,7 +576,7 @@ var exports = {
         test(2, 10, 2, 20, []);
         test(2, 10, 2, 11, []);
         test(2, 19, 2, 20, []);
-    } ,
+    },
 
     "test fold one-line text insert": function() {
         // These are mostly test for the FoldLine.addRemoveChars function.
@@ -672,7 +672,7 @@ var exports = {
         undoManager.undo(); // 0
         assert.range(foldLine.range, 0, 13, 0, 18);
         assert.range(fold.range, 0, 13, 0, 18);
-    } ,
+    },
 
     "test fold multi-line insert/remove": function() {
         var session = createFoldTestSession(),
@@ -737,7 +737,7 @@ var exports = {
         assert.range(foldLines[0].range, 0, 13, 0, 18);
         assert.range(foldLines[1].range, 1, 10, 2, 25);
         // TODO: Add test for inseration inside of folds.
-    } ,
+    },
 
     "test fold wrap data compution": function() {
         function assertWrap(line0, line1, line2) {
@@ -828,7 +828,7 @@ var exports = {
         removeFoldAssertWrap(0, 9, [8], [8], [8]);
 
         return session;
-    } ,
+    },
 
     "test add fold": function() {
         var session = createFoldTestSession();
@@ -857,7 +857,7 @@ var exports = {
         tryAddFold("foo", new AceAjax.Range(0, 18, 0, 22), false);
         tryAddFold("foo", new AceAjax.Range(0, 18, 0, 19), true);
         tryAddFold("foo", new AceAjax.Range(0, 22, 1, 10), false);
-    } ,
+    },
 
     "test add subfolds": function() {
         var session = createFoldTestSession();
@@ -892,7 +892,7 @@ var exports = {
         session.addFold("fold0", new AceAjax.Range(0, 1, 0, 5));
         session.addFold("fold0", new AceAjax.Range(0, 6, 0, 8));
         assert.equal(fold.subFolds.length, 2);
-    } ,
+    },
 
     "test row cache": function() {
         var session = createFoldTestSession();

@@ -16,7 +16,7 @@ App.country.get('presidentName');
 App.president = Em.Object.create({
     firstName: 'Barack',
     lastName: 'Obama',
-    fullName: function () {
+    fullName: function() {
         return this.get('firstName') + ' ' + this.get('lastName');
     }.property()
 });

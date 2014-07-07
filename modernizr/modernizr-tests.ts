@@ -6,11 +6,11 @@ window.alert = function(thing?: string) {
     $('#content').append('<div>' + thing + '</div>');
 }
 
-$(function () {
+$(function() {
     var audio = new Audio();
     audio.src = Modernizr.audio.ogg ? 'background.ogg' :
-            Modernizr.audio.mp3 ? 'background.mp3' :
-                                  'background.m4a';
+    Modernizr.audio.mp3 ? 'background.mp3' :
+    'background.m4a';
 
     if (Modernizr.webgl) {
         // loadAllWebGLScripts();
@@ -19,7 +19,7 @@ $(function () {
         document.getElementById('#notice').innerHTML = msg;
     }
 
-    Modernizr.prefixed('boxSizing');   
+    Modernizr.prefixed('boxSizing');
     Modernizr.prefixed('requestAnimationFrame', window);
     var ms = Modernizr.prefixed("matchesSelector", HTMLElement.prototype, document.body);
     Modernizr.prefixed('requestAnimationFrame', window, false);
@@ -38,7 +38,7 @@ $(function () {
     });
 
     Modernizr.testStyles('#modernizr { width: 9px; color: papayawhip; }', (elem, rule) => {
-          Modernizr.addTest('width', elem.offsetWidth == 9);
+        Modernizr.addTest('width', elem.offsetWidth == 9);
     }, 2, ["video", "image"]);
 
     Modernizr.testProp('pointerEvents');
@@ -47,8 +47,8 @@ $(function () {
 
     var elem;
     Modernizr.hasEvent('gesturestart', elem);
-	
+
     if (!Modernizr.autofocus) {
-          $("[autofocus]").focus();
+        $("[autofocus]").focus();
     }
 });

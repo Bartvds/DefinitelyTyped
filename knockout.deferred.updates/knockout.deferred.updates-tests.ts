@@ -1,4 +1,4 @@
-﻿/// <reference path="knockout.deferred.updates.d.ts" />
+/// <reference path="knockout.deferred.updates.d.ts" />
 
 // Turn *off* deferred updates for computed observables and subscriptions
 ko.computed.deferUpdates = false;
@@ -50,7 +50,7 @@ function nestedComputedNoPlugin() {
 
     var updateCounter = 0, plusminus = 1;
 
-    vm.doUpdate = function () {
+    vm.doUpdate = function() {
         var u = updateCounter += plusminus;
         startTime = new Date().getTime();
         vm.a(u);
@@ -62,7 +62,7 @@ function nestedComputedNoPlugin() {
         plusminus = !u ? 1 : (u == 9) ? -1 : plusminus;
     };
 
-    vm.setThrottle = function (value) {
+    vm.setThrottle = function(value) {
         vm.A.throttleEvaluation = value;
         vm._B.throttleEvaluation = value;
         vm.C.throttleEvaluation = value;
@@ -71,50 +71,50 @@ function nestedComputedNoPlugin() {
         vm.F.throttleEvaluation = value;
     };
 
-    vm.runNormal = function () {
+    vm.runNormal = function() {
         ko.computed.deferUpdates = false;
         vm.setThrottle(undefined);
         vm.doUpdate();
     };
 
-    vm.runThrottle = function () {
+    vm.runThrottle = function() {
         ko.computed.deferUpdates = false;
         vm.setThrottle(1);
         vm.doUpdate();
     };
 
-    vm.A = ko.computed(function () {
+    vm.A = ko.computed(function() {
         var result = '' + vm.a();
         firstUpdate();
         pushUpdate('A', result, 'green');
         return result;
     }, null, { deferEvaluation: true });
 
-    vm._B = ko.computed(function () {
+    vm._B = ko.computed(function() {
         var result = '' + vm.A() + vm.b();
         pushUpdate('B', result, 'darkturquoise');
         return result;
     }, null, { deferEvaluation: true });
 
-    vm.C = ko.computed(function () {
+    vm.C = ko.computed(function() {
         var result = '' + vm._B() + vm.c();
         pushUpdate('C', result, 'royalblue');
         return result;
     }, null, { deferEvaluation: true });
 
-    vm.D = ko.computed(function () {
+    vm.D = ko.computed(function() {
         var result = '' + vm.C() + vm.d();
         pushUpdate('D', result, 'indigo');
         return result;
     }, null, { deferEvaluation: true });
 
-    vm.E = ko.computed(function () {
+    vm.E = ko.computed(function() {
         var result = '' + vm.D() + vm.e();
         pushUpdate('E', result, 'firebrick');
         return result;
     }, null, { deferEvaluation: true });
 
-    vm.F = ko.computed(function () {
+    vm.F = ko.computed(function() {
         var f = vm.f(), result = '' + vm.E() + f;
         pushUpdate('F', result, 'orangered');
         if (result === '' + f + f + f + f + f + f) lastUpdate();
@@ -162,7 +162,7 @@ function nestedComputedPlugin() {
 
     var updateCounter = 0, plusminus = 1;
 
-    vm.doUpdate = function () {
+    vm.doUpdate = function() {
         var u = updateCounter += plusminus;
         startTime = new Date().getTime();
         vm.a(u);
@@ -174,7 +174,7 @@ function nestedComputedPlugin() {
         plusminus = !u ? 1 : (u == 9) ? -1 : plusminus;
     };
 
-    vm.setThrottle = function (value) {
+    vm.setThrottle = function(value) {
         vm.A.throttleEvaluation = value;
         vm._B.throttleEvaluation = value;
         vm.C.throttleEvaluation = value;
@@ -183,19 +183,19 @@ function nestedComputedPlugin() {
         vm.F.throttleEvaluation = value;
     };
 
-    vm.runNormal = function () {
+    vm.runNormal = function() {
         ko.computed.deferUpdates = false;
         vm.setThrottle(undefined);
         vm.doUpdate();
     };
 
-    vm.runThrottle = function () {
+    vm.runThrottle = function() {
         ko.computed.deferUpdates = false;
         vm.setThrottle(1);
         vm.doUpdate();
     };
 
-    vm.runDefer = function () {
+    vm.runDefer = function() {
         ko.computed.deferUpdates = true;
         vm.setThrottle(undefined);
         vm.doUpdate();
@@ -203,38 +203,38 @@ function nestedComputedPlugin() {
 
     vm.runWrappedDefer = ko.tasks.makeProcessedCallback(vm.runDefer);
 
-    vm.A = ko.computed(function () {
+    vm.A = ko.computed(function() {
         var result = '' + vm.a();
         firstUpdate();
         pushUpdate('A', result, 'green');
         return result;
     }, null, { deferEvaluation: true });
 
-    vm._B = ko.computed(function () {
+    vm._B = ko.computed(function() {
         var result = '' + vm.A() + vm.b();
         pushUpdate('B', result, 'darkturquoise');
         return result;
     }, null, { deferEvaluation: true });
 
-    vm.C = ko.computed(function () {
+    vm.C = ko.computed(function() {
         var result = '' + vm._B() + vm.c();
         pushUpdate('C', result, 'royalblue');
         return result;
     }, null, { deferEvaluation: true });
 
-    vm.D = ko.computed(function () {
+    vm.D = ko.computed(function() {
         var result = '' + vm.C() + vm.d();
         pushUpdate('D', result, 'indigo');
         return result;
     }, null, { deferEvaluation: true });
 
-    vm.E = ko.computed(function () {
+    vm.E = ko.computed(function() {
         var result = '' + vm.D() + vm.e();
         pushUpdate('E', result, 'firebrick');
         return result;
     }, null, { deferEvaluation: true });
 
-    vm.F = ko.computed(function () {
+    vm.F = ko.computed(function() {
         var f = vm.f(), result = '' + vm.E() + f;
         pushUpdate('F', result, 'orangered');
         if (result === '' + f + f + f + f + f + f) lastUpdate();

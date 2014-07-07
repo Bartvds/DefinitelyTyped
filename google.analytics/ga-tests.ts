@@ -8,7 +8,7 @@ describe("tester Google Analytics Tracker _gat object", () => {
     });
 
     it("can set aync to true", () => {
-        ga.async = true;        
+        ga.async = true;
     });
 
     it("can set src to string url", () => {
@@ -16,9 +16,9 @@ describe("tester Google Analytics Tracker _gat object", () => {
     });
 
     it("can set type", () => {
-        ga.type = 'text/javascript';        
+        ga.type = 'text/javascript';
     });
-    
+
 
 });
 
@@ -27,7 +27,7 @@ describe("tester Google Analytics Tracker _gat object", () => {
         _gat._createTracker('UA-65432-1');
         _gat._createTracker('UA-65432-2', 't2');
     });
-    
+
     it("can create _getTrackerByName", () => {
         _gat._getTrackerByName();
         _gat._getTrackerByName('t2');
@@ -36,7 +36,7 @@ describe("tester Google Analytics Tracker _gat object", () => {
     it("can create _anonymizeIp", () => {
         _gat._anonymizeIp();
     });
-    
+
 });
 
 describe("tester Google Analytics Code  _gaq object", () => {
@@ -46,16 +46,16 @@ describe("tester Google Analytics Code  _gaq object", () => {
         _gaq.push(['_trackPageview']);
 
         _gaq.push(() => {
-                var tracker = _gat._getTrackerByName('UA-65432-1');
-                tracker._trackPageview();
-            }
-        );
-    });    
+            var tracker = _gat._getTrackerByName('UA-65432-1');
+            tracker._trackPageview();
+        }
+            );
+    });
 });
 
 
 describe("tester Google Analytics Code  Tracker object", () => {
-    it("can create Tracker object and call methods", () => {               
+    it("can create Tracker object and call methods", () => {
         var tracker = _gat._getTrackerByName('UA-65432-1');
         tracker._trackPageview();
         tracker._getName();

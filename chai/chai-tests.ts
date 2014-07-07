@@ -102,7 +102,7 @@ function _typeof() {
     expect(new Object()).to.be.a('object');
     expect({}).to.be.a('object');
     expect([]).to.be.a('array');
-    expect(function () { }).to.be.a('function');
+    expect(function() { }).to.be.a('function');
     expect(null).to.be.a('null');
 
     err(() => {
@@ -688,14 +688,14 @@ function _throw() {
     }, "blah: expected [Function] to throw error including 'hello' but got 'testing'");
 }
 
-function use(){
-    chai.use(function (_chai, utils) {
-      _chai.can.use.any();
+function use() {
+    chai.use(function(_chai, utils) {
+        _chai.can.use.any();
     });
 }
 
 function respondTo() {
-    function Foo() {};
+    function Foo() { };
     var bar = {};
 
     expect(Foo).to.respondTo('bar');

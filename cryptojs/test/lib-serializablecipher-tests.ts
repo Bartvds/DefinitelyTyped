@@ -1,13 +1,13 @@
 /// <reference path="../../yui/yui.d.ts" />
 /// <reference path="../cryptojs.d.ts" />
 
-YUI.add('lib-serializablecipher-test', function (Y) {
+YUI.add('lib-serializablecipher-test', function(Y) {
     var C = CryptoJS;
 
     Y.Test.Runner.add(new Y.Test.Case({
         name: 'SerializableCipher',
 
-        setUp: function () {
+        setUp: function() {
             this.data = {};
 
             this.data.message = C.lib.WordArray.create([0x00010203, 0x04050607, 0x08090a0b, 0x0c0d0e0f]);
@@ -15,7 +15,7 @@ YUI.add('lib-serializablecipher-test', function (Y) {
             this.data.iv = C.lib.WordArray.create([0x20212223, 0x24252627, 0x28292a2b, 0x2c2d2e2f]);
         },
 
-        testEncrypt: function () {
+        testEncrypt: function() {
             // Compute expected
             var aes = C.algo.AES.createEncryptor(this.data.key, { iv: this.data.iv });
             var ciphertext = aes.finalize(this.data.message);
@@ -44,7 +44,7 @@ YUI.add('lib-serializablecipher-test', function (Y) {
             Y.Assert.areEqual(expected.blockSize, actual.blockSize);
         },
 
-        testDecrypt: function () {
+        testDecrypt: function() {
             var encrypted = C.lib.SerializableCipher.encrypt(C.algo.AES, this.data.message, this.data.key, { iv: this.data.iv }) + '';
             var decrypted = C.lib.SerializableCipher.decrypt(C.algo.AES, encrypted, this.data.key, { iv: this.data.iv });
 

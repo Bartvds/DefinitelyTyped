@@ -1,9 +1,9 @@
-﻿import ko = require("knockout");
+import ko = require("knockout");
 
 var myArray = ko.observableArray([1, 2, 3]);
 
 class MyViewModel {
-	name = ko.observable("Jeff");
+    name = ko.observable("Jeff");
 }
 
 ko.applyBindings(new MyViewModel());

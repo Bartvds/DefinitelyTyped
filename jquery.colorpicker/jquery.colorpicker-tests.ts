@@ -71,19 +71,19 @@ colorpicker.colorpicker("setColor", "#deadbeef");
 
 // example plugins provided
 
-$.colorpicker.parts["memory"] = function (inst) {
+$.colorpicker.parts["memory"] = function(inst) {
     var that = this,
         container,
-        selectNode = function (node) {
+        selectNode = function(node) {
             inst._setColor($(node).css('backgroundColor'));
             inst._change();
         },
-        deleteNode = function (node) {
+        deleteNode = function(node) {
             node.remove();
         },
-        addNode = function (color) {
+        addNode = function(color) {
             var $node = $('<div/>').addClass('ui-colorpicker-swatch').css('backgroundColor', color);
-            $node.mousedown(function (e) {
+            $node.mousedown(function(e) {
                 e.stopPropagation();
                 switch (e.which) {
                     case 1:
@@ -94,26 +94,26 @@ $.colorpicker.parts["memory"] = function (inst) {
                         setMemory();
                         break;
                 }
-            }).bind('contextmenu', function (e) {
+            }).bind('contextmenu', function(e) {
                     e.preventDefault();
                 });
 
             container.append($node);
         },
-        getMemory = function () {
+        getMemory = function() {
             return (<string>(document.cookie.match(/\bcolorpicker-memory=([^;]*)/) || [0, ''])[1]).split(',');
         },
-    setMemory = function () {
-        var colors = [];
-        $('> *', container).each(function () {
-            colors.push(encodeURIComponent($(this).css('backgroundColor')));
-        });
-        var expdate = new Date();
-        expdate.setDate(expdate.getDate() + (365 * 10));
-        document.cookie = 'colorpicker-memory=' + colors.join() + ";expires=" + expdate.toUTCString();
-    };
+        setMemory = function() {
+            var colors = [];
+            $('> *', container).each(function() {
+                colors.push(encodeURIComponent($(this).css('backgroundColor')));
+            });
+            var expdate = new Date();
+            expdate.setDate(expdate.getDate() + (365 * 10));
+            document.cookie = 'colorpicker-memory=' + colors.join() + ";expires=" + expdate.toUTCString();
+        };
 
-    this.init = function () {
+    this.init = function() {
         container = $('<div/>')
             .addClass('ui-colorpicker-memory ui-colorpicker-border ui-colorpicker-swatches')
             .css({
@@ -123,11 +123,11 @@ $.colorpicker.parts["memory"] = function (inst) {
             })
             .appendTo($('.ui-colorpicker-memory-container', inst.dialog));
 
-        $.each(getMemory(), function () {
+        $.each(getMemory(), function() {
             addNode(decodeURIComponent(this));
         });
 
-        container.mousedown(function (e) {
+        container.mousedown(function(e) {
             addNode(inst.color.toCSS());
             setMemory();
         });
@@ -136,7 +136,7 @@ $.colorpicker.parts["memory"] = function (inst) {
 
 declare function setGradient(element, startColor, endColor): void;
 
-$.colorpicker.parts["rgbslider"] = function (inst) {
+$.colorpicker.parts["rgbslider"] = function(inst) {
     var that = this,
         sliders = {
             r: $('<div class="ui-colorpicker-slider"/>'),
@@ -144,7 +144,7 @@ $.colorpicker.parts["rgbslider"] = function (inst) {
             b: $('<div class="ui-colorpicker-slider"/>')
         };
 
-    this.init = function () {
+    this.init = function() {
         $('<div class="ui-colorpicker-rgbslider"/>').append(sliders.r, sliders.g, sliders.b)
             .appendTo($('.ui-colorpicker-rgbslider-container', inst.dialog));
 
@@ -173,8 +173,8 @@ $.colorpicker.parts["rgbslider"] = function (inst) {
         });
     };
 
-    this.repaint = function () {
-        $.each(inst.color.getRGB(), function (index, value) {
+    this.repaint = function() {
+        $.each(inst.color.getRGB(), function(index, value) {
             var input = sliders[index];
             value = Math.round(value * 255);
             if (input.slider('value') !== value) {
@@ -183,12 +183,12 @@ $.colorpicker.parts["rgbslider"] = function (inst) {
         });
     };
 
-    this.update = function () {
+    this.update = function() {
         this.repaint();
     };
 };
 
-$.colorpicker.parsers['CMYK'] = function (color) {
+$.colorpicker.parsers['CMYK'] = function(color) {
     var m = /^cmyk\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/.exec(color);
     if (m) {
         return (new $.colorpicker.Color()).setCMYK(
@@ -200,7 +200,7 @@ $.colorpicker.parsers['CMYK'] = function (color) {
     }
 };
 
-$.colorpicker.parsers["#HEX8"] = function (color) {
+$.colorpicker.parsers["#HEX8"] = function(color) {
     var m = /^\s*#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})\s*$/i.exec(color);
     if (m) {
         return (new (<any>$).colorpicker.Color()).setRGB(
@@ -211,7 +211,7 @@ $.colorpicker.parsers["#HEX8"] = function (color) {
     }
 };
 
-$.colorpicker.writers["#HEX8"] = function (color, that) {
+$.colorpicker.writers["#HEX8"] = function(color, that) {
     return that._formatColor("#axrxgxbx", color);
 };
 

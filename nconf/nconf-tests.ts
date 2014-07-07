@@ -15,9 +15,9 @@ var store: nconf.IStore;
 var callback: (err: Error) => void;
 
 value = nconf.clear(str, callback);
-value = nconf.get (str, callback);
+value = nconf.get(str, callback);
 value = nconf.merge(str, value, callback);
-value = nconf.set (str, value, callback);
+value = nconf.set(str, value, callback);
 value = nconf.reset(callback);
 
 value = nconf.load(callback);
@@ -74,8 +74,8 @@ valueArr = p.sources;
 
 value = p.clear(str, callback);
 value = p.get(str, callback);
-value = p.merge(str,value,callback);
-value = p.set(str,value,callback);
+value = p.merge(str, value, callback);
+value = p.set(str, value, callback);
 value = p.reset(callback);
 
 value = p.load(callback);

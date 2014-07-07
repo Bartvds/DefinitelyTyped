@@ -7,18 +7,18 @@
 var title: string = unsafeWindow.document.title;
 
 var scriptDescription: string = GM_info.script.description;
-var scriptExcludes: string[]  = GM_info.script.excludes;
-var scriptIncludes: string[]  = GM_info.script.includes;
-var scriptMatches: string[]   = GM_info.script.matches;
-var scriptName: string        = GM_info.script.name;
-var scriptNamespace: string   = GM_info.script.namespace;
-var scriptResouces: Object    = GM_info.script.resources;
-var scriptRunAt: string       = GM_info.script['run-at'];
-var scriptUnwrap: boolean     = GM_info.script.unwrap;
-var scriptVersion: string     = GM_info.script.version;
-var scriptMetsStr: string     = GM_info.scriptMetaStr;
+var scriptExcludes: string[] = GM_info.script.excludes;
+var scriptIncludes: string[] = GM_info.script.includes;
+var scriptMatches: string[] = GM_info.script.matches;
+var scriptName: string = GM_info.script.name;
+var scriptNamespace: string = GM_info.script.namespace;
+var scriptResouces: Object = GM_info.script.resources;
+var scriptRunAt: string = GM_info.script['run-at'];
+var scriptUnwrap: boolean = GM_info.script.unwrap;
+var scriptVersion: string = GM_info.script.version;
+var scriptMetsStr: string = GM_info.scriptMetaStr;
 var scriptWillUpdate: boolean = GM_info.scriptWillUpdate;
-var gmVersion: string         = GM_info.version;
+var gmVersion: string = GM_info.version;
 
 ////////////////
 // Values
@@ -30,12 +30,12 @@ GM_setValue('c', true);
 GM_setValue('d', null);
 // NG: GM_setValue('x', new Date());
 
-var a: string  = GM_getValue('a', 'foobar');
-var b: number  = GM_getValue('b', 123);
+var a: string = GM_getValue('a', 'foobar');
+var b: number = GM_getValue('b', 123);
 var c: boolean = GM_getValue('c', true);
-var d: any     = GM_getValue('d', null);
-var e: string  = GM_getValue('e');
-var f: number  = GM_getValue('f');
+var d: any = GM_getValue('d', null);
+var e: string = GM_getValue('e');
+var f: number = GM_getValue('f');
 var g: boolean = GM_getValue('g');
 // NG: var x: string  = GM_getValue('x', 123);
 
@@ -50,7 +50,7 @@ GM_listValues().forEach((name: string) => {
 ////////////////
 
 var prototypeSource: string = GM_getResourceText('prototype');
-var prototypeURL: string    = GM_getResourceURL('prototype');
+var prototypeURL: string = GM_getResourceURL('prototype');
 
 ////////////////
 // Utilities
@@ -65,8 +65,8 @@ GM_openInTab("http://www.example.com/");
 GM_registerMenuCommand("Hello, world (simple)", helloSimple);
 GM_registerMenuCommand("Hello, world!", hello, "h");
 // NG (Old Style): GM_registerMenuCommand("Hello, world! (again)", hello2, "e", "shift alt", "w");
-function helloSimple() {}
-function hello() {}
+function helloSimple() { }
+function hello() { }
 
 GM_setClipboard('http://www.example.com/short-url-code');
 
@@ -175,13 +175,13 @@ GM_xmlhttpRequest({
     method: 'GET',
     url: 'http://example.com/',
     onload: (response: GMXMLHttpRequestResponse) => {
-        var readyState: number      = response.readyState;
+        var readyState: number = response.readyState;
         var responseHeaders: string = response.responseHeaders;
-        var responseText: string    = response.responseText;
-        var status: number          = response.status;
-        var statusText: string      = response.statusText;
-        var context: any            = response.context;
-        var finalUrl: string        = response.finalUrl;
+        var responseText: string = response.responseText;
+        var status: number = response.status;
+        var statusText: string = response.statusText;
+        var context: any = response.context;
+        var finalUrl: string = response.finalUrl;
         // NG: var loaded: number   = response.loaded;
     },
     onprogress: (response: GMXMLHttpRequestProgressResponse) => {
@@ -201,12 +201,12 @@ var syncResult: GMXMLHttpRequestSyncResult = GM_xmlhttpRequest({
 });
 
 syncResult.abort();
-var finalUrl: string        = syncResult.finalUrl;
-var readyState: number      = syncResult.readyState;
+var finalUrl: string = syncResult.finalUrl;
+var readyState: number = syncResult.readyState;
 var responseHeaders: string = syncResult.responseHeaders;
-var responseText: string    = syncResult.responseText;
+var responseText: string = syncResult.responseText;
 (function() { var status: number = syncResult.status; })();		// conflict with state defined in lib.d.ts
-var statusText: string      = syncResult.statusText;
+var statusText: string = syncResult.statusText;
 
 //// Asynchronous
 

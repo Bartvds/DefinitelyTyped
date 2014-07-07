@@ -6,21 +6,21 @@ import stream = require('stream');
 var opts: ncp.Options;
 opts = {};
 opts = {
-	filter: /abc/
+    filter: /abc/
 };
 opts = {
-	transform: (read: NodeJS.ReadableStream, write: NodeJS.WritableStream) => {
+    transform: (read: NodeJS.ReadableStream, write: NodeJS.WritableStream) => {
 
-	}
+    }
 };
 opts = {
-	clobber: false
+    clobber: false
 };
 opts = {
-	stopOnErr: false
+    stopOnErr: false
 };
 opts = {
-	errs: new stream.Writable()
+    errs: new stream.Writable()
 };
 
 ncp.ncp('foo', 'bar', (err: Error) => {

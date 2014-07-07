@@ -8,15 +8,15 @@ var num: number;
 var bool: boolean;
 
 var opts: swig.Options = {
-	allowErrors: bool,
-	autoescape: bool,
-	cache: bool,
-	encoding: str,
-	filters: value,
-	root: str,
-	tags: value,
-	extensions: value,
-	tzOffset: num
+    allowErrors: bool,
+    autoescape: bool,
+    cache: bool,
+    encoding: str,
+    filters: value,
+    root: str,
+    tags: value,
+    extensions: value,
+    tzOffset: num
 };
 
 swig.init(opts);

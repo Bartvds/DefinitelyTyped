@@ -1,28 +1,28 @@
 /// <reference path="../../yui/yui.d.ts" />
 /// <reference path="../cryptojs.d.ts" />
 
-YUI.add('algo-rc4-test', function (Y) {
+YUI.add('algo-rc4-test', function(Y) {
     var C = CryptoJS;
 
     Y.Test.Runner.add(new Y.Test.Case({
         name: 'RC4',
 
-        testVector1: function () {
+        testVector1: function() {
             Y.Assert.areEqual('7494c2e7104b0879', C.RC4.encrypt(C.enc.Hex.parse('0000000000000000'), C.enc.Hex.parse('0123456789abcdef')).ciphertext.toString());
         },
 
-        testVector2: function () {
+        testVector2: function() {
             Y.Assert.areEqual('f13829c9de', C.RC4.encrypt(C.enc.Hex.parse('dcee4cf92c'), C.enc.Hex.parse('618a63d2fb')).ciphertext.toString());
         },
 
-        testDrop: function () {
+        testDrop: function() {
             Y.Assert.areEqual(
                 C.RC4.encrypt(C.enc.Hex.parse('00000000000000000000000000000000'), C.enc.Hex.parse('0123456789abcdef')).ciphertext.toString().substr(16),
                 C.RC4Drop.encrypt(C.enc.Hex.parse('0000000000000000'), C.enc.Hex.parse('0123456789abcdef'), { drop: 2 }).ciphertext.toString()
-            );
+                );
         },
 
-        testMultiPart: function () {
+        testMultiPart: function() {
             var rc4 = C.algo.RC4.createEncryptor(C.enc.Hex.parse('0123456789abcdef'));
             var ciphertext1 = rc4.process(C.enc.Hex.parse('00000000'));
             var ciphertext2 = rc4.process(C.enc.Hex.parse('0000'));
@@ -32,7 +32,7 @@ YUI.add('algo-rc4-test', function (Y) {
             Y.Assert.areEqual('7494c2e7104b0879', ciphertext1.concat(ciphertext2).concat(ciphertext3).concat(ciphertext4).toString());
         },
 
-        testInputIntegrity: function () {
+        testInputIntegrity: function() {
             var message = C.enc.Hex.parse('0000000000000000');
             var key = C.enc.Hex.parse('0123456789abcdef');
 
@@ -45,12 +45,12 @@ YUI.add('algo-rc4-test', function (Y) {
             Y.Assert.areEqual(expectedKey, key.toString());
         },
 
-        testHelper: function () {
+        testHelper: function() {
             // Save original random method
             var random = C.lib.WordArray.random;
 
             // Replace random method with one that returns a predictable value
-            C.lib.WordArray.random = function (nBytes) {
+            C.lib.WordArray.random = function(nBytes) {
                 var words: number[] = [];
                 for (var i = 0; i < nBytes; i += 4) {
                     words.push(0x11223344);

@@ -4,16 +4,16 @@
 
 // There are three ways to call routie. Here is the most basic way:
 
-routie("users", function () {
+routie("users", function() {
     // This gets called when hash == #users
 });
 
 // If you want to define multiple routes you can pass in an object like this: 
 
 routie({
-    "users": function () {
+    "users": function() {
     },
-    "about": function () {
+    "about": function() {
     }
 });
 
@@ -25,7 +25,7 @@ routie("users/bob");  // window.location.hash will be #users/bob
 
 // Routie also supports regex style routes, so you can do advanced routing like this:
 
-routie("users/:name", function (name: string) {
+routie("users/:name", function(name: string) {
     // name == "bob";
 });
 
@@ -33,7 +33,7 @@ routie("users/bob");
 
 // Optional params:
 
-routie("users/?:name", function (name: string) {
+routie("users/?:name", function(name: string) {
     //name == undefined
     //then
     //name == bob
@@ -44,14 +44,14 @@ routie("users/bob");
 
 // Wildcard: 
 
-routie("users/*", function () {
+routie("users/*", function() {
 });
 
 routie("users/12312312");
 
 // Catch all:
 
-routie("*", function () {
+routie("*", function() {
 });
 
 routie("anything");

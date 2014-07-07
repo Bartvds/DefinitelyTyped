@@ -3,6 +3,6 @@
 import df = require('deep-freeze');
 
 class Foo {
-	foo: string;
+    foo: string;
 }
-var foo:Foo = df(new Foo());
+var foo: Foo = df(new Foo());

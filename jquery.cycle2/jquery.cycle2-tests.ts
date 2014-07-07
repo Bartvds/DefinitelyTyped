@@ -43,7 +43,7 @@ var images = [
 ];
 
 $('button').one('click', function() {
-    for (var i=0; i < images.length; i++) {
+    for (var i = 0; i < images.length; i++) {
         $('.cycle-slideshow').cycle('add', images[i]);
     }
     $(this).prop('disabled', true)

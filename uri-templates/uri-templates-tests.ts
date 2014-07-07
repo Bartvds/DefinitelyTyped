@@ -11,6 +11,6 @@ u = utmpl(str);
 
 str = u.fillFromObject(obj);
 str = u.fill((key) => {
-	return str;
+    return str;
 });
 obj = u.fromUri(str);

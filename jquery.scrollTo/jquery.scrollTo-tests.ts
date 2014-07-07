@@ -9,7 +9,7 @@ $('div').scrollTo('p.paragraph:eq(2)', 500, { easing: 'swing', queue: true, axis
 
 var second_child = document.getElementById('container').firstChild.nextSibling;
 $('#container').scrollTo(second_child, {
-    duration: 500, axis: 'x', onAfter: function () {
+    duration: 500, axis: 'x', onAfter: function() {
         alert('scrolled!!');
     }
 });
@@ -23,7 +23,7 @@ $.scrollTo('+=340px', { axis: 'y' });
 $.scrollTo('p.paragraph:eq(2)', 500, { easing: 'swing', queue: true, axis: 'xy' });
 
 $.scrollTo(second_child, {
-    duration: 500, axis: 'x', onAfter: function () {
+    duration: 500, axis: 'x', onAfter: function() {
         alert('scrolled!!');
     }
 });

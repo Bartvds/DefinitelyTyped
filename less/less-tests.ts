@@ -1,4 +1,4 @@
-﻿/// <reference path="less.d.ts" />
+/// <reference path="less.d.ts" />
 
 import less = require("less");
 
@@ -8,7 +8,7 @@ less.render('.class { width: (1 + 1) }', (e, css) => console.log(css));
 
 var parser: less.Parser = new less.Parser;
 
-parser.parse('.class { width: (1 + 1) }', function (err, tree) {
+parser.parse('.class { width: (1 + 1) }', function(err, tree) {
     if (err) return console.error(err);
     tree.toCSS();
 });
@@ -25,8 +25,8 @@ var lessParser = new less.Parser({
     filename: "out.less"
 });
 
-lessParser.parse('.class { width: (1 + 1) }', function (err, tree) {
-    tree.rules.forEach(function (rule) {
+lessParser.parse('.class { width: (1 + 1) }', function(err, tree) {
+    tree.rules.forEach(function(rule) {
         if (rule.path) {
             console.log(rule.path);
         }

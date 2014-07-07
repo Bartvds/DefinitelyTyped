@@ -1,4 +1,4 @@
-﻿/// <reference path="../jquery/jquery.d.ts"/>
+/// <reference path="../jquery/jquery.d.ts"/>
 /// <reference path="jquery.finger.d.ts"/>
 
 $.Finger.doubleTapInterval = 400;
@@ -25,7 +25,7 @@ $('body').on('drag', '.drag', e => {
     e.preventDefault();
 });
 
-$('#menu').on('flick', function (e) {
+$('#menu').on('flick', function(e) {
     if ('horizontal' == e.orientation) {
         if (1 == e.direction) {
             $(this).addClass('is-opened');

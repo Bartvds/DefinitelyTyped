@@ -7,16 +7,16 @@ function sample1() {
     });
 
     canvas.on({
-        'object:moving': function (e) {
+        'object:moving': function(e) {
             (<any>e.target).opacity = 0.5;
         },
-        'object:modified': function (e) {
-			(<any>e.target).opacity = 1;
+        'object:modified': function(e) {
+            (<any>e.target).opacity = 1;
         }
     });
 
     for (var i = 0, len = 15; i < len; i++) {
-        fabric.Image.fromURL('../assets/ladybug.png', function (img) {
+        fabric.Image.fromURL('../assets/ladybug.png', function(img) {
             img.set({
                 left: fabric.util.getRandomInt(0, 600),
                 top: fabric.util.getRandomInt(0, 500),
@@ -38,11 +38,11 @@ function sample2() {
 
     var dot, i,
         t1, t2,
-        startTimer = function () {
+        startTimer = function() {
             t1 = new Date().getTime();
             return t1;
         },
-        stopTimer = function () {
+        stopTimer = function() {
             t2 = new Date().getTime();
             return t2 - t1;
         },
@@ -91,7 +91,7 @@ function sample2() {
 
 function sample3() {
 
-    var $ = function (id) {return document.getElementById(id) };
+    var $ = function(id) {return document.getElementById(id) };
 
     function applyFilter(index, filter) {
         var obj = <fabric.IImage>canvas.getActiveObject();
@@ -111,8 +111,8 @@ function sample3() {
         f = fabric.Image.filters;
 
     canvas.on({
-        'object:selected': function () {
-            fabric.util.toArray(document.getElementsByTagName('input')).forEach(function (el) { el.disabled = false; })
+        'object:selected': function() {
+            fabric.util.toArray(document.getElementsByTagName('input')).forEach(function(el) { el.disabled = false; })
 
     var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2', 'brightness',
                 'noise', 'gradient-transparency', 'pixelate', 'blur', 'sharpen'];
@@ -123,88 +123,88 @@ function sample3() {
                 checkBox.checked = !!image.filters[i];
             }
         },
-        'selection:cleared': function () {
-            fabric.util.toArray(document.getElementsByTagName('input')).forEach(function (el) { el.disabled = true; })
+        'selection:cleared': function() {
+            fabric.util.toArray(document.getElementsByTagName('input')).forEach(function(el) { el.disabled = true; })
   }
     });
 
-    fabric.Image.fromURL('../assets/printio.png', function (img) {
+    fabric.Image.fromURL('../assets/printio.png', function(img) {
         var oImg = img.set({ left: 300, top: 300, angle: -15 }).scale(0.9);
         canvas.add(oImg).renderAll();
         canvas.setActiveObject(oImg);
     });
 
-    $('grayscale').onclick = function () {
+    $('grayscale').onclick = function() {
         applyFilter(0, this.checked && new f.Grayscale());
     };
-    $('invert').onclick = function () {
+    $('invert').onclick = function() {
         applyFilter(1, this.checked && new f.Invert());
     };
-    $('remove-white').onclick = function () {
+    $('remove-white').onclick = function() {
         applyFilter(2, this.checked && new f.RemoveWhite({
             threshold: (<HTMLInputElement>$('remove-white-threshold')).value,
             distance: (<HTMLInputElement>$('remove-white-distance')).value
         }));
     };
-    $('remove-white-threshold').onchange = function () {
+    $('remove-white-threshold').onchange = function() {
         applyFilterValue(2, 'threshold', this.value);
     };
-    $('remove-white-distance').onchange = function () {
+    $('remove-white-distance').onchange = function() {
         applyFilterValue(2, 'distance', this.value);
     };
-    $('sepia').onclick = function () {
+    $('sepia').onclick = function() {
         applyFilter(3, this.checked && new f.Sepia());
     };
-    $('sepia2').onclick = function () {
+    $('sepia2').onclick = function() {
         applyFilter(4, this.checked && new f.Sepia2());
     };
-    $('brightness').onclick = function () {
+    $('brightness').onclick = function() {
         applyFilter(5, this.checked && new f.Brightness({
             brightness: parseInt((<HTMLInputElement>$('brightness-value')).value, 10)
         }));
     };
-    $('brightness-value').onchange = function () {
+    $('brightness-value').onchange = function() {
         applyFilterValue(5, 'brightness', parseInt(this.value, 10));
     };
-    $('noise').onclick = function () {
+    $('noise').onclick = function() {
         applyFilter(6, this.checked && new f.Noise({
             noise: parseInt((<HTMLInputElement>$('noise-value')).value, 10)
         }));
     };
-    $('noise-value').onchange = function () {
+    $('noise-value').onchange = function() {
         applyFilterValue(6, 'noise', parseInt(this.value, 10));
     };
-    $('gradient-transparency').onclick = function () {
+    $('gradient-transparency').onclick = function() {
         applyFilter(7, this.checked && new f.GradientTransparency({
             threshold: parseInt((<HTMLInputElement>$('gradient-transparency-value')).value, 10)
         }));
     };
-    $('gradient-transparency-value').onchange = function () {
+    $('gradient-transparency-value').onchange = function() {
         applyFilterValue(7, 'threshold', parseInt(this.value, 10));
     };
-    $('pixelate').onclick = function () {
+    $('pixelate').onclick = function() {
         applyFilter(8, this.checked && new f.Pixelate({
             blocksize: parseInt((<HTMLInputElement>$('pixelate-value')).value, 10)
         }));
     };
-    $('pixelate-value').onchange = function () {
+    $('pixelate-value').onchange = function() {
         applyFilterValue(8, 'blocksize', parseInt(this.value, 10));
     };
-    $('blur').onclick = function () {
+    $('blur').onclick = function() {
         applyFilter(9, this.checked && new f.Convolute({
             matrix: [1 / 9, 1 / 9, 1 / 9,
                 1 / 9, 1 / 9, 1 / 9,
                 1 / 9, 1 / 9, 1 / 9]
         }));
     };
-    $('sharpen').onclick = function () {
+    $('sharpen').onclick = function() {
         applyFilter(10, this.checked && new f.Convolute({
             matrix: [0, -1, 0,
                 -1, 5, -1,
                 0, -1, 0]
         }));
     };
-    $('emboss').onclick = function () {
+    $('emboss').onclick = function() {
         applyFilter(11, this.checked && new f.Convolute({
             matrix: [1, 1, 1,
                 1, 0.7, -1,
@@ -216,7 +216,7 @@ function sample3() {
 function sample4() {
 
     var canvas = new fabric.Canvas('c');
-    var $ = function (id) { return document.getElementById(id); };
+    var $ = function(id) { return document.getElementById(id); };
 
     var rect = new fabric.Rect({
         width: 100,
@@ -229,25 +229,25 @@ function sample4() {
     canvas.add(rect);
 
     var angleControl = <HTMLInputElement>$('angle-control');
-    angleControl.onchange = function () {
+    angleControl.onchange = function() {
         rect.setAngle(this.value).setCoords();
         canvas.renderAll();
     };
 
     var scaleControl = <HTMLInputElement>$('scale-control');
-    scaleControl.onchange = function () {
+    scaleControl.onchange = function() {
         rect.scale(this.value).setCoords();
         canvas.renderAll();
     };
 
     var topControl = <HTMLInputElement>$('top-control');
-    topControl.onchange = function () {
+    topControl.onchange = function() {
         rect.setTop(this.value).setCoords();
         canvas.renderAll();
     };
 
     var leftControl = <HTMLInputElement>$('left-control');
-    leftControl.onchange = function () {
+    leftControl.onchange = function() {
         rect.setLeft(this.value).setCoords();
         canvas.renderAll();
     };
@@ -277,7 +277,7 @@ module fabric {
 }
 
 function sample5() {
-    var makeCircle = function (left: number, top: number, line1?: fabric.ILine, line2?: fabric.ILine, line3?: fabric.ILine, line4?: fabric.ILine): fabric.ICircle {
+    var makeCircle = function(left: number, top: number, line1?: fabric.ILine, line2?: fabric.ILine, line3?: fabric.ILine, line4?: fabric.ILine): fabric.ICircle {
         var c = <fabric.CircleWithLineInfos>new fabric.Circle({
             left: left,
             top: top,
@@ -324,7 +324,7 @@ function makeLine(coords: number[]) {
         makeCircle(line6.x2, line6.y2, line6)
         );
 
-    canvas.on('object:moving', function (e) {
+    canvas.on('object:moving', function(e) {
         var p = <fabric.CircleWithLineInfos>e.target;
         p.line1 && p.line1.set({ 'x2': p.left, 'y2': p.top });
         p.line2 && p.line2.set({ 'x1': p.left, 'y1': p.top });
@@ -336,7 +336,7 @@ function makeLine(coords: number[]) {
 
 function sample6() {
     var canvas = new fabric.Canvas('c');
-    fabric.loadSVGFromURL('../assets/135.svg', function (objects) {
+    fabric.loadSVGFromURL('../assets/135.svg', function(objects) {
         var obj = objects[0].scale(0.25);
         canvas.centerObject(obj);
         canvas.add(obj);
@@ -346,10 +346,10 @@ function sample6() {
         canvas.add(obj.clone().set({ left: 100, top: 400, angle: -15 }));
         canvas.add(obj.clone().set({ left: 480, top: 400, angle: 15 }));
 
-        canvas.on('mouse:move', function (options) {
+        canvas.on('mouse:move', function(options) {
             var p = canvas.getPointer(options.e);
 
-            canvas.forEachObject(function (obj) {
+            canvas.forEachObject(function(obj) {
                 var distX = Math.abs(p.x - obj.left),
                     distY = Math.abs(p.y - obj.top),
                     dist = Math.round(Math.sqrt(Math.pow(distX, 2) + Math.pow(distY, 2)));
@@ -371,8 +371,8 @@ function sample7() {
 
     var canvas = new fabric.Canvas('c', { selection: false });
 
-    setInterval(function () {
-        fabric.Image.fromURL('../assets/ladybug.png', function (obj) {
+    setInterval(function() {
+        fabric.Image.fromURL('../assets/ladybug.png', function(obj) {
             var img = <fabric.ImageWithInfo>obj;
             img.set('left', fabric.util.getRandomInt(200, 600)).set('top', -50);
             img.movingLeft = !!Math.round(Math.random());
@@ -382,7 +382,7 @@ function sample7() {
 
 
     var animate = (function animate() {
-        canvas.forEachObject(function (obj) {
+        canvas.forEachObject(function(obj) {
             var img = <fabric.ImageWithInfo>obj;
             img.left += (img.movingLeft ? -1 : 1);
             img.top += 1;
@@ -431,13 +431,13 @@ function sample8() {
     // canvas.controlsAboveOverlay = true;
 
     function updateComplexity() {
-        setTimeout(function () {
+        setTimeout(function() {
             var element = <HTMLElement>document.getElementById('complexity').childNodes[1];
             element.innerHTML = ' ' + canvas.complexity();
         }, 100);
     }
 
-    document.getElementById('commands').onclick = function (ev: any) {
+    document.getElementById('commands').onclick = function(ev: any) {
         var ev: any = ev || window.event;
 
         if (ev.preventDefault) {
@@ -458,7 +458,7 @@ function sample8() {
             top = fabric.util.getRandomInt(0 + offset, 500 - offset),
             angle = fabric.util.getRandomInt(-20, 40),
             width = fabric.util.getRandomInt(30, 50),
-            opacity = (function (min, max) { return Math.random() * (max - min) + min; })(0.5, 1);
+            opacity = (function(min, max) { return Math.random() * (max - min) + min; })(0.5, 1);
 
 
         switch (className) {
@@ -495,7 +495,7 @@ function sample8() {
                 break;
 
             case 'image1':
-                fabric.Image.fromURL('../assets/pug.jpg', function (image) {
+                fabric.Image.fromURL('../assets/pug.jpg', function(image) {
                     image.set({
                         left: left,
                         top: top,
@@ -509,7 +509,7 @@ function sample8() {
                 break;
 
             case 'image2':
-                fabric.Image.fromURL('../assets/logo.png', function (image) {
+                fabric.Image.fromURL('../assets/logo.png', function(image) {
                     image.set({
                         left: left,
                         top: top,
@@ -526,7 +526,7 @@ function sample8() {
             case 'shape':
                 var id = element.id, match;
                 if (match = /\d+$/.exec(id)) {
-                    fabric.loadSVGFromURL('../assets/' + match[0] + '.svg', function (objects, options) {
+                    fabric.loadSVGFromURL('../assets/' + match[0] + '.svg', function(objects, options) {
                         var loadedObject = fabric.util.groupSVGElements(objects, options);
 
                         loadedObject.set({
@@ -555,7 +555,7 @@ function sample8() {
         updateComplexity();
     };
 
-    document.getElementById('execute').onclick = function () {
+    document.getElementById('execute').onclick = function() {
         var code = (<HTMLInputElement>document.getElementById('canvas-console')).value;
         if (!(/^\s+$/).test(code)) {
             eval(code);
@@ -563,7 +563,7 @@ function sample8() {
     };
 
 
-    document.getElementById('rasterize').onclick = function () {
+    document.getElementById('rasterize').onclick = function() {
         if (!fabric.Canvas.supports('toDataURL')) {
             alert('This browser doesn\'t provide means to serialize canvas to an image');
         }
@@ -573,7 +573,7 @@ function sample8() {
     };
 
     var removeSelectedEl = document.getElementById('remove-selected');
-    removeSelectedEl.onclick = function () {
+    removeSelectedEl.onclick = function() {
         var activeObject = canvas.getActiveObject(),
             activeGroup = canvas.getActiveGroup();
         if (activeObject) {
@@ -582,14 +582,14 @@ function sample8() {
         else if (activeGroup) {
             var objectsInGroup = activeGroup.getObjects();
             canvas.discardActiveGroup();
-            objectsInGroup.forEach(function (object) {
+            objectsInGroup.forEach(function(object) {
                 canvas.remove(object);
             });
         }
     };
 
-    var supportsInputOfType = function (type) {
-        return function () {
+    var supportsInputOfType = function(type) {
+        return function() {
             var el = <HTMLInputElement>document.createElement('input');
             try {
                 el.type = type;
@@ -603,7 +603,7 @@ function sample8() {
         supportsColorpicker = supportsInputOfType('color');
 
     if (supportsSlider()) {
-        (function () {
+        (function() {
             var controls = document.getElementById('controls');
 
             var sliderLabel = <HTMLLabelElement>document.createElement('label');
@@ -622,7 +622,7 @@ function sample8() {
 
             canvas.calcOffset();
 
-            slider.onchange = function () {
+            slider.onchange = function() {
                 var activeObject = canvas.getActiveObject(),
                     activeGroup = canvas.getActiveGroup();
 
@@ -635,7 +635,7 @@ function sample8() {
     }
 
     if (supportsColorpicker()) {
-        (function () {
+        (function() {
             var controls = document.getElementById('controls');
 
             var label = <HTMLLabelElement>document.createElement('label');
@@ -653,7 +653,7 @@ function sample8() {
 
             canvas.calcOffset();
 
-            colorpicker.onchange = function () {
+            colorpicker.onchange = function() {
                 var activeObject = canvas.getActiveObject(),
                     activeGroup = canvas.getActiveGroup();
 
@@ -666,7 +666,7 @@ function sample8() {
     }
 
     var lockHorizontallyEl = document.getElementById('lock-horizontally');
-    lockHorizontallyEl.onclick = function () {
+    lockHorizontallyEl.onclick = function() {
         var activeObject: any = canvas.getActiveObject();
         if (activeObject) {
             activeObject.lockMovementX = !activeObject.lockMovementX;
@@ -677,7 +677,7 @@ function sample8() {
     };
 
     var lockVerticallyEl = document.getElementById('lock-vertically');
-    lockVerticallyEl.onclick = function () {
+    lockVerticallyEl.onclick = function() {
         var activeObject: any = canvas.getActiveObject();
         if (activeObject) {
             activeObject.lockMovementY = !activeObject.lockMovementY;
@@ -688,7 +688,7 @@ function sample8() {
     };
 
     var lockScalingXEl = document.getElementById('lock-scaling-x');
-    lockScalingXEl.onclick = function () {
+    lockScalingXEl.onclick = function() {
         var activeObject: any = canvas.getActiveObject();
         if (activeObject) {
             activeObject.lockScalingX = !activeObject.lockScalingX;
@@ -699,7 +699,7 @@ function sample8() {
     };
 
     var lockScalingYEl = document.getElementById('lock-scaling-y');
-    lockScalingYEl.onclick = function () {
+    lockScalingYEl.onclick = function() {
         var activeObject: any = canvas.getActiveObject();
         if (activeObject) {
             activeObject.lockScalingY = !activeObject.lockScalingY;
@@ -710,7 +710,7 @@ function sample8() {
     };
 
     var lockRotationEl = document.getElementById('lock-rotation');
-    lockRotationEl.onclick = function () {
+    lockRotationEl.onclick = function() {
         var activeObject: any = canvas.getActiveObject();
         if (activeObject) {
             activeObject.lockRotation = !activeObject.lockRotation;
@@ -762,7 +762,7 @@ function sample8() {
         lockRotationEl.innerHTML = (selectedObject.lockRotation ? 'Unlock rotation' : 'Lock rotation');
     }
 
-    canvas.on('selection:cleared', function (e) {
+    canvas.on('selection:cleared', function(e) {
         for (var i = activeObjectButtons.length; i--;) {
             activeObjectButtons[i].disabled = true;
         }
@@ -773,7 +773,7 @@ function sample8() {
         drawingColorEl = <HTMLInputElement>document.getElementById('drawing-color'),
         drawingLineWidthEl = <HTMLInputElement>document.getElementById('drawing-line-width');
 
-    drawingModeEl.onclick = function () {
+    drawingModeEl.onclick = function() {
         var canvasWithDrawingMode: any = canvas;
         canvasWithDrawingMode.isDrawingMode = !canvasWithDrawingMode.isDrawingMode;
         if (canvasWithDrawingMode.isDrawingMode) {
@@ -788,14 +788,14 @@ function sample8() {
         }
     };
 
-    canvas.on('path:created', function () {
+    canvas.on('path:created', function() {
         updateComplexity();
     });
 
-    drawingColorEl.onchange = function () {
+    drawingColorEl.onchange = function() {
         canvas.freeDrawingColor = drawingColorEl.value;
     };
-    drawingLineWidthEl.onchange = function () {
+    drawingLineWidthEl.onchange = function() {
         canvas.freeDrawingLineWidth = parseInt(drawingLineWidthEl.value, 10) || 1; // disallow 0, NaN, etc.
     };
 
@@ -806,7 +806,7 @@ function sample8() {
     var text = 'Lorem ipsum dolor sit amet,\nconsectetur adipisicing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\n' +
         'Ut enim ad minim veniam,\nquis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat.';
 
-    document.getElementById('add-text').onclick = function () {
+    document.getElementById('add-text').onclick = function() {
         var textSample = new fabric.Text(text.slice(0, getRandomInt(0, text.length)), {
             left: getRandomInt(350, 400),
             top: getRandomInt(350, 400),
@@ -822,7 +822,7 @@ function sample8() {
     };
 
 
-    document.onkeydown = function (e) {
+    document.onkeydown = function(e) {
         var obj = canvas.getActiveObject() || canvas.getActiveGroup();
         if (obj && e.keyCode === 8) {
             // this is horrible. need to fix, so that unified interface can be used
@@ -841,7 +841,7 @@ function sample8() {
         }
     };
 
-    setTimeout(function () {
+    setTimeout(function() {
         canvas.calcOffset();
     }, 100);
 
@@ -850,7 +850,7 @@ function sample8() {
         //initAligningGuidelines(canvas);
     }
 
-    gradientifyBtn.onclick = function () {
+    gradientifyBtn.onclick = function() {
         var obj = canvas.getActiveObject();
         if (obj) {
             obj.setGradientFill({
@@ -867,14 +867,14 @@ function sample8() {
 
     var textEl = <HTMLInputElement>document.getElementById('text');
     if (textEl) {
-        textEl.onfocus = function () {
+        textEl.onfocus = function() {
             var activeObject = canvas.getActiveObject();
 
             if (activeObject && activeObject.type === 'text') {
                 this.value = (<fabric.IText>activeObject).text;
             }
         };
-        textEl.onkeyup = function (e) {
+        textEl.onkeyup = function(e) {
             var activeObject = canvas.getActiveObject();
             if (activeObject) {
                 if (!this.value) {
@@ -892,7 +892,7 @@ function sample8() {
     if (cmdUnderlineBtn) {
         activeObjectButtons.push(cmdUnderlineBtn);
         cmdUnderlineBtn.disabled = true;
-        cmdUnderlineBtn.onclick = function () {
+        cmdUnderlineBtn.onclick = function() {
             var activeObject = <fabric.IText>canvas.getActiveObject();
             if (activeObject && activeObject.type === 'text') {
                 activeObject.textDecoration = (activeObject.textDecoration == 'underline' ? '' : 'underline');
@@ -906,7 +906,7 @@ function sample8() {
     if (cmdLinethroughBtn) {
         activeObjectButtons.push(cmdLinethroughBtn);
         cmdLinethroughBtn.disabled = true;
-        cmdLinethroughBtn.onclick = function () {
+        cmdLinethroughBtn.onclick = function() {
             var activeObject = <fabric.IText>canvas.getActiveObject();
             if (activeObject && activeObject.type === 'text') {
                 activeObject.textDecoration = (activeObject.textDecoration == 'line-through' ? '' : 'line-through');
@@ -920,7 +920,7 @@ function sample8() {
     if (cmdOverlineBtn) {
         activeObjectButtons.push(cmdOverlineBtn);
         cmdOverlineBtn.disabled = true;
-        cmdOverlineBtn.onclick = function () {
+        cmdOverlineBtn.onclick = function() {
             var activeObject = <fabric.IText>canvas.getActiveObject();
             if (activeObject && activeObject.type === 'text') {
                 activeObject.textDecoration = (activeObject.textDecoration == 'overline' ? '' : 'overline');
@@ -934,7 +934,7 @@ function sample8() {
     if (cmdBoldBtn) {
         activeObjectButtons.push(cmdBoldBtn);
         cmdBoldBtn.disabled = true;
-        cmdBoldBtn.onclick = function () {
+        cmdBoldBtn.onclick = function() {
             var activeObject = <fabric.IText>canvas.getActiveObject();
             if (activeObject && activeObject.type === 'text') {
                 activeObject.fontWeight = (activeObject.fontWeight == 'bold' ? '' : 'bold');
@@ -948,7 +948,7 @@ function sample8() {
     if (cmdItalicBtn) {
         activeObjectButtons.push(cmdItalicBtn);
         cmdItalicBtn.disabled = true;
-        cmdItalicBtn.onclick = function () {
+        cmdItalicBtn.onclick = function() {
             var activeObject = <fabric.IText>canvas.getActiveObject();
             if (activeObject && activeObject.type === 'text') {
                 activeObject.fontStyle = (activeObject.fontStyle == 'italic' ? '' : 'italic');
@@ -962,7 +962,7 @@ function sample8() {
     if (cmdShadowBtn) {
         activeObjectButtons.push(cmdShadowBtn);
         cmdShadowBtn.disabled = true;
-        cmdShadowBtn.onclick = function () {
+        cmdShadowBtn.onclick = function() {
             var activeObject = <fabric.IText>canvas.getActiveObject();
             if (activeObject && activeObject.type === 'text') {
                 activeObject.textShadow = !activeObject.textShadow ? 'rgba(0,0,0,0.2) 2px 2px 10px' : '';
@@ -976,7 +976,7 @@ function sample8() {
     if (textAlignSwitch) {
         activeObjectButtons.push(textAlignSwitch);
         textAlignSwitch.disabled = true;
-        textAlignSwitch.onchange = function () {
+        textAlignSwitch.onchange = function() {
             var activeObject = <fabric.IText>canvas.getActiveObject();
             if (activeObject && activeObject.type === 'text') {
                 activeObject.textAlign = this.value.toLowerCase();
@@ -989,7 +989,7 @@ function sample8() {
     if (fontFamilySwitch) {
         activeObjectButtons.push(fontFamilySwitch);
         fontFamilySwitch.disabled = true;
-        fontFamilySwitch.onchange = function () {
+        fontFamilySwitch.onchange = function() {
             var activeObject = <fabric.IText>canvas.getActiveObject();
             if (activeObject && activeObject.type === 'text') {
                 activeObject.fontFamily = this.value;
@@ -1000,7 +1000,7 @@ function sample8() {
 
     var bgColorField = document.getElementById('text-bg-color');
     if (bgColorField) {
-        bgColorField.onchange = function () {
+        bgColorField.onchange = function() {
             var activeObject = <fabric.IText>canvas.getActiveObject();
             if (activeObject && activeObject.type === 'text') {
                 activeObject.backgroundColor = this.value;
@@ -1011,7 +1011,7 @@ function sample8() {
 
     var strokeColorField = document.getElementById('text-stroke-color');
     if (strokeColorField) {
-        strokeColorField.onchange = function () {
+        strokeColorField.onchange = function() {
             var activeObject = <fabric.IText>canvas.getActiveObject();
             if (activeObject && activeObject.type === 'text') {
                 activeObject.strokeStyle = this.value;
@@ -1021,7 +1021,7 @@ function sample8() {
     }
 
     if (supportsSlider) {
-        (function () {
+        (function() {
             var container = document.getElementById('text-controls');
             var slider = <HTMLInputElement>document.createElement('input');
             var label = <HTMLLabelElement>document.createElement('label');
@@ -1034,7 +1034,7 @@ function sample8() {
             container.appendChild(label);
             label.appendChild(slider);
             slider.title = "Line height";
-            slider.onchange = function () {
+            slider.onchange = function() {
                 var activeObject = <fabric.IText>canvas.getActiveObject();
                 if (activeObject && activeObject.type === 'text') {
                     activeObject.lineHeight = this.value;
@@ -1042,15 +1042,15 @@ function sample8() {
                 }
             };
 
-            canvas.on('object:selected', function (e) {
+            canvas.on('object:selected', function(e) {
                 slider.value = e.target.lineHeight;
             });
         })();
     }
 
-    document.getElementById('load-svg').onclick = function () {
+    document.getElementById('load-svg').onclick = function() {
         var svg = (<HTMLInputElement>document.getElementById('svg-console')).value;
-        fabric.loadSVGFromString(svg, function (objects, options) {
+        fabric.loadSVGFromString(svg, function(objects, options) {
             var obj = fabric.util.groupSVGElements(objects, options);
             canvas.add(obj).centerObject(obj).renderAll();
             obj.setCoords();

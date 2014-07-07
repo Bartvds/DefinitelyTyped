@@ -8,31 +8,31 @@ function createFolder_onClick() {
         scope: "wl.skydrive_update"
     };
     WL.login(login_props).then(
-        function (response) {
+        function(response) {
             var newFolder: Microsoft.Live.INewFolder = {
                 "name": "This is a new folder",
                 "description": "A new folder"
             }, api_properties: Microsoft.Live.IAPIProperties = {
-                path: "me/skydrive",
-                method: "POST",
-                body: newFolder
-            };
+                    path: "me/skydrive",
+                    method: "POST",
+                    body: newFolder
+                };
             WL.api<Microsoft.Live.IFolder>(api_properties).then(
-                function (response) {
+                function(response) {
                     document.getElementById("infoArea").innerText =
                     "Created folder. Name: " + response.name + ", ID: " + response.id;
                 },
-                function (responseFailed: Microsoft.Live.IError) {
+                function(responseFailed: Microsoft.Live.IError) {
                     document.getElementById("infoArea").innerText =
                     "Error calling API: " + responseFailed.error.message;
                 }
-            );
+                );
         },
-        function (responseFailed: Microsoft.Live.IJSError) {
+        function(responseFailed: Microsoft.Live.IJSError) {
             document.getElementById("infoArea").innerText =
             "Error signing in: " + responseFailed.error_description;
         }
-    );
+        );
 }
 
 /**
@@ -41,26 +41,26 @@ function createFolder_onClick() {
 function downloadFile_onClick() {
     var picker = setupSavePicker();
     picker.pickSaveFileAsync().then(
-        function (file) {
+        function(file) {
             if (file && (file instanceof Windows.Storage.StorageFile)) {
                 WL.login({
                     scope: "wl.skydrive"
                 }).then(
-                    function (response) {
+                    function(response) {
                         WL.backgroundDownload({
                             path: "file.8c8ce076ca27823f.8C8CE076CA27823F!129/picture?type=thumbnail",
                             file_output: file
                         }).then(
-                            function (response) {
+                            function(response) {
                                 document.getElementById("infoLabel").innerText = "Downloaded file.";
                             },
-                            function (responseFailed: Microsoft.Live.IError) {
+                            function(responseFailed: Microsoft.Live.IError) {
                                 document.getElementById("infoLabel").innerText =
                                 "Error calling API: " + responseFailed.error.message;
                             }
                             );
                     },
-                    function (responseFailed: Microsoft.Live.IError) {
+                    function(responseFailed: Microsoft.Live.IError) {
                         document.getElementById("infoLabel").innerText =
                         "Error signing in: " + responseFailed.error.message;
                     }
@@ -70,10 +70,10 @@ function downloadFile_onClick() {
                 document.getElementById("infoLabel").innerText = "Cannot download file.";
             }
         },
-        function (fileFailed) {
+        function(fileFailed) {
             document.getElementById("infoLabel").innerText = "Cannot download file.";
         }
-    );
+        );
 }
 
 function setupSavePicker() {
@@ -90,36 +90,36 @@ function setupSavePicker() {
 function uploadFile_onClick() {
     var picker = setupOpenPicker();
     var filePickOp = picker.pickSingleFileAsync().then(
-        function (file) {
+        function(file) {
             WL.login({
                 scope: "wl.skydrive_update"
             }).then(
-                function (response) {
+                function(response) {
                     WL.backgroundUpload({
                         path: "me/skydrive",
                         file_name: file.name,
                         file_input: file,
                         overwrite: "rename"
                     }).then(
-                        function (response) {
+                        function(response) {
                             document.getElementById("infoLabel").innerText = "Uploaded file.";
                         },
-                        function (responseFailed: Microsoft.Live.IError) {
+                        function(responseFailed: Microsoft.Live.IError) {
                             document.getElementById("infoLabel").innerText =
                             "Error calling API: " + responseFailed.error.message;
                         }
                         );
                 },
-                function (responseFailed: Microsoft.Live.IError) {
+                function(responseFailed: Microsoft.Live.IError) {
                     document.getElementById("infoLabel").innerText =
                     "Error signing in: " + responseFailed.error.message;
                 }
-            );
+                );
         },
-        function (fileFailed) {
+        function(fileFailed) {
             document.getElementById("infoLabel").innerText = "Cannot upload file.";
         }
-    );
+        );
 }
 
 function setupOpenPicker() {
@@ -135,27 +135,27 @@ function downloadFile() {
     WL.login({
         scope: "wl.skydrive"
     }).then(
-        function (response) {
+        function(response) {
             WL.download({
                 path: "file.a6b2a7e8f2515e5e.A6B2A7E8F2515E5E!131/content"
             }).then(
-                function (response) {
+                function(response) {
                     // Will not be called for web apps.
                 },
-                function (responseFailed: Microsoft.Live.IError) {
+                function(responseFailed: Microsoft.Live.IError) {
                     document.getElementById("info").innerText =
                     "Error downloading file: " + responseFailed.error.message;
                 }
-            );
+                );
         },
-        function (responseFailed: Microsoft.Live.IError) {
+        function(responseFailed: Microsoft.Live.IError) {
             document.getElementById("info").innerText =
             "Error signing in: " + responseFailed.error.message;
         }
-    );
+        );
 }
 
-WL.Event.subscribe("auth.login", function () { });
+WL.Event.subscribe("auth.login", function() { });
 WL.Event.unsubscribe("auth.logout");
 
 /**
@@ -165,34 +165,34 @@ function uploadFile_fileDialog() {
     WL.fileDialog({
         mode: "save"
     }).then(
-        function (response) {
+        function(response) {
             WL.upload({
                 path: response.data.folders[0].id,
                 element: "file",
                 overwrite: "rename"
             }).then(
-                function (response) {
+                function(response) {
                     document.getElementById("info").innerText =
                     "File uploaded.";
                 },
-                function (responseFailed: Microsoft.Live.IError) {
+                function(responseFailed: Microsoft.Live.IError) {
                     document.getElementById("info").innerText =
                     "Error uploading file: " + responseFailed.error.message;
                 }
                 );
         },
-        function (responseFailed: Microsoft.Live.IError) {
+        function(responseFailed: Microsoft.Live.IError) {
             document.getElementById("info").innerText =
             "Error getting folder info: " + responseFailed.error.message;
         }
-    );
+        );
 }
 
 /**
  * From: http://msdn.microsoft.com/en-us/library/live/hh550842.aspx
  */
 function loginStatus() {
-    WL.getLoginStatus(function (response) { alert("Your status is: " + response.status) });
+    WL.getLoginStatus(function(response) { alert("Your status is: " + response.status) });
 }
 
 /**
@@ -228,12 +228,12 @@ function streamlineAccountReg_onClick() {
     WL.login({
         scope: ["wl.signin", "wl.basic", "wl.birthday", "wl.emails"]
     }).then(
-        function (response) {
+        function(response) {
             WL.api<Microsoft.Live.IUser>({
                 path: "me",
                 method: "GET"
             }).then(
-                function (response) {
+                function(response) {
                     document.getElementById("first_name").innerText = response.first_name;
                     document.getElementById("last_name").innerText = response.last_name;
                     document.getElementById("email").innerText = response.emails.preferred;
@@ -241,17 +241,17 @@ function streamlineAccountReg_onClick() {
                     document.getElementById("birthday").innerText =
                     response.birth_month + " " + response.birth_day + " " + response.birth_year;
                 },
-                function (responseFailed: Microsoft.Live.IError) {
+                function(responseFailed: Microsoft.Live.IError) {
                     document.getElementById("infoArea").innerText =
                     "Error calling API: " + responseFailed.error.message;
                 }
-            );
+                );
         },
-        function (responseFailed: Microsoft.Live.IJSError) {
+        function(responseFailed: Microsoft.Live.IJSError) {
             document.getElementById("infoArea").innerText =
             "Error signing in: " + responseFailed.error_description;
         }
-    );
+        );
 }
 
 /**
@@ -284,11 +284,11 @@ function onUploadFileCompleted(response: Microsoft.Live.IFilePickerResult) {
         element: "file",
         overwrite: "rename"
     }).then(
-        function (response) {
+        function(response) {
             document.getElementById("info").innerText =
             "File uploaded.";
         },
-        function (responseFailed: Microsoft.Live.IError) {
+        function(responseFailed: Microsoft.Live.IError) {
             document.getElementById("info").innerText =
             "Error uploading file: " + responseFailed.error.message;
         }
@@ -341,27 +341,27 @@ function uploadFile() {
     WL.login({
         scope: "wl.skydrive_update"
     }).then(
-        function (response) {
+        function(response) {
             WL.upload({
                 path: "folder.a6b2a7e8f2515e5e.A6B2A7E8F2515E5E!170",
                 element: "file",
                 overwrite: "rename"
             }).then(
-                function (response) {
+                function(response) {
                     document.getElementById("info").innerText =
                     "File uploaded.";
                 },
-                function (responseFailed: Microsoft.Live.IError) {
+                function(responseFailed: Microsoft.Live.IError) {
                     document.getElementById("info").innerText =
                     "Error uploading file: " + responseFailed.error.message;
                 }
-            );
+                );
         },
-        function (responseFailed: Microsoft.Live.IError) {
+        function(responseFailed: Microsoft.Live.IError) {
             document.getElementById("info").innerText =
             "Error signing in: " + responseFailed.error.message;
         }
-    );
+        );
 }
 
 
@@ -394,7 +394,7 @@ var albumCollection: Microsoft.Live.IObjectCollection<Microsoft.Live.IAlbum> = {
             // XXX: The API example documentation missed this property, but it has been wrong in the past...
             "client_updated_time": "2011-04-22T19:18:12+0000",
         }
-   ]
+    ]
 };
 var newAlbum: Microsoft.Live.INewAlbum = {
     "name": "Vacation 2011",
@@ -432,7 +432,7 @@ var audioCollection: Microsoft.Live.IObjectCollection<Microsoft.Live.IAudio> = {
             "created_time": "2012-09-23T22:00:57+0000",
             "updated_time": "2012-09-03T22:00:57+0000"
         }
-   ]
+    ]
 };
 
 var newAudioResponse: Microsoft.Live.INewFileResponse = {
@@ -462,7 +462,7 @@ var calendarCollection: Microsoft.Live.IObjectCollection<Microsoft.Live.ICalenda
             "subscription_location": null,
             "permissions": "read"
         }
-   ]
+    ]
 };
 
 var newCalendar: Microsoft.Live.INewCalendar = {
@@ -486,7 +486,7 @@ var commentCollection: Microsoft.Live.IObjectCollection<Microsoft.Live.IComment>
             "message": "A lighthouse built on some rocks.",
             "created_time": "2011-04-21T23:21:28+0000"
         }
-   ]
+    ]
 };
 
 var newContact: Microsoft.Live.INewContact = {
@@ -526,7 +526,7 @@ var contactCollection: Microsoft.Live.IObjectCollection<Microsoft.Live.IContact>
             "birth_month": 3
 
         }
-   ]
+    ]
 };
 
 var errorObj: Microsoft.Live.IError = {
@@ -612,7 +612,7 @@ var file: Microsoft.Live.IObjectCollection<Microsoft.Live.IFile> = {
             "client_updated_time": "2011-10-12T23:18:23+0000",
             "sort_by": null
         }
-   ]
+    ]
 };
 
 var fileDownload: Microsoft.Live.IFileDownloadLink = {
@@ -621,7 +621,7 @@ var fileDownload: Microsoft.Live.IFileDownloadLink = {
 
 var newFileResponse: Microsoft.Live.INewFileResponse = {
     "id": "file.a6b2a7e8f2515e5e.A6B2A7E8F2515E5E!184",
-    "name":"MyNewFile.txt",
+    "name": "MyNewFile.txt",
     "source": "http://storage.live.com/s1pasGKzgXFvuEQCbxGtOyIpboUVH1OCHoRzUJNDDwL0zVoidb0RRrNVk88hUrOEve5OMT7eCkuxPbop7dV9tMJQ-eE8SCQ28vFv9ZgPnDGwQMRm-0FeG3-KEY4HL9dQSw9/MyNewFile.txt:Binary,Default/MyNewFile.txt"
 };
 
@@ -650,7 +650,7 @@ var folderCollection: Microsoft.Live.IObjectCollection<Microsoft.Live.IFolder> =
             "client_updated_time": "???",
             "sort_by": "???"
         }
-   ]
+    ]
 };
 
 var newFolder: Microsoft.Live.INewFolder = {
@@ -659,7 +659,7 @@ var newFolder: Microsoft.Live.INewFolder = {
 };
 
 var friendCollection: Microsoft.Live.IObjectCollection<Microsoft.Live.IFriend> = {
-   "data": [
+    "data": [
         {
             "id": "d09ea18fafc39a0c",
             "name": "Henrik Jensen"
@@ -742,7 +742,7 @@ var photoCollection: Microsoft.Live.IObjectCollection<Microsoft.Live.IPhoto> = {
             "created_time": "2012-12-03T18:14:03+0000",
             "updated_time": "2012-12-03T18:31:01+0000"
         }
-   ]
+    ]
 };
 
 var tag: Microsoft.Live.ITag = {
@@ -843,7 +843,7 @@ var videoCollection: Microsoft.Live.IObjectCollection<Microsoft.Live.IVideo> = {
             "created_time": "2011-08-23T23:41:18+0000",
             "updated_time": "2011-08-23T23:41:32+0000"
         }
-   ]
+    ]
 };
 //#endregion From: http://msdn.microsoft.com/en-us/library/live/hh243648.aspx
 
@@ -866,7 +866,7 @@ function openFromSkyDrive() {
         mode: 'open',
         select: 'single'
     }).then(
-        function (response) {
+        function(response) {
             log("The following file is being downloaded:");
             log("");
 
@@ -877,15 +877,15 @@ function openFromSkyDrive() {
                 WL.download({ "path": file.id + "/content" });
             }
         },
-        function (errorResponse) {
+        function(errorResponse) {
             log("WL.fileDialog errorResponse = " + JSON.stringify(errorResponse));
         }
-    );
+        );
 }
 
 function saveToSkyDrive() {
     WL.fileDialog({ mode: 'save' }).then(
-        function (response) {
+        function(response) {
             var folder = response.data.folders[0];
 
             WL.upload<Microsoft.Live.IFile>({
@@ -893,34 +893,34 @@ function saveToSkyDrive() {
                 element: 'save-to-skydrive-file-input',
                 overwrite: 'rename'
             }).then(
-                function (response) {
+                function(response) {
                     log("You saved to " + response.source + ". " +
                         "Below is the result of the upload.");
                     log("");
                     log(JSON.stringify(response));
                 },
-                function (errorResponse) {
+                function(errorResponse) {
                     log("WL.upload errorResponse = " + JSON.stringify(errorResponse));
                 },
-                function (progress) {
+                function(progress) {
                     // progress events for the upload are raised here
                 }
-            );
-        }, function (errorResponse) {
+                );
+        }, function(errorResponse) {
             log("WL.fileDialog errorResponse = " + JSON.stringify(errorResponse));
         }
-    );
+        );
 }
 
 function getFiles() {
     var files_path = "/me/skydrive/files";
     WL.api<Microsoft.Live.IObjectCollection<Microsoft.Live.IObject>>({ path: files_path, method: "GET" }).then(
         onGetFilesComplete,
-        function (response) {
+        function(response) {
             log("Cannot get files and folders: " +
                 JSON.stringify(response.error).replace(/,/g, ",\n"));
         }
-    );
+        );
 }
 
 // should have an interface that captures the fact that it only has type.
@@ -943,10 +943,10 @@ function onGetFilesComplete(response: Microsoft.Live.IObjectCollection<Microsoft
 
 function registerUser() {
     WL.api<Microsoft.Live.IUser>({ path: "/me", method: "GET" }).then(
-        function (response) {
+        function(response) {
             fillRegistrationForm(response);
         },
-        function (response) {
+        function(response) {
             log("API call failed: " + JSON.stringify(response.error).replace(/,/g, "\n"));
         }
         );
@@ -963,15 +963,15 @@ function fillRegistrationForm(user: Microsoft.Live.IUser) {
 
 function showUserContactInfo() {
     WL.api<Microsoft.Live.IUser>({ path: "/me", method: "GET" }).then(
-        function (response) {
+        function(response) {
             log("Addresses: " + JSON.stringify(response.addresses).replace(/,/g, "\n"));
             log("Phone Numbers: " + JSON.stringify(response.phones).replace(/,/g, "\n"));
             log("Email Addresses: " + JSON.stringify(response.emails).replace(/,/g, "\n"));
         },
-        function (response) {
+        function(response) {
             log("API call failed: " + JSON.stringify(response.error).replace(/,/g, "\n"));
         }
-    );
+        );
 }
 
 function enablePurchase() {
@@ -979,7 +979,7 @@ function enablePurchase() {
     var year = date.getFullYear();
 
     WL.api<Microsoft.Live.IUser>({ path: "/me", method: "GET" }).then(
-        function (response) {
+        function(response) {
             var user = response;
             if (year - user.birth_year >= 18) {
                 log("Purchase enabled.");
@@ -987,10 +987,10 @@ function enablePurchase() {
                 log("Purchase disabled. You are only " + user.birth_year + " year(s) old.");
             }
         },
-        function (response) {
+        function(response) {
             log("API call failed: " + JSON.stringify(response.error).replace(/,/g, "\n"));
         }
-    );
+        );
 }
 
 function createContact() {
@@ -1003,16 +1003,16 @@ function createContact() {
         method: "POST",
         body: contact
     }).then(
-        function (response) {
+        function(response) {
             log(JSON.stringify(response).replace(/,/g, ",\n"));
         },
-        function (response) {
+        function(response) {
             log("Cannot create contact: " +
                 JSON.stringify(response.error).replace(/,/g, ",\n"));
         }
-    );
+        );
 }
- 
+
 function createEvent() {
     var startTime = new Date();
     var endTime = new Date(startTime.getTime() + (60 * 60 * 1000));
@@ -1035,14 +1035,14 @@ function createEvent() {
         method: "POST",
         body: newEvent
     }).then(
-        function (response) {
+        function(response) {
             log("Successfully created event. Response: " +
                 JSON.stringify(response).replace(/,/g, "\n"));
         },
-        function (response) {
+        function(response) {
             log("Could not create event: " +
                 JSON.stringify(response.error).replace(/,/g, "\n"));
         }
-    );
+        );
 }
 //#endregion From http://isdk.dev.live.com/dev/isdk/Default.aspx

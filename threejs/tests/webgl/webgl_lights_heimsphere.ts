@@ -1,4 +1,4 @@
-﻿/// <reference path="../../three.d.ts" />
+/// <reference path="../../three.d.ts" />
 /// <reference path="../three-tests-setup.ts" />
 
 // https://github.com/mrdoob/three.js/blob/master/examples/webgl_lights_hemisphere.html
@@ -114,7 +114,7 @@
 
         var loader = new THREE.JSONLoader();
 
-        loader.load("models/animated/flamingo.js", function (geometry) {
+        loader.load("models/animated/flamingo.js", function(geometry) {
 
             morphColorsToFaceColors(geometry);
             geometry.computeMorphNormals();

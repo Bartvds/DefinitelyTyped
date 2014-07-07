@@ -1,13 +1,13 @@
 /// <reference path="../../yui/yui.d.ts" />
 /// <reference path="../cryptojs.d.ts" />
 
-YUI.add('mode-ecb-test', function (Y) {
+YUI.add('mode-ecb-test', function(Y) {
     var C = CryptoJS;
 
     Y.Test.Runner.add(new Y.Test.Case({
         name: 'ECB',
 
-        setUp: function () {
+        setUp: function() {
             this.data = {};
 
             this.data.message = C.lib.WordArray.create([
@@ -17,7 +17,7 @@ YUI.add('mode-ecb-test', function (Y) {
             this.data.key = C.lib.WordArray.create([0x20212223, 0x24252627, 0x28292a2b, 0x2c2d2e2f]);
         },
 
-        testEncryptor: function () {
+        testEncryptor: function() {
             // Compute expected
             var expected = this.data.message.clone();
             var aes = C.algo.AES.createEncryptor(this.data.key);
@@ -31,7 +31,7 @@ YUI.add('mode-ecb-test', function (Y) {
             Y.Assert.areEqual(expected.toString(), actual.toString());
         },
 
-        testDecryptor: function () {
+        testDecryptor: function() {
             var encrypted = C.AES.encrypt(this.data.message, this.data.key, { mode: C.mode.ECB, padding: C.pad.NoPadding });
             var decrypted = C.AES.decrypt(encrypted, this.data.key, { mode: C.mode.ECB, padding: C.pad.NoPadding });
 

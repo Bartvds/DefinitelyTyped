@@ -3,9 +3,9 @@
 hello.init({
     'facebook': '<app key>',
 }, {
-    redirect_uri: 'hello.html',
-    display: 'page',
-});
+        redirect_uri: 'hello.html',
+        display: 'page',
+    });
 
 hello.init({
     facebook: '359288236870',
@@ -34,11 +34,11 @@ var serviceInfo = hello.service('facebook');
 
 hello("facebook").api("me").success(function(json) {
     alert("Your name is " + json.name);
-}).error(function () {
-    alert("Whoops!");
-});
+}).error(function() {
+        alert("Whoops!");
+    });
 
-var sessionstart = function () {
+var sessionstart = function() {
     alert("Session has started");
 };
 hello.on("auth.login", sessionstart);

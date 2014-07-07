@@ -4,7 +4,7 @@ var chatRef: Firebase = new Firebase('https://<YOUR-FIREBASE>.firebaseio.com');
 var auth: FirebaseSimpleLogin = new FirebaseSimpleLogin(chatRef, function(error, user) {
     if (error) {
         // an error occurred while attempting login
-        switch(error.code) {
+        switch (error.code) {
             case 'INVALID_EMAIL':
             case 'INVALID_PASSWORD':
             default:

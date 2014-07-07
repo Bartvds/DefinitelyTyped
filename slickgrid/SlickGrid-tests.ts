@@ -2,39 +2,39 @@
 /// <reference path="SlickGrid.d.ts" />
 
 interface MyData extends Slick.SlickData {
-	title: string;
-	duration: string;
-	percentComplete: number;
-	start: string;
-	finish: string;
-	effortDriven: boolean;
+    title: string;
+    duration: string;
+    percentComplete: number;
+    start: string;
+    finish: string;
+    effortDriven: boolean;
 }
 
 var grid: Slick.Grid<MyData>;
 var columns: Slick.Column<MyData>[] = [
-	{ id: "title", name: "Title", field: "title" },
-	{ id: "duration", name: "Duration", field: "duration" },
-	{ id: "%", name: "% Complete", field: "percentComplete" },
-	{ id: "start", name: "Start", field: "start" },
-	{ id: "finish", name: "Finish", field: "finish" },
-	{ id: "effort-driven", name: "Effort Driven", field: "effortDriven" }
+    { id: "title", name: "Title", field: "title" },
+    { id: "duration", name: "Duration", field: "duration" },
+    { id: "%", name: "% Complete", field: "percentComplete" },
+    { id: "start", name: "Start", field: "start" },
+    { id: "finish", name: "Finish", field: "finish" },
+    { id: "effort-driven", name: "Effort Driven", field: "effortDriven" }
 ];
 
 var options: Slick.GridOptions<MyData> = {
-	enableCellNavigation: true,
-	enableColumnReorder: false
+    enableCellNavigation: true,
+    enableColumnReorder: false
 };
 
 var data: MyData[] = [];
 for (var i = 0; i < 500; i++) {
-	data[i] = {
-		title: "Task " + i,
-		duration: "5 days",
-		percentComplete: Math.round(Math.random() * 100),
-		start: "01/01/2009",
-		finish: "01/05/2009",
-		effortDriven: (i % 5 == 0)
-	};
+    data[i] = {
+        title: "Task " + i,
+        duration: "5 days",
+        percentComplete: Math.round(Math.random() * 100),
+        start: "01/01/2009",
+        finish: "01/05/2009",
+        effortDriven: (i % 5 == 0)
+    };
 }
 
 grid = new Slick.Grid<MyData>("#myGrid", data, columns, options);
@@ -49,7 +49,7 @@ grid.setData([{ title: "task", duration: "5 days", percentComplete: 5, start: "0
 
 var ids = [];
 for (i = 0; i < grid.getDataLength(); i++) {
-	ids.push(grid.getDataItem(i).title);
+    ids.push(grid.getDataItem(i).title);
 }
 
 var $selectedCells = $('.' + grid.getOptions().selectedCellCssClass);
@@ -65,31 +65,31 @@ $('.newSelection');
 grid.setSelectedRows([0, 1, 2]);
 
 class SingleCellSelectionModel extends Slick.SelectionModel<MyData, Slick.Range[]> {
-	private self: SingleCellSelectionModel = null;
-	private _grid: Slick.Grid<MyData>;
+    private self: SingleCellSelectionModel = null;
+    private _grid: Slick.Grid<MyData>;
 
-	constructor() {
-		super();
-		this.self = this;
-	}
+    constructor() {
+        super();
+        this.self = this;
+    }
 
-	public init(grid: Slick.Grid<MyData>) {
-		this.self._grid = grid;
-		this.self._grid.onClick.subscribe(this.self.handleGridClick);
-	}
+    public init(grid: Slick.Grid<MyData>) {
+        this.self._grid = grid;
+        this.self._grid.onClick.subscribe(this.self.handleGridClick);
+    }
 
-	public destroy() {
-		this.self._grid.onClick.unsubscribe(this.self.handleGridClick);
-	}
+    public destroy() {
+        this.self._grid.onClick.unsubscribe(this.self.handleGridClick);
+    }
 
-	public handleGridClick(e, args) {
-		var cell = this.self._grid.getCellFromEvent(e);
-		if (!cell || !this.self._grid.canCellBeSelected(cell.row, cell.cell)) {
-			return;
-		}
+    public handleGridClick(e, args) {
+        var cell = this.self._grid.getCellFromEvent(e);
+        if (!cell || !this.self._grid.canCellBeSelected(cell.row, cell.cell)) {
+            return;
+        }
 
-		this.onSelectedRangesChanged.notify([new Slick.Range(cell.row, cell.cell, cell.row, cell.cell)], new Slick.EventData(), this);
-	}
+        this.onSelectedRangesChanged.notify([new Slick.Range(cell.row, cell.cell, cell.row, cell.cell)], new Slick.EventData(), this);
+    }
 }
 
 var selectionModel = new SingleCellSelectionModel();
@@ -109,13 +109,13 @@ grid.setColumns(data);
 grid.updateColumnHeader("FirstName", "A First Name");
 
 grid.addCellCssStyles("test", {
-	0: {
-		"number_column": "cell-bold",
-		"title_column": "cell-title cell-highlighted"
-	},
-	4: {
-		"percent_column": "cell-highlighted"
-	}
+    0: {
+        "number_column": "cell-bold",
+        "title_column": "cell-title cell-highlighted"
+    },
+    4: {
+        "percent_column": "cell-highlighted"
+    }
 });
 
 grid.canCellBeActive(5, 10);
@@ -123,16 +123,16 @@ grid.canCellBeActive(5, 10);
 grid.canCellBeSelected(5, 10);
 
 grid.editActiveCell(new Slick.Editors.Date<MyData>({
-	column: cols,
-	container: undefined,
-	grid: grid
+    column: cols,
+    container: undefined,
+    grid: grid
 }));
 
 grid.setActiveCell(0, 0);
 grid.editActiveCell(new Slick.Editors.Date<MyData>({
-	column: cols,
-	container: undefined,
-	grid: grid
+    column: cols,
+    container: undefined,
+    grid: grid
 }));
 
 grid.flashCell(5, 10);
@@ -187,12 +187,12 @@ grid.resetActiveCell();
 grid.setActiveCell(5, 10);
 
 grid.setCellCssStyles("test", {
-	0: {
-		"number_column": "cell-bold",
-		"title_column": "cell-title cell-highlighted"
-	},
-	4: {
-		"percent_column": "cell-highlighted"
-	}
+    0: {
+        "number_column": "cell-bold",
+        "title_column": "cell-title cell-highlighted"
+    },
+    4: {
+        "percent_column": "cell-highlighted"
+    }
 });
 

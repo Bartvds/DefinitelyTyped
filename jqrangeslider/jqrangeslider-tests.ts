@@ -54,24 +54,24 @@ $("#defaultValuesExample").dateRangeSlider({
 });
 // Formatter - JS-way
 $("#formatterExample").rangeSlider({
-    formatter: function (val) {
+    formatter: function(val) {
         var value = Math.round(val * 5) / 5,
-        decimal = value - Math.round(val);
+            decimal = value - Math.round(val);
         return decimal == 0 ? value.toString() + ".0" : value.toString();
     }
 });
 $("#formatterExample").editRangeSlider({
-    formatter: function (val) {
+    formatter: function(val) {
         var value = Math.round(val * 5) / 5,
-        decimal = value - Math.round(val);
+            decimal = value - Math.round(val);
         return decimal == 0 ? value.toString() + ".0" : value.toString();
     }
 });
 $("#formatterExample").dateRangeSlider({
-    formatter: function (val) {
+    formatter: function(val) {
         var days = val.getDay(),
-        month = val.getMonth() + 1,
-        year = val.getYear();
+            month = val.getMonth() + 1,
+            year = val.getYear();
         return days + "/" + month + "/" + year;
     }
 });
@@ -79,58 +79,58 @@ $("#formatterExample").dateRangeSlider({
 $("#formatterExample").rangeSlider({
     formatter: (val: number) => {
         var value = Math.round(val * 5) / 5,
-        decimal = value - Math.round(val);
+            decimal = value - Math.round(val);
         return decimal == 0 ? value.toString() + ".0" : value.toString();
     }
 });
 $("#formatterExample").editRangeSlider({
     formatter: (val: number) => {
         var value = Math.round(val * 5) / 5,
-        decimal = value - Math.round(val);
+            decimal = value - Math.round(val);
         return decimal == 0 ? value.toString() + ".0" : value.toString();
     }
 });
 $("#formatterExample").dateRangeSlider({
     formatter: (val: Date) => {
         var days = val.getDay(),
-        month = val.getMonth() + 1,
-        // https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getYear#Description
-        // getYear is no longer used and has been replaced by the getFullYear method.
-        // year = val.getYear();
-        year = val.getFullYear();
+            month = val.getMonth() + 1,
+            // https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/getYear#Description
+            // getYear is no longer used and has been replaced by the getFullYear method.
+            // year = val.getYear();
+            year = val.getFullYear();
         return days + "/" + month + "/" + year;
     }
 });
 // Range
-$("#rangeExample").rangeSlider({range: {min: 10, max: 40}});
-$("#rangeExample").editRangeSlider({range: {min: 10, max: 40}});
+$("#rangeExample").rangeSlider({ range: { min: 10, max: 40 } });
+$("#rangeExample").editRangeSlider({ range: { min: 10, max: 40 } });
 $("#rangeExample").dateRangeSlider({
     range: {
         min: { days: 2 },
         max: { days: 7 }
     }
 });
-$("#rangeExample").rangeSlider({range: {min: 10}});
-$("#rangeExample").rangeSlider({range: {min: 10, max: false}});
-$("#rangeExample").rangeSlider({range: false});
-$("#rangeExample").rangeSlider({range: {min: false, max: false}});
-$("#rangeExample").rangeSlider({range: {min: false}});
+$("#rangeExample").rangeSlider({ range: { min: 10 } });
+$("#rangeExample").rangeSlider({ range: { min: 10, max: false } });
+$("#rangeExample").rangeSlider({ range: false });
+$("#rangeExample").rangeSlider({ range: { min: false, max: false } });
+$("#rangeExample").rangeSlider({ range: { min: false } });
 // Step
-$("#stepExample").rangeSlider({step: 10});
+$("#stepExample").rangeSlider({ step: 10 });
 $("#rangeExample").dateRangeSlider({
     step: {
         days: 2
     }
 });
 // Value labels
-$("#valueLabelsExample").rangeSlider({valueLabels: "change"});
-$("#valueLabelsExample").dateRangeSlider({valueLabels: "change"});
+$("#valueLabelsExample").rangeSlider({ valueLabels: "change" });
+$("#valueLabelsExample").dateRangeSlider({ valueLabels: "change" });
 // Wheel mode
-$("#wheelModeExample").rangeSlider({wheelMode: "zoom"});
-$("#wheelModeExample").rangeSlider({wheelMode: null});
+$("#wheelModeExample").rangeSlider({ wheelMode: "zoom" });
+$("#wheelModeExample").rangeSlider({ wheelMode: null });
 // Wheel speed
-$("#wheelSpeedExample").rangeSlider({wheelMode: "scroll", wheelSpeed: 30});
-$("#wheelSpeedExample").dateRangeSlider({wheelMode: "scroll", wheelSpeed: 30});
+$("#wheelSpeedExample").rangeSlider({ wheelMode: "scroll", wheelSpeed: 30 });
+$("#wheelSpeedExample").dateRangeSlider({ wheelMode: "scroll", wheelSpeed: 30 });
 
 // Get bounds
 var basicSliderBounds: JQRangeSliderNumericRange = $("#slider").rangeSlider("bounds");

@@ -3,7 +3,7 @@
  */
 ///<reference path='timelinejs.d.ts'/>
 
-var timelineSource:knightlab.ITimelineModel = {
+var timelineSource: knightlab.ITimelineModel = {
     timeline: {
         headline: 'Test Headline',
         type: 'default',
@@ -30,7 +30,7 @@ var timelineSource:knightlab.ITimelineModel = {
     }
 };
 
-var source:knightlab.ITimeLineConfiguration = {
+var source: knightlab.ITimeLineConfiguration = {
     width: '100%',
     height: '100%',
     type: 'timeline',

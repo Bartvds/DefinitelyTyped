@@ -88,12 +88,12 @@ promiseNumber = catchWithPromiseResult;
 
 function get(url: string) {
     // Return a new promise.
-    return new Promise<string>(function (resolve, reject) {
+    return new Promise<string>(function(resolve, reject) {
         // Do the usual XHR stuff
         var req = new XMLHttpRequest();
         req.open('GET', url);
 
-        req.onload = function () {
+        req.onload = function() {
             // This is called even on 404 etc
             // so check the status
             if (req.status == 200) {
@@ -108,7 +108,7 @@ function get(url: string) {
         };
 
         // Handle network errors
-        req.onerror = function () {
+        req.onerror = function() {
             reject(Error("Network Error"));
         };
 
@@ -136,30 +136,30 @@ interface Story {
     chapterUrls: string[]
 }
 
-getJSON('story.json').then(function (story: Story) {
+getJSON('story.json').then(function(story: Story) {
     addHtmlToPage(story.heading);
 
     // Map our array of chapter urls to
     // an array of chapter json promises.
     // This makes sure they all download parallel.
     return story.chapterUrls.map(getJSON)
-        .reduce(function (sequence, chapterPromise) {
+        .reduce(function(sequence, chapterPromise) {
             // Use reduce to chain the promises together,
             // adding content to the page for each chapter
-            return sequence.then(function () {
+            return sequence.then(function() {
                 // Wait for everything in the sequence so far,
                 // then wait for this chapter to arrive.
                 return chapterPromise;
-            }).then(function (chapter) {
+            }).then(function(chapter) {
                     addHtmlToPage(chapter.html);
                 });
         }, Promise.resolve());
-}).then(function () {
+}).then(function() {
         addTextToPage("All done");
-    }).catch(function (err) {
+    }).catch(function(err) {
         // catch any error that happened along the way
         addTextToPage("Argh, broken: " + err.message);
-    }).then(function () {
+    }).then(function() {
         (<HTMLElement>document.querySelector('.spinner')).style.display = 'none';
     });
 

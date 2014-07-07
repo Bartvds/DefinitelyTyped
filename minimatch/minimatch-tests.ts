@@ -4,7 +4,7 @@ import mm = require("minimatch");
 
 var pattern = "**/*.ts";
 var options = {
-	debug: true
+    debug: true
 };
 var m = new mm.Minimatch(pattern, options);
 var r = m.makeRe();

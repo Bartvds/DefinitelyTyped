@@ -1,4 +1,4 @@
-﻿/// <reference path="../../three.d.ts" />
+/// <reference path="../../three.d.ts" />
 /// <reference path="../three-tests-setup.ts" />
 
 // https://github.com/mrdoob/three.js/blob/master/examples/canvas_lights_pointlights.html
@@ -35,7 +35,7 @@
         scene.add(light3);
 
         var PI2 = Math.PI * 2;
-        var program = function (context) {
+        var program = function(context) {
 
             context.beginPath();
             context.arc(0, 0, 0.5, 0, PI2, true);
@@ -53,7 +53,7 @@
         scene.add(particle3);
 
         loader = new THREE.JSONLoader();
-        loader.load('obj/WaltHeadLo.js', function (geometry) {
+        loader.load('obj/WaltHeadLo.js', function(geometry) {
 
             mesh = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ color: 0xffffff, shading: THREE.FlatShading, overdraw: 0.5 }));
             scene.add(mesh);

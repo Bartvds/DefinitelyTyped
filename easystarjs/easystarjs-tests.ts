@@ -15,15 +15,12 @@ test.setGrid([
 ]);
 test.setAcceptableTiles([0]);
 test.setIterationsPerCalculation(1000);
-test.findPath(2, 0, 4, 4, function (path: EasyStar.Position[])
-{
-    if (path == null)
-    {
+test.findPath(2, 0, 4, 4, function(path: EasyStar.Position[]) {
+    if (path == null) {
         console.log("No path found!");
         return;
     }
-    for (var i = 0; i < path.length; i++)
-    {
+    for (var i = 0; i < path.length; i++) {
         var pos = path[i];
         console.log("%d, %d", pos.x, pos.y);
     }

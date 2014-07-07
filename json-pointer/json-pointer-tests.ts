@@ -7,7 +7,7 @@ var str: string;
 var strArr: string[];
 var pointer: string;
 var bool: any;
-var object:Object;
+var object: Object;
 
 bool = JsonPointer.has(object, pointer);
 value = JsonPointer.get(object, pointer);
@@ -36,6 +36,6 @@ wrap.remove(pointer);
 object = wrap.dict();
 
 wrap.walk((elem, key) => {
-	value = elem;
-	str = key;
+    value = elem;
+    str = key;
 });

@@ -1,4 +1,4 @@
-﻿/// <reference path="../../three.d.ts" />
+/// <reference path="../../three.d.ts" />
 /// <reference path="../three-tests-setup.ts" />
 
 // https://github.com/mrdoob/three.js/blob/master/examples/css3d_sprites.html
@@ -27,7 +27,7 @@
         scene = new THREE.Scene();
 
         var sprite = document.createElement('img');
-        sprite.addEventListener('load', function (event) {
+        sprite.addEventListener('load', function(event) {
 
             for (var i = 0, j = 0; i < particlesTotal; i++, j += 3) {
 

@@ -1,15 +1,15 @@
 ///<reference path="tv4.d.ts" />
 
-var str:string;
-var strArr:string[];
-var bool:boolean;
-var num:number;
-var obj:any;
-var tv4:TV4;
-var err:TV4Error;
-var errs:TV4Error[];
-var single:TV4SingleResult;
-var multi:TV4MultiResult;
+var str: string;
+var strArr: string[];
+var bool: boolean;
+var num: number;
+var obj: any;
+var tv4: TV4;
+var err: TV4Error;
+var errs: TV4Error[];
+var single: TV4SingleResult;
+var multi: TV4MultiResult;
 
 single = tv4.validateResult(obj, obj);
 bool = single.valid;

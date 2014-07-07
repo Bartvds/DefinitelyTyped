@@ -2,13 +2,13 @@
 /// <reference path="libxmljs.d.ts" />
 
 var libxmljs = require("libxmljs");
-var xml =  '<?xml version="1.0" encoding="UTF-8"?>' +
-           '<root>' +
-               '<child foo="bar">' +
-                   '<grandchild baz="fizbuzz">grandchild content</grandchild>' +
-               '</child>' +
-               '<sibling>with content!</sibling>' +
-           '</root>';
+var xml = '<?xml version="1.0" encoding="UTF-8"?>' +
+    '<root>' +
+    '<child foo="bar">' +
+    '<grandchild baz="fizbuzz">grandchild content</grandchild>' +
+    '</child>' +
+    '<sibling>with content!</sibling>' +
+    '</root>';
 
 var xmlDoc = libxmljs.parseXmlString(xml);
 
@@ -31,19 +31,19 @@ var parser2 = new libxmljs.SaxPushParser();
 
 // connect any callbacks here
 parser2
-  .on('startDocument', null)
-  .on('startElement', null)
+    .on('startDocument', null)
+    .on('startElement', null)
 
 var xmlChunk: any;
 
-while(xmlChunk) {
-  parser2.push(xmlChunk);
+while (xmlChunk) {
+    parser2.push(xmlChunk);
 }
 
 var doc = new libxmljs.Document();
-  doc.node('root')
-    .node('child').attr({foo: 'bar'})
-      .node('grandchild', 'grandchild content').attr({baz: 'fizbuzz'})
+doc.node('root')
+    .node('child').attr({ foo: 'bar' })
+    .node('grandchild', 'grandchild content').attr({ baz: 'fizbuzz' })
     .parent()
-  .parent()
+    .parent()
     .node('sibling', 'with content!');

@@ -3,7 +3,7 @@
 var empty = {},
     obj = { a: 'string', b: 123, c: true, d: empty },
     observable = ko.observable(123),
-    computed = ko.computed(function () { return observable() + 1; }),
+    computed = ko.computed(function() { return observable() + 1; }),
     model = { prop: 100 },
     notifiedValues = [];
 
@@ -25,7 +25,7 @@ ko.track(model);
 
 // Computed properties
 ko.defineProperty(model, 'propPlusOne', () => { return model.prop + 1; });
-ko.defineProperty(model, 'propOne', { get: function () { return 1; } });
+ko.defineProperty(model, 'propOne', { get: function() { return 1; } });
 ko.defineProperty(model, 'propPlusOne', { get: () => model.prop++, set: (value) => model.prop = value - 1 });
 
 // Utility functions
@@ -46,7 +46,7 @@ class OrderLine {
         });
 
         // Accessing the observables
-        ko.getObservable(this, "price").subscribe(function (newPrice) {
+        ko.getObservable(this, "price").subscribe(function(newPrice) {
             console.log('The new price is ' + newPrice);
         });
     }

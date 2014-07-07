@@ -2,7 +2,7 @@
 
 var assert: any;
 var exports = {
-    "test: screen2text the column should be rounded to the next character edge": function () {
+    "test: screen2text the column should be rounded to the next character edge": function() {
         var el = document.createElement("div");
 
         if (!el.getBoundingClientRect) {

@@ -1,7 +1,7 @@
 /// <reference path="../../yui/yui.d.ts" />
 /// <reference path="../cryptojs.d.ts" />
 
-YUI.add('algo-sha256-profile', function (Y) {
+YUI.add('algo-sha256-profile', function(Y) {
     var C = CryptoJS;
 
     //Profiler is removed in YUI 3.10.2
@@ -10,7 +10,7 @@ YUI.add('algo-sha256-profile', function (Y) {
     var obj = {
         name: 'SHA256',
 
-        profileSinglePartMessage: function () {
+        profileSinglePartMessage: function() {
             var singlePartMessage = '';
             for (var i = 0; i < 500; i++) {
                 singlePartMessage += '12345678901234567890123456789012345678901234567890';
@@ -19,7 +19,7 @@ YUI.add('algo-sha256-profile', function (Y) {
             C.algo.SHA256.create().finalize(singlePartMessage) + '';
         },
 
-        profileMultiPartMessage: function () {
+        profileMultiPartMessage: function() {
             var sha256 = C.algo.SHA256.create();
             for (var i = 0; i < 500; i++) {
                 sha256.update('12345678901234567890123456789012345678901234567890');

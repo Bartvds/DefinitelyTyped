@@ -15,7 +15,7 @@ var obj: Object;
 var dest: string;
 
 var uri: string;
-var headers: {[key: string]: string};
+var headers: { [key: string]: string };
 
 var agent: http.Agent;
 var write: stream.Writable;
@@ -23,12 +23,12 @@ var req: request.Request;
 var form: formData.FormData;
 
 var bodyArr: request.RequestPart[] = [{
-	body: value
+    body: value
 }, {
-	body: value
-}, {
-	body: value
-}];
+        body: value
+    }, {
+        body: value
+    }];
 
 // --- --- --- --- --- --- --- --- --- --- --- ---
 
@@ -63,34 +63,34 @@ str = oauth.token_secret;
 str = oauth.verifier;
 
 var options: request.Options = {
-	url: str,
-	uri: str,
-	callback: (error: any, response: any, body: any) => {
+    url: str,
+    uri: str,
+    callback: (error: any, response: any, body: any) => {
 
-	},
-	jar: value,
-	form: value,
-	oauth: value,
-	aws: aws,
-	qs: obj,
-	json: value,
-	multipart: value,
-	agentOptions: value,
-	agentClass: value,
-	forever: value,
-	host: str,
-	port: num,
-	method: str,
-	headers: value,
-	body: value,
-	followRedirect: bool,
-	followAllRedirects: bool,
-	maxRedirects: num,
-	encoding: str,
-	pool: value,
-	timeout: num,
-	proxy: value,
-	strictSSL: bool
+    },
+    jar: value,
+    form: value,
+    oauth: value,
+    aws: aws,
+    qs: obj,
+    json: value,
+    multipart: value,
+    agentOptions: value,
+    agentClass: value,
+    forever: value,
+    host: str,
+    port: num,
+    method: str,
+    headers: value,
+    body: value,
+    followRedirect: bool,
+    followAllRedirects: bool,
+    maxRedirects: num,
+    encoding: str,
+    pool: value,
+    timeout: num,
+    proxy: value,
+    strictSSL: bool
 };
 
 // --- --- --- --- --- --- --- --- --- --- --- ---

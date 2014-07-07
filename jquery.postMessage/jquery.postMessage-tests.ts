@@ -1,4 +1,4 @@
-﻿/// <reference path="jquery.postMessage.d.ts" />
+/// <reference path="jquery.postMessage.d.ts" />
 /// <reference path="../jquery/jquery.d.ts" />
 
 function test_postMessage() {
@@ -22,7 +22,7 @@ function test_receiveMessage() {
     }, 'http://dummy.url');
 
     // receive source origin callback
-    $.receiveMessage((e) => {}, (sourceOrigin) => {
+    $.receiveMessage((e) => { }, (sourceOrigin) => {
         return sourceOrigin === 'http://dummy.url';
     }, 100);
 };

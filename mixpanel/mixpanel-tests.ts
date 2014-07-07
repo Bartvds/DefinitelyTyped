@@ -1,21 +1,20 @@
 /// <reference path="mixpanel.d.ts" />
-function mixpanel_base()
-{
+function mixpanel_base() {
     mixpanel.init("new token", { your: "config" }, "library_name");
 
     mixpanel.push(['register', { a: 'b' }]);
 
     mixpanel.disable(['my_event']);
 
-    mixpanel.track("Registered", {"Gender": "Male", "Age": 21});
+    mixpanel.track("Registered", { "Gender": "Male", "Age": 21 });
 
     mixpanel.track_links("#nav", "Clicked Nav Link");
 
     mixpanel.track_forms("#register", "Created Account");
 
-    mixpanel.register({device: 'android', version: '4.0.1'});
+    mixpanel.register({ device: 'android', version: '4.0.1' });
 
-    mixpanel.register_once({device: 'android', version: '4.0.1'});
+    mixpanel.register_once({ device: 'android', version: '4.0.1' });
 
     mixpanel.unregister('device');
 
@@ -25,15 +24,14 @@ function mixpanel_base()
 
     mixpanel.alias('w3erwfsdf', '234234sdfdsf');
 
-    mixpanel.set_config({test: true});
+    mixpanel.set_config({ test: true });
 
     mixpanel.get_config();
 
     mixpanel.get_property('device');
 }
 
-function mixpanel_people()
-{
+function mixpanel_people() {
     mixpanel.people.set('gender', 'm');
     mixpanel.people.set({
         'Company': 'Acme',
@@ -62,7 +60,7 @@ function mixpanel_people()
     });
 
     mixpanel.people.track_charge(50);
-    mixpanel.people.track_charge(30.50, {'$time': new Date('jan 1 2012')});
+    mixpanel.people.track_charge(30.50, { '$time': new Date('jan 1 2012') });
 
     mixpanel.people.clear_charges();
 

@@ -5,7 +5,7 @@ module Test {
     var dsFromUrl = new DevExpress.data.DataSource(url);
 
     var dsFromObject = new DevExpress.data.DataSource({
-        load: function (loadOptions?: DevExpress.data.LoadOptions) {
+        load: function(loadOptions?: DevExpress.data.LoadOptions) {
             return $.ajax(url);
         }
     });
@@ -42,7 +42,7 @@ module Test {
         ]
     });
     $("div").appendTo(document.body).dxTabs({
-        itemClickAction: function (e) {
+        itemClickAction: function(e) {
             console.log(e.itemData.text);
         },
         items: [
@@ -57,9 +57,9 @@ module Test {
     $("div").appendTo(document.body).dxList({
         scrollByContent: true,
         items: ["item1", "item2", "item3"],
-        itemHoldAction: function (e: any) { console.log("itemHold"); },
-        itemClickAction: function (e: any) { console.log("itemClick"); },
-        itemSwipeAction: function (e: any) { console.log("itemSwipe " + e.direction); }
+        itemHoldAction: function(e: any) { console.log("itemHold"); },
+        itemClickAction: function(e: any) { console.log("itemClick"); },
+        itemSwipeAction: function(e: any) { console.log("itemSwipe " + e.direction); }
     });
     $("div").appendTo(document.body).dxToast({
         type: 'error',
@@ -75,7 +75,7 @@ module Test {
             { title: "unread", text: "unread" },
             { title: "favorites", text: "favorites" }
         ],
-        itemSelectAction: function (e) { console.log("itemSelectAction"); }
+        itemSelectAction: function(e) { console.log("itemSelectAction"); }
     });
     $("div").appendTo(document.body).dxLookup({
         items: [
@@ -89,7 +89,7 @@ module Test {
         ],
         valueExpr: 'id',
         displayExpr: 'caption',
-        itemRender: function (item) {
+        itemRender: function(item) {
             return "Text is: " + item.caption;
         }
     });
@@ -108,7 +108,7 @@ module Test {
             { text: "home", icon: "home" },
             { text: "URI", icon: "tips" }
         ],
-        itemClickAction: function (e) { console.log(e.itemData.text); }
+        itemClickAction: function(e) { console.log(e.itemData.text); }
     });
     $("div").appendTo(document.body).dxSwitch({
         value: false,
@@ -120,15 +120,15 @@ module Test {
     $("div").appendTo(document.body).dxButton({
         text: "Click me",
         icon: 'add',
-        clickAction: function () { console.log("clicked"); }
+        clickAction: function() { console.log("clicked"); }
     });
     $("div").appendTo(document.body).dxOverlay({
         visible: false,
         closeOnOutsideClick: true,
-        contentReadyAction: function () {
+        contentReadyAction: function() {
             $("#hideButton").dxButton({
                 text: "Hide",
-                clickAction: function () { $("#overlay").data("dxOverlay").option("visible", false); }
+                clickAction: function() { $("#overlay").data("dxOverlay").option("visible", false); }
             });
         }
     });
@@ -145,9 +145,9 @@ module Test {
     $("div").appendTo(document.body).dxEditBox({
         value: "Value",
         readOnly: false,
-        enterKeyAction: function (e) { console.log("key entered"); },
-        focusOutAction: function (e) { console.log("focus out"); },
-        focusInAction: function (e) { console.log("focus in"); }
+        enterKeyAction: function(e) { console.log("key entered"); },
+        focusOutAction: function(e) { console.log("focus out"); },
+        focusInAction: function(e) { console.log("focus in"); }
     });
     $("div").appendTo(document.body).dxTextBox({
         value: "Text",
@@ -155,15 +155,15 @@ module Test {
         mode: "email",
         maxLength: 20,
         readOnly: false,
-        changeAction: function (e) { console.log("value changed"); },
-        valueUpdateAction: function (e) { console.log("value updated"); }
+        changeAction: function(e) { console.log("value changed"); },
+        valueUpdateAction: function(e) { console.log("value updated"); }
     });
     $("div").appendTo(document.body).dxToolbar({
         items: [
-            { align: 'left', widget: 'button', options: { type: 'back', text: 'Back', clickAction: function (e) { console.log("back clicked"); } } },
-            { align: 'center', widget: 'button', options: { text: 'button', clickAction: function (e) { console.log("button clicked"); } } },
-            { align: 'center', widget: 'button', options: { icon: 'plus', text: 'add', clickAction: function (e) { console.log("plus clicked"); } } },
-            { align: 'right', widget: 'button', options: { icon: 'find', clickAction: function (e) { console.log("find clicked"); } }, useMenu: false },
+            { align: 'left', widget: 'button', options: { type: 'back', text: 'Back', clickAction: function(e) { console.log("back clicked"); } } },
+            { align: 'center', widget: 'button', options: { text: 'button', clickAction: function(e) { console.log("button clicked"); } } },
+            { align: 'center', widget: 'button', options: { icon: 'plus', text: 'add', clickAction: function(e) { console.log("plus clicked"); } } },
+            { align: 'right', widget: 'button', options: { icon: 'find', clickAction: function(e) { console.log("find clicked"); } }, useMenu: false },
             { text: 'Products', isMenu: true }
         ]
     });
@@ -174,8 +174,8 @@ module Test {
             { text: "item3", widthRatio: 2, heightRatio: 2 }
         ],
         listHeight: 500,
-        itemRender: function (item) { return "Text is: " + item.text; },
-        itemClickAction: function () { console.log("itemClick"); },
+        itemRender: function(item) { return "Text is: " + item.text; },
+        itemClickAction: function() { console.log("itemClick"); },
         baseItemWidth: 100,
         baseItemHeight: 100,
         itemMargin: 20
@@ -190,12 +190,12 @@ module Test {
         ],
         selectedIndex: 0,
         backgroundImage: { width: 89, height: 50 },
-        itemSelectAction: function () { console.log("item selected"); }
+        itemSelectAction: function() { console.log("item selected"); }
     });
     $("div").appendTo(document.body).dxCheckBox({
         checked: false,
         disabled: false,
-        clickAction: function (e) { console.log("clicked"); }
+        clickAction: function(e) { console.log("clicked"); }
     });
     $("div").appendTo(document.body).dxTextArea({
         value: 'Disabled',
@@ -218,8 +218,8 @@ module Test {
     });
     $("div").appendTo(document.body).dxScrollable({
         useNative: false,
-        startAction: function (e) { console.log("start"); },
-        endAction: function (e) { console.log("end"); }
+        startAction: function(e) { console.log("start"); },
+        endAction: function(e) { console.log("end"); }
     });
     $("div").appendTo(document.body).dxRadioGroup({
         items: [{ text: "0" }, { text: "1" }, { text: "2" }],
@@ -227,17 +227,17 @@ module Test {
         selectedIndex: -1
     });
     $("div").appendTo(document.body).dxScrollView({
-        pullDownAction: function (e) { console.log("pulling down"); },
-        reachBottomAction: function (e) { console.log("bottom reached"); },
+        pullDownAction: function(e) { console.log("pulling down"); },
+        reachBottomAction: function(e) { console.log("bottom reached"); },
         disabled: false
     });
     $("div").appendTo(document.body).dxActionSheet({
         title: 'Select action',
         items: [
-            { text: "Reply", clickAction: function () { console.log("Reply"); } },
-            { text: "Forward", clickAction: function () { console.log("Forward"); } },
-            { text: "Delete", clickAction: function () { console.log("Delete"); }, type: "danger" },
-            { text: "Save Image", clickAction: function () { console.log("Save Image"); }, disabled: true }
+            { text: "Reply", clickAction: function() { console.log("Reply"); } },
+            { text: "Forward", clickAction: function() { console.log("Forward"); } },
+            { text: "Delete", clickAction: function() { console.log("Delete"); }, type: "danger" },
+            { text: "Save Image", clickAction: function() { console.log("Save Image"); }, disabled: true }
         ],
         showTitle: true,
         disabled: false,

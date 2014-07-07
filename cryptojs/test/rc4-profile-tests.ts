@@ -1,7 +1,7 @@
 /// <reference path="../../yui/yui.d.ts" />
 /// <reference path="../cryptojs.d.ts" />
 
-YUI.add('algo-rc4-profile', function (Y) {
+YUI.add('algo-rc4-profile', function(Y) {
     var C = CryptoJS;
 
     //Profiler is removed in YUI 3.10.2
@@ -10,13 +10,13 @@ YUI.add('algo-rc4-profile', function (Y) {
     var obj = {
         name: 'RC4',
 
-        setUp: function () {
+        setUp: function() {
             this.data = {
                 key: C.enc.Hex.parse('000102030405060708090a0b0c0d0e0f')
             };
         },
 
-        profileSinglePartMessage: function () {
+        profileSinglePartMessage: function() {
             var singlePartMessage = '';
             for (var i = 0; i < 500; i++) {
                 singlePartMessage += '12345678901234567890123456789012345678901234567890';
@@ -25,7 +25,7 @@ YUI.add('algo-rc4-profile', function (Y) {
             C.algo.RC4.createEncryptor(this.data.key).finalize(singlePartMessage) + '';
         },
 
-        profileMultiPartMessage: function () {
+        profileMultiPartMessage: function() {
             var rc4 = C.algo.RC4.createEncryptor(this.data.key);
             for (var i = 0; i < 500; i++) {
                 rc4.process('12345678901234567890123456789012345678901234567890') + '';

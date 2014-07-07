@@ -12,7 +12,7 @@ testApp.config((
     $progressConfig: ng.ui.bootstrap.IProgressConfig,
     $ratingConfig: ng.ui.bootstrap.IRatingConfig,
     $timepickerConfig: ng.ui.bootstrap.ITimepickerConfig,
-    $tooltipProvider: ng.ui.bootstrap.ITooltipProvider)=> {
+    $tooltipProvider: ng.ui.bootstrap.ITooltipProvider) => {
 
     /**
      * $accordionConfig tests
@@ -123,7 +123,7 @@ testApp.controller('TestCtrl', (
     $modal: ng.ui.bootstrap.IModalService,
     $modalStack: ng.ui.bootstrap.IModalStackService,
     $position: ng.ui.bootstrap.IPositionService,
-    $transition: ng.ui.bootstrap.ITransitionService)=> {
+    $transition: ng.ui.bootstrap.ITransitionService) => {
 
     /**
      * test the $modal service
@@ -133,7 +133,7 @@ testApp.controller('TestCtrl', (
         controller: 'ModalTestCtrl',
         keyboard: true,
         resolve: {
-            items: ()=> {
+            items: () => {
                 return [1, 2, 3, 4, 5];
             }
         },
@@ -143,15 +143,15 @@ testApp.controller('TestCtrl', (
         windowClass: 'modal-test'
     });
 
-    modalInstance.opened.then(()=> {
+    modalInstance.opened.then(() => {
         $log.log('modal opened');
     });
 
     modalInstance.result.then(closeResult=> {
         $log.log('modal closed', closeResult);
     }, dismissResult=> {
-        $log.log('modal dismissed', dismissResult);
-    });
+            $log.log('modal dismissed', dismissResult);
+        });
 
 
     /**
@@ -190,7 +190,7 @@ testApp.controller('TestCtrl', (
     var transitionElement = angular.element('<div/>');
     $transition(transitionElement, 'transition-class', { animation: true });
     $transition(transitionElement, { height: '100px', width: '50px' }, { animation: true });
-    $transition(transitionElement, ()=> {}, { animation: true });
+    $transition(transitionElement, () => { }, { animation: true });
 });
 
 
@@ -198,13 +198,13 @@ testApp.controller('ModalTestCtrl', (
     $scope: IModalTestCtrlScope,
     $log: ng.ILogService,
     $modalInstance: ng.ui.bootstrap.IModalServiceInstance,
-    items: Array<number>)=> {
+    items: Array<number>) => {
 
     items.forEach(item=> {
         $log.log(item);
     });
 
-    $scope.close = ()=> {
+    $scope.close = () => {
         if ($scope.useReason) {
             $modalInstance.close('with reason');
         } else {
@@ -212,7 +212,7 @@ testApp.controller('ModalTestCtrl', (
         }
     };
 
-    $scope.dismiss = ()=> {
+    $scope.dismiss = () => {
         if ($scope.useReason) {
             $modalInstance.dismiss('with reason');
         } else {

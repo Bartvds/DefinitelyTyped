@@ -1,35 +1,35 @@
 /// <reference path="qunit.d.ts" />
 
-QUnit.test("deepEqual test", function () {
+QUnit.test("deepEqual test", function() {
     var obj = { foo: "bar" };
 
     QUnit.deepEqual(obj, { foo: "bar" }, "Two objects can be the same in value");
 });
 
-test("deepEqual test", function () {
+test("deepEqual test", function() {
     var obj = { foo: "bar" };
 
     deepEqual(obj, { foo: "bar" }, "Two objects can be the same in value");
 });
 
-QUnit.test("a test", function () {
+QUnit.test("a test", function() {
     QUnit.equal(1, "1", "String '1' and number 1 have the same value");
 });
 
-test("a test", function () {
+test("a test", function() {
     equal(1, "1", "String '1' and number 1 have the same value");
 });
 
-test("test Array 1", function () {
-    equal([1,2,3], ["test", "foo"], "String '1' and number 1 have the same value");
+test("test Array 1", function() {
+    equal([1, 2, 3], ["test", "foo"], "String '1' and number 1 have the same value");
 });
 
-test("test Array 2", function () {
-    QUnit.equal([1,2,3], ["test", "foo"], "String '1' and number 1 have the same value");
+test("test Array 2", function() {
+    QUnit.equal([1, 2, 3], ["test", "foo"], "String '1' and number 1 have the same value");
 });
 
 
-QUnit.test("equal test", function () {
+QUnit.test("equal test", function() {
     QUnit.equal(0, 0, "Zero; equal succeeds");
     QUnit.equal("", 0, "Empty, Zero; equal succeeds");
     QUnit.equal("", "", "Empty, Empty; equal succeeds");
@@ -39,7 +39,7 @@ QUnit.test("equal test", function () {
     QUnit.equal(null, false, "null, false; equal fails");
 });
 
-test("equal test", function () {
+test("equal test", function() {
     equal(0, 0, "Zero; equal succeeds");
     equal("", 0, "Empty, Zero; equal succeeds");
     equal("", "", "Empty, Empty; equal succeeds");
@@ -49,35 +49,35 @@ test("equal test", function () {
     equal(null, false, "null, false; equal fails");
 });
 
-QUnit.test("notDeepEqual test", function () {
+QUnit.test("notDeepEqual test", function() {
     var obj = { foo: "bar" };
 
     QUnit.notDeepEqual(obj, { foo: "bla" }, "Different object, same key, different value, not equal");
 });
 
-test("notDeepEqual test", function () {
+test("notDeepEqual test", function() {
     var obj = { foo: "bar" };
 
     notDeepEqual(obj, { foo: "bla" }, "Different object, same key, different value, not equal");
 });
 
-QUnit.test("a test", function () {
+QUnit.test("a test", function() {
     QUnit.notEqual(1, "2", "String '2' and number 1 don't have the same value");
 });
 
-test("a test", function () {
+test("a test", function() {
     notEqual(1, "2", "String '2' and number 1 don't have the same value");
 });
 
-QUnit.test("a test", function () {
+QUnit.test("a test", function() {
     QUnit.notStrictEqual(1, "1", "String '1' and number 1 don't have the same value");
 });
 
-test("a test", function () {
+test("a test", function() {
     notStrictEqual(1, "1", "String '1' and number 1 don't have the same value");
 });
 
-QUnit.test("ok test", function () {
+QUnit.test("ok test", function() {
     QUnit.ok(true, "true succeeds");
     QUnit.ok("non-empty", "non-empty string succeeds");
 
@@ -89,7 +89,7 @@ QUnit.test("ok test", function () {
     QUnit.ok(undefined, "undefined fails");
 });
 
-test("ok test", function () {
+test("ok test", function() {
     ok(true, "true succeeds");
     ok("non-empty", "non-empty string succeeds");
 
@@ -101,20 +101,20 @@ test("ok test", function () {
     ok(undefined, "undefined fails");
 });
 
-QUnit.test("strictEqual test", function () {
+QUnit.test("strictEqual test", function() {
     QUnit.strictEqual(1, 1, "1 and 1 are the same value and type");
 });
 
-test("strictEqual test", function () {
+test("strictEqual test", function() {
     strictEqual(1, 1, "1 and 1 are the same value and type");
 });
 
-QUnit.test("a test", function () {
+QUnit.test("a test", function() {
     QUnit.stop();
     QUnit.start();
 });
 
-test("a test", function () {
+test("a test", function() {
     stop();
     start();
 });
@@ -128,40 +128,40 @@ QUnit.config.urlConfig.push(<any>{
     tooltip: "Load minified source files instead of the regular unminified ones."
 });
 
-QUnit.asyncTest("asynchronous test: one second later!", function () {
+QUnit.asyncTest("asynchronous test: one second later!", function() {
     QUnit.expect(1);
 });
 
-asyncTest("asynchronous test: one second later!", function () {
+asyncTest("asynchronous test: one second later!", function() {
     expect(1);
 });
 
 QUnit.module("group a");
-QUnit.test("a basic test example", function () {
+QUnit.test("a basic test example", function() {
     QUnit.ok(true, "this test is fine");
 });
-QUnit.test("a basic test example 2", function () {
+QUnit.test("a basic test example 2", function() {
     QUnit.ok(true, "this test is fine");
 });
 
 QUnit.module("group b");
-QUnit.test("a basic test example 3", function () {
+QUnit.test("a basic test example 3", function() {
     QUnit.ok(true, "this test is fine");
 });
-QUnit.test("a basic test example 4", function () {
+QUnit.test("a basic test example 4", function() {
     QUnit.ok(true, "this test is fine");
 });
 
 QUnit.module("module A", {
-    setup: function () {
+    setup: function() {
         // prepare something for all following tests
     },
-    teardown: function () {
+    teardown: function() {
         // clean up after each test
     }
 });
 
-QUnit.test("a test", function (assert) {
+QUnit.test("a test", function(assert) {
 
     function square(x) {
         return x * x;
@@ -172,68 +172,68 @@ QUnit.test("a test", function (assert) {
     assert.equal(result, 4, "square(2) equals 4");
 });
 
-test( "throws", function() {
- 
-  function CustomError( message ) {
-    this.message = message;
-  }
- 
-  CustomError.prototype.toString = function() {
-    return this.message;
-  };
- 
-  throws(
-    function() {
-      throw "error"
-    },
-    "throws with just a message, no expected"
-  );
- 
-  throws(
-    function() {
-      throw new Error();
-    },
-    Error,
-    "raised error is an instance of CustomError"
-  );
- 
-  throws(
-    function() {
-      throw new Error("some error description");
-    },
-    /description/,
-    "raised error message contains 'description'"
-  );
+test("throws", function() {
 
-   QUnit.throws(
-    function() {
+    function CustomError(message) {
+        this.message = message;
+    }
+
+    CustomError.prototype.toString = function() {
+        return this.message;
+    };
+
+    throws(
+        function() {
       throw "error"
     },
-    "throws with just a message, no expected"
-  );
- 
-  QUnit.throws(
-    function() {
-      throw new Error();
+        "throws with just a message, no expected"
+        );
+
+    throws(
+        function() {
+            throw new Error();
+        },
+        Error,
+        "raised error is an instance of CustomError"
+        );
+
+    throws(
+        function() {
+            throw new Error("some error description");
+        },
+        /description/,
+        "raised error message contains 'description'"
+        );
+
+    QUnit.throws(
+        function() {
+      throw "error"
     },
-    Error,
-    "raised error is an instance of CustomError"
-  );
- 
-  QUnit.throws(
-    function() {
-      throw new Error("some error description");
-    },
-    /description/,
-    "raised error message contains 'description'"
-  ); 
+        "throws with just a message, no expected"
+        );
+
+    QUnit.throws(
+        function() {
+            throw new Error();
+        },
+        Error,
+        "raised error is an instance of CustomError"
+        );
+
+    QUnit.throws(
+        function() {
+            throw new Error("some error description");
+        },
+        /description/,
+        "raised error message contains 'description'"
+        );
 });
 
 
 QUnit.module("equiv");
 
 
-test("Primitive types and constants", function () {
+test("Primitive types and constants", function() {
     equal(QUnit.equiv(null, null), true, "null");
     equal(QUnit.equiv(null, {}), false, "null");
     equal(QUnit.equiv(null, undefined), false, "null");
@@ -252,24 +252,24 @@ test("Primitive types and constants", function () {
 
     // Nan usually doest not equal to Nan using the '==' operator.
     // Only isNaN() is able to do it.
-    equal(QUnit.equiv(0/0, 0/0), true, "NaN"); // NaN VS NaN
-    equal(QUnit.equiv(1/0, 2/0), true, "Infinity"); // Infinity VS Infinity
-    equal(QUnit.equiv(-1/0, 2/0), false, "-Infinity, Infinity"); // -Infinity VS Infinity
-    equal(QUnit.equiv(-1/0, -2/0), true, "-Infinity, -Infinity"); // -Infinity VS -Infinity
-    equal(QUnit.equiv(0/0, 1/0), false, "NaN, Infinity"); // Nan VS Infinity
-    equal(QUnit.equiv(1/0, 0/0), false, "NaN, Infinity"); // Nan VS Infinity
-    equal(QUnit.equiv(0/0, null), false, "NaN");
-    equal(QUnit.equiv(0/0, undefined), false, "NaN");
-    equal(QUnit.equiv(0/0, 0), false, "NaN");
-    equal(QUnit.equiv(0/0, false), false, "NaN");
-    equal(QUnit.equiv(0/0, function () {}), false, "NaN");
-    equal(QUnit.equiv(1/0, null), false, "NaN, Infinity");
-    equal(QUnit.equiv(1/0, undefined), false, "NaN, Infinity");
-    equal(QUnit.equiv(1/0, 0), false, "NaN, Infinity");
-    equal(QUnit.equiv(1/0, 1), false, "NaN, Infinity");
-    equal(QUnit.equiv(1/0, false), false, "NaN, Infinity");
-    equal(QUnit.equiv(1/0, true), false, "NaN, Infinity");
-    equal(QUnit.equiv(1/0, function () {}), false, "NaN, Infinity");
+    equal(QUnit.equiv(0 / 0, 0 / 0), true, "NaN"); // NaN VS NaN
+    equal(QUnit.equiv(1 / 0, 2 / 0), true, "Infinity"); // Infinity VS Infinity
+    equal(QUnit.equiv(-1 / 0, 2 / 0), false, "-Infinity, Infinity"); // -Infinity VS Infinity
+    equal(QUnit.equiv(-1 / 0, -2 / 0), true, "-Infinity, -Infinity"); // -Infinity VS -Infinity
+    equal(QUnit.equiv(0 / 0, 1 / 0), false, "NaN, Infinity"); // Nan VS Infinity
+    equal(QUnit.equiv(1 / 0, 0 / 0), false, "NaN, Infinity"); // Nan VS Infinity
+    equal(QUnit.equiv(0 / 0, null), false, "NaN");
+    equal(QUnit.equiv(0 / 0, undefined), false, "NaN");
+    equal(QUnit.equiv(0 / 0, 0), false, "NaN");
+    equal(QUnit.equiv(0 / 0, false), false, "NaN");
+    equal(QUnit.equiv(0 / 0, function() { }), false, "NaN");
+    equal(QUnit.equiv(1 / 0, null), false, "NaN, Infinity");
+    equal(QUnit.equiv(1 / 0, undefined), false, "NaN, Infinity");
+    equal(QUnit.equiv(1 / 0, 0), false, "NaN, Infinity");
+    equal(QUnit.equiv(1 / 0, 1), false, "NaN, Infinity");
+    equal(QUnit.equiv(1 / 0, false), false, "NaN, Infinity");
+    equal(QUnit.equiv(1 / 0, true), false, "NaN, Infinity");
+    equal(QUnit.equiv(1 / 0, function() { }), false, "NaN, Infinity");
 
     equal(QUnit.equiv(0, 0), true, "number");
     equal(QUnit.equiv(0, 1), false, "number");
@@ -335,10 +335,10 @@ test("Primitive types and constants", function () {
 
     equal(QUnit.equiv(new SafeObject(), {}), true, "object literal vs. instantiation");
     equal(QUnit.equiv({}, new SafeObject()), true, "object literal vs. instantiation");
-    equal(QUnit.equiv(new SafeObject(), {a:1}), false, "object literal vs. instantiation");
-    equal(QUnit.equiv({a:1}, new SafeObject()), false, "object literal vs. instantiation");
-    equal(QUnit.equiv({a:undefined}, new SafeObject()), false, "object literal vs. instantiation");
-    equal(QUnit.equiv(new SafeObject(), {a:undefined}), false, "object literal vs. instantiation");
+    equal(QUnit.equiv(new SafeObject(), { a: 1 }), false, "object literal vs. instantiation");
+    equal(QUnit.equiv({ a: 1 }, new SafeObject()), false, "object literal vs. instantiation");
+    equal(QUnit.equiv({ a: undefined }, new SafeObject()), false, "object literal vs. instantiation");
+    equal(QUnit.equiv(new SafeObject(), { a: undefined }), false, "object literal vs. instantiation");
 });
 
 test("Objects Basics.", function() {
@@ -355,16 +355,16 @@ test("Objects Basics.", function() {
     //      3) Their properties are the same (doesn't exists)
     equal(QUnit.equiv({}, []), false);
 
-    equal(QUnit.equiv({a:1}, {a:1}), true);
-    equal(QUnit.equiv({a:1}, {a:"1"}), false);
-    equal(QUnit.equiv({a:[]}, {a:[]}), true);
-    equal(QUnit.equiv({a:{}}, {a:null}), false);
-    equal(QUnit.equiv({a:1}, {}), false);
-    equal(QUnit.equiv({}, {a:1}), false);
+    equal(QUnit.equiv({ a: 1 }, { a: 1 }), true);
+    equal(QUnit.equiv({ a: 1 }, { a: "1" }), false);
+    equal(QUnit.equiv({ a: [] }, { a: [] }), true);
+    equal(QUnit.equiv({ a: {} }, { a: null }), false);
+    equal(QUnit.equiv({ a: 1 }, {}), false);
+    equal(QUnit.equiv({}, { a: 1 }), false);
 
     // Hard ones
-    equal(QUnit.equiv({a:undefined}, {}), false);
-    equal(QUnit.equiv({}, {a:undefined}), false);
+    equal(QUnit.equiv({ a: undefined }, {}), false);
+    equal(QUnit.equiv({}, { a: undefined }), false);
     equal(QUnit.equiv(
         {
             a: [{ bar: undefined }]
@@ -372,7 +372,7 @@ test("Objects Basics.", function() {
         {
             a: [{ bat: undefined }]
         }
-    ), false);
+        ), false);
 
     // Objects with no prototype, created via Object.create(null), are used e.g. as dictionaries.
     // Being able to test equivalence against object literals is quite useful.
@@ -405,25 +405,25 @@ test("Arrays Basics.", function() {
     // than {} with [] (note the order)
     equal(QUnit.equiv([], {}), false);
 
-    equal(QUnit.equiv([null],[]), false);
-    equal(QUnit.equiv([undefined],[]), false);
-    equal(QUnit.equiv([],[null]), false);
-    equal(QUnit.equiv([],[undefined]), false);
-    equal(QUnit.equiv([null],[undefined]), false);
-    equal(QUnit.equiv([[]],[[]]), true);
-    equal(QUnit.equiv([[],[],[]],[[],[],[]]), true);
+    equal(QUnit.equiv([null], []), false);
+    equal(QUnit.equiv([undefined], []), false);
+    equal(QUnit.equiv([], [null]), false);
+    equal(QUnit.equiv([], [undefined]), false);
+    equal(QUnit.equiv([null], [undefined]), false);
+    equal(QUnit.equiv([[]], [[]]), true);
+    equal(QUnit.equiv([[], [], []], [[], [], []]), true);
     equal(QUnit.equiv(
-                            [[],[],[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],
-                            [[],[],[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]),
-                            true);
+        [[], [], [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],
+        [[], [], [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]),
+        true);
     equal(QUnit.equiv(
-                            [[],[],[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],
-                            [[],[],[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]), // shorter
-                            false);
+        [[], [], [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],
+        [[], [], [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]), // shorter
+        false);
     equal(QUnit.equiv(
-                            [[],[],[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[{}]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],
-                            [[],[],[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]), // deepest element not an array
-                            false);
+        [[], [], [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[{}]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]],
+        [[], [], [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]), // deepest element not an array
+        false);
 });
 
 test("Prototypal inheritance", function() {
@@ -441,7 +441,7 @@ test("Prototypal inheritance", function() {
 
     // Try this test many times after test on instances that hold function
     // to make sure that our code does not mess with last object constructor memoization.
-    equal(QUnit.equiv(function () {}, function () {}), false);
+    equal(QUnit.equiv(function() { }, function() { }), false);
 
     // Hoozit inherit from Gizmo
     // hoozit instanceof Hoozit; // true
@@ -457,7 +457,7 @@ test("Prototypal inheritance", function() {
     // Make sure this is still true !important
     // The reason for this is that I forgot to reset the last
     // caller to where it were called from.
-    equal(QUnit.equiv(function () {}, function () {}), false);
+    equal(QUnit.equiv(function() { }, function() { }), false);
 
     // Make sure this is still true !important
     equal(QUnit.equiv(hoozit, gizmo), true);
@@ -471,17 +471,17 @@ test("Prototypal inheritance", function() {
     equal(QUnit.equiv(hoozit, gizmo), false);
 
     // Make sure this is still true !important
-    equal(QUnit.equiv(function () {}, function () {}), false);
+    equal(QUnit.equiv(function() { }, function() { }), false);
 });
 
 
 test("Instances", function() {
-    function A() {}
+    function A() { }
     var a1 = new A();
     var a2 = new A();
 
     function B() {
-        this.fn = function () {};
+        this.fn = function() { };
     }
     var b1 = new B();
     var b2 = new B();
@@ -520,7 +520,7 @@ test("Instances", function() {
 
     var same = {
         year: 30,
-        isOld: function () {}
+        isOld: function() { }
     };
 
     equal(QUnit.equiv(car, car), true);
@@ -534,14 +534,14 @@ test("Complex Instances Nesting (with function value in literals and/or in neste
     function A(fn) {
         this.a = {};
         this.fn = fn;
-        this.b = {a: []};
+        this.b = { a: [] };
         this.o = {};
         this.fn1 = fn;
     }
     function B(fn) {
         this.fn = fn;
-        this.fn1 = function () {};
-        this.a = new A(function () {});
+        this.fn1 = function() { };
+        this.a = new A(function() { });
     }
 
     function fnOutside() {
@@ -552,7 +552,7 @@ test("Complex Instances Nesting (with function value in literals and/or in neste
         }
         this.x = 10;
         this.fn = fn;
-        this.fn1 = function () {};
+        this.fn1 = function() { };
         this.fn2 = fnInside;
         this.fn3 = {
             a: true,
@@ -563,10 +563,10 @@ test("Complex Instances Nesting (with function value in literals and/or in neste
         // This function will be ignored.
         // Even if it is not visible for all instances (e.g. locked in a closures),
         // it is from a  property that makes part of an instance (e.g. from the C constructor)
-        this.b1 = new B(function () {});
+        this.b1 = new B(function() { });
         this.b2 = new B({
             x: {
-                b2: new B(function() {})
+                b2: new B(function() { })
             }
         });
     }
@@ -576,7 +576,7 @@ test("Complex Instances Nesting (with function value in literals and/or in neste
         }
         this.x = 10;
         this.fn = fn;
-        this.fn1 = function () {};
+        this.fn1 = function() { };
         this.fn2 = fnInside;
         this.fn3 = {
             a: true,
@@ -592,10 +592,10 @@ test("Complex Instances Nesting (with function value in literals and/or in neste
         // This function will be ignored.
         // Even if it is not visible for all instances (e.g. locked in a closures),
         // it is from a  property that makes part of an instance (e.g. from the C constructor)
-        this.b1 = new B(function () {});
+        this.b1 = new B(function() { });
         this.b2 = new B({
             x: {
-                b2: new B(function() {})
+                b2: new B(function() { })
             }
         });
     }
@@ -605,7 +605,7 @@ test("Complex Instances Nesting (with function value in literals and/or in neste
         }
         this.x = 10;
         this.fn = fn;
-        this.fn1 = function () {};
+        this.fn1 = function() { };
         this.fn2 = fnInside;
         this.fn3 = {
             a: true,
@@ -616,36 +616,36 @@ test("Complex Instances Nesting (with function value in literals and/or in neste
         // This function will be ignored.
         // Even if it is not visible for all instances (e.g. locked in a closures),
         // it is from a  property that makes part of an instance (e.g. from the C constructor)
-        this.b1 = new B(function () {});
+        this.b1 = new B(function() { });
         this.b2 = new B({
             x: {
-                b1: new B({a: function() {}}),
-                b2: new B(function() {})
+                b1: new B({ a: function() { } }),
+                b2: new B(function() { })
             }
         });
     }
 
 
-    var a1 = new A(function () {});
-    var a2 = new A(function () {});
+    var a1 = new A(function() { });
+    var a2 = new A(function() { });
     equal(QUnit.equiv(a1, a2), true);
 
     equal(QUnit.equiv(a1, a2), true); // different instances
 
-    var b1 = new B(function () {});
-    var b2 = new B(function () {});
+    var b1 = new B(function() { });
+    var b2 = new B(function() { });
     equal(QUnit.equiv(b1, b2), true);
 
-    var c1 = new C(function () {});
-    var c2 = new C(function () {});
+    var c1 = new C(function() { });
+    var c2 = new C(function() { });
     equal(QUnit.equiv(c1, c2), true);
 
-    var d1 = new D(function () {});
-    var d2 = new D(function () {});
+    var d1 = new D(function() { });
+    var d2 = new D(function() { });
     equal(QUnit.equiv(d1, d2), false);
 
-    var e1 = new E(function () {});
-    var e2 = new E(function () {});
+    var e1 = new E(function() { });
+    var e2 = new E(function() { });
     equal(QUnit.equiv(e1, e2), false);
 
 });
@@ -653,10 +653,10 @@ test("Complex Instances Nesting (with function value in literals and/or in neste
 
 test('object with references to self wont loop', function() {
     var circularA = <any>{
-        abc:null
+        abc: null
     }, circularB = <any>{
-        abc:null
-    };
+            abc: null
+        };
     circularA.abc = circularA;
     circularB.abc = circularB;
     equal(QUnit.equiv(circularA, circularB), true, "Should not repeat test on object (ambigous test)");
@@ -677,18 +677,18 @@ test('array with references to self wont loop', function() {
     circularB.push(circularB);
     equal(QUnit.equiv(circularA, circularB), true, "Should not repeat test on array (ambigous test)");
 
-    circularA.push( 'abc' );
-    circularB.push( 'abc' );
+    circularA.push('abc');
+    circularB.push('abc');
     equal(QUnit.equiv(circularA, circularB), true, "Should not repeat test on array (ambigous test)");
 
-    circularA.push( 'hello' );
-    circularB.push( 'goodbye' );
+    circularA.push('hello');
+    circularB.push('goodbye');
     equal(QUnit.equiv(circularA, circularB), false, "Should not repeat test on array (unambigous test)");
 });
 
 test('mixed object/array with references to self wont loop', function() {
-    var circularA = <any>[{abc:null}],
-        circularB = <any>[{abc:null}];
+    var circularA = <any>[{ abc: null }],
+        circularB = <any>[{ abc: null }];
     circularA[0].abc = circularA;
     circularB[0].abc = circularB;
 
@@ -713,10 +713,10 @@ test("Test that must be done at the end because they extend some primitive's pro
     //Function.prototype.ignoreCase = false;
     //Function.prototype.source = "my regex";
     var re = /my regex/gm;
-    equal(QUnit.equiv(re, function () {}), false, "A function that looks that a regex isn't a regex");
+    equal(QUnit.equiv(re, function() { }), false, "A function that looks that a regex isn't a regex");
     // This test will ensures it works in both ways, and ALSO especially that we can make differences
     // between RegExp and Function constructor because typeof on a RegExpt instance is "function"
-    equal(QUnit.equiv(function () {}, re), false, "Same conversely, but ensures that function and regexp are distinct because their constructor are different");
+    equal(QUnit.equiv(function() { }, re), false, "Same conversely, but ensures that function and regexp are distinct because their constructor are different");
 });
 
 QUnit.start();
@@ -764,21 +764,21 @@ QUnit.log(function(context) {
 QUnit.module("logs1");
 
 QUnit.test("test1", 15, function() {
-    equal( begin, 1, "QUnit.begin calls" );
-    equal( moduleStart, 1, "QUnit.moduleStart calls" );
-    equal( testStart, 1, "QUnit.testStart calls" );
-    equal( testDone, 0, "QUnit.testDone calls" );
-    equal( moduleDone, 0, "QUnit.moduleDone calls" );
-    deepEqual( logContext, {
+    equal(begin, 1, "QUnit.begin calls");
+    equal(moduleStart, 1, "QUnit.moduleStart calls");
+    equal(testStart, 1, "QUnit.testStart calls");
+    equal(testDone, 0, "QUnit.testDone calls");
+    equal(moduleDone, 0, "QUnit.moduleDone calls");
+    deepEqual(logContext, {
         name: "test1",
         module: "logs1",
         result: true,
         message: "QUnit.moduleDone calls",
         actual: 0,
         expected: 0
-    }, "log context after equal(actual, expected, message)" );
+    }, "log context after equal(actual, expected, message)");
 
-    equal( "foo", "foo" );
+    equal("foo", "foo");
     deepEqual(logContext, {
         name: "test1",
         module: "logs1",
@@ -786,97 +786,97 @@ QUnit.test("test1", 15, function() {
         message: undefined,
         actual: "foo",
         expected: "foo"
-    }, "log context after equal(actual, expected)" );
+    }, "log context after equal(actual, expected)");
 
-    ok( true, "ok(true, message)" );
-    deepEqual( logContext, {
+    ok(true, "ok(true, message)");
+    deepEqual(logContext, {
         module: "logs1",
         name: "test1",
         result: true,
         message: "ok(true, message)"
-    }, "log context after ok(true, message)" );
+    }, "log context after ok(true, message)");
 
-    strictEqual( testDoneContext, undefined, "testDone context" );
-    deepEqual( testContext, {
+    strictEqual(testDoneContext, undefined, "testDone context");
+    deepEqual(testContext, {
         module: "logs1",
         name: "test1"
-    }, "test context" );
-    strictEqual( moduleDoneContext, undefined, "moduleDone context" );
-    deepEqual( moduleContext, {
+    }, "test context");
+    strictEqual(moduleDoneContext, undefined, "moduleDone context");
+    deepEqual(moduleContext, {
         name: "logs1"
-    }, "module context" );
+    }, "module context");
 
-    equal( log, 14, "QUnit.log calls" );
+    equal(log, 14, "QUnit.log calls");
 });
 QUnit.test("test2", 11, function() {
-    equal( begin, 1, "QUnit.begin calls" );
-    equal( moduleStart, 1, "QUnit.moduleStart calls" );
-    equal( testStart, 2, "QUnit.testStart calls" );
-    equal( testDone, 1, "QUnit.testDone calls" );
-    equal( moduleDone, 0, "QUnit.moduleDone calls" );
+    equal(begin, 1, "QUnit.begin calls");
+    equal(moduleStart, 1, "QUnit.moduleStart calls");
+    equal(testStart, 2, "QUnit.testStart calls");
+    equal(testDone, 1, "QUnit.testDone calls");
+    equal(moduleDone, 0, "QUnit.moduleDone calls");
 
-    ok( typeof testDoneContext.duration === "number" , "testDone context: duration" );
+    ok(typeof testDoneContext.duration === "number", "testDone context: duration");
     delete testDoneContext.duration;
-    deepEqual( testDoneContext, {
+    deepEqual(testDoneContext, {
         module: "logs1",
         name: "test1",
         failed: 0,
         passed: 15,
         total: 15
-    }, "testDone context" );
-    deepEqual( testContext, {
+    }, "testDone context");
+    deepEqual(testContext, {
         module: "logs1",
         name: "test2"
-    }, "test context" );
-    strictEqual( moduleDoneContext, undefined, "moduleDone context" );
-    deepEqual( moduleContext, {
+    }, "test context");
+    strictEqual(moduleDoneContext, undefined, "moduleDone context");
+    deepEqual(moduleContext, {
         name: "logs1"
-    }, "module context" );
+    }, "module context");
 
-    equal( log, 25, "QUnit.log calls" );
+    equal(log, 25, "QUnit.log calls");
 });
 
 QUnit.module("logs2");
 
-QUnit.test( "test1", 9, function() {
-    equal( begin, 1, "QUnit.begin calls" );
-    equal( moduleStart, 2, "QUnit.moduleStart calls" );
-    equal( testStart, 3, "QUnit.testStart calls" );
-    equal( testDone, 2, "QUnit.testDone calls" );
-    equal( moduleDone, 1, "QUnit.moduleDone calls" );
+QUnit.test("test1", 9, function() {
+    equal(begin, 1, "QUnit.begin calls");
+    equal(moduleStart, 2, "QUnit.moduleStart calls");
+    equal(testStart, 3, "QUnit.testStart calls");
+    equal(testDone, 2, "QUnit.testDone calls");
+    equal(moduleDone, 1, "QUnit.moduleDone calls");
 
-    deepEqual( testContext, {
+    deepEqual(testContext, {
         module: "logs2",
         name: "test1"
-    }, "test context" );
-    deepEqual( moduleDoneContext, {
+    }, "test context");
+    deepEqual(moduleDoneContext, {
         name: "logs1",
         failed: 0,
         passed: 26,
         total: 26
-    }, "moduleDone context" );
-    deepEqual( moduleContext, {
+    }, "moduleDone context");
+    deepEqual(moduleContext, {
         name: "logs2"
-    }, "module context" );
+    }, "module context");
 
-    equal( log, 34, "QUnit.log calls" );
+    equal(log, 34, "QUnit.log calls");
 });
-QUnit.test( "test2", 8, function() {
-    equal( begin, 1, "QUnit.begin calls" );
-    equal( moduleStart, 2, "QUnit.moduleStart calls" );
-    equal( testStart, 4, "QUnit.testStart calls" );
-    equal( testDone, 3, "QUnit.testDone calls" );
-    equal( moduleDone, 1, "QUnit.moduleDone calls" );
+QUnit.test("test2", 8, function() {
+    equal(begin, 1, "QUnit.begin calls");
+    equal(moduleStart, 2, "QUnit.moduleStart calls");
+    equal(testStart, 4, "QUnit.testStart calls");
+    equal(testDone, 3, "QUnit.testDone calls");
+    equal(moduleDone, 1, "QUnit.moduleDone calls");
 
-    deepEqual( testContext, {
+    deepEqual(testContext, {
         module: "logs2",
         name: "test2"
-    }, "test context" );
-    deepEqual( moduleContext, {
+    }, "test context");
+    deepEqual(moduleContext, {
         name: "logs2"
-    }, "module context" );
+    }, "module context");
 
-    equal( log, 42, "QUnit.log calls" );
+    equal(log, 42, "QUnit.log calls");
 });
 
 var testAutorun = true;
@@ -891,7 +891,7 @@ QUnit.done(function() {
 
     QUnit.module("autorun");
 
-    QUnit.test("reset", 0, function() {});
+    QUnit.test("reset", 0, function() { });
 
     //moduleStart = moduleDone = 0;
 
@@ -950,15 +950,15 @@ test("expect query and multiple issue", function() {
 
 QUnit.module("assertion helpers");
 
-QUnit.test( "QUnit.assert compatibility", 5, function( assert ) {
-    assert.ok( true, "Calling method on `assert` argument to test() callback" );
+QUnit.test("QUnit.assert compatibility", 5, function(assert) {
+    assert.ok(true, "Calling method on `assert` argument to test() callback");
 
     // Should also work, although discouraged and not documented
-    QUnit.assert.ok( true, "Calling method on QUnit.assert object" );
+    QUnit.assert.ok(true, "Calling method on QUnit.assert object");
 
     // Test compatibility aliases
-    QUnit.ok( true, "Calling aliased method in QUnit root object" );
-    ok( true, "Calling aliased function in global namespace" );
+    QUnit.ok(true, "Calling aliased method in QUnit root object");
+    ok(true, "Calling aliased function in global namespace");
 
     // Regression fix for #341
     // The assert-context way of testing discouraged global variables,
@@ -1025,9 +1025,9 @@ QUnit.module("setup/teardown test", {
             @if (@_jscript_version < 9)
                 x = 1;
             @else @*/
-                //window.x = 1;
-            /*@end
-        @*/
+        //window.x = 1;
+        /*@end
+    @*/
     },
     teardown: function() {
         ok(true);
@@ -1036,9 +1036,9 @@ QUnit.module("setup/teardown test", {
             @if (@_jscript_version < 9)
                 delete x;
             @else @*/
-                //delete window.x;
-            /*@end
-        @*/
+        //delete window.x;
+        /*@end
+    @*/
     }
 });
 
@@ -1059,8 +1059,8 @@ var orgDate;
 QUnit.module("Date test", {
     setup: function() {
         orgDate = Date;
-        var Date = function () {
-            ok( false, 'QUnit should internally be independant from Date-related manipulation and testing' );
+        var Date = function() {
+            ok(false, 'QUnit should internally be independant from Date-related manipulation and testing');
             return new orgDate();
         };
     },
@@ -1069,132 +1069,132 @@ QUnit.module("Date test", {
     }
 });
 
-test("sample test for Date test", function () {
+test("sample test for Date test", function() {
     expect(1);
     ok(true);
 });
 
 if (typeof setTimeout !== 'undefined') {
-state = 'fail';
+    state = 'fail';
 
-QUnit.module("teardown and stop", {
-    teardown: function() {
-        equal(state, "done", "Test teardown.");
-    }
-});
+    QUnit.module("teardown and stop", {
+        teardown: function() {
+            equal(state, "done", "Test teardown.");
+        }
+    });
 
-test("teardown must be called after test ended", function() {
-    expect(1);
-    stop();
-    setTimeout(function() {
-        state = "done";
+    test("teardown must be called after test ended", function() {
+        expect(1);
+        stop();
+        setTimeout(function() {
+            state = "done";
+            start();
+        }, 13);
+    });
+
+    test("parameter passed to stop increments semaphore n times", function() {
+        expect(1);
+        stop(3);
+        setTimeout(function() {
+            state = "not enough starts";
+            start();
+            start();
+        }, 13);
+        setTimeout(function() {
+            state = "done";
+            start();
+        }, 15);
+    });
+
+    test("parameter passed to start decrements semaphore n times", function() {
+        expect(1);
+        stop();
+        stop();
+        stop();
+        setTimeout(function() {
+            state = "done";
+            start(3);
+        }, 18);
+    });
+
+    QUnit.module("async setup test", {
+        setup: function() {
+            stop();
+            setTimeout(function() {
+                ok(true);
+                start();
+            }, 500);
+        }
+    });
+
+    asyncTest("module with async setup", function() {
+        expect(2);
+        ok(true);
         start();
-    }, 13);
-});
+    });
 
-test("parameter passed to stop increments semaphore n times", function() {
-    expect(1);
-    stop(3);
-    setTimeout(function() {
-        state = "not enough starts";
-        start();
-        start();
-    }, 13);
-    setTimeout(function() {
-        state = "done";
-        start();
-    }, 15);
-});
+    QUnit.module("async teardown test", {
+        teardown: function() {
+            stop();
+            setTimeout(function() {
+                ok(true);
+                start();
+            }, 500);
+        }
+    });
 
-test("parameter passed to start decrements semaphore n times", function() {
-    expect(1);
-    stop();
-    stop();
-    stop();
-    setTimeout(function() {
-        state = "done";
-        start(3);
-    }, 18);
-});
+    asyncTest("module with async teardown", function() {
+        expect(2);
+        ok(true);
+        start();
+    });
 
-QUnit.module("async setup test", {
-    setup: function() {
+    QUnit.module("asyncTest");
+
+    asyncTest("asyncTest", function() {
+        expect(2);
+        ok(true);
+        setTimeout(function() {
+            state = "done";
+            ok(true);
+            start();
+        }, 13);
+    });
+
+    asyncTest("asyncTest", 2, function() {
+        ok(true);
+        setTimeout(function() {
+            state = "done";
+            ok(true);
+            start();
+        }, 13);
+    });
+
+    QUnit.test("sync", 2, function() {
         stop();
         setTimeout(function() {
             ok(true);
             start();
-        }, 500);
-    }
-});
-
-asyncTest("module with async setup", function() {
-    expect(2);
-    ok(true);
-    start();
-});
-
-QUnit.module("async teardown test", {
-    teardown: function() {
+        }, 13);
         stop();
         setTimeout(function() {
             ok(true);
             start();
-        }, 500);
-    }
-});
+        }, 125);
+    });
 
-asyncTest("module with async teardown", function() {
-    expect(2);
-    ok(true);
-    start();
-});
-
-QUnit.module("asyncTest");
-
-asyncTest("asyncTest", function() {
-    expect(2);
-    ok(true);
-    setTimeout(function() {
-        state = "done";
-        ok(true);
-        start();
-    }, 13);
-});
-
-asyncTest("asyncTest", 2, function() {
-    ok(true);
-    setTimeout(function() {
-        state = "done";
-        ok(true);
-        start();
-    }, 13);
-});
-
-QUnit.test("sync", 2, function() {
-    stop();
-    setTimeout(function() {
-        ok(true);
-        start();
-    }, 13);
-    stop();
-    setTimeout(function() {
-        ok(true);
-        start();
-    }, 125);
-});
-
-QUnit.test("test synchronous calls to stop", 2, function() {
-    stop();
-    setTimeout(function() {
-        ok(true, 'first');
-        start();
+    QUnit.test("test synchronous calls to stop", 2, function() {
         stop();
         setTimeout(function() {
-            ok(true, 'second');
+            ok(true, 'first');
             start();
+            stop();
+            setTimeout(function() {
+                ok(true, 'second');
+                start();
+            }, 150);
         }, 150);
-    }, 150);
-});
+    });
 }
 
 QUnit.module("save scope", {
@@ -1218,30 +1218,30 @@ QUnit.module("simple testEnvironment setup", {
 test("scope check", function() {
     deepEqual(this.foo, "bar");
 });
-test("modify testEnvironment",function() {
+test("modify testEnvironment", function() {
     expect(0);
-    this.foo="hamster";
+    this.foo = "hamster";
 });
-test("testEnvironment reset for next test",function() {
+test("testEnvironment reset for next test", function() {
     deepEqual(this.foo, "bar");
 });
 
 QUnit.module("testEnvironment with object", {
-    options:{
-        recipe:"soup",
-        ingredients:["hamster","onions"]
+    options: {
+        recipe: "soup",
+        ingredients: ["hamster", "onions"]
     }
 });
 test("scope check", function() {
-    deepEqual(this.options, {recipe:"soup",ingredients:["hamster","onions"]}) ;
+    deepEqual(this.options, { recipe: "soup", ingredients: ["hamster", "onions"] });
 });
-test("modify testEnvironment",function() {
+test("modify testEnvironment", function() {
     expect(0);
     // since we do a shallow copy, the testEnvironment can be modified
     this.options.ingredients.push("carrots");
 });
-test("testEnvironment reset for next test",function() {
-    deepEqual(this.options, {recipe:"soup",ingredients:["hamster","onions","carrots"]}, "Is this a bug or a feature? Could do a deep copy") ;
+test("testEnvironment reset for next test", function() {
+    deepEqual(this.options, { recipe: "soup", ingredients: ["hamster", "onions", "carrots"] }, "Is this a bug or a feature? Could do a deep copy");
 });
 
 
@@ -1250,13 +1250,13 @@ QUnit.module("testEnvironment tests");
 function makeurl() {
     var testEnv = QUnit.current_testEnvironment;
     var url = testEnv.url || 'http://example.com/search';
-    var q   = testEnv.q   || 'a search test';
-    return url + '?q='+encodeURIComponent(q);
+    var q = testEnv.q || 'a search test';
+    return url + '?q=' + encodeURIComponent(q);
 }
 
-test("makeurl working",function() {
-    equal( QUnit.current_testEnvironment, this, 'The current testEnvironment is global');
-    equal( makeurl(), 'http://example.com/search?q=a%20search%20test', 'makeurl returns a default url if nothing specified in the testEnvironment');
+test("makeurl working", function() {
+    equal(QUnit.current_testEnvironment, this, 'The current testEnvironment is global');
+    equal(makeurl(), 'http://example.com/search?q=a%20search%20test', 'makeurl returns a default url if nothing specified in the testEnvironment');
 });
 
 QUnit.module("testEnvironment with makeurl settings", {
@@ -1264,99 +1264,99 @@ QUnit.module("testEnvironment with makeurl settings", {
     q: 'another_search_test'
 });
 test("makeurl working with settings from testEnvironment", function() {
-    equal( makeurl(), 'http://google.com/?q=another_search_test', 'rather than passing arguments, we use test metadata to from the url');
+    equal(makeurl(), 'http://google.com/?q=another_search_test', 'rather than passing arguments, we use test metadata to from the url');
 });
 
 QUnit.module("jsDump");
 test("jsDump output", function() {
-    equal( QUnit.jsDump.parse([1, 2]), "[\n  1,\n  2\n]" );
-    equal( QUnit.jsDump.parse({top: 5, left: 0}), "{\n  \"left\": 0,\n  \"top\": 5\n}" );
+    equal(QUnit.jsDump.parse([1, 2]), "[\n  1,\n  2\n]");
+    equal(QUnit.jsDump.parse({ top: 5, left: 0 }), "{\n  \"left\": 0,\n  \"top\": 5\n}");
     if (typeof document !== 'undefined' && document.getElementById("qunit-header")) {
-        equal( QUnit.jsDump.parse(document.getElementById("qunit-header")), "<h1 id=\"qunit-header\"></h1>" );
-        equal( QUnit.jsDump.parse(document.getElementsByTagName("h1")), "[\n  <h1 id=\"qunit-header\"></h1>\n]" );
+        equal(QUnit.jsDump.parse(document.getElementById("qunit-header")), "<h1 id=\"qunit-header\"></h1>");
+        equal(QUnit.jsDump.parse(document.getElementsByTagName("h1")), "[\n  <h1 id=\"qunit-header\"></h1>\n]");
     }
 });
 
 QUnit.module("assertions");
 
-QUnit.test("propEqual", 5, function( assert ) {
-    var objectCreate = Object.create || function ( origin ) {
-        function O() {}
+QUnit.test("propEqual", 5, function(assert) {
+    var objectCreate = Object.create || function(origin) {
+        function O() { }
         O.prototype = origin;
         var r = new O();
         return r;
     };
 
-    function Foo( x, y, z ) {
+    function Foo(x, y, z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
-    Foo.prototype.doA = function () {};
-    Foo.prototype.doB = function () {};
+    Foo.prototype.doA = function() { };
+    Foo.prototype.doB = function() { };
     Foo.prototype.bar = 'prototype';
 
     function Bar() {
     }
-    Bar.prototype = objectCreate( Foo.prototype );
+    Bar.prototype = objectCreate(Foo.prototype);
     Bar.prototype.constructor = Bar;
 
     assert.propEqual(
-        new Foo( 1, '2', [] ),
+        new Foo(1, '2', []),
         {
             x: 1,
             y: '2',
             z: []
         }
-    );
+        );
 
     assert.notPropEqual(
-        new Foo( '1', 2, 3 ),
+        new Foo('1', 2, 3),
         {
             x: 1,
             y: '2',
             z: 3
         },
         'Primitive values are strictly compared'
-    );
+        );
 
     assert.notPropEqual(
-        new Foo( 1, '2', [] ),
+        new Foo(1, '2', []),
         {
             x: 1,
             y: '2',
             z: {}
         },
         'Array type is preserved'
-    );
+        );
 
     assert.notPropEqual(
-        new Foo( 1, '2', {} ),
+        new Foo(1, '2', {}),
         {
             x: 1,
             y: '2',
             z: []
         },
         'Empty array is not the same as empty object'
-    );
+        );
 
     assert.propEqual(
-        new Foo( 1, '2', new Foo( [ 3 ], new Bar(), null ) ),
+        new Foo(1, '2', new Foo([3], new Bar(), null)),
         {
             x: 1,
             y: '2',
             z: {
-                x: [ 3 ],
+                x: [3],
                 y: {},
                 z: null
             }
         },
         'Complex nesting of different types, inheritance and constructors'
-    );
+        );
 });
 
 QUnit.test("raises", 9, function() {
-    function CustomError( message ) {
+    function CustomError(message) {
         this.message = message;
     }
 
@@ -1368,14 +1368,14 @@ QUnit.test("raises", 9, function() {
         function() {
             throw "my error";
         }
-    );
+        );
 
     throws(
         function() {
             throw "my error";
         },
         "simple string throw, no 'expected' value given"
-    );
+        );
 
     // This test is for IE 7 and prior which does not properly
     // implement Error.prototype.toString
@@ -1385,7 +1385,7 @@ QUnit.test("raises", 9, function() {
         },
         /error message/,
         "use regexp against instance of Error"
-    );
+        );
 
     throws(
         function() {
@@ -1393,7 +1393,7 @@ QUnit.test("raises", 9, function() {
         },
         Error,
         'thrown error is an instance of CustomError'
-    );
+        );
 
     throws(
         function() {
@@ -1401,29 +1401,29 @@ QUnit.test("raises", 9, function() {
         },
         /description/,
         "use a regex to match against the stringified error"
-    );
+        );
 
     throws(
         function() {
             throw new Error("some error description");
         },
-        function( err ) {
-            if ( (err instanceof Error) && /description/.test(err) ) {
+        function(err) {
+            if ((err instanceof Error) && /description/.test(err)) {
                 return true;
             }
         },
         "custom validation function"
-    );
+        );
 
     throws(
         function() {
             /*jshint evil:true */
-            ( window.execScript || function( data ) {
-                window["eval"].call( window, data );
-            })( "throw 'error';" );
+            (window.execScript || function(data) {
+                window["eval"].call(window, data);
+            })("throw 'error';");
         },
         'globally-executed errors caught'
-    );
+        );
 
     this.CustomError = {};
 
@@ -1433,74 +1433,74 @@ QUnit.test("raises", 9, function() {
         },
         /description/,
         "throw error from property of 'this' context"
-    );
+        );
 
     raises(
         function() {
             throw "error";
         },
         "simple throw, asserting with deprecated raises() function"
-    );
+        );
 
 });
 
 if (typeof document !== "undefined") {
 
-QUnit.module("fixture");
-test("setup", function() {
-    expect(0);
-    document.getElementById("qunit-fixture").innerHTML = "foobar";
-});
+    QUnit.module("fixture");
+    test("setup", function() {
+        expect(0);
+        document.getElementById("qunit-fixture").innerHTML = "foobar";
+    });
 
-test("basics", function() {
-    equal( document.getElementById("qunit-fixture").innerHTML, "test markup", "automatically reset" );
-});
+    test("basics", function() {
+        equal(document.getElementById("qunit-fixture").innerHTML, "test markup", "automatically reset");
+    });
 
-test("running test name displayed", function() {
-    expect(2);
+    test("running test name displayed", function() {
+        expect(2);
 
-    var displaying = document.getElementById("qunit-testresult");
+        var displaying = document.getElementById("qunit-testresult");
 
-    ok( /running test name displayed/.test(displaying.innerHTML), "Expect test name to be found in displayed text" );
-    ok( /fixture/.test(displaying.innerHTML), "Expect module name to be found in displayed text" );
-});
+        ok(/running test name displayed/.test(displaying.innerHTML), "Expect test name to be found in displayed text");
+        ok(/fixture/.test(displaying.innerHTML), "Expect module name to be found in displayed text");
+    });
 
-(function() {
-    var delayNextSetup,
-        sleep = function( n ) {
-            stop();
-            setTimeout( function() { start(); }, n );
-        };
+    (function() {
+        var delayNextSetup,
+            sleep = function(n) {
+                stop();
+                setTimeout(function() { start(); }, n);
+            };
 
-    QUnit.module("timing", {
-        setup: function() {
-            if ( delayNextSetup ) {
-                delayNextSetup = false;
-                sleep( 250 );
+        QUnit.module("timing", {
+            setup: function() {
+                if (delayNextSetup) {
+                    delayNextSetup = false;
+                    sleep(250);
+                }
             }
-        }
-    });
+        });
 
-    QUnit.test("setup", 0, function() {
-        delayNextSetup = true;
-    });
+        QUnit.test("setup", 0, function() {
+            delayNextSetup = true;
+        });
 
-    var getPreviousTests: (...args: any[]) => any;
+        var getPreviousTests: (...args: any[]) => any;
 
-    QUnit.test("basics", 2, function() {
-        var previous = getPreviousTests(/^setup$/, /^timing$/)[0],
-            runtime = previous.lastChild.previousSibling;
-        ok( /(^| )runtime( |$)/.test( runtime.className ), "Runtime element exists" );
-        ok( /^\d+ ms$/.test( runtime.innerHTML ), "Runtime reported in ms" );
-    });
+        QUnit.test("basics", 2, function() {
+            var previous = getPreviousTests(/^setup$/, /^timing$/)[0],
+                runtime = previous.lastChild.previousSibling;
+            ok(/(^| )runtime( |$)/.test(runtime.className), "Runtime element exists");
+            ok(/^\d+ ms$/.test(runtime.innerHTML), "Runtime reported in ms");
+        });
 
-    QUnit.test("values", 2, function() {
-        var basics = getPreviousTests(/^setup$/, /^timing$/)[0],
-            slow = getPreviousTests(/^basics$/, /^timing$/)[0];
-        ok( parseInt( basics.lastChild.previousSibling.innerHTML, 10 ) < 50, "Fast runtime for trivial test" );
-        ok( parseInt( slow.lastChild.previousSibling.innerHTML, 10 ) > 250, "Runtime includes setup" );
-    });
-})();
+        QUnit.test("values", 2, function() {
+            var basics = getPreviousTests(/^setup$/, /^timing$/)[0],
+                slow = getPreviousTests(/^basics$/, /^timing$/)[0];
+            ok(parseInt(basics.lastChild.previousSibling.innerHTML, 10) < 50, "Fast runtime for trivial test");
+            ok(parseInt(slow.lastChild.previousSibling.innerHTML, 10) > 250, "Runtime includes setup");
+        });
+    })();
 
 }
 
@@ -1535,7 +1535,7 @@ function chainwrap(depth?, first?, prev?) {
         first.wrap = last;
     }
     if (depth > 1) {
-        last = chainwrap(depth-1, first, new Wrap(last));
+        last = chainwrap(depth - 1, first, new Wrap(last));
     }
 
     return last;
@@ -1558,7 +1558,7 @@ test("check jsDump recursion", function() {
 
     var circref = chainwrap(10);
     var circdump = QUnit.jsDump.parse(circref);
-    ok(new RegExp("recursion\\(-10\\)").test(circdump), "(" +circdump + ") should show -10 recursion level");
+    ok(new RegExp("recursion\\(-10\\)").test(circdump), "(" + circdump + ") should show -10 recursion level");
 });
 
 test("check (deep-)equal recursion", function() {
@@ -1606,7 +1606,7 @@ test('Circular reference with arrays', function() {
 
 
 test('Circular reference - test reported by soniciq in #105', function() {
-    var MyObject = function() {};
+    var MyObject = function() { };
     MyObject.prototype.parent = function(obj) {
         if (obj === undefined) { return this._parent; }
         this._parent = obj;
@@ -1633,8 +1633,8 @@ test('Circular reference - test reported by soniciq in #105', function() {
     test("reset runs assertions", function() {
         expect(0);
         QUnit.reset = function() {
-            ok( false, "reset should not modify test status" );
-            reset.apply( this, arguments );
+            ok(false, "reset should not modify test status");
+            reset.apply(this, arguments);
         };
     });
     test("reset runs assertions, cleanup", function() {
@@ -1651,7 +1651,7 @@ function testAfterDone() {
         // Because when this does happen, the assertion count parameter doesn't actually
         // work we use this test to check the assertion count.
         QUnit.module("check previous test's assertion counts");
-        test('count previous two test\'s assertions', function () {
+        test('count previous two test\'s assertions', function() {
             //var tests = getPreviousTests(/^ensure has correct number of assertions/, /^Synchronous test after load of page$/);
             var tests: any = {};
 

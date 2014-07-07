@@ -10,7 +10,7 @@ var str: string;
 var noAssert: boolean;
 
 bl = new BufferList();
-bl = new BufferList((err:Error, buffer:Buffer) => {
+bl = new BufferList((err: Error, buffer: Buffer) => {
 
 });
 

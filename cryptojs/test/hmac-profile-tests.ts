@@ -1,7 +1,7 @@
 /// <reference path="../../yui/yui.d.ts" />
 /// <reference path="../cryptojs.d.ts" />
 
-YUI.add('algo-hmac-profile', function (Y) {
+YUI.add('algo-hmac-profile', function(Y) {
     var C = CryptoJS;
 
     //Profiler is removed in YUI 3.10.2
@@ -10,13 +10,13 @@ YUI.add('algo-hmac-profile', function (Y) {
     var obj = {
         name: 'HMAC',
 
-        setUp: function () {
+        setUp: function() {
             this.data = {
-                key: C.lib.WordArray.random(128/8)
+                key: C.lib.WordArray.random(128 / 8)
             };
         },
 
-        profileSinglePartMessage: function () {
+        profileSinglePartMessage: function() {
             var singlePartMessage = '';
             for (var i = 0; i < 500; i++) {
                 singlePartMessage += '12345678901234567890123456789012345678901234567890';
@@ -25,7 +25,7 @@ YUI.add('algo-hmac-profile', function (Y) {
             C.algo.HMAC.create(C.algo.MD5, this.data.key).finalize(singlePartMessage) + '';
         },
 
-        profileMultiPartMessage: function () {
+        profileMultiPartMessage: function() {
             var hmac = C.algo.HMAC.create(C.algo.MD5, this.data.key);
             for (var i = 0; i < 500; i++) {
                 hmac.update('12345678901234567890123456789012345678901234567890');

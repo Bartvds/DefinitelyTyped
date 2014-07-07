@@ -7,10 +7,10 @@ var render: any;
 var Tiling: any;
 
 function test_basic() {
-    var scrollerObj = new Scroller(function (left, top, zoom) {
+    var scrollerObj = new Scroller(function(left, top, zoom) {
     }, {
-        scrollingY: false
-    });
+            scrollingY: false
+        });
     scrollerObj.setDimensions(1000, 1000, 3000, 3000);
 }
 
@@ -22,14 +22,14 @@ function test_canvas() {
     var content = <HTMLCanvasElement>document.getElementById('content');
     var context = content.getContext('2d');
     var tiling = new Tiling();
-    var render = function (left, top, zoom) {
+    var render = function(left, top, zoom) {
         content.width = clientWidth;
         content.height = clientHeight;
         context.clearRect(0, 0, clientWidth, clientHeight);
         tiling.setup(clientWidth, clientHeight, contentWidth, contentHeight, cellWidth, cellHeight);
         tiling.render(left, top, zoom, paint);
     };
-    var paint = function (row, col, left, top, width, height, zoom) {
+    var paint = function(row, col, left, top, width, height, zoom) {
         context.fillStyle = row % 2 + col % 2 > 0 ? "#ddd" : "#fff";
         context.fillRect(left, top, width, height);
         context.fillStyle = "black";
@@ -45,24 +45,24 @@ function test_domlist() {
     var scroller = new Scroller(render, {
         scrollingX: false
     });
-    scroller.activatePullToRefresh(50, function () {
+    scroller.activatePullToRefresh(50, function() {
         refreshElem.className += " active";
         refreshElem.innerHTML = "Release to Refresh";
-    }, function () {
-        refreshElem.className = refreshElem.className.replace(" active", "");
-        refreshElem.innerHTML = "Pull to Refresh";
-    }, function () {
-        refreshElem.className += " running";
-        refreshElem.innerHTML = "Refreshing...";
-        setTimeout(function () {
-            refreshElem.className = refreshElem.className.replace(" running", "");
-            insertItems();
-            scroller.finishPullToRefresh();
-        }, 2000);
-    });
+    }, function() {
+            refreshElem.className = refreshElem.className.replace(" active", "");
+            refreshElem.innerHTML = "Pull to Refresh";
+        }, function() {
+            refreshElem.className += " running";
+            refreshElem.innerHTML = "Refreshing...";
+            setTimeout(function() {
+                refreshElem.className = refreshElem.className.replace(" running", "");
+                insertItems();
+                scroller.finishPullToRefresh();
+            }, 2000);
+        });
     var rect = container.getBoundingClientRect();
     scroller.setPosition(rect.left + container.clientLeft, rect.top + container.clientTop);
-    var insertItems = function () {
+    var insertItems = function() {
         for (var i = 0; i < 15; i++) {
             var row = document.createElement("div");
             row.className = "row";
@@ -78,7 +78,7 @@ function test_domlist() {
     };
     insertItems();
     if ('ontouchstart' in window) {
-        container.addEventListener("touchstart", function (e) {
+        container.addEventListener("touchstart", function(e) {
             // Don't react if initial down happens on a form element
             if ((<any>e.target).tagName.match(/input|textarea|select/i)) {
                 return;
@@ -86,15 +86,15 @@ function test_domlist() {
             scroller.doTouchStart((<any>e).touches, e.timeStamp);
             e.preventDefault();
         }, false);
-        document.addEventListener("touchmove", function (e) {
+        document.addEventListener("touchmove", function(e) {
             scroller.doTouchMove((<any>e).touches, e.timeStamp);
         }, false);
-        document.addEventListener("touchend", function (e) {
+        document.addEventListener("touchend", function(e) {
             scroller.doTouchEnd(e.timeStamp);
         }, false);
     } else {
         var mousedown = false;
-        container.addEventListener("mousedown", function (e) {
+        container.addEventListener("mousedown", function(e) {
             if ((<any>e.target).tagName.match(/input|textarea|select/i)) {
                 return;
             }
@@ -104,7 +104,7 @@ function test_domlist() {
             }], e.timeStamp);
             mousedown = true;
         }, false);
-        document.addEventListener("mousemove", function (e) {
+        document.addEventListener("mousemove", function(e) {
             if (!mousedown) {
                 return;
             }
@@ -114,7 +114,7 @@ function test_domlist() {
             }], e.timeStamp);
             mousedown = true;
         }, false);
-        document.addEventListener("mouseup", function (e) {
+        document.addEventListener("mouseup", function(e) {
             if (!mousedown) {
                 return;
             }
@@ -145,22 +145,22 @@ function test_dompaging() {
     scroller.setPosition(rect.left + container.clientLeft, rect.top + container.clientTop);
     scroller.setDimensions(container.clientWidth, container.clientHeight, content.offsetWidth, content.offsetHeight);
     if ('ontouchstart' in window) {
-        container.addEventListener("touchstart", function (e) {
+        container.addEventListener("touchstart", function(e) {
             if ((<any>e.target).tagName.match(/input|textarea|select/i)) {
                 return;
             }
             scroller.doTouchStart((<any>e).touches, e.timeStamp);
             e.preventDefault();
         }, false);
-        document.addEventListener("touchmove", function (e) {
+        document.addEventListener("touchmove", function(e) {
             scroller.doTouchMove((<any>e).touches, e.timeStamp);
         }, false);
-        document.addEventListener("touchend", function (e) {
+        document.addEventListener("touchend", function(e) {
             scroller.doTouchEnd(e.timeStamp);
         }, false);
     } else {
         var mousedown = false;
-        container.addEventListener("mousedown", function (e) {
+        container.addEventListener("mousedown", function(e) {
             if ((<any>e.target).tagName.match(/input|textarea|select/i)) {
                 return;
             }
@@ -170,7 +170,7 @@ function test_dompaging() {
             }], e.timeStamp);
             mousedown = true;
         }, false);
-        document.addEventListener("mousemove", function (e) {
+        document.addEventListener("mousemove", function(e) {
             if (!mousedown) {
                 return;
             }
@@ -181,7 +181,7 @@ function test_dompaging() {
             mousedown = true;
         }, false);
 
-        document.addEventListener("mouseup", function (e) {
+        document.addEventListener("mouseup", function(e) {
             if (!mousedown) {
                 return;
             }
@@ -214,22 +214,22 @@ function test_domsnapping() {
     scroller.setDimensions(container.clientWidth, container.clientHeight, content.offsetWidth, content.offsetHeight);
     scroller.setSnapSize(100, 100);
     if ('ontouchstart' in window) {
-        container.addEventListener("touchstart", function (e) {
+        container.addEventListener("touchstart", function(e) {
             if ((<any>e.target).tagName.match(/input|textarea|select/i)) {
                 return;
             }
             scroller.doTouchStart((<any>e).touches, e.timeStamp);
             e.preventDefault();
         }, false);
-        document.addEventListener("touchmove", function (e) {
+        document.addEventListener("touchmove", function(e) {
             scroller.doTouchMove((<any>e).touches, e.timeStamp);
         }, false);
-        document.addEventListener("touchend", function (e) {
+        document.addEventListener("touchend", function(e) {
             scroller.doTouchEnd(e.timeStamp);
         }, false);
     } else {
         var mousedown = false;
-        container.addEventListener("mousedown", function (e) {
+        container.addEventListener("mousedown", function(e) {
             if ((<any>e.target).tagName.match(/input|textarea|select/i)) {
                 return;
             }
@@ -239,7 +239,7 @@ function test_domsnapping() {
             }], e.timeStamp);
             mousedown = true;
         }, false);
-        document.addEventListener("mousemove", function (e) {
+        document.addEventListener("mousemove", function(e) {
             if (!mousedown) {
                 return;
             }
@@ -249,7 +249,7 @@ function test_domsnapping() {
             }], e.timeStamp);
             mousedown = true;
         }, false);
-        document.addEventListener("mouseup", function (e) {
+        document.addEventListener("mouseup", function(e) {
             if (!mousedown) {
                 return;
             }

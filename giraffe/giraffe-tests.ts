@@ -4,34 +4,34 @@ class User extends Giraffe.Model {
 }
 
 class MainView extends Giraffe.View<User> {
-  
-  constructor(options?) {
-    this.appEvents = {
-      'startup': 'app_onStartup'
-    }
+
+    constructor(options?) {
+        this.appEvents = {
+            'startup': 'app_onStartup'
+        }
     super(options);
-  }
+    }
 
-  app_onStartup() {
+    app_onStartup() {
 
-  }
+    }
 
 }
 
 class MyApp extends Giraffe.App {
-  constructor() {
-    this.routes= {
-      '': 'home'
-    }
+    constructor() {
+        this.routes = {
+            '': 'home'
+        }
     super();
-  }
+    }
 
-  home() {
-    this.attach(new MainView);
-  }
+    home() {
+        this.attach(new MainView);
+    }
 
 }
 
-var app= new MyApp();
+var app = new MyApp();
 
 app.start();

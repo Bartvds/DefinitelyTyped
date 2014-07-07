@@ -1,13 +1,13 @@
 /// <reference path="../../yui/yui.d.ts" />
 /// <reference path="../cryptojs.d.ts" />
 
-YUI.add('lib-cipherparams-test', function (Y) {
+YUI.add('lib-cipherparams-test', function(Y) {
     var C = CryptoJS;
 
     Y.Test.Runner.add(new Y.Test.Case({
         name: 'CipherParams',
 
-        setUp: function () {
+        setUp: function() {
             this.data = {};
 
             this.data.ciphertext = C.enc.Hex.parse('000102030405060708090a0b0c0d0e0f');
@@ -33,7 +33,7 @@ YUI.add('lib-cipherparams-test', function (Y) {
             });
         },
 
-        testInit: function () {
+        testInit: function() {
             Y.Assert.areEqual(this.data.ciphertext, this.data.cipherParams.ciphertext);
             Y.Assert.areEqual(this.data.key, this.data.cipherParams.key);
             Y.Assert.areEqual(this.data.iv, this.data.cipherParams.iv);
@@ -45,13 +45,13 @@ YUI.add('lib-cipherparams-test', function (Y) {
             Y.Assert.areEqual(this.data.formatter, this.data.cipherParams.formatter);
         },
 
-        testToString0: function () {
+        testToString0: function() {
             Y.Assert.areEqual(C.format.OpenSSL.stringify(this.data.cipherParams), this.data.cipherParams.toString());
         },
 
-        testToString1: function () {
+        testToString1: function() {
             var JsonFormatter = {
-                stringify: function (cipherParams: CryptoJS.lib.CipherParamsData) {
+                stringify: function(cipherParams: CryptoJS.lib.CipherParamsData) {
                     return '{ ct: ' + cipherParams.ciphertext + ', iv: ' + cipherParams.iv + ' }';
                 }
             };

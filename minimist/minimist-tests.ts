@@ -13,13 +13,13 @@ var opts: Opts;
 opts.string = strArr;
 opts.boolean = strArr;
 opts.alias = {
-	foo: strArr
+    foo: strArr
 };
 opts.default = {
-	foo: str
+    foo: str
 };
 opts.default = {
-	foo: num
+    foo: num
 };
 
 obj = minimist();

@@ -6,7 +6,7 @@ var fs: any;
 var pathlib: any;
 
 // Create an Amazon SES transport object
-var transport:Transport = nodemailer.createTransport("SES", {
+var transport: Transport = nodemailer.createTransport("SES", {
     AWSAccessKeyID: "AWSACCESSKEY",
     AWSSecretKey: "/AWS/SECRET",
     ServiceUrl: "https://email.us-east-1.amazonaws.com" // optional
@@ -19,12 +19,12 @@ console.log('SES Configured');
 transport.useDKIM({
     domainName: "do-not-trust.node.ee", // signing domain
     keySelector: "dkim", // selector name (in this case there's a dkim._domainkey.do-not-trust.node.ee TXT record set up)
-    privateKey: fs.readFileSync(pathlib.join(__dirname,"test_private.pem"))
+    privateKey: fs.readFileSync(pathlib.join(__dirname, "test_private.pem"))
 });
 
 
 // Message object
-var message:MailComposer = {
+var message: MailComposer = {
 
     // sender info
     from: 'Sender Name <sender@example.com>',
@@ -40,7 +40,7 @@ var message:MailComposer = {
 
     // HTML body
     html: '<p><b>Hello</b> to myself <img src="cid:note@node"/></p>' +
-         '<p>Here\'s a nyan cat for you as an embedded attachment:<br/><img src="cid:nyan@node"/></p>',
+    '<p>Here\'s a nyan cat for you as an embedded attachment:<br/><img src="cid:nyan@node"/></p>',
 
     // An array of attachments
     attachments: [
@@ -56,8 +56,8 @@ var message:MailComposer = {
         {
             fileName: 'image.png',
             contents: new Buffer('iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD/' +
-                                 '//+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4U' +
-                                 'g9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC', 'base64'),
+                '//+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4U' +
+                'g9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC', 'base64'),
 
             cid: 'note@node' // should be as unique as possible
         },
@@ -73,7 +73,7 @@ var message:MailComposer = {
 
 console.log('Sending Mail');
 
-transport.sendMail(message, function (error) {
+transport.sendMail(message, function(error) {
     if (error) {
         console.log('Error occured');
         console.log(error.message);

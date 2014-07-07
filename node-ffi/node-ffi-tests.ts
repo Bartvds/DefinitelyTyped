@@ -18,10 +18,10 @@ import TArray = require('ref-array');
     var stringPtr = ref.refType(ref.types.CString);
 
     var libsqlite3 = ffi.Library('libsqlite3', {
-      'sqlite3_open': [ 'int', [ 'string', sqlite3PtrPtr ] ],
-      'sqlite3_close': [ 'int', [ sqlite3PtrPtr ] ],
-      'sqlite3_exec': [ 'int', [ sqlite3PtrPtr, 'string', 'pointer', 'pointer', stringPtr ] ],
-      'sqlite3_changes': [ 'int', [ sqlite3PtrPtr ]]
+        'sqlite3_open': ['int', ['string', sqlite3PtrPtr]],
+        'sqlite3_close': ['int', [sqlite3PtrPtr]],
+        'sqlite3_exec': ['int', [sqlite3PtrPtr, 'string', 'pointer', 'pointer', stringPtr]],
+        'sqlite3_changes': ['int', [sqlite3PtrPtr]]
     });
 
     var dbPtrPtr = ref.alloc(sqlite3PtrPtr);
@@ -29,17 +29,17 @@ import TArray = require('ref-array');
     var dbHandle = dbPtrPtr.deref();
 }
 {
-    var func = ffi.ForeignFunction(new Buffer(10), 'int', [ 'int' ]);
+    var func = ffi.ForeignFunction(new Buffer(10), 'int', ['int']);
     func(-5);
-    func.async(-5, function(err: any, res: any) {});
+    func.async(-5, function(err: any, res: any) { });
 }
 {
-    var funcPtr = ffi.Callback('int', [ 'int' ], Math.abs);
-    var func    = ffi.ForeignFunction(funcPtr, 'int', [ 'int' ]);
+    var funcPtr = ffi.Callback('int', ['int'], Math.abs);
+    var func = ffi.ForeignFunction(funcPtr, 'int', ['int']);
 }
 {
     var printfPointer = ffi.DynamicLibrary().get('printf');
-    var printfGen = ffi.VariadicForeignFunction(printfPointer, 'void', [ 'string' ]);
+    var printfGen = ffi.VariadicForeignFunction(printfPointer, 'void', ['string']);
     printfGen()('Hello World!\n');
     printfGen('int')('This is an int: %d\n', 10);
     printfGen('string')('This is a string: %s\n', 'hello');
@@ -77,8 +77,8 @@ import TArray = require('ref-array');
 }
 {
     var SimpleStruct = Struct({
-        first : ref.types.byte,
-        last  : ref.types.byte
+        first: ref.types.byte,
+        last: ref.types.byte
     });
 
     var ss = new SimpleStruct({ first: 50, last: 100 });

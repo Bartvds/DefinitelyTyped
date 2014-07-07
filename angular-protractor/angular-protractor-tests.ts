@@ -81,8 +81,8 @@ function TestWebDriverExports() {
     var flow: protractor.promise.ControlFlow = new protractor.promise.ControlFlow();
     var baseFlow: webdriver.promise.ControlFlow = flow;
 
-    protractor.promise.asap(promise, function(value: any){ return true; });
-    protractor.promise.asap(promise, function(value: any){}, function(err: any) { return 'ABC'; });
+    protractor.promise.asap(promise, function(value: any) { return true; });
+    protractor.promise.asap(promise, function(value: any) { }, function(err: any) { return 'ABC'; });
 
     promise = protractor.promise.checkedNodeCall(function(err: any, value: any) { return 123; });
 
@@ -90,19 +90,19 @@ function TestWebDriverExports() {
 
     promise = protractor.promise.createFlow(function(newFlow: webdriver.promise.ControlFlow) { });
 
-    deferred = protractor.promise.defer(function() {});
-    deferred = protractor.promise.defer(function(reason?: any) {});
+    deferred = protractor.promise.defer(function() { });
+    deferred = protractor.promise.defer(function(reason?: any) { });
 
     promise = protractor.promise.delayed(123);
 
     promise = protractor.promise.fulfilled();
-    promise = protractor.promise.fulfilled({a: 123});
+    promise = protractor.promise.fulfilled({ a: 123 });
 
-    promise = protractor.promise.fullyResolved({a: 123});
+    promise = protractor.promise.fullyResolved({ a: 123 });
 
     var isPromise: boolean = protractor.promise.isPromise('ABC');
 
-    promise = protractor.promise.rejected({a: 123});
+    promise = protractor.promise.rejected({ a: 123 });
 
     protractor.promise.setDefaultFlow(new webdriver.promise.ControlFlow());
 
@@ -155,7 +155,7 @@ function TestProtractor() {
 
     ptor.clearMockModules();
     ptor.addMockModule('name', 'script');
-    ptor.addMockModule('name', function() {});
+    ptor.addMockModule('name', function() { });
     ptor.waitForAngular();
 
     var elementFinder: protractor.ElementFinder;

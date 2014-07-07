@@ -1,21 +1,21 @@
 /// <reference path="semver.d.ts" />
 
-var obj:Object;
-var bool:boolean;
-var num:number;
-var str:string;
-var x:any = null;
-var arr:any[];
-var exp:RegExp;
-var strArr:string[];
-var numArr:string[];
+var obj: Object;
+var bool: boolean;
+var num: number;
+var str: string;
+var x: any = null;
+var arr: any[];
+var exp: RegExp;
+var strArr: string[];
+var numArr: string[];
 
-var mod:typeof SemVerModule;
+var mod: typeof SemVerModule;
 
-var v1:string, v2:string;
-var version:string;
-var versions:string[];
-var loose:boolean;
+var v1: string, v2: string;
+var version: string;
+var versions: string[];
+var loose: boolean;
 
 str = mod.valid(str);
 
@@ -85,8 +85,8 @@ str = range.toString();
 
 bool = range.test(ver);
 
-var sets:SemVerModule.Comparator[][];
+var sets: SemVerModule.Comparator[][];
 sets = range.set;
 
-var lims:SemVerModule.Comparator[];
+var lims: SemVerModule.Comparator[];
 lims = range.parseRange(str);

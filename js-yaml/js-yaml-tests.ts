@@ -24,31 +24,31 @@ yaml.DEFAULT_FULL_SCHEMA;
 // -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 loadOpts = {
-	filename: str
+    filename: str
 };
 loadOpts = {
-	strict: bool
+    strict: bool
 };
 loadOpts = {
-	schema: bool
+    schema: bool
 };
 
 // -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 dumpOpts = {
-	indent: num
+    indent: num
 };
 dumpOpts = {
-	skipInvalid: bool
+    skipInvalid: bool
 };
 dumpOpts = {
-	flowLevel: num
+    flowLevel: num
 };
 dumpOpts = {
-	styles: obj
+    styles: obj
 };
 dumpOpts = {
-	schema: value
+    schema: value
 };
 
 // -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -62,17 +62,17 @@ value = yaml.load(str, loadOpts);
 // -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 value = yaml.safeLoadAll(str, (doc) => {
-	value = doc;
+    value = doc;
 });
 value = yaml.safeLoadAll(str, (doc) => {
-	value = doc;
+    value = doc;
 }, loadOpts);
 
 value = yaml.loadAll(str, (doc) => {
-	value = doc;
+    value = doc;
 });
 value = yaml.loadAll(str, (doc) => {
-	value = doc;
+    value = doc;
 }, loadOpts);
 
 // -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --

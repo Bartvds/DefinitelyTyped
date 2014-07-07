@@ -120,7 +120,7 @@ describe("Jasmine jQuery extension", () => {
 
         it("You can similarly check if triggered event was prevented", () => {
             var spyEvent = spyOnEvent('#some_element', 'click');
-            $('#some_element').click(function (event) { event.preventDefault(); });
+            $('#some_element').click(function(event) { event.preventDefault(); });
             $('#some_element').click();
             expect('click').toHaveBeenPreventedOn('#some_element');
             expect(spyEvent).toHaveBeenPrevented();
@@ -128,7 +128,7 @@ describe("Jasmine jQuery extension", () => {
 
         it("You can also check if the triggered event was stopped", () => {
             var spyEvent = spyOnEvent('#some_element', 'click');
-            $('#some_element').click(function (event) { event.stopPropagation(); });
+            $('#some_element').click(function(event) { event.stopPropagation(); });
             $('#some_element').click();
             expect('click').toHaveBeenStoppedOn('#some_element');
             expect(spyEvent).toHaveBeenStopped();

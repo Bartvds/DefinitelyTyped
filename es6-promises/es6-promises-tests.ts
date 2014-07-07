@@ -6,5 +6,5 @@
 
 // constructor test
 var constructResult = new Promise<string>((resolve, reject) => {
-	resolve('a string');
+    resolve('a string');
 });

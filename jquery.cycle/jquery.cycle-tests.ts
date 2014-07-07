@@ -99,21 +99,21 @@ $('#s3').cycle({
 });
 
 $('#s4')
-.before('<div id="nav">')
-.cycle({
-    fx: 'turnDown',
-    speed: 'fast',
-    timeout: 0,
-    pager: '#nav'
-});
+    .before('<div id="nav">')
+    .cycle({
+        fx: 'turnDown',
+        speed: 'fast',
+        timeout: 0,
+        pager: '#nav'
+    });
 
 $('#s5').cycle({
     fx: 'scrollLeft',
     timeout: 5000,
-    before: function () {
+    before: function() {
         $('#output').html("Scrolling image:<br>" + this.src);
     },
-    after: function () {
+    after: function() {
         $('#output').html("Scroll complete for:<br>" + this.src)
             .append('<h3>' + this.alt + '</h3>');
     }
@@ -262,7 +262,7 @@ $('#s6').cycle({
     }
 });
 
-$.fn.cycle.transitions.pinch = function ($cont, $slides, opts) {
+$.fn.cycle.transitions.pinch = function($cont, $slides, opts) {
     var $el = $($slides[0]);
     var w = $el.width();
     var h = $el.height();
@@ -294,7 +294,7 @@ $('#slideshow').cycle({
     speed: 'fast',
     timeout: 0,
     pager: '#nav',
-    pagerAnchorBuilder: function (idx, slide) {
+    pagerAnchorBuilder: function(idx, slide) {
         // return selector string for existing anchor 
         return '#nav li:eq(' + idx + ') a';
     }

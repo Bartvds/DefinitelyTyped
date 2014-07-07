@@ -23,7 +23,7 @@ interface Scope extends ng.IScope {
 }
 
 app.controller('Ctrl', ($scope: Scope, $translate: ng.translate.ITranslateService) => {
-    $scope['changeLanguage'] = function (key: any) {
+    $scope['changeLanguage'] = function(key: any) {
         $translate.use(key);
     };
 });

@@ -30,30 +30,30 @@ var insanity: any;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 interface Foo {
-	foo(): string;
+    foo(): string;
 }
 interface Bar {
-	bar(): string;
+    bar(): string;
 }
 
 // - - - - - - - - - - - - - - - - -
 
 interface StrFooMap {
-	[key:string]:Foo;
+    [key: string]: Foo;
 }
 
 interface StrBarMap {
-	[key:string]:Bar;
+    [key: string]: Bar;
 }
 
 // - - - - - - - - - - - - - - - - -
 
 interface StrFooArrMap {
-	[key:string]:Foo[];
+    [key: string]: Foo[];
 }
 
 interface StrBarArrMap {
-	[key:string]:Bar[];
+    [key: string]: Bar[];
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -149,32 +149,32 @@ barThen = barProm;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooProm = new Promise((resolve: (value: Foo) => void, reject: (reason: any) => void) => {
-	if (bool) {
-		resolve(foo);
-	}
-	else {
-		reject(new Error(str));
-	}
+    if (bool) {
+        resolve(foo);
+    }
+    else {
+        reject(new Error(str));
+    }
 });
 fooProm = new Promise((resolve: (value: Foo) => void) => {
-	if (bool) {
-		resolve(foo);
-	}
+    if (bool) {
+        resolve(foo);
+    }
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - -
 
 // needs a hint when used untyped?
 fooProm = new Promise<Foo>((resolve, reject) => {
-	if (bool) {
-		resolve(fooThen);
-	}
-	else {
-		reject(new Error(str));
-	}
+    if (bool) {
+        resolve(fooThen);
+    }
+    else {
+        reject(new Error(str));
+    }
 });
 fooProm = new Promise<Foo>((resolve) => {
-	resolve(fooThen);
+    resolve(fooThen);
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -204,88 +204,88 @@ x = fooInspection.error();
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barProm = fooProm.then((value: Foo) => {
-	return bar;
+    return bar;
 }, (reason: any) => {
-	return bar;
-}, (note: any) => {
-	return bar;
-});
+        return bar;
+    }, (note: any) => {
+        return bar;
+    });
 barProm = fooProm.then((value: Foo) => {
-	return bar;
+    return bar;
 }, (reason: any) => {
-	return bar;
-});
+        return bar;
+    });
 barProm = fooProm.then((value: Foo) => {
-	return bar;
+    return bar;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barProm = fooProm.catch((reason: any) => {
-	return bar;
+    return bar;
 });
 barProm = fooProm.caught((reason: any) => {
-	return bar;
+    return bar;
 });
 
 barProm = fooProm.catch((reason: any) => {
-	return bar;
+    return bar;
 }, (reason: any) => {
-	return bar;
-});
+        return bar;
+    });
 barProm = fooProm.caught((reason: any) => {
-	return bar;
+    return bar;
 }, (reason: any) => {
-	return bar;
-});
+        return bar;
+    });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barProm = fooProm.catch(Error, (reason: any) => {
-	return bar;
+    return bar;
 });
 barProm = fooProm.caught(Error, (reason: any) => {
-	return bar;
+    return bar;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barProm = fooProm.error((reason: any) => {
-	return bar;
+    return bar;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooProm = fooProm.finally((value: Foo) => {
-	// return is ignored
-	return foo;
+    // return is ignored
+    return foo;
 });
 fooProm = fooProm.finally((value: Foo) => {
-	// return is ignored
-	return fooThen;
+    // return is ignored
+    return fooThen;
 });
 fooProm = fooProm.finally((value: Foo) => {
-	// return is ignored
+    // return is ignored
 });
 fooProm = fooProm.finally(() => {
-	// return is ignored
+    // return is ignored
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooProm = fooProm.lastly((value: Foo) => {
-	// return is ignored
-	return foo;
+    // return is ignored
+    return foo;
 });
 fooProm = fooProm.lastly((value: Foo) => {
-	// return is ignored
-	return fooThen;
+    // return is ignored
+    return fooThen;
 });
 fooProm = fooProm.lastly((value: Foo) => {
-	// return is ignored
+    // return is ignored
 });
 fooProm = fooProm.lastly(() => {
-	// return is ignored
+    // return is ignored
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -295,43 +295,43 @@ fooProm = fooProm.bind(obj);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barProm = fooProm.done((value: Foo) => {
-	return bar;
+    return bar;
 }, (reason: any) => {
-	return bar;
-}, (note: any) => {
+        return bar;
+    }, (note: any) => {
 
-});
+    });
 barProm = fooProm.done((value: Foo) => {
-	return bar;
+    return bar;
 }, (reason: any) => {
-	return bar;
-});
+        return bar;
+    });
 barProm = fooProm.done((value: Foo) => {
-	return bar;
+    return bar;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barProm = fooProm.done((value: Foo) => {
-	return barThen;
+    return barThen;
 }, (reason: any) => {
-	return barThen;
-}, (note: any) => {
+        return barThen;
+    }, (note: any) => {
 
-});
+    });
 barProm = fooProm.done((value: Foo) => {
-	return barThen;
+    return barThen;
 }, (reason: any) => {
-	return barThen;
-});
+        return barThen;
+    });
 barProm = fooProm.done((value: Foo) => {
-	return barThen;
+    return barThen;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooProm = fooProm.progressed((note: any) => {
-	return foo;
+    return foo;
 });
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -355,37 +355,37 @@ fooProm = fooProm.nodeify((err: any, foo?: Foo) => {
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barProm = fooProm.fork((value: Foo) => {
-	return bar;
+    return bar;
 }, (reason: any) => {
-	return bar;
-}, (note: any) => {
+        return bar;
+    }, (note: any) => {
 
-});
+    });
 barProm = fooProm.fork((value: Foo) => {
-	return bar;
+    return bar;
 }, (reason: any) => {
-	return bar;
-});
+        return bar;
+    });
 barProm = fooProm.fork((value: Foo) => {
-	return bar;
+    return bar;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barProm = fooProm.fork((value: Foo) => {
-	return barThen;
+    return barThen;
 }, (reason: any) => {
-	return barThen;
-}, (note: any) => {
+        return barThen;
+    }, (note: any) => {
 
-});
+    });
 barProm = fooProm.fork((value: Foo) => {
-	return barThen;
+    return barThen;
 }, (reason: any) => {
-	return barThen;
-});
+        return barThen;
+    });
 barProm = fooProm.fork((value: Foo) => {
-	return barThen;
+    return barThen;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -438,23 +438,23 @@ obj = fooProm.toJSON();
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barProm = fooArrProm.spread<Bar>((one: Foo, two: Bar) => {
-	return bar;
+    return bar;
 }, (reason: any) => {
-	return bar;
-});
+        return bar;
+    });
 barProm = fooArrProm.spread<Bar>((one: Foo, two: Bar, twotwo: Foo) => {
-	return bar;
+    return bar;
 });
 
 // - - - - - - - - - - - - - - - - -
 
 barProm = fooArrProm.spread<Bar>((one: Foo, two: Bar) => {
-	return barThen;
+    return barThen;
 }, (reason: any) => {
-	return barThen;
-});
+        return barThen;
+    });
 barProm = fooArrProm.spread<Bar>((one: Foo, two: Bar, twotwo: Foo) => {
-	return barThen;
+    return barThen;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -478,82 +478,82 @@ barProm = fooProm.race<Bar>();
 //TODO fix collection inference
 
 barProm = fooProm.map<Foo, Bar>((item: Foo, index: number, arrayLength: number) => {
-	return bar;
+    return bar;
 });
 barProm = fooProm.map<Foo, Bar>((item: Foo) => {
-	return bar;
+    return bar;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 barProm = fooProm.reduce<Foo, Bar>((memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return memo;
+    return memo;
 });
 barProm = fooProm.reduce<Foo, Bar>((memo: Bar, item: Foo) => {
-	return memo;
+    return memo;
 }, bar);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooProm = fooProm.filter<Foo>((item: Foo, index: number, arrayLength: number) => {
-	return bool;
+    return bool;
 });
 fooProm = fooProm.filter<Foo>((item: Foo) => {
-	return bool;
+    return bool;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 fooProm = Promise.try(() => {
-	return foo;
+    return foo;
 });
 fooProm = Promise.try(() => {
-	return foo;
+    return foo;
 }, arr);
 fooProm = Promise.try(() => {
-	return foo;
+    return foo;
 }, arr, x);
 
 // - - - - - - - - - - - - - - - - -
 
 fooProm = Promise.try(() => {
-	return fooThen;
+    return fooThen;
 });
 fooProm = Promise.try(() => {
-	return fooThen;
+    return fooThen;
 }, arr);
 fooProm = Promise.try(() => {
-	return fooThen;
+    return fooThen;
 }, arr, x);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 fooProm = Promise.attempt(() => {
-	return foo;
+    return foo;
 });
 fooProm = Promise.attempt(() => {
-	return foo;
+    return foo;
 }, arr);
 fooProm = Promise.attempt(() => {
-	return foo;
+    return foo;
 }, arr, x);
 
 // - - - - - - - - - - - - - - - - -
 
 fooProm = Promise.attempt(() => {
-	return fooThen;
+    return fooThen;
 });
 fooProm = Promise.attempt(() => {
-	return fooThen;
+    return fooThen;
 }, arr);
 fooProm = Promise.attempt(() => {
-	return fooThen;
+    return fooThen;
 }, arr, x);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-func = Promise.method(function () {
+func = Promise.method(function() {
 
 });
 
@@ -672,16 +672,16 @@ fooArrProm = Promise.join(fooThen, fooThen, fooThen);
 // fooThenArrThen
 
 barArrProm = Promise.map(fooThenArrThen, (item: Foo) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.map(fooThenArrThen, (item: Foo) => {
-	return barThen;
+    return barThen;
 });
 barArrProm = Promise.map(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.map(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
+    return barThen;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -689,16 +689,16 @@ barArrProm = Promise.map(fooThenArrThen, (item: Foo, index: number, arrayLength:
 // fooArrThen
 
 barArrProm = Promise.map(fooArrThen, (item: Foo) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.map(fooArrThen, (item: Foo) => {
-	return barThen;
+    return barThen;
 });
 barArrProm = Promise.map(fooArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.map(fooArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
+    return barThen;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -706,16 +706,16 @@ barArrProm = Promise.map(fooArrThen, (item: Foo, index: number, arrayLength: num
 // fooThenArr
 
 barArrProm = Promise.map(fooThenArr, (item: Foo) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.map(fooThenArr, (item: Foo) => {
-	return barThen;
+    return barThen;
 });
 barArrProm = Promise.map(fooThenArr, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.map(fooThenArr, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
+    return barThen;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -723,16 +723,16 @@ barArrProm = Promise.map(fooThenArr, (item: Foo, index: number, arrayLength: num
 // fooArr
 
 barArrProm = Promise.map(fooArr, (item: Foo) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.map(fooArr, (item: Foo) => {
-	return barThen;
+    return barThen;
 });
 barArrProm = Promise.map(fooArr, (item: Foo, index: number, arrayLength: number) => {
-	return bar;
+    return bar;
 });
 barArrProm = Promise.map(fooArr, (item: Foo, index: number, arrayLength: number) => {
-	return barThen;
+    return barThen;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -744,16 +744,16 @@ barArrProm = Promise.map(fooArr, (item: Foo, index: number, arrayLength: number)
 // fooThenArrThen
 
 barProm = Promise.reduce(fooThenArrThen, (memo: Bar, item: Foo) => {
-	return memo;
+    return memo;
 }, bar);
 barProm = Promise.reduce(fooThenArrThen, (memo: Bar, item: Foo) => {
-	return barThen;
+    return barThen;
 }, bar);
 barProm = Promise.reduce(fooThenArrThen, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return memo;
+    return memo;
 }, bar);
 barProm = Promise.reduce(fooThenArrThen, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return barThen;
+    return barThen;
 }, bar);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -761,16 +761,16 @@ barProm = Promise.reduce(fooThenArrThen, (memo: Bar, item: Foo, index: number, a
 // fooArrThen
 
 barProm = Promise.reduce(fooArrThen, (memo: Bar, item: Foo) => {
-	return memo;
+    return memo;
 }, bar);
 barProm = Promise.reduce(fooArrThen, (memo: Bar, item: Foo) => {
-	return barThen;
+    return barThen;
 }, bar);
 barProm = Promise.reduce(fooArrThen, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return memo;
+    return memo;
 }, bar);
 barProm = Promise.reduce(fooArrThen, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return barThen;
+    return barThen;
 }, bar);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -778,16 +778,16 @@ barProm = Promise.reduce(fooArrThen, (memo: Bar, item: Foo, index: number, array
 // fooThenArr
 
 barProm = Promise.reduce(fooThenArr, (memo: Bar, item: Foo) => {
-	return memo;
+    return memo;
 }, bar);
 barProm = Promise.reduce(fooThenArr, (memo: Bar, item: Foo) => {
-	return barThen;
+    return barThen;
 }, bar);
 barProm = Promise.reduce(fooThenArr, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return memo;
+    return memo;
 }, bar);
 barProm = Promise.reduce(fooThenArr, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return barThen;
+    return barThen;
 }, bar);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -795,16 +795,16 @@ barProm = Promise.reduce(fooThenArr, (memo: Bar, item: Foo, index: number, array
 // fooArr
 
 barProm = Promise.reduce(fooArr, (memo: Bar, item: Foo) => {
-	return memo;
+    return memo;
 }, bar);
 barProm = Promise.reduce(fooArr, (memo: Bar, item: Foo) => {
-	return barThen;
+    return barThen;
 }, bar);
 barProm = Promise.reduce(fooArr, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return memo;
+    return memo;
 }, bar);
 barProm = Promise.reduce(fooArr, (memo: Bar, item: Foo, index: number, arrayLength: number) => {
-	return barThen;
+    return barThen;
 }, bar);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -816,16 +816,16 @@ barProm = Promise.reduce(fooArr, (memo: Bar, item: Foo, index: number, arrayLeng
 // fooThenArrThen
 
 fooArrProm = Promise.filter(fooThenArrThen, (item: Foo) => {
-	return bool;
+    return bool;
 });
 fooArrProm = Promise.filter(fooThenArrThen, (item: Foo) => {
-	return boolThen;
+    return boolThen;
 });
 fooArrProm = Promise.filter(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return bool;
+    return bool;
 });
 fooArrProm = Promise.filter(fooThenArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return boolThen;
+    return boolThen;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -833,16 +833,16 @@ fooArrProm = Promise.filter(fooThenArrThen, (item: Foo, index: number, arrayLeng
 // fooArrThen
 
 fooArrProm = Promise.filter(fooArrThen, (item: Foo) => {
-	return bool;
+    return bool;
 });
 fooArrProm = Promise.filter(fooArrThen, (item: Foo) => {
-	return boolThen;
+    return boolThen;
 });
 fooArrProm = Promise.filter(fooArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return bool;
+    return bool;
 });
 fooArrProm = Promise.filter(fooArrThen, (item: Foo, index: number, arrayLength: number) => {
-	return boolThen;
+    return boolThen;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -850,16 +850,16 @@ fooArrProm = Promise.filter(fooArrThen, (item: Foo, index: number, arrayLength: 
 // fooThenArr
 
 fooArrProm = Promise.filter(fooThenArr, (item: Foo) => {
-	return bool;
+    return bool;
 });
 fooArrProm = Promise.filter(fooThenArr, (item: Foo) => {
-	return boolThen;
+    return boolThen;
 });
 fooArrProm = Promise.filter(fooThenArr, (item: Foo, index: number, arrayLength: number) => {
-	return bool;
+    return bool;
 });
 fooArrProm = Promise.filter(fooThenArr, (item: Foo, index: number, arrayLength: number) => {
-	return boolThen;
+    return boolThen;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -867,16 +867,16 @@ fooArrProm = Promise.filter(fooThenArr, (item: Foo, index: number, arrayLength: 
 // fooArr
 
 fooArrProm = Promise.filter(fooArr, (item: Foo) => {
-	return bool;
+    return bool;
 });
 fooArrProm = Promise.filter(fooArr, (item: Foo) => {
-	return boolThen;
+    return boolThen;
 });
 fooArrProm = Promise.filter(fooArr, (item: Foo, index: number, arrayLength: number) => {
-	return bool;
+    return bool;
 });
 fooArrProm = Promise.filter(fooArr, (item: Foo, index: number, arrayLength: number) => {
-	return boolThen;
+    return boolThen;
 });
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -10,8 +10,8 @@ var bool: boolean;
 
 var mon: watch.Monitor;
 var opts: watch.Options = {
-	ignoreDotFiles: bool,
-	filter: value
+    ignoreDotFiles: bool,
+    filter: value
 };
 
 mon.on('foo', () => {

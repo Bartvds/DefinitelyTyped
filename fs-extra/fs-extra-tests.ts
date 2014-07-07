@@ -48,11 +48,11 @@ var writeStream: stream.Writable;
 
 fs.copy(src, dest, errorCallback);
 fs.copy(src, dest, (src: string) => {
-	return false;
+    return false;
 }, errorCallback);
 fs.copySync(src, dest);
 fs.copySync(src, dest, (src: string) => {
-	return false;
+    return false;
 });
 fs.createFile(file, errorCallback);
 fs.createFileSync(file);
@@ -194,16 +194,16 @@ fs.appendFileSync(filename, data, encoding);
 fs.appendFileSync(filename, data, openOpts);
 
 fs.watchFile(filename, {
-	curr: stats,
-	prev: stats
+    curr: stats,
+    prev: stats
 });
 fs.watchFile(filename, {
-	persistent: bool,
-	interval: num
+    persistent: bool,
+    interval: num
 }, {
-	curr: stats,
-	prev: stats
-});
+        curr: stats,
+        prev: stats
+    });
 fs.unwatchFile(filename);
 watcher = fs.watch(filename, { persistent: bool }, (event: string, filename: string) => {
 
@@ -215,15 +215,15 @@ bool = fs.existsSync(path);
 
 readStreeam = fs.createReadStream(path);
 readStreeam = fs.createReadStream(path, {
-	flags: str,
-	encoding: str,
-	fd: num,
-	mode: num,
-	bufferSize: num
+    flags: str,
+    encoding: str,
+    fd: num,
+    mode: num,
+    bufferSize: num
 });
 writeStream = fs.createWriteStream(path);
 writeStream = fs.createWriteStream(path, {
-	flags: str,
-	encoding: str,
-	string: str
+    flags: str,
+    encoding: str,
+    string: str
 });

@@ -12,10 +12,10 @@ var callback: (err: Error) => {
 };
 
 opts = {
-	wait: num,
-	stale: num,
-	retries: num,
-	retryWait: num
+    wait: num,
+    stale: num,
+    retries: num,
+    retryWait: num
 };
 
 lockfile.lock(path, opts, callback);

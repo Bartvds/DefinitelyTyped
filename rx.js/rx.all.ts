@@ -16,5 +16,5 @@
 /// <reference path="rx.backpressure.d.ts" />
 
 declare module "rx.all" {
-	export = Rx;
+    export = Rx;
 }

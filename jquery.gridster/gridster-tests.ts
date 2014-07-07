@@ -3,19 +3,19 @@
 var el: HTMLElement = new HTMLElement();
 
 interface SerializeData {
-	x?: number;
-	y?: number;
+    x?: number;
+    y?: number;
 }
 
 var options: GridsterOptions = {
-	min_cols: 5,
-	autogenerate_sytesheet: true,
-	serialize_params: ($w: JQuery, wgd: GridsterCoords) => {
-		return {
-			x: wgd.row,
-			y: wgd.col
-		};
-	}
+    min_cols: 5,
+    autogenerate_sytesheet: true,
+    serialize_params: ($w: JQuery, wgd: GridsterCoords) => {
+        return {
+            x: wgd.row,
+            y: wgd.col
+        };
+    }
 };
 
 var gridster = <Gridster>$('.gridster ul').gridster(el, options).data('grister');

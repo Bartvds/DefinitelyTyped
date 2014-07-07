@@ -30,7 +30,7 @@ myScroll1.scrollToElement('selectedElement', 250);
 myScroll1.scrollToElement(document.getElementById('selectedElement'));
 myScroll1.scrollToElement(document.getElementById('selectedElement'), 250);
 
-myScroll2.on('scrollStart', function () { console.log('scroll started'); });
+myScroll2.on('scrollStart', function() { console.log('scroll started'); });
 
 var myScroll9 = new IScroll(document.getElementById('wrapper'));
 var myScroll10 = new IScroll(document.getElementById('wrapper'), { scrollbarClass: 'myScrollbar' });

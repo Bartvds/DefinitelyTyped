@@ -1,4 +1,4 @@
-﻿/// <reference path="../../three.d.ts" />
+/// <reference path="../../three.d.ts" />
 /// <reference path="../three-tests-setup.ts" />
 
 // https://github.com/mrdoob/three.js/blob/master/examples/webgl_loader_awd.html
@@ -19,7 +19,7 @@
     var loader = new THREE.AWDLoader();
 
     loader.materialFactory = createMaterial;
-    loader.load('./models/awd/simple/simple.awd', function (_trunk) {
+    loader.load('./models/awd/simple/simple.awd', function(_trunk) {
 
         trunk = _trunk;
 

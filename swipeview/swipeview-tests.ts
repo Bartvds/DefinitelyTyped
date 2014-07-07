@@ -1,27 +1,27 @@
 /// <reference path="swipeview.d.ts" />
 
 function demo1() {
-    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
 
-var
-    el,
-    i,
-    page,
-    dots = document.querySelectorAll('#nav li'),
-    slides = [
-        {
-            img: 'images/pic01.jpg',
-            width: 300,
-            height: 213,
-            desc: 'Piazza del Duomo, Florence, Italy'
-        },
-        {
-            img: 'images/pic02.jpg',
-            width: 300,
-            height: 164,
-            desc: 'Tuscan Landscape'
-        }
-    ];
+    var
+        el,
+        i,
+        page,
+        dots = document.querySelectorAll('#nav li'),
+        slides = [
+            {
+                img: 'images/pic01.jpg',
+                width: 300,
+                height: 213,
+                desc: 'Piazza del Duomo, Florence, Italy'
+            },
+            {
+                img: 'images/pic02.jpg',
+                width: 300,
+                height: 164,
+                desc: 'Tuscan Landscape'
+            }
+        ];
 
     var gallery = new SwipeView('#wrapper', { numberOfPages: slides.length });
 
@@ -33,7 +33,7 @@ var
         el.src = slides[page].img;
         el.width = slides[page].width;
         el.height = slides[page].height;
-        el.onload = function () { this.className = ''; }
+        el.onload = function() { this.className = ''; }
         gallery.masterPages[i].appendChild(el);
 
         el = document.createElement('span');
@@ -41,7 +41,7 @@ var
         gallery.masterPages[i].appendChild(el)
     }
 
-    gallery.onFlip(function () {
+    gallery.onFlip(function() {
         var el,
             upcoming,
             i;
@@ -62,27 +62,27 @@ var
         }
     });
 
-    gallery.onMoveOut(function () {
+    gallery.onMoveOut(function() {
         gallery.masterPages[gallery.currentMasterPage].className = gallery.masterPages[gallery.currentMasterPage].className.replace(/(^|\s)swipeview-active(\s|$)/, '');
     });
 
-    gallery.onMoveIn(function () {
+    gallery.onMoveIn(function() {
         var className = gallery.masterPages[gallery.currentMasterPage].className;
         /(^|\s)swipeview-active(\s|$)/.test(className) || (gallery.masterPages[gallery.currentMasterPage].className = !className ? 'swipeview-active' : className + ' swipeview-active');
     });
 }
 
 function demo2() {
-var carousel: SwipeView,
-    el,
-    i,
-    page,
-    slides = [
-        '<strong>Swipe</strong> to know more &gt;&gt;&gt;<br>Or scroll down for <em>Lorem Ipsum</em>',
-        '1. A robot may not injure a human being or, through inaction, allow a human being to come to harm.',
-        '2. A robot must obey the orders given to it by human beings, except where such orders would conflict with the First Law.',
-        '3. A robot must protect its own existence as long as such protection does not conflict with the First or Second Laws.'
-    ];
+    var carousel: SwipeView,
+        el,
+        i,
+        page,
+        slides = [
+            '<strong>Swipe</strong> to know more &gt;&gt;&gt;<br>Or scroll down for <em>Lorem Ipsum</em>',
+            '1. A robot may not injure a human being or, through inaction, allow a human being to come to harm.',
+            '2. A robot must obey the orders given to it by human beings, except where such orders would conflict with the First Law.',
+            '3. A robot must protect its own existence as long as such protection does not conflict with the First or Second Laws.'
+        ];
 
     carousel = new SwipeView('#wrapper', {
         numberOfPages: slides.length,
@@ -98,7 +98,7 @@ var carousel: SwipeView,
         carousel.masterPages[i].appendChild(el)
     }
 
-    carousel.onFlip(function () {
+    carousel.onFlip(function() {
         var el,
             upcoming,
             i;
@@ -115,9 +115,9 @@ var carousel: SwipeView,
 }
 
 function demo3() {
-    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
 
-    window.addEventListener('load', function () {
+    window.addEventListener('load', function() {
         var ereader: SwipeView,
             el,
             i,
@@ -129,7 +129,7 @@ function demo3() {
 
         // Ajax request
         req.open('GET', 'flowers.txt', true);
-        req.onreadystatechange = function () {
+        req.onreadystatechange = function() {
             if (req.readyState != 4) return;
 
             paginate(req.status != 200 && (req.status != 304 ? false : <any>req.responseText));
@@ -166,7 +166,7 @@ function demo3() {
             helper = document.getElementById('ereader-helper');
             helper.innerHTML = '';
 
-            var loopy = function () {
+            var loopy = function() {
                 words = book.split(' ', wordCount);
                 segment = words.join(' ');
                 helper.innerHTML = segment;
@@ -234,7 +234,7 @@ function demo3() {
             loopy();
         }
 
-        ereader.onFlip(function () {
+        ereader.onFlip(function() {
             var el,
                 upcoming,
                 i;

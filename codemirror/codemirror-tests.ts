@@ -8,7 +8,7 @@ var myCodeMirror2: CodeMirror.Editor = CodeMirror(document.body, {
 });
 
 var myTextArea: HTMLTextAreaElement;
-var myCodeMirror3: CodeMirror.Editor = CodeMirror(function (elt) {
+var myCodeMirror3: CodeMirror.Editor = CodeMirror(function(elt) {
     myTextArea.parentNode.replaceChild(elt, myTextArea);
 }, { value: myTextArea.value });
 

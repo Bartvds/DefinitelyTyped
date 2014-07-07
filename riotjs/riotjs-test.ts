@@ -1,7 +1,7 @@
 /// <reference path="riotjs.d.ts" />
 /// <reference path="riotjs-render.d.ts" />
 
-function describe(msg:any, fn:Function) {
+function describe(msg: any, fn: Function) {
     if (console.group) {
         console.group(msg);
         fn();
@@ -12,7 +12,7 @@ function describe(msg:any, fn:Function) {
     }
 }
 
-function it(msg:any, fn:Function) {
+function it(msg: any, fn: Function) {
     try {
         fn();
         console.log(msg);
@@ -22,11 +22,11 @@ function it(msg:any, fn:Function) {
 }
 
 interface RiotAssert {
-    (ok:any, msg?:any):void;
-    equal(value:any, expected:any):void;
+    (ok: any, msg?: any): void;
+    equal(value: any, expected: any): void;
 }
 
-var assert:RiotAssert;
+var assert: RiotAssert;
 
 /*
 function assert(ok, msg) {
@@ -38,15 +38,15 @@ assert.equal = function (value, expected) {
 };
 */
 
-describe("Observable", function () {
+describe("Observable", function() {
 
     var el = $.observable({}),
         total = 11,
         count = 0;
 
-    it("Single listener", function () {
+    it("Single listener", function() {
 
-        el.on("a", function (arg:any) {
+        el.on("a", function(arg: any) {
             assert.equal(arg, true)
             count++;
         });
@@ -55,16 +55,16 @@ describe("Observable", function () {
 
     })
 
-    it("Multiple listeners", function () {
+    it("Multiple listeners", function() {
 
         var counter = 0;
 
-        el.on("b c d", function (e:any) {
+        el.on("b c d", function(e: any) {
             if (++counter == 3) assert.equal(e, "d")
             count++;
         })
 
-        el.one("d", function (a:any) {
+        el.one("d", function(a: any) {
             assert.equal(a, true)
             count++;
         })
@@ -73,11 +73,11 @@ describe("Observable", function () {
 
     })
 
-    it("One", function () {
+    it("One", function() {
 
         var counter = 0;
 
-        el.one("g", function () {
+        el.one("g", function() {
             assert.equal(++counter, 1);
             count++;
         })
@@ -85,15 +85,15 @@ describe("Observable", function () {
         el.trigger("g").trigger("g");
     })
 
-    it("One & on", function () {
+    it("One & on", function() {
 
         var counter = 0;
 
-        el.one("y",function () {
+        el.one("y", function() {
             count++;
             counter++;
 
-        }).on("y",function () {
+        }).on("y", function() {
                 count++;
                 counter++;
 
@@ -104,7 +104,7 @@ describe("Observable", function () {
     })
 
 
-    it("Remove listeners", function () {
+    it("Remove listeners", function() {
 
         var counter = 0;
 
@@ -117,7 +117,7 @@ describe("Observable", function () {
 
     })
 
-    it("Remove multiple listeners", function () {
+    it("Remove multiple listeners", function() {
 
         var counter = 0;
 
@@ -132,9 +132,9 @@ describe("Observable", function () {
     })
 
 
-    it("Multiple arguments", function () {
+    it("Multiple arguments", function() {
 
-        el.on("j", function (a:any, b:any) {
+        el.on("j", function(a: any, b: any) {
             assert.equal(a, 1);
             assert.equal(b[0], 2);
             count++;
@@ -148,53 +148,53 @@ describe("Observable", function () {
 
 });
 
-describe("$.render", function () {
+describe("$.render", function() {
 
-    it("Single token", function () {
+    it("Single token", function() {
         assert.equal($.render("x"), "x");
         assert.equal($.render("x", {}), "x");
         assert.equal($.render("{x}", { x: "x" }), "x");
         assert.equal($.render("{x}", { x: "z" }), "z");
     });
 
-    it("Multiple tokens", function () {
+    it("Multiple tokens", function() {
         assert($.render("{x}{y}", { x: "x", y: "y" }) == "xy");
     });
 
-    it("Single quotes", function () {
+    it("Single quotes", function() {
         assert.equal($.render("'x'"), "'x'");
         assert.equal($.render("\'x.\';"), "\'x.\';");
     });
 
-    it("Empty value", function () {
+    it("Empty value", function() {
         assert.equal($.render("{x}", { x: undefined }), "");
         assert.equal($.render("{x}", { x: null }), "");
         assert.equal($.render("{x}", { x: false }), "false");
         assert.equal($.render("{x}", { x: 0 }), "0");
     });
 
-    it("With spaces", function () {
+    it("With spaces", function() {
         assert.equal($.render("{ x }", { x: 'x' }), "x");
         assert.equal($.render("{x }", { x: 'x' }), "x");
         assert.equal($.render("{ x}", { x: 'x' }), "x");
         assert.equal($.render("{  x  }", { x: 'x' }), "x");
     });
 
-    it("Empty template", function () {
+    it("Empty template", function() {
         assert($.render() === "");
     })
 
-    it("Nearby brackets", function () {
+    it("Nearby brackets", function() {
         assert.equal($.render("{{x}", { x: 'x' }), "{x");
         assert.equal($.render("{x}}", { x: 'x' }), "x}");
         assert.equal($.render("{{x}}", { x: 'x' }), "{x}");
     });
 
-    it("<template> tag", function () {
-        if ($.trim) assert($.trim($.render($("#test1").html(), {x: 'x'})) == "x");
+    it("<template> tag", function() {
+        if ($.trim) assert($.trim($.render($("#test1").html(), { x: 'x' })) == "x");
     })
 
-    it("Line breaks", function () {
+    it("Line breaks", function() {
         assert.equal($.render("x\r"), "x\r");
         assert.equal($.render("x\n"), "x\n");
     });

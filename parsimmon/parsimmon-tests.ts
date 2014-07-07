@@ -8,11 +8,11 @@ import Result = P.Result;
 // --  --  --  --  --  --  --  --  --  --  --  --  --
 
 class Foo {
-	bar: Bar;
+    bar: Bar;
 }
 
 class Bar {
-	foo: Foo;
+    foo: Foo;
 }
 
 // --  --  --  --  --  --  --  --  --  --  --  --  --
@@ -67,19 +67,19 @@ fooPar = fooPar.or(fooPar);
 anyPar = fooPar.or(barPar);
 
 barPar = fooPar.chain((f) => {
-	foo = f;
-	return barPar;
+    foo = f;
+    return barPar;
 });
 
 barPar = fooPar.then((f) => {
-	foo = f;
-	return barPar;
+    foo = f;
+    return barPar;
 });
 barPar = fooPar.then(barPar);
 
 barPar = fooPar.map((f) => {
-	foo = f;
-	return bar;
+    foo = f;
+    return bar;
 });
 
 // --  --  --  --  --  --  --  --  --  --  --  --  --
@@ -115,7 +115,7 @@ anyPar = P.alt(barPar, fooPar, numPar);
 
 
 fooPar = P.lazy(() => {
-	return fooPar;
+    return fooPar;
 });
 
 voidPar = P.fail(str);

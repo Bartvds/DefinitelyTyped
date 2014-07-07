@@ -10,66 +10,66 @@ var File = pathwatcher.File;
 
 class SampleView extends _atom.ScrollView {
 
-	editorId:string;
-	file:PathWatcher.IFile;
-	editor:AtomCore.IEditor;
+    editorId: string;
+    file: PathWatcher.IFile;
+    editor: AtomCore.IEditor;
 
-	static deserialize(state:any):SampleView {
-		return new SampleView(state);
-	}
+    static deserialize(state: any): SampleView {
+        return new SampleView(state);
+    }
 
-	static content():any {
-		return this.div({class: 'sample native-key-bindings', tabindex: -1});
-	}
+    static content(): any {
+        return this.div({ class: 'sample native-key-bindings', tabindex: -1 });
+    }
 
-	constructor(params:{editorId?:string; filePath?:string;} = {}) {
-		super();
+    constructor(params: { editorId?: string; filePath?: string; } = {}) {
+        super();
 
-		this.editorId = params.editorId;
+        this.editorId = params.editorId;
 
-		if (this.editorId) {
-			this.resolveEditor(this.editorId);
-		} else {
-			this.file = new File(params.filePath);
-		}
-	}
+        if (this.editorId) {
+            this.resolveEditor(this.editorId);
+        } else {
+            this.file = new File(params.filePath);
+        }
+    }
 
-	get jq():JQuery {
-		// dirty hack
-		return <any>this;
-	}
+    get jq(): JQuery {
+        // dirty hack
+        return <any>this;
+    }
 
-	serialize() {
-		return {
-			deserializer: 'SampleView',
-			editorId: this.editorId
-		};
-	}
+    serialize() {
+        return {
+            deserializer: 'SampleView',
+            editorId: this.editorId
+        };
+    }
 
-	destroy() {
-		this.unsubscribe();
-	}
+    destroy() {
+        this.unsubscribe();
+    }
 
-	resolveEditor(editorId:string) {
-		var resolve = ()=> {
-			if (this.editor) {
-				this.jq.trigger("title-changed");
-			} else {
-				var view = this.jq.parents('.pane').view();
-				if (view) {
-					view.destroyItem(this);
-				}
-			}
-		};
+    resolveEditor(editorId: string) {
+        var resolve = () => {
+            if (this.editor) {
+                this.jq.trigger("title-changed");
+            } else {
+                var view = this.jq.parents('.pane').view();
+                if (view) {
+                    view.destroyItem(this);
+                }
+            }
+        };
 
-		if (atom.workspace) {
-			resolve();
-		} else {
-			atom.packages.once("activated", ()=> {
-				resolve();
-			});
-		}
-	}
+        if (atom.workspace) {
+            resolve();
+        } else {
+            atom.packages.once("activated", () => {
+                resolve();
+            });
+        }
+    }
 }
 
 atom.deserializers.add(SampleView);

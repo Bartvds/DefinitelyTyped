@@ -1,26 +1,26 @@
 /// <reference path="./geojson.d.ts" />
 
-var featureCollection: GeoJSON.FeatureCollection =  { 
+var featureCollection: GeoJSON.FeatureCollection = {
     type: "FeatureCollection",
-    features: [   
-        { 
+    features: [
+        {
             type: "Feature",
             geometry: {
-                type: "Point", 
+                type: "Point",
                 coordinates: [102.0, 0.5]
             },
             properties: {
                 prop0: "value0"
             }
         },
-        { 
+        {
             type: "Feature",
             geometry: {
                 type: "LineString",
                 coordinates: [
-                    [102.0, 0.0], 
-                    [103.0, 1.0], 
-                    [104.0, 0.0], 
+                    [102.0, 0.0],
+                    [103.0, 1.0],
+                    [104.0, 0.0],
                     [105.0, 1.0]
                 ]
             },
@@ -29,12 +29,12 @@ var featureCollection: GeoJSON.FeatureCollection =  {
                 prop1: 0.0
             }
         },
-        { 
+        {
             type: "Feature",
             geometry: {
                 type: "Polygon",
                 coordinates: [
-                    [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ]
+                    [[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]]
                 ]
             },
             properties: {
@@ -54,7 +54,7 @@ var featureCollection: GeoJSON.FeatureCollection =  {
     }
 }
 
-var feature: GeoJSON.Feature = { 
+var feature: GeoJSON.Feature = {
     type: "Feature",
     bbox: [-180.0, -90.0, 180.0, 90.0],
     geometry: {
@@ -67,63 +67,63 @@ var feature: GeoJSON.Feature = {
 };
 
 
-var point: GeoJSON.Point = { 
-	type: "Point",
-	coordinates: [100.0, 0.0]
+var point: GeoJSON.Point = {
+    type: "Point",
+    coordinates: [100.0, 0.0]
 };
 
 var lineString: GeoJSON.LineString = {
-	type: "LineString",
-	coordinates: [ [100.0, 0.0], [101.0, 1.0] ]
+    type: "LineString",
+    coordinates: [[100.0, 0.0], [101.0, 1.0]]
 };
 
-var polygon: GeoJSON.Polygon = { 
+var polygon: GeoJSON.Polygon = {
     type: "Polygon",
     coordinates: [
-        [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ]
+        [[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]]
     ]
 };
 
-var polygonWithHole: GeoJSON.Polygon = { 
+var polygonWithHole: GeoJSON.Polygon = {
     type: "Polygon",
     coordinates: [
-        [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ],
-        [ [100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2] ]
+        [[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],
+        [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]
     ]
 };
 
 var multiPoint: GeoJSON.MultiPoint = {
     type: "MultiPoint",
-    coordinates: [ [100.0, 0.0], [101.0, 1.0] ]
+    coordinates: [[100.0, 0.0], [101.0, 1.0]]
 };
 
-var multiLineString: GeoJSON.MultiLineString = { 
+var multiLineString: GeoJSON.MultiLineString = {
     type: "MultiLineString",
     coordinates: [
-        [ [100.0, 0.0], [101.0, 1.0] ],
-        [ [102.0, 2.0], [103.0, 3.0] ]
+        [[100.0, 0.0], [101.0, 1.0]],
+        [[102.0, 2.0], [103.0, 3.0]]
     ]
 };
 
-var multiPolygon: GeoJSON.MultiPolygon = { 
+var multiPolygon: GeoJSON.MultiPolygon = {
     type: "MultiPolygon",
     coordinates: [
         [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],
         [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],
-         [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]
+            [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]
     ]
 }
 
-var geometryCollection: GeoJSON.GeometryCollection = { 
+var geometryCollection: GeoJSON.GeometryCollection = {
     type: "GeometryCollection",
     "geometries": [
-        { 
+        {
             type: "Point",
             coordinates: [100.0, 0.0]
         },
-        { 
+        {
             type: "LineString",
-            coordinates: [ [101.0, 0.0], [102.0, 1.0] ]
+            coordinates: [[101.0, 0.0], [102.0, 1.0]]
         }
     ]
 }

@@ -39,17 +39,17 @@ function test_dataTableAddRow() {
 
 function test_geoChart() {
     var data = google.visualization.arrayToDataTable([
-        ['Country',   'Population', 'Area Percentage'],
-        ['France',  65700000, 50],
+        ['Country', 'Population', 'Area Percentage'],
+        ['France', 65700000, 50],
         ['Germany', 81890000, 27],
-        ['Poland',  38540000, 23],
+        ['Poland', 38540000, 23],
     ]);
 
     var options = {
         sizeAxis: { minValue: 0, maxValue: 100 },
         region: '155', // Western Europe
         displayMode: 'markers',
-        colorAxis: {colors: ['#e7711c', '#4374e0']} // orange to blue
+        colorAxis: { colors: ['#e7711c', '#4374e0'] } // orange to blue
     };
 
     var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
@@ -59,18 +59,18 @@ function test_geoChart() {
 function test_scatterChart() {
     var data = google.visualization.arrayToDataTable([
         ['Age', 'Weight'],
-        [ 8,      12],
-        [ 4,      5.5],
-        [ 11,     14],
-        [ 4,      5],
-        [ 3,      3.5],
-        [ 6.5,    7]
+        [8, 12],
+        [4, 5.5],
+        [11, 14],
+        [4, 5],
+        [3, 3.5],
+        [6.5, 7]
     ]);
 
     var options = {
         title: 'Age vs. Weight comparison',
-        hAxis: {title: 'Age', minValue: 0, maxValue: 15},
-        vAxis: {title: 'Weight', minValue: 0, maxValue: 15},
+        hAxis: { title: 'Age', minValue: 0, maxValue: 15 },
+        vAxis: { title: 'Weight', minValue: 0, maxValue: 15 },
         legend: 'none'
     };
 
@@ -80,7 +80,7 @@ function test_scatterChart() {
 
 function test_barChart() {
     var data = google.visualization.arrayToDataTable([
-        ["Element", "Density", { role: "style" } ],
+        ["Element", "Density", { role: "style" }],
         ["Copper", 8.94, "#b87333"],
         ["Silver", 10.49, "silver"],
         ["Gold", 19.30, "gold"],
@@ -89,17 +89,19 @@ function test_barChart() {
 
     var view = new google.visualization.DataView(data);
     view.setColumns([0, 1,
-        { calc: "stringify",
+        {
+            calc: "stringify",
             sourceColumn: 1,
             type: "string",
-            role: "annotation" },
+            role: "annotation"
+        },
         2]);
 
     var options = {
         title: "Density of Precious Metals, in g/cm^3",
         width: 600,
         height: 400,
-        bar: {groupWidth: "95%"},
+        bar: { groupWidth: "95%" },
         legend: { position: "none" }
     };
     var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
@@ -150,16 +152,16 @@ function test_histogram() {
 function test_areaChart() {
     var data = google.visualization.arrayToDataTable([
         ['Year', 'Sales', 'Expenses'],
-        ['2013',  1000,      400],
-        ['2014',  1170,      460],
-        ['2015',  660,       1120],
-        ['2016',  1030,      540]
+        ['2013', 1000, 400],
+        ['2014', 1170, 460],
+        ['2015', 660, 1120],
+        ['2016', 1030, 540]
     ]);
 
     var options = {
         title: 'Company Performance',
-        hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-        vAxis: {minValue: 0}
+        hAxis: { title: 'Year', titleTextStyle: { color: '#333' } },
+        vAxis: { minValue: 0 }
     };
 
     var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
@@ -168,16 +170,16 @@ function test_areaChart() {
 
 function test_steppedAreaChart() {
     var data = google.visualization.arrayToDataTable([
-        ['Director (Year)',  'Rotten Tomatoes', 'IMDB'],
-        ['Alfred Hitchcock (1935)', 8.4,         7.9],
-        ['Ralph Thomas (1959)',     6.9,         6.5],
-        ['Don Sharp (1978)',        6.5,         6.4],
-        ['James Hawes (2008)',      4.4,         6.2]
+        ['Director (Year)', 'Rotten Tomatoes', 'IMDB'],
+        ['Alfred Hitchcock (1935)', 8.4, 7.9],
+        ['Ralph Thomas (1959)', 6.9, 6.5],
+        ['Don Sharp (1978)', 6.5, 6.4],
+        ['James Hawes (2008)', 4.4, 6.2]
     ]);
 
     var options = {
         title: 'The decline of \'The 39 Steps\'',
-        vAxis: {title: 'Accumulated Rating'},
+        vAxis: { title: 'Accumulated Rating' },
         isStacked: true
     };
 
@@ -188,10 +190,10 @@ function test_steppedAreaChart() {
 function test_lineChart() {
     var data = google.visualization.arrayToDataTable([
         ['Year', 'Sales', 'Expenses'],
-        ['2004',  1000,      400],
-        ['2005',  1170,      460],
-        ['2006',  660,       1120],
-        ['2007',  1030,      540]
+        ['2004', 1000, 400],
+        ['2005', 1170, 460],
+        ['2006', 660, 1120],
+        ['2007', 1030, 540]
     ]);
 
     var options = {
@@ -205,11 +207,11 @@ function test_lineChart() {
 function test_pieChart() {
     var data = google.visualization.arrayToDataTable([
         ['Task', 'Hours per Day'],
-        ['Work',     11],
-        ['Eat',      2],
-        ['Commute',  2],
+        ['Work', 11],
+        ['Eat', 2],
+        ['Commute', 2],
         ['Watch TV', 2],
-        ['Sleep',    7]
+        ['Sleep', 7]
     ]);
 
     var options = {
@@ -222,24 +224,24 @@ function test_pieChart() {
 
 function test_bubbleChart() {
     var data = google.visualization.arrayToDataTable([
-        ['ID', 'Life Expectancy', 'Fertility Rate', 'Region',     'Population'],
-        ['CAN',    80.66,              1.67,      'North America',  33739900],
-        ['DEU',    79.84,              1.36,      'Europe',         81902307],
-        ['DNK',    78.6,               1.84,      'Europe',         5523095],
-        ['EGY',    72.73,              2.78,      'Middle East',    79716203],
-        ['GBR',    80.05,              2,         'Europe',         61801570],
-        ['IRN',    72.49,              1.7,       'Middle East',    73137148],
-        ['IRQ',    68.09,              4.77,      'Middle East',    31090763],
-        ['ISR',    81.55,              2.96,      'Middle East',    7485600],
-        ['RUS',    68.6,               1.54,      'Europe',         141850000],
-        ['USA',    78.09,              2.05,      'North America',  307007000]
+        ['ID', 'Life Expectancy', 'Fertility Rate', 'Region', 'Population'],
+        ['CAN', 80.66, 1.67, 'North America', 33739900],
+        ['DEU', 79.84, 1.36, 'Europe', 81902307],
+        ['DNK', 78.6, 1.84, 'Europe', 5523095],
+        ['EGY', 72.73, 2.78, 'Middle East', 79716203],
+        ['GBR', 80.05, 2, 'Europe', 61801570],
+        ['IRN', 72.49, 1.7, 'Middle East', 73137148],
+        ['IRQ', 68.09, 4.77, 'Middle East', 31090763],
+        ['ISR', 81.55, 2.96, 'Middle East', 7485600],
+        ['RUS', 68.6, 1.54, 'Europe', 141850000],
+        ['USA', 78.09, 2.05, 'North America', 307007000]
     ]);
 
     var options = {
         title: 'Correlation between life expectancy, fertility rate and population of some world countries (2010)',
-        hAxis: {title: 'Life Expectancy'},
-        vAxis: {title: 'Fertility Rate'},
-        bubble: {textStyle: {fontSize: 11}}
+        hAxis: { title: 'Life Expectancy' },
+        vAxis: { title: 'Fertility Rate' },
+        bubble: { textStyle: { fontSize: 11 } }
     };
 
     var chart = new google.visualization.BubbleChart(document.getElementById('chart_div'));
@@ -250,34 +252,34 @@ function test_treemap() {
     // Create and populate the data table.
     var data = google.visualization.arrayToDataTable([
         ['Location', 'Parent', 'Market trade volume (size)', 'Market increase/decrease (color)'],
-        ['Global',    null,                 0,                               0],
-        ['America',   'Global',             0,                               0],
-        ['Europe',    'Global',             0,                               0],
-        ['Asia',      'Global',             0,                               0],
-        ['Australia', 'Global',             0,                               0],
-        ['Africa',    'Global',             0,                               0],
-        ['Brazil',    'America',            11,                              10],
-        ['USA',       'America',            52,                              31],
-        ['Mexico',    'America',            24,                              12],
-        ['Canada',    'America',            16,                              -23],
-        ['France',    'Europe',             42,                              -11],
-        ['Germany',   'Europe',             31,                              -2],
-        ['Sweden',    'Europe',             22,                              -13],
-        ['Italy',     'Europe',             17,                              4],
-        ['UK',        'Europe',             21,                              -5],
-        ['China',     'Asia',               36,                              4],
-        ['Japan',     'Asia',               20,                              -12],
-        ['India',     'Asia',               40,                              63],
-        ['Laos',      'Asia',               4,                               34],
-        ['Mongolia',  'Asia',               1,                               -5],
-        ['Israel',    'Asia',               12,                              24],
-        ['Iran',      'Asia',               18,                              13],
-        ['Pakistan',  'Asia',               11,                              -52],
-        ['Egypt',     'Africa',             21,                              0],
-        ['S. Africa', 'Africa',             30,                              43],
-        ['Sudan',     'Africa',             12,                              2],
-        ['Congo',     'Africa',             10,                              12],
-        ['Zaire',     'Africa',             8,                               10]
+        ['Global', null, 0, 0],
+        ['America', 'Global', 0, 0],
+        ['Europe', 'Global', 0, 0],
+        ['Asia', 'Global', 0, 0],
+        ['Australia', 'Global', 0, 0],
+        ['Africa', 'Global', 0, 0],
+        ['Brazil', 'America', 11, 10],
+        ['USA', 'America', 52, 31],
+        ['Mexico', 'America', 24, 12],
+        ['Canada', 'America', 16, -23],
+        ['France', 'Europe', 42, -11],
+        ['Germany', 'Europe', 31, -2],
+        ['Sweden', 'Europe', 22, -13],
+        ['Italy', 'Europe', 17, 4],
+        ['UK', 'Europe', 21, -5],
+        ['China', 'Asia', 36, 4],
+        ['Japan', 'Asia', 20, -12],
+        ['India', 'Asia', 40, 63],
+        ['Laos', 'Asia', 4, 34],
+        ['Mongolia', 'Asia', 1, -5],
+        ['Israel', 'Asia', 12, 24],
+        ['Iran', 'Asia', 18, 13],
+        ['Pakistan', 'Asia', 11, -52],
+        ['Egypt', 'Africa', 21, 0],
+        ['S. Africa', 'Africa', 30, 43],
+        ['Sudan', 'Africa', 12, 2],
+        ['Congo', 'Africa', 10, 12],
+        ['Zaire', 'Africa', 8, 10]
     ]);
 
     // Create and draw the visualization.
@@ -288,7 +290,8 @@ function test_treemap() {
         maxColor: '#0d0',
         headerHeight: 15,
         fontColor: 'black',
-        showScale: true});
+        showScale: true
+    });
 }
 
 function test_table() {
@@ -297,14 +300,14 @@ function test_table() {
     data.addColumn('number', 'Salary');
     data.addColumn('boolean', 'Full Time Employee');
     data.addRows([
-        ['Mike',  {v: 10000, f: '$10,000'}, true],
-        ['Jim',   {v:8000,   f: '$8,000'},  false],
-        ['Alice', {v: 12500, f: '$12,500'}, true],
-        ['Bob',   {v: 7000,  f: '$7,000'},  true]
+        ['Mike', { v: 10000, f: '$10,000' }, true],
+        ['Jim', { v: 8000, f: '$8,000' }, false],
+        ['Alice', { v: 12500, f: '$12,500' }, true],
+        ['Bob', { v: 7000, f: '$7,000' }, true]
     ]);
 
     var table = new google.visualization.Table(document.getElementById('table_div'));
-    table.draw(data, {showRowNumber: true});
+    table.draw(data, { showRowNumber: true });
 }
 
 function test_timeline() {
@@ -319,9 +322,9 @@ function test_timeline() {
     dataTable.addColumn({ type: 'date', id: 'End' });
 
     dataTable.addRows([
-        [ 'Washington', new Date(1789, 3, 29), new Date(1797, 2, 3) ],
-        [ 'Adams',      new Date(1797, 2, 3),  new Date(1801, 2, 3) ],
-        [ 'Jefferson',  new Date(1801, 2, 3),  new Date(1809, 2, 3) ]]);
+        ['Washington', new Date(1789, 3, 29), new Date(1797, 2, 3)],
+        ['Adams', new Date(1797, 2, 3), new Date(1801, 2, 3)],
+        ['Jefferson', new Date(1801, 2, 3), new Date(1809, 2, 3)]]);
 
     chart.draw(dataTable);
 }
@@ -337,7 +340,7 @@ function test_candlestickChart() {
     ], true);
 
     var options = {
-        legend:'none'
+        legend: 'none'
     };
 
     var chart = new google.visualization.CandlestickChart(document.getElementById('chart_div'));

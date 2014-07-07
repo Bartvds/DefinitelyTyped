@@ -70,7 +70,7 @@ try {
     while (true) {
         fn.run();
     }
-} catch(e) {
+} catch (e) {
     console.log('safely caught that error!');
     console.log(e.stack);
 }

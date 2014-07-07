@@ -3,17 +3,17 @@
 import restify = require("restify");
 
 var server = restify.createServer({
-  formatters: {
-    'application/foo': function formatFoo(req, res, body) {
-        if (body instanceof Error)
-            return body.stack;
+    formatters: {
+        'application/foo': function formatFoo(req, res, body) {
+            if (body instanceof Error)
+                return body.stack;
 
-        if (body)
-            return body.toString('base64');
+            if (body)
+                return body.toString('base64');
 
-        return body;
+            return body;
+        }
     }
-  }
 });
 
 server = restify.createServer({
@@ -25,29 +25,29 @@ server = restify.createServer({
     spdy: {},
     version: "",
     responseTimeHeader: "",
-    responseTimeFormatter : (durationInMilliseconds: number) => {}
+    responseTimeFormatter: (durationInMilliseconds: number) => { }
 });
 
 server.pre(restify.pre.sanitizePath());
 
-server.on('someEvent', ()=>{});
+server.on('someEvent', () => { });
 
 
-server.use((req, res, next)=>{});
-server.use([(req, res, next)=>{}]);
-server.use((req, res, next)=>{}, (req, res, next)=>{});
+server.use((req, res, next) => { });
+server.use([(req, res, next) => { }]);
+server.use((req, res, next) => { }, (req, res, next) => { });
 
 function send(req, res, next) {
     req.header('key', 'val');
     req.header('key') === 'val';
-    
+
     req.accepts('test') === true;
     req.is('test') === true;
 
     req.getLogger('test');
 
     var log = req.log;
-    log.debug({params: req.params}, 'Hello there %s', 'foo');
+    log.debug({ params: req.params }, 'Hello there %s', 'foo');
 
     req.contentLength === 50;
     req.contentType === 'test';
@@ -68,12 +68,12 @@ function send(req, res, next) {
 
     res.status(344);
 
-    res.send({hello: 'world'});
-    res.send(201, {hello: 'world'});
+    res.send({ hello: 'world' });
+    res.send(201, { hello: 'world' });
     res.send(new restify.BadRequestError('meh'));
 
-    res.json(201, {hello: 'world'});
-    res.json({hello: 'world'});
+    res.json(201, { hello: 'world' });
+    res.json({ hello: 'world' });
 
     res.code === 50;
     res.contentLength === 50;
@@ -88,15 +88,15 @@ function send(req, res, next) {
 
 
 server.post('/hello', send);
-server.put( '/hello', send);
-server.del( '/hello', send);
-server.get( '/hello', send);
+server.put('/hello', send);
+server.del('/hello', send);
+server.get('/hello', send);
 server.head('/hello', send);
 
 server.post(/(.*)/, send);
-server.put( /(.*)/, send);
-server.del( /(.*)/, send);
-server.get( /(.*)/, send);
+server.put(/(.*)/, send);
+server.del(/(.*)/, send);
+server.get(/(.*)/, send);
 server.head(/(.*)/, send);
 
 new restify.ConflictError("test");
@@ -145,16 +145,16 @@ server.use(restify.throttle({
         '192.168.1.1': {
             rate: 0,
             burst: 0
-         }
+        }
     }
 }));
 
 server.on('after', restify.auditLogger({
-    log: ()=>{}
+    log: () => { }
 }));
 
 restify.defaultResponseHeaders = function(data) {
-  this.header('Server', 'helloworld');
+    this.header('Server', 'helloworld');
 };
 
 restify.defaultResponseHeaders = false;
@@ -174,7 +174,7 @@ client = restify.createStringClient({
     headers: {},
     log: {},
     retry: {},
-    signRequest: ()=>{},
+    signRequest: () => { },
     url: "",
     userAgent: "",
     version: ""
@@ -196,7 +196,7 @@ client.get('/foo/bar', function(err, req, res, data) {
 });
 
 var client2 = restify.createClient({
-  url: 'http://127.0.0.1'
+    url: 'http://127.0.0.1'
 });
 
 client2.get('/str/mcavage', function(err, req) {
@@ -214,7 +214,7 @@ client2.get('/str/mcavage', function(err, req) {
         });
     });
 });
-  
+
 
 client.basicAuth('test', 'password');
 client2.basicAuth('test', 'password');

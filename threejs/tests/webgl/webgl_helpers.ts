@@ -1,4 +1,4 @@
-﻿/// <reference path="../../three.d.ts" />
+/// <reference path="../../three.d.ts" />
 /// <reference path="../three-tests-setup.ts" />
 
 // https://github.com/mrdoob/three.js/blob/master/examples/webgl_helpers.html
@@ -35,7 +35,7 @@
         scene.add(helper);
 
         var loader = new THREE.JSONLoader();
-        loader.load('obj/leeperrysmith/LeePerrySmith.js', function (geometry, materials) {
+        loader.load('obj/leeperrysmith/LeePerrySmith.js', function(geometry, materials) {
 
             var material = new THREE.MeshLambertMaterial();
 

@@ -9,7 +9,7 @@
  */
 angular.module('http-auth-interceptor', [])
 
-    .provider('authService', function () {
+    .provider('authService', function() {
         /**
          * Holds all the requests which failed due to 401 response,
          * so they can be re-requested in future, once login is completed.
@@ -20,18 +20,18 @@ angular.module('http-auth-interceptor', [])
          * Required by HTTP interceptor.
          * Function is attached to provider to be invisible for regular users of this service.
          */
-        this.pushToBuffer = function (config: ng.IRequestConfig, deferred: ng.IDeferred<any>) {
+        this.pushToBuffer = function(config: ng.IRequestConfig, deferred: ng.IDeferred<any>) {
             buffer.push({
                 config: config,
                 deferred: deferred
             });
         }
 
-      this.$get = ['$rootScope', '$injector', <any>function ($rootScope: ng.IScope, $injector: ng.auto.IInjectorService) {
+      this.$get = ['$rootScope', '$injector', <any>function($rootScope: ng.IScope, $injector: ng.auto.IInjectorService) {
             var $http: ng.IHttpService; //initialized later because of circular dependency problem
             function retry(config: ng.IRequestConfig, deferred: ng.IDeferred<any>) {
                 $http = $http || $injector.get('$http');
-                $http(config).then(function (response) {
+                $http(config).then(function(response) {
                     deferred.resolve(response);
                 });
             }
@@ -43,7 +43,7 @@ angular.module('http-auth-interceptor', [])
             }
 
           return {
-                loginConfirmed: function () {
+                loginConfirmed: function() {
                     $rootScope.$broadcast('event:auth-loginConfirmed');
                     retryAll();
                 }
@@ -55,9 +55,9 @@ angular.module('http-auth-interceptor', [])
  * $http interceptor.
  * On 401 response - it stores the request and broadcasts 'event:angular-auth-loginRequired'.
  */
-    .config(['$httpProvider', 'authServiceProvider', <any>function ($httpProvider: ng.IHttpProvider, authServiceProvider: any) {
+    .config(['$httpProvider', 'authServiceProvider', <any>function($httpProvider: ng.IHttpProvider, authServiceProvider: any) {
 
-        var interceptor = ['$rootScope', '$q', <any>function ($rootScope: ng.IScope, $q: ng.IQService) {
+        var interceptor = ['$rootScope', '$q', <any>function($rootScope: ng.IScope, $q: ng.IQService) {
             function success(response: ng.IHttpPromiseCallbackArg<any>) {
                 return response;
             }
@@ -73,7 +73,7 @@ angular.module('http-auth-interceptor', [])
                 return $q.reject(response);
             }
 
-          return function (promise: ng.IHttpPromise<any>) {
+          return function(promise: ng.IHttpPromise<any>) {
                 return promise.then(success, error);
             }
 
@@ -164,23 +164,23 @@ module My.Namespace {
 
 // IModule Registering Test
 var mod = angular.module('tests', []);
-mod.controller('name', function ($scope: ng.IScope) { })
-mod.controller('name', ['$scope', <any>function ($scope: ng.IScope) { }])
+mod.controller('name', function($scope: ng.IScope) { })
+mod.controller('name', ['$scope', <any>function($scope: ng.IScope) { }])
 mod.controller(My.Namespace);
-mod.directive('name', <any>function ($scope: ng.IScope) { })
-mod.directive('name', ['$scope', <any>function ($scope: ng.IScope) { }])
+mod.directive('name', <any>function($scope: ng.IScope) { })
+mod.directive('name', ['$scope', <any>function($scope: ng.IScope) { }])
 mod.directive(My.Namespace);
-mod.factory('name', function ($scope: ng.IScope) { })
-mod.factory('name', ['$scope', <any>function ($scope: ng.IScope) { }])
+mod.factory('name', function($scope: ng.IScope) { })
+mod.factory('name', ['$scope', <any>function($scope: ng.IScope) { }])
 mod.factory(My.Namespace);
-mod.filter('name', function ($scope: ng.IScope) { })
-mod.filter('name', ['$scope', <any>function ($scope: ng.IScope) { }])
+mod.filter('name', function($scope: ng.IScope) { })
+mod.filter('name', ['$scope', <any>function($scope: ng.IScope) { }])
 mod.filter(My.Namespace);
-mod.provider('name', function ($scope: ng.IScope) { })
-mod.provider('name', ['$scope', <any>function ($scope: ng.IScope) { }])
+mod.provider('name', function($scope: ng.IScope) { })
+mod.provider('name', ['$scope', <any>function($scope: ng.IScope) { }])
 mod.provider(My.Namespace);
-mod.service('name', function ($scope: ng.IScope) { })
-mod.service('name', ['$scope', <any>function ($scope: ng.IScope) { }])
+mod.service('name', function($scope: ng.IScope) { })
+mod.service('name', ['$scope', <any>function($scope: ng.IScope) { }])
 mod.service(My.Namespace);
 mod.constant('name', 23);
 mod.constant('name', "23");
@@ -196,39 +196,39 @@ foo.then((x) => {
     // x is inferred to be a number
     return "asdf";
 }).then((x) => {
-    // x is inferred to be string
-    x.length;
-    return 123;
-}).then((x) => {
-    // x is infered to be a number
-    x.toFixed();
-    return;
-}).then((x) => {
-    // x is infered to be void
-    // Typescript will prevent you to actually use x as a local variable
-    // Try object:
-    return { a: 123 };
-}).then((x) => {
-    // Object is inferred here
-    x.a = 123;
-    //Try a promise 
-    var y: ng.IPromise<number>;
-    return y; 
-}).then((x) => {
-    // x is infered to be a number, which is the resolved value of a promise 
-    x.toFixed();
-});
+        // x is inferred to be string
+        x.length;
+        return 123;
+    }).then((x) => {
+        // x is infered to be a number
+        x.toFixed();
+        return;
+    }).then((x) => {
+        // x is infered to be void
+        // Typescript will prevent you to actually use x as a local variable
+        // Try object:
+        return { a: 123 };
+    }).then((x) => {
+        // Object is inferred here
+        x.a = 123;
+        //Try a promise 
+        var y: ng.IPromise<number>;
+        return y;
+    }).then((x) => {
+        // x is infered to be a number, which is the resolved value of a promise 
+        x.toFixed();
+    });
 
 
 var httpFoo: ng.IHttpPromise<number>;
 httpFoo.then((x) => {
     // When returning a promise the generic type must be inferred.
-    var innerPromise : ng.IPromise<number>;
+    var innerPromise: ng.IPromise<number>;
     return innerPromise;
 }).then((x) => {
-    // must still be number.
-    x.toFixed();
-});
+        // must still be number.
+        x.toFixed();
+    });
 
 
 // angular.element() tests
@@ -238,15 +238,15 @@ var isolateScope: ng.IScope = element.isolateScope();
 
 
 
-function test_IAttributes(attributes: ng.IAttributes){
+function test_IAttributes(attributes: ng.IAttributes) {
     return attributes;
 }
 
 test_IAttributes({
-    $addClass: function (classVal){},
-    $removeClass: function(classVal){},
-    $set: function(key, value){},
-    $observe: function(name, fn){
+    $addClass: function(classVal) { },
+    $removeClass: function(classVal) { },
+    $set: function(key, value) { },
+    $observe: function(name, fn) {
         return fn;
     },
     $attr: {}

@@ -19,7 +19,7 @@ function test_orbit() {
         bullets: false,
         bulletThumbs: false,
         bulletThumbLocation: '',
-        afterSlideChange: function () { },
+        afterSlideChange: function() { },
         fluid: true
     });
 }

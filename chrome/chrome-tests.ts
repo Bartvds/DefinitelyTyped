@@ -4,8 +4,8 @@
 
 // https://developer.chrome.com/extensions/examples/api/bookmarks/basic/popup.js
 function bookmarksExample() {
-    $(function () {
-        $('#search').change(function () {
+    $(function() {
+        $('#search').change(function() {
             $('#bookmarks').empty();
             dumpBookmarks($('#search').val());
         });
@@ -13,7 +13,7 @@ function bookmarksExample() {
     // Traverse the bookmark tree, and print the folder and nodes.
     function dumpBookmarks(query?) {
         var bookmarkTreeNodes = chrome.bookmarks.getTree(
-            function (bookmarkTreeNodes) {
+            function(bookmarkTreeNodes) {
                 $('#bookmarks').append(dumpTreeNodes(bookmarkTreeNodes, query));
             });
     }
@@ -39,7 +39,7 @@ function bookmarksExample() {
              * When clicking on a bookmark in the extension, a new tab is fired with
              * the bookmark url.
              */
-            anchor.click(function () {
+            anchor.click(function() {
                 chrome.tabs.create({ url: bookmarkNode.url });
             });
             var span = $('<span>');
@@ -51,9 +51,9 @@ function bookmarksExample() {
                 '<input id="title"></td></tr><tr><td>URL</td><td><input id="url">' +
                 '</td></tr></table>') : $('<input>');
             // Show add and edit links when hover over.
-            span.hover(function () {
+            span.hover(function() {
                 span.append(options);
-                $('#deletelink').click(function () {
+                $('#deletelink').click(function() {
                     $('#deletedialog').empty().dialog({
                         autoOpen: false,
                         title: 'Confirm Deletion',
@@ -65,23 +65,23 @@ function bookmarksExample() {
                             opacity: 0.5
                         },
                         buttons: {
-                            'Yes, Delete It!': function () {
+                            'Yes, Delete It!': function() {
                                 chrome.bookmarks.remove(String(bookmarkNode.id));
                                 span.parent().remove();
                                 $(this).dialog('destroy');
                             },
-                            Cancel: function () {
+                            Cancel: function() {
                                 $(this).dialog('destroy');
                             }
                         }
                     }).dialog('open');
                 });
-                $('#addlink').click(function () {
+                $('#addlink').click(function() {
                     $('#adddialog').empty().append(edit).dialog({
                         autoOpen: false,
                         closeOnEscape: true, title: 'Add New Bookmark', modal: true,
                         buttons: {
-                            'Add': function () {
+                            'Add': function() {
                                 chrome.bookmarks.create({
                                     parentId: bookmarkNode.id,
                                     title: $('#title').val(), url: $('#url').val()
@@ -90,19 +90,19 @@ function bookmarksExample() {
                                 $(this).dialog('destroy');
                                 dumpBookmarks();
                             },
-                            'Cancel': function () {
+                            'Cancel': function() {
                                 $(this).dialog('destroy');
                             }
                         }
                     }).dialog('open');
                 });
-                $('#editlink').click(function () {
+                $('#editlink').click(function() {
                     edit.val(anchor.text());
                     $('#editdialog').empty().append(edit).dialog({
                         autoOpen: false,
                         closeOnEscape: true, title: 'Edit Title', modal: true,
                         show: 'slide', buttons: {
-                            'Save': function () {
+                            'Save': function() {
                                 chrome.bookmarks.update(String(bookmarkNode.id), {
                                     title: edit.val()
                                 });
@@ -110,7 +110,7 @@ function bookmarksExample() {
                                 options.show();
                                 $(this).dialog('destroy');
                             },
-                            'Cancel': function () {
+                            'Cancel': function() {
                                 $(this).dialog('destroy');
                             }
                         }
@@ -119,7 +119,7 @@ function bookmarksExample() {
                 options.fadeIn();
             },
                 // unhover
-                function () {
+                function() {
                     options.remove();
                 }).append(anchor);
         }
@@ -130,14 +130,14 @@ function bookmarksExample() {
         return li;
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         dumpBookmarks();
     });
 }
 
 // https://developer.chrome.com/extensions/examples/api/browserAction/make_page_red/background.js
 function pageRedder() {
-    chrome.browserAction.onClicked.addListener(function (tab) {
+    chrome.browserAction.onClicked.addListener(function(tab) {
         // No tabs or host permissions needed!
         console.log('Turning ' + tab.url + ' red!');
         chrome.tabs.executeScript({
@@ -148,7 +148,7 @@ function pageRedder() {
 
 // https://developer.chrome.com/extensions/examples/api/browserAction/print/background.js
 function printPage() {
-    chrome.browserAction.onClicked.addListener(function (tab) {
+    chrome.browserAction.onClicked.addListener(function(tab) {
         var action_url = "javascript:window.print();";
         chrome.tabs.update(tab.id, { url: action_url });
     });

@@ -3,7 +3,7 @@
 import fibers = require('fibers');
 
 var fib: fibers.Fiber;
-var x:any = null;
+var x: any = null;
 var func: () => void = null;
 
 fib = fibers(func);

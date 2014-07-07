@@ -1114,7 +1114,7 @@ declare module 'mapsjs' {
              * @param {number} m - number for margin in pixels
              */
             // setContentExtenxels(m: number): void;
-            
+
             /**
              * Gets ID associated with this tile layer.
              * @returns {string} ID of the layer.
@@ -1159,7 +1159,7 @@ declare module 'mapsjs' {
              * @param {tile.requestor} req A requestor object.
              * @param {tile.requestor} [desc] Descriptor object so that both
              * can be set in one call andur only one content change event.
-             */			 
+             */
             setRequestor(req: tile.requestor, desc?: any): void;
 
             /**

@@ -9,7 +9,7 @@ var key: string;
 var strArr: string[];
 
 interface Foo {
-	foo(): void;
+    foo(): void;
 }
 
 var foo: Foo;
@@ -17,20 +17,20 @@ var fooArr: Foo[];
 
 var opts: lru.Options<any>;
 opts = {
-	max: num,
-	maxAge: num,
-	stale: bool
+    max: num,
+    maxAge: num,
+    stale: bool
 };
 var cache: lru.Cache<Foo> = lru<Foo>({
-	max: num,
-	maxAge: num,
-	length: (value: Foo) => {
+    max: num,
+    maxAge: num,
+    length: (value: Foo) => {
 		return num
 	},
-	dispose: (key: string, value: Foo) => {
+    dispose: (key: string, value: Foo) => {
 
-	},
-	stale: bool
+    },
+    stale: bool
 });
 
 cache = lru<Foo>(num);
@@ -49,8 +49,8 @@ cache.forEach((value: Foo, key: string, cache: lru.Cache<Foo>) => {
 
 }, x);
 cache.forEach((value, key, cache) => {
-	foo = cache.peek(key);
+    foo = cache.peek(key);
 });
 
 strArr = cache.keys();
-fooArr  = cache.values();
+fooArr = cache.values();

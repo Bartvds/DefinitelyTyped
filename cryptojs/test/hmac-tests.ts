@@ -1,25 +1,25 @@
 /// <reference path="../../yui/yui.d.ts" />
 /// <reference path="../cryptojs.d.ts" />
 
-YUI.add('algo-hmac-test', function (Y) {
+YUI.add('algo-hmac-test', function(Y) {
     var C = CryptoJS;
 
     Y.Test.Runner.add(new Y.Test.Case({
         name: 'HMAC',
 
-        testVector1: function () {
+        testVector1: function() {
             Y.Assert.areEqual('9294727a3638bb1c13f48ef8158bfc9d', C.HmacMD5('Hi There', C.enc.Hex.parse('0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b')).toString());
         },
 
-        testVector2: function () {
+        testVector2: function() {
             Y.Assert.areEqual('750c783e6ab0b503eaa86e310a5db738', C.HmacMD5('what do ya want for nothing?', 'Jefe').toString());
         },
 
-        testVector3: function () {
+        testVector3: function() {
             Y.Assert.areEqual('56be34521d144c88dbb8c733f0e8b3f6', C.HmacMD5(C.enc.Hex.parse('dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'), C.enc.Hex.parse('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')).toString());
         },
 
-        testUpdate: function () {
+        testUpdate: function() {
             var hmac = C.algo.HMAC.create(C.algo.MD5, C.enc.Hex.parse('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'));
             hmac.update(C.enc.Hex.parse('dddddddddddddddddddddddddddddddddddd'));
             hmac.update(C.enc.Hex.parse('dddddddddddddddddddddddddddddddd'));
@@ -28,7 +28,7 @@ YUI.add('algo-hmac-test', function (Y) {
             Y.Assert.areEqual(C.HmacMD5(C.enc.Hex.parse('dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'), C.enc.Hex.parse('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')).toString(), hmac.finalize().toString());
         },
 
-        testInputIntegrity: function () {
+        testInputIntegrity: function() {
             var message = C.lib.WordArray.create([0x12345678]);
             var key = C.lib.WordArray.create([0x12345678]);
 
@@ -41,7 +41,7 @@ YUI.add('algo-hmac-test', function (Y) {
             Y.Assert.areEqual(expectedKey, key.toString());
         },
 
-        testRespectKeySigBytes: function () {
+        testRespectKeySigBytes: function() {
             var key = C.lib.WordArray.random(8);
             key.sigBytes = 4;
 

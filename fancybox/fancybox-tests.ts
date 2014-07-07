@@ -116,7 +116,7 @@ $(".fancybox").fancybox({
     }
 });
 $(".fancybox").fancybox({
-    beforeLoad: function () {
+    beforeLoad: function() {
         this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
     }
 });
@@ -140,8 +140,8 @@ $.fancybox([
         title: 'Custom Title 2'
     }
 ], {
-    padding: 0
-});
+        padding: 0
+    });
 
 $(".fancybox").fancybox({
     margin: [20, 60, 20, 60]

@@ -67,7 +67,7 @@ function runTests() {
         falsy(() => { return t.prerelease === p.prerelease }, onFalse('prerelease'));
         falsy(() => { return t.ua === p.ua }, onFalse('ua'));
         falsy(() => { return t.version === p.version }, onFalse('version'));
-        
+
         falsy(() => { return t.os.architecture === p.os.architecture }, onFalse('os.architecture'));
         falsy(() => { return t.os.family === p.os.family }, onFalse('os.family'));
         falsy(() => { return t.os.version === p.os.version }, onFalse('os.version'));

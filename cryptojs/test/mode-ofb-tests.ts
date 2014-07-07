@@ -1,13 +1,13 @@
 /// <reference path="../../yui/yui.d.ts" />
 /// <reference path="../cryptojs.d.ts" />
 
-YUI.add('mode-ofb-test', function (Y) {
+YUI.add('mode-ofb-test', function(Y) {
     var C = CryptoJS;
 
     Y.Test.Runner.add(new Y.Test.Case({
         name: 'OFB',
 
-        setUp: function () {
+        setUp: function() {
             this.data = {};
 
             this.data.message = C.lib.WordArray.create([
@@ -18,7 +18,7 @@ YUI.add('mode-ofb-test', function (Y) {
             this.data.iv = C.lib.WordArray.create([0x30313233, 0x34353637, 0x38393a3b, 0x3c3d3e3f]);
         },
 
-        testEncryptor: function () {
+        testEncryptor: function() {
             // Compute expected
             var expected = this.data.message.clone();
             var aes = C.algo.AES.createEncryptor(this.data.key);
@@ -43,7 +43,7 @@ YUI.add('mode-ofb-test', function (Y) {
             Y.Assert.areEqual(expected.toString(), actual.toString());
         },
 
-        testDecryptor: function () {
+        testDecryptor: function() {
             var encrypted = C.AES.encrypt(this.data.message, this.data.key, { iv: this.data.iv, mode: C.mode.OFB, padding: C.pad.NoPadding });
             var decrypted = C.AES.decrypt(encrypted, this.data.key, { iv: this.data.iv, mode: C.mode.OFB, padding: C.pad.NoPadding });
 

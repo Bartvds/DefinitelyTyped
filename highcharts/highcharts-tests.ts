@@ -1,4 +1,4 @@
-﻿/// <reference path="highcharts.d.ts" />
+/// <reference path="highcharts.d.ts" />
 /// <reference path="../jquery/jquery.d.ts" />
 
 
@@ -110,7 +110,7 @@ var highChartSettings: HighchartsOptions = {
     }]
 };
 
-var container = $("#container").highcharts(highChartSettings, function (chart) {
+var container = $("#container").highcharts(highChartSettings, function(chart) {
     chart.series[0].setVisible(true, true);
 });
 

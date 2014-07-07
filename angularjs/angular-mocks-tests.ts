@@ -17,25 +17,25 @@ var date: Date;
 mock.dump({ key: 'value' });
 
 mock.inject(
-    function () { return 1; },
-    function () { return 2; }
+    function() { return 1; },
+    function() { return 2; }
     );
 
 mock.inject(
-    ['$rootScope', function ($rootScope: ng.IRootScopeService) { return 1; }]);
+    ['$rootScope', function($rootScope: ng.IRootScopeService) { return 1; }]);
 
 // This overload is not documented on the website, but flows from
 // how the injector works.
 mock.inject(
-    ['$rootScope', function ($rootScope: ng.IRootScopeService) { return 1; }],
-    ['$rootScope', function ($rootScope: ng.IRootScopeService) { return 2; }]);
+    ['$rootScope', function($rootScope: ng.IRootScopeService) { return 1; }],
+    ['$rootScope', function($rootScope: ng.IRootScopeService) { return 2; }]);
 
 mock.module('module1', 'module2');
 mock.module(
-    function () { return 1; },
-    function () { return 2; }
+    function() { return 1; },
+    function() { return 2; }
     );
-mock.module({ module1: function () { return 1; } });
+mock.module({ module1: function() { return 1; } });
 
 date = mock.TzDate(-7, '2013-1-1T15:00:00Z');
 date = mock.TzDate(-8, 12345678);
@@ -103,29 +103,29 @@ httpBackendService.verifyNoOutstandingRequest();
 requestHandler = httpBackendService.expect('GET', 'http://test.local');
 requestHandler = httpBackendService.expect('GET', 'http://test.local', 'response data');
 requestHandler = httpBackendService.expect('GET', 'http://test.local', 'response data', { header: 'value' });
-requestHandler = httpBackendService.expect('GET', 'http://test.local', 'response data', function (headers: Object): boolean { return true; });
+requestHandler = httpBackendService.expect('GET', 'http://test.local', 'response data', function(headers: Object): boolean { return true; });
 requestHandler = httpBackendService.expect('GET', 'http://test.local', /response data/);
 requestHandler = httpBackendService.expect('GET', 'http://test.local', /response data/, { header: 'value' });
-requestHandler = httpBackendService.expect('GET', 'http://test.local', /response data/, function (headers: Object): boolean { return true; });
-requestHandler = httpBackendService.expect('GET', 'http://test.local', function (data: string): boolean { return true; });
-requestHandler = httpBackendService.expect('GET', 'http://test.local', function (data: string): boolean { return true; }, { header: 'value' });
-requestHandler = httpBackendService.expect('GET', 'http://test.local', function (data: string): boolean { return true; }, function (headers: Object): boolean { return true; });
+requestHandler = httpBackendService.expect('GET', 'http://test.local', /response data/, function(headers: Object): boolean { return true; });
+requestHandler = httpBackendService.expect('GET', 'http://test.local', function(data: string): boolean { return true; });
+requestHandler = httpBackendService.expect('GET', 'http://test.local', function(data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.expect('GET', 'http://test.local', function(data: string): boolean { return true; }, function(headers: Object): boolean { return true; });
 requestHandler = httpBackendService.expect('GET', 'http://test.local', { key: 'value' });
 requestHandler = httpBackendService.expect('GET', 'http://test.local', { key: 'value' }, { header: 'value' });
-requestHandler = httpBackendService.expect('GET', 'http://test.local', { key: 'value' }, function (headers: Object): boolean { return true; });
+requestHandler = httpBackendService.expect('GET', 'http://test.local', { key: 'value' }, function(headers: Object): boolean { return true; });
 requestHandler = httpBackendService.expect('GET', /test.local/);
 requestHandler = httpBackendService.expect('GET', /test.local/, 'response data');
 requestHandler = httpBackendService.expect('GET', /test.local/, 'response data', { header: 'value' });
-requestHandler = httpBackendService.expect('GET', /test.local/, 'response data', function (headers: Object): boolean { return true; });
+requestHandler = httpBackendService.expect('GET', /test.local/, 'response data', function(headers: Object): boolean { return true; });
 requestHandler = httpBackendService.expect('GET', /test.local/, /response data/);
 requestHandler = httpBackendService.expect('GET', /test.local/, /response data/, { header: 'value' });
-requestHandler = httpBackendService.expect('GET', /test.local/, /response data/, function (headers: Object): boolean { return true; });
-requestHandler = httpBackendService.expect('GET', /test.local/, function (data: string): boolean { return true; });
-requestHandler = httpBackendService.expect('GET', /test.local/, function (data: string): boolean { return true; }, { header: 'value' });
-requestHandler = httpBackendService.expect('GET', /test.local/, function (data: string): boolean { return true; }, function (headers: Object): boolean { return true; });
+requestHandler = httpBackendService.expect('GET', /test.local/, /response data/, function(headers: Object): boolean { return true; });
+requestHandler = httpBackendService.expect('GET', /test.local/, function(data: string): boolean { return true; });
+requestHandler = httpBackendService.expect('GET', /test.local/, function(data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.expect('GET', /test.local/, function(data: string): boolean { return true; }, function(headers: Object): boolean { return true; });
 requestHandler = httpBackendService.expect('GET', /test.local/, { key: 'value' });
 requestHandler = httpBackendService.expect('GET', /test.local/, { key: 'value' }, { header: 'value' });
-requestHandler = httpBackendService.expect('GET', /test.local/, { key: 'value' }, function (headers: Object): boolean { return true; });
+requestHandler = httpBackendService.expect('GET', /test.local/, { key: 'value' }, function(headers: Object): boolean { return true; });
 
 requestHandler = httpBackendService.expectDELETE('http://test.local');
 requestHandler = httpBackendService.expectDELETE('http://test.local', { header: 'value' });
@@ -144,8 +144,8 @@ requestHandler = httpBackendService.expectPATCH('http://test.local', 'response d
 requestHandler = httpBackendService.expectPATCH('http://test.local', 'response data', { header: 'value' });
 requestHandler = httpBackendService.expectPATCH('http://test.local', /response data/);
 requestHandler = httpBackendService.expectPATCH('http://test.local', /response data/, { header: 'value' });
-requestHandler = httpBackendService.expectPATCH('http://test.local', function (data: string): boolean { return true; });
-requestHandler = httpBackendService.expectPATCH('http://test.local', function (data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.expectPATCH('http://test.local', function(data: string): boolean { return true; });
+requestHandler = httpBackendService.expectPATCH('http://test.local', function(data: string): boolean { return true; }, { header: 'value' });
 requestHandler = httpBackendService.expectPATCH('http://test.local', { key: 'value' });
 requestHandler = httpBackendService.expectPATCH('http://test.local', { key: 'value' }, { header: 'value' });
 requestHandler = httpBackendService.expectPATCH(/test.local/);
@@ -153,8 +153,8 @@ requestHandler = httpBackendService.expectPATCH(/test.local/, 'response data');
 requestHandler = httpBackendService.expectPATCH(/test.local/, 'response data', { header: 'value' });
 requestHandler = httpBackendService.expectPATCH(/test.local/, /response data/);
 requestHandler = httpBackendService.expectPATCH(/test.local/, /response data/, { header: 'value' });
-requestHandler = httpBackendService.expectPATCH(/test.local/, function (data: string): boolean { return true; });
-requestHandler = httpBackendService.expectPATCH(/test.local/, function (data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.expectPATCH(/test.local/, function(data: string): boolean { return true; });
+requestHandler = httpBackendService.expectPATCH(/test.local/, function(data: string): boolean { return true; }, { header: 'value' });
 requestHandler = httpBackendService.expectPATCH(/test.local/, { key: 'value' });
 requestHandler = httpBackendService.expectPATCH(/test.local/, { key: 'value' }, { header: 'value' });
 
@@ -163,8 +163,8 @@ requestHandler = httpBackendService.expectPOST('http://test.local', 'response da
 requestHandler = httpBackendService.expectPOST('http://test.local', 'response data', { header: 'value' });
 requestHandler = httpBackendService.expectPOST('http://test.local', /response data/);
 requestHandler = httpBackendService.expectPOST('http://test.local', /response data/, { header: 'value' });
-requestHandler = httpBackendService.expectPOST('http://test.local', function (data: string): boolean { return true; });
-requestHandler = httpBackendService.expectPOST('http://test.local', function (data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.expectPOST('http://test.local', function(data: string): boolean { return true; });
+requestHandler = httpBackendService.expectPOST('http://test.local', function(data: string): boolean { return true; }, { header: 'value' });
 requestHandler = httpBackendService.expectPOST('http://test.local', { key: 'value' });
 requestHandler = httpBackendService.expectPOST('http://test.local', { key: 'value' }, { header: 'value' });
 requestHandler = httpBackendService.expectPOST(/test.local/);
@@ -172,8 +172,8 @@ requestHandler = httpBackendService.expectPOST(/test.local/, 'response data');
 requestHandler = httpBackendService.expectPOST(/test.local/, 'response data', { header: 'value' });
 requestHandler = httpBackendService.expectPOST(/test.local/, /response data/);
 requestHandler = httpBackendService.expectPOST(/test.local/, /response data/, { header: 'value' });
-requestHandler = httpBackendService.expectPOST(/test.local/, function (data: string): boolean { return true; });
-requestHandler = httpBackendService.expectPOST(/test.local/, function (data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.expectPOST(/test.local/, function(data: string): boolean { return true; });
+requestHandler = httpBackendService.expectPOST(/test.local/, function(data: string): boolean { return true; }, { header: 'value' });
 requestHandler = httpBackendService.expectPOST(/test.local/, { key: 'value' });
 requestHandler = httpBackendService.expectPOST(/test.local/, { key: 'value' }, { header: 'value' });
 
@@ -182,8 +182,8 @@ requestHandler = httpBackendService.expectPUT('http://test.local', 'response dat
 requestHandler = httpBackendService.expectPUT('http://test.local', 'response data', { header: 'value' });
 requestHandler = httpBackendService.expectPUT('http://test.local', /response data/);
 requestHandler = httpBackendService.expectPUT('http://test.local', /response data/, { header: 'value' });
-requestHandler = httpBackendService.expectPUT('http://test.local', function (data: string): boolean { return true; });
-requestHandler = httpBackendService.expectPUT('http://test.local', function (data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.expectPUT('http://test.local', function(data: string): boolean { return true; });
+requestHandler = httpBackendService.expectPUT('http://test.local', function(data: string): boolean { return true; }, { header: 'value' });
 requestHandler = httpBackendService.expectPUT('http://test.local', { key: 'value' });
 requestHandler = httpBackendService.expectPUT('http://test.local', { key: 'value' }, { header: 'value' });
 requestHandler = httpBackendService.expectPUT(/test.local/);
@@ -191,37 +191,37 @@ requestHandler = httpBackendService.expectPUT(/test.local/, 'response data');
 requestHandler = httpBackendService.expectPUT(/test.local/, 'response data', { header: 'value' });
 requestHandler = httpBackendService.expectPUT(/test.local/, /response data/);
 requestHandler = httpBackendService.expectPUT(/test.local/, /response data/, { header: 'value' });
-requestHandler = httpBackendService.expectPUT(/test.local/, function (data: string): boolean { return true; });
-requestHandler = httpBackendService.expectPUT(/test.local/, function (data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.expectPUT(/test.local/, function(data: string): boolean { return true; });
+requestHandler = httpBackendService.expectPUT(/test.local/, function(data: string): boolean { return true; }, { header: 'value' });
 requestHandler = httpBackendService.expectPUT(/test.local/, { key: 'value' });
 requestHandler = httpBackendService.expectPUT(/test.local/, { key: 'value' }, { header: 'value' });
 
 requestHandler = httpBackendService.when('GET', 'http://test.local');
 requestHandler = httpBackendService.when('GET', 'http://test.local', 'response data');
 requestHandler = httpBackendService.when('GET', 'http://test.local', 'response data', { header: 'value' });
-requestHandler = httpBackendService.when('GET', 'http://test.local', 'response data', function (headers: Object): boolean { return true; });
+requestHandler = httpBackendService.when('GET', 'http://test.local', 'response data', function(headers: Object): boolean { return true; });
 requestHandler = httpBackendService.when('GET', 'http://test.local', /response data/);
 requestHandler = httpBackendService.when('GET', 'http://test.local', /response data/, { header: 'value' });
-requestHandler = httpBackendService.when('GET', 'http://test.local', /response data/, function (headers: Object): boolean { return true; });
-requestHandler = httpBackendService.when('GET', 'http://test.local', function (data: string): boolean { return true; });
-requestHandler = httpBackendService.when('GET', 'http://test.local', function (data: string): boolean { return true; }, { header: 'value' });
-requestHandler = httpBackendService.when('GET', 'http://test.local', function (data: string): boolean { return true; }, function (headers: Object): boolean { return true; });
+requestHandler = httpBackendService.when('GET', 'http://test.local', /response data/, function(headers: Object): boolean { return true; });
+requestHandler = httpBackendService.when('GET', 'http://test.local', function(data: string): boolean { return true; });
+requestHandler = httpBackendService.when('GET', 'http://test.local', function(data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.when('GET', 'http://test.local', function(data: string): boolean { return true; }, function(headers: Object): boolean { return true; });
 requestHandler = httpBackendService.when('GET', 'http://test.local', { key: 'value' });
 requestHandler = httpBackendService.when('GET', 'http://test.local', { key: 'value' }, { header: 'value' });
-requestHandler = httpBackendService.when('GET', 'http://test.local', { key: 'value' }, function (headers: Object): boolean { return true; });
+requestHandler = httpBackendService.when('GET', 'http://test.local', { key: 'value' }, function(headers: Object): boolean { return true; });
 requestHandler = httpBackendService.when('GET', /test.local/);
 requestHandler = httpBackendService.when('GET', /test.local/, 'response data');
 requestHandler = httpBackendService.when('GET', /test.local/, 'response data', { header: 'value' });
-requestHandler = httpBackendService.when('GET', /test.local/, 'response data', function (headers: Object): boolean { return true; });
+requestHandler = httpBackendService.when('GET', /test.local/, 'response data', function(headers: Object): boolean { return true; });
 requestHandler = httpBackendService.when('GET', /test.local/, /response data/);
 requestHandler = httpBackendService.when('GET', /test.local/, /response data/, { header: 'value' });
-requestHandler = httpBackendService.when('GET', /test.local/, /response data/, function (headers: Object): boolean { return true; });
-requestHandler = httpBackendService.when('GET', /test.local/, function (data: string): boolean { return true; });
-requestHandler = httpBackendService.when('GET', /test.local/, function (data: string): boolean { return true; }, { header: 'value' });
-requestHandler = httpBackendService.when('GET', /test.local/, function (data: string): boolean { return true; }, function (headers: Object): boolean { return true; });
+requestHandler = httpBackendService.when('GET', /test.local/, /response data/, function(headers: Object): boolean { return true; });
+requestHandler = httpBackendService.when('GET', /test.local/, function(data: string): boolean { return true; });
+requestHandler = httpBackendService.when('GET', /test.local/, function(data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.when('GET', /test.local/, function(data: string): boolean { return true; }, function(headers: Object): boolean { return true; });
 requestHandler = httpBackendService.when('GET', /test.local/, { key: 'value' });
 requestHandler = httpBackendService.when('GET', /test.local/, { key: 'value' }, { header: 'value' });
-requestHandler = httpBackendService.when('GET', /test.local/, { key: 'value' }, function (headers: Object): boolean { return true; });
+requestHandler = httpBackendService.when('GET', /test.local/, { key: 'value' }, function(headers: Object): boolean { return true; });
 
 requestHandler = httpBackendService.whenDELETE('http://test.local');
 requestHandler = httpBackendService.whenDELETE('http://test.local', { header: 'value' });
@@ -240,8 +240,8 @@ requestHandler = httpBackendService.whenPATCH('http://test.local', 'response dat
 requestHandler = httpBackendService.whenPATCH('http://test.local', 'response data', { header: 'value' });
 requestHandler = httpBackendService.whenPATCH('http://test.local', /response data/);
 requestHandler = httpBackendService.whenPATCH('http://test.local', /response data/, { header: 'value' });
-requestHandler = httpBackendService.whenPATCH('http://test.local', function (data: string): boolean { return true; });
-requestHandler = httpBackendService.whenPATCH('http://test.local', function (data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.whenPATCH('http://test.local', function(data: string): boolean { return true; });
+requestHandler = httpBackendService.whenPATCH('http://test.local', function(data: string): boolean { return true; }, { header: 'value' });
 requestHandler = httpBackendService.whenPATCH('http://test.local', { key: 'value' });
 requestHandler = httpBackendService.whenPATCH('http://test.local', { key: 'value' }, { header: 'value' });
 requestHandler = httpBackendService.whenPATCH(/test.local/);
@@ -249,8 +249,8 @@ requestHandler = httpBackendService.whenPATCH(/test.local/, 'response data');
 requestHandler = httpBackendService.whenPATCH(/test.local/, 'response data', { header: 'value' });
 requestHandler = httpBackendService.whenPATCH(/test.local/, /response data/);
 requestHandler = httpBackendService.whenPATCH(/test.local/, /response data/, { header: 'value' });
-requestHandler = httpBackendService.whenPATCH(/test.local/, function (data: string): boolean { return true; });
-requestHandler = httpBackendService.whenPATCH(/test.local/, function (data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.whenPATCH(/test.local/, function(data: string): boolean { return true; });
+requestHandler = httpBackendService.whenPATCH(/test.local/, function(data: string): boolean { return true; }, { header: 'value' });
 requestHandler = httpBackendService.whenPATCH(/test.local/, { key: 'value' });
 requestHandler = httpBackendService.whenPATCH(/test.local/, { key: 'value' }, { header: 'value' });
 
@@ -259,8 +259,8 @@ requestHandler = httpBackendService.whenPOST('http://test.local', 'response data
 requestHandler = httpBackendService.whenPOST('http://test.local', 'response data', { header: 'value' });
 requestHandler = httpBackendService.whenPOST('http://test.local', /response data/);
 requestHandler = httpBackendService.whenPOST('http://test.local', /response data/, { header: 'value' });
-requestHandler = httpBackendService.whenPOST('http://test.local', function (data: string): boolean { return true; });
-requestHandler = httpBackendService.whenPOST('http://test.local', function (data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.whenPOST('http://test.local', function(data: string): boolean { return true; });
+requestHandler = httpBackendService.whenPOST('http://test.local', function(data: string): boolean { return true; }, { header: 'value' });
 requestHandler = httpBackendService.whenPOST('http://test.local', { key: 'value' });
 requestHandler = httpBackendService.whenPOST('http://test.local', { key: 'value' }, { header: 'value' });
 requestHandler = httpBackendService.whenPOST(/test.local/);
@@ -268,8 +268,8 @@ requestHandler = httpBackendService.whenPOST(/test.local/, 'response data');
 requestHandler = httpBackendService.whenPOST(/test.local/, 'response data', { header: 'value' });
 requestHandler = httpBackendService.whenPOST(/test.local/, /response data/);
 requestHandler = httpBackendService.whenPOST(/test.local/, /response data/, { header: 'value' });
-requestHandler = httpBackendService.whenPOST(/test.local/, function (data: string): boolean { return true; });
-requestHandler = httpBackendService.whenPOST(/test.local/, function (data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.whenPOST(/test.local/, function(data: string): boolean { return true; });
+requestHandler = httpBackendService.whenPOST(/test.local/, function(data: string): boolean { return true; }, { header: 'value' });
 requestHandler = httpBackendService.whenPOST(/test.local/, { key: 'value' });
 requestHandler = httpBackendService.whenPOST(/test.local/, { key: 'value' }, { header: 'value' });
 
@@ -278,8 +278,8 @@ requestHandler = httpBackendService.whenPUT('http://test.local', 'response data'
 requestHandler = httpBackendService.whenPUT('http://test.local', 'response data', { header: 'value' });
 requestHandler = httpBackendService.whenPUT('http://test.local', /response data/);
 requestHandler = httpBackendService.whenPUT('http://test.local', /response data/, { header: 'value' });
-requestHandler = httpBackendService.whenPUT('http://test.local', function (data: string): boolean { return true; });
-requestHandler = httpBackendService.whenPUT('http://test.local', function (data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.whenPUT('http://test.local', function(data: string): boolean { return true; });
+requestHandler = httpBackendService.whenPUT('http://test.local', function(data: string): boolean { return true; }, { header: 'value' });
 requestHandler = httpBackendService.whenPUT('http://test.local', { key: 'value' });
 requestHandler = httpBackendService.whenPUT('http://test.local', { key: 'value' }, { header: 'value' });
 requestHandler = httpBackendService.whenPUT(/test.local/);
@@ -287,8 +287,8 @@ requestHandler = httpBackendService.whenPUT(/test.local/, 'response data');
 requestHandler = httpBackendService.whenPUT(/test.local/, 'response data', { header: 'value' });
 requestHandler = httpBackendService.whenPUT(/test.local/, /response data/);
 requestHandler = httpBackendService.whenPUT(/test.local/, /response data/, { header: 'value' });
-requestHandler = httpBackendService.whenPUT(/test.local/, function (data: string): boolean { return true; });
-requestHandler = httpBackendService.whenPUT(/test.local/, function (data: string): boolean { return true; }, { header: 'value' });
+requestHandler = httpBackendService.whenPUT(/test.local/, function(data: string): boolean { return true; });
+requestHandler = httpBackendService.whenPUT(/test.local/, function(data: string): boolean { return true; }, { header: 'value' });
 requestHandler = httpBackendService.whenPUT(/test.local/, { key: 'value' });
 requestHandler = httpBackendService.whenPUT(/test.local/, { key: 'value' }, { header: 'value' });
 
@@ -297,7 +297,7 @@ requestHandler = httpBackendService.whenPUT(/test.local/, { key: 'value' }, { he
 // IRequestHandler
 ///////////////////////////////////////
 requestHandler.passThrough();
-requestHandler.respond(function () { });
+requestHandler.respond(function() { });
 requestHandler.respond({ key: 'value' });
 requestHandler.respond({ key: 'value' }, { header: 'value' });
 requestHandler.respond(404);

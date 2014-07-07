@@ -22,7 +22,7 @@ myapp.controller("MyController", ["$scope", "$firebase",
         $scope.items.$save();
         var child = $scope.items.$child("foo");
         child.$remove();
-        $scope.items.$set({ bar: "baz" }); 
+        $scope.items.$set({ bar: "baz" });
         var keys = $scope.items.$getIndex();
         keys.forEach(function(key, i) {
             console.log(i, (<any>$scope.items)[key]);

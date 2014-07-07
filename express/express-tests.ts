@@ -22,7 +22,7 @@ app.use(express.session());
 
 app.use((req: express.Request, res: express.Response, next) => {
     var err = req.session.error
-      , msg = req.session.success;
+        , msg = req.session.success;
     delete req.session.error;
     delete req.session.success;
     res.locals.message = '';
@@ -105,14 +105,14 @@ app.post('/login', (req: express.Request, res: express.Response) => {
                 // or in this case the entire user object
                 req.session.user = user;
                 req.session.success = 'Authenticated as ' + user.name
-                  + ' click to <a href="/logout">logout</a>. '
-                  + ' You may now access <a href="/restricted">/restricted</a>.';
+                + ' click to <a href="/logout">logout</a>. '
+                + ' You may now access <a href="/restricted">/restricted</a>.';
                 res.redirect('back');
             });
         } else {
             req.session.error = 'Authentication failed, please check your '
-              + ' username and password.'
-              + ' (use "tj" and "foobar")';
+            + ' username and password.'
+            + ' (use "tj" and "foobar")';
             res.redirect('login');
         }
     });
@@ -212,8 +212,8 @@ app.get('/', (req: express.Request, res: express.Response) => {
         res.send('Remembered :). Click to <a href="/forget">forget</a>!.');
     } else {
         res.send('<form method="post"><p>Check to <label>'
-          + '<input type="checkbox" name="remember"/> remember me</label> '
-          + '<input type="submit" value="Submit"/>.</p></form>');
+            + '<input type="checkbox" name="remember"/> remember me</label> '
+            + '<input type="submit" value="Submit"/>.</p></form>');
     }
 });
 
@@ -304,16 +304,16 @@ console.log('api listening on 3001');
 
 app.get('/', (req: express.Request, res: express.Response) => {
     res.send('<ul>'
-      + '<li>Download <a href="/files/amazing.txt">amazing.txt</a>.</li>'
-      + '<li>Download <a href="/files/missing.txt">missing.txt</a>.</li>'
-      + '</ul>');
+        + '<li>Download <a href="/files/amazing.txt">amazing.txt</a>.</li>'
+        + '<li>Download <a href="/files/missing.txt">missing.txt</a>.</li>'
+        + '</ul>');
 });
 
 // /files/* is accessed via req.params[0]
 // but here we name it :file
 app.get('/files/:file(*)', (req: express.Request, res: express.Response) => {
     var file = req.params.file
-      , path = __dirname + '/files/' + file;
+        , path = __dirname + '/files/' + file;
 
     res.download(path);
 });
@@ -548,7 +548,7 @@ function User(name) {
 // something like this so you
 // dont expose "secret" data.
 
-User.prototype.toJSON = function () {
+User.prototype.toJSON = function() {
     return {
         id: this.id,
         name: this.name
@@ -647,20 +647,20 @@ app.use(express.bodyParser());
 
 app.get('/', (req: express.Request, res: express.Response) => {
     res.send('<form method="post" enctype="multipart/form-data">'
-      + '<p>Title: <input type="text" name="title" /></p>'
-      + '<p>Image: <input type="file" name="image" /></p>'
-      + '<p><input type="submit" value="Upload" /></p>'
-      + '</form>');
+        + '<p>Title: <input type="text" name="title" /></p>'
+        + '<p>Image: <input type="file" name="image" /></p>'
+        + '<p><input type="submit" value="Upload" /></p>'
+        + '</form>');
 });
 
 app.post('/', (req: express.Request, res: express.Response) => {
     // the uploaded file can be found as `req.files.image` and the
     // title field as `req.body.title`
     res.send(mformat('\nuploaded %s (%d Kb) to %s as %s'
-      , req.files.image.name
-      , req.files.image.size / 1024 | 0
-      , req.files.image.path
-      , req.body.title));
+        , req.files.image.name
+        , req.files.image.size / 1024 | 0
+        , req.files.image.path
+        , req.body.title));
 });
 
 if (!module.parent) {
@@ -764,8 +764,8 @@ app.get('/user/:user', (req: express.Request, res: express.Response) => {
 
 app.get('/users/:from-:to', (req: express.Request, res: express.Response) => {
     var from = req.params.from
-      , to = req.params.to
-      , names = users.map(user => { return user.name; });
+        , to = req.params.to
+        , names = users.map(user => { return user.name; });
     res.send('users ' + names.slice(from, to).join(', '));
 });
 
@@ -778,12 +778,12 @@ if (!module.parent) {
 
 // Ad-hoc example resource method
 
-app.resource = function (path, obj) {
+app.resource = function(path, obj) {
     this.get(path, obj.index);
     this.get(path + '/:a..:b.:format?', (req: express.Request, res: express.Response) => {
         var a = parseInt(req.params.a, 10)
-          , b = parseInt(req.params.b, 10)
-          , format = req.params.format;
+            , b = parseInt(req.params.b, 10)
+            , format = req.params.format;
         obj.range(req, res, a, b, format);
     });
     this.get(path + '/:id', obj.show);
@@ -833,13 +833,13 @@ app.resource('/users', FUser);
 app.get('/', (req: express.Request, res: express.Response) => {
     res.send([
         '<h1>Examples:</h1> <ul>'
-      , '<li>GET /users</li>'
-      , '<li>GET /users/1</li>'
-      , '<li>GET /users/3</li>'
-      , '<li>GET /users/1..3</li>'
-      , '<li>GET /users/1..3.json</li>'
-      , '<li>DELETE /users/4</li>'
-      , '</ul>'
+        , '<li>GET /users</li>'
+        , '<li>GET /users/1</li>'
+        , '<li>GET /users/3</li>'
+        , '<li>GET /users/1..3</li>'
+        , '<li>GET /users/1..3.json</li>'
+        , '<li>DELETE /users/4</li>'
+        , '</ul>'
     ].join('\n'));
 });
 
@@ -899,7 +899,7 @@ app.map({
         get: users2.list,
         del: users2.del,
         '/:uid': {
-            get: users.get ,
+            get: users.get,
             '/pets': {
                 get: pets2.list,
                 '/:pid': {
@@ -1209,14 +1209,14 @@ var apiKeys = ['foo', 'bar', 'baz'];
 
 var repos = [
     { name: 'express', url: 'http://github.com/visionmedia/express' }
-  , { name: 'stylus', url: 'http://github.com/learnboost/stylus' }
-  , { name: 'cluster', url: 'http://github.com/learnboost/cluster' }
+    , { name: 'stylus', url: 'http://github.com/learnboost/stylus' }
+    , { name: 'cluster', url: 'http://github.com/learnboost/cluster' }
 ];
 
 var userRepos = {
     tobi: [repos[0], repos[1]]
-  , loki: [repos[1]]
-  , jane: [repos[2]]
+    , loki: [repos[1]]
+    , jane: [repos[2]]
 };
 
 // we now can assume the api key is valid,
@@ -1232,7 +1232,7 @@ app.get('/api/repos', (req: express.Request, res: express.Response) => {
 
 app.get('/api/user/:name/repos', (req: express.Request, res: express.Response, next) => {
     var name = req.params.name
-      , user = userRepos[name];
+        , user = userRepos[name];
 
     if (user) res.send(user);
     else next();
@@ -1247,12 +1247,12 @@ if (!module.parent) {
 
 var router = new express.Router();
 
-router.get('/', function (req, resp, next?) {
-  resp.send('response from router');
-  resp.end();
-  if (next) {
-    next();
-  }
+router.get('/', function(req, resp, next?) {
+    resp.send('response from router');
+    resp.end();
+    if (next) {
+        next();
+    }
 });
 
 function test_general() {
@@ -1264,7 +1264,7 @@ function test_general() {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
-    app.use(() => {});
+    app.use(() => { });
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
@@ -1294,9 +1294,9 @@ function test_general() {
         app.set('db uri', 'localhost/dev');
     });
 
-    app.configure('stage', 'production', () => {});
+    app.configure('stage', 'production', () => { });
 
-    app.configure('1', '2', '3', () => {});
+    app.configure('1', '2', '3', () => { });
 
     app.use((req: express.Request, res: express.Response) => {
         res.send('Hello World');
@@ -1306,7 +1306,7 @@ function test_general() {
 
     var User;
     app.param('user', (req: express.Request, res: express.Response, next, id) => {
-        User.find(id, (err, user) =>{
+        User.find(id, (err, user) => {
             if (err) {
                 next(err);
             } else if (user) {
@@ -1328,7 +1328,7 @@ function test_general() {
     app.locals.strftime = require('strftime');
 
     var requireAuthentication;
-    var loadUser = () => {};
+    var loadUser = () => { };
     app.all('*', requireAuthentication, loadUser);
     app.all('*', loadUser);
     app.all('*', loadUser, loadUser, loadUser);
@@ -1340,9 +1340,9 @@ function test_general() {
         phone: '1-250-858-9990',
         email: 'me@myapp.com'
     });
-    app.render('email', () => {});
+    app.render('email', () => { });
 
-    app.render('email', { name: 'Tobi' }, () => {});
+    app.render('email', { name: 'Tobi' }, () => { });
 }
 
 function test_request() {
@@ -1464,8 +1464,8 @@ function test_response() {
         res.locals.authenticated = !req.user.anonymous;
         next();
     });
-    res.render('index', () => {});
-    res.render('user', { name: 'Tobi' }, () => {});
+    res.render('index', () => { });
+    res.render('user', { name: 'Tobi' }, () => { });
 
 }
 

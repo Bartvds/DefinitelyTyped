@@ -22,14 +22,14 @@ window.addEventListener('batterystatus',
     (ev: BatteryStatusEvent) => { console.log('Battery level is ' + ev.level); });
 
 window.addEventListener('batterycritical',
-    ()=> { alert('Battery is critical low!'); });
+    () => { alert('Battery is critical low!'); });
 
 // Camera plugin
 //----------------------------------------------------------------------
 
 navigator.camera.getPicture(
     (data: string) => { alert('Got photo!'); },
-    (message: string)=> { alert('Failed!: ' + message); },
+    (message: string) => { alert('Failed!: ' + message); },
     {
         allowEdit: true,
         cameraDirection: Camera.Direction.BACK,
@@ -49,13 +49,13 @@ var contact: Contact = navigator.contacts.create({
 });
 
 navigator.contacts.find(["phoneNumbers"],
-    (contacts: Contact[])=> { alert('Find ' + contacts.length + ' contacts'); },
+    (contacts: Contact[]) => { alert('Find ' + contacts.length + ' contacts'); },
     (error: ContactError) => { alert('Error: ' + error.message); },
     {
         filter: "+1",
         multiple: true
     }
-);
+    );
 
 // Device API
 //----------------------------------------------------------------------
@@ -70,7 +70,7 @@ navigator.accelerometer.getCurrentAcceleration(
     () => { alert('Error!'); });
 
 var acchandle: WatchHandle = navigator.accelerometer.watchAcceleration(
-    (acc: Acceleration)=> { console.log('X: ' + acc.x + 'Y: ' + acc.y + 'Z: ' + acc.z); },
+    (acc: Acceleration) => { console.log('X: ' + acc.x + 'Y: ' + acc.y + 'Z: ' + acc.z); },
     () => { alert('Error!'); },
     { frequency: 10 });
 
@@ -80,8 +80,8 @@ navigator.accelerometer.clearWatch(acchandle);
 //----------------------------------------------------------------------
 
 navigator.compass.getCurrentHeading(
-    (heading: CompassHeading)=> { console.log('Got heading to ' + heading.magneticHeading); },
-    (error: CompassError)=> { alert('Error! ' + error.code); },
+    (heading: CompassHeading) => { console.log('Got heading to ' + heading.magneticHeading); },
+    (error: CompassError) => { alert('Error! ' + error.code); },
     { frequency: 10 });
 
 var accelhandle = navigator.compass.watchHeading(
@@ -105,7 +105,7 @@ function fsaccessor(fs: FileSystem) {
     var fsreader: DirectoryReader = fs.root.createReader();
     fsreader.readEntries(
         (entries: Entry[]) => { console.log(fs.root.name + ' has ' + entries.length + ' child elements'); },
-        (err: Error)=> { alert('Error: ' + err.message); });
+        (err: Error) => { alert('Error: ' + err.message); });
 }
 
 window.requestFileSystem(
@@ -120,8 +120,8 @@ window.requestFileSystem(
 var file = new FileTransfer();
 file.download('http://some.server.com/download.php',
     'cdvfile://localhost/persistent/path/to/downloads/',
-    (file: FileEntry)=> { console.log('File Downloaded to ' + file.fullPath); },
-    (err: FileTransferError)=> { alert('Error ' + err.code); },
+    (file: FileEntry) => { console.log('File Downloaded to ' + file.fullPath); },
+    (err: FileTransferError) => { alert('Error ' + err.code); },
     { headers: null },
     true);
 
@@ -163,8 +163,8 @@ media.setVolume(10);
 console.log('Supported audio modes are: ' + JSON.stringify(navigator.device.capture.supportedAudioModes));
 
 navigator.device.capture.captureAudio(
-    (captures: MediaFile[])=> { console.log(captures.length + ' captured'); },
-    (err: CaptureError)=> { alert('Error ' + err.message); },
+    (captures: MediaFile[]) => { console.log(captures.length + ' captured'); },
+    (err: CaptureError) => { alert('Error ' + err.message); },
     {
         limit: 3,
         duration: 10
@@ -222,7 +222,7 @@ db.transaction(
         }
     },
     () => { console.log('Transaction completed successfully'); }
-);
+    );
 
 // Vibration plugin
 //----------------------------------------------------------------------

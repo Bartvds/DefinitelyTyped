@@ -2,21 +2,21 @@
 
 
 var promiseString: Promise<string>,
- 	promiseStringArr: Promise<string[]>,
-	arrayOfPromise: Promise<string>[],
-	promiseNumber: Promise<number>,
-	promiseAny: Promise<any>,
-	thenable: Thenable<string>;
+    promiseStringArr: Promise<string[]>,
+    arrayOfPromise: Promise<string>[],
+    promiseNumber: Promise<number>,
+    promiseAny: Promise<any>,
+    thenable: Thenable<string>;
 
 // constructor test
 var constructResult = new Promise<string>((resolve, reject) => {
-	resolve('a string');
+    resolve('a string');
 });
 promiseString = constructResult;
 
 
-var constructResult1 = new Promise<string>((resolve:(promise: Thenable<string>) => void) => {
-	resolve(Promise.resolve('a string'));
+var constructResult1 = new Promise<string>((resolve: (promise: Thenable<string>) => void) => {
+    resolve(Promise.resolve('a string'));
 });
 promiseString = constructResult1;
 
@@ -44,26 +44,26 @@ promiseStringArr = allResult;
 //race test
 var raceResult = Promise.race(arrayOfPromise);
 promiseString = raceResult;
- 
+
 
 //then test
 var thenWithPromiseResult = promiseString.then(word => Promise.resolve(word.length));
 promiseNumber = thenWithPromiseResult;
 
 var thenWithPromiseResultAndPromiseReject = promiseString.then(word => Promise.resolve(word.length), error => Promise.resolve(10));
-promiseNumber = thenWithPromiseResultAndPromiseReject;	
+promiseNumber = thenWithPromiseResultAndPromiseReject;
 
 var thenWithPromiseResultAndSimpleReject = promiseString.then(word => Promise.resolve(word.length), error => 10);
-promiseNumber = thenWithPromiseResultAndSimpleReject;	
-	
+promiseNumber = thenWithPromiseResultAndSimpleReject;
+
 var thenWithSimpleResult = promiseString.then(word => word.length);
 promiseNumber = thenWithSimpleResult;
 
 var thenWithSimpleResultAndPromiseReject = promiseString.then(word => word.length, error => Promise.resolve(10));
-promiseNumber = thenWithSimpleResultAndPromiseReject;	
+promiseNumber = thenWithSimpleResultAndPromiseReject;
 
 var thenWithSimpleResultAndSimpleReject = promiseString.then(word => word.length, error => 10);
-promiseNumber = thenWithSimpleResultAndSimpleReject;	
+promiseNumber = thenWithSimpleResultAndSimpleReject;
 
 var thenWithUndefinedFullFillAndSimpleReject = promiseString.then(undefined, error => 10);
 promiseNumber = thenWithUndefinedFullFillAndSimpleReject;
@@ -74,16 +74,16 @@ promiseNumber = thenWithUndefinedFullFillAndPromiseReject;
 var thenWithNoResultAndNoReject = promiseString.then<number>();
 promiseNumber = thenWithNoResultAndNoReject;
 
-var voidPromise = new Promise<void>(function (resolve) { resolve(); });
+var voidPromise = new Promise<void>(function(resolve) { resolve(); });
 
 //catch test
-var catchWithSimpleResult = promiseString.catch(error => 10);	
+var catchWithSimpleResult = promiseString.catch(error => 10);
 promiseNumber = catchWithSimpleResult;
 
-var catchWithPromiseResult = promiseString.catch(error => Promise.resolve(10));	
+var catchWithPromiseResult = promiseString.catch(error => Promise.resolve(10));
 promiseNumber = catchWithPromiseResult;
 
-promiseString = promiseString.catch<string>(function () { throw new Error('Better error msg'); });
+promiseString = promiseString.catch<string>(function() { throw new Error('Better error msg'); });
 
 //examples coming from http://www.html5rocks.com/en/tutorials/es6/promises/
 
@@ -93,7 +93,7 @@ function get(url: string) {
         // Do the usual XHR stuff
         var req = new XMLHttpRequest();
         req.open('GET', url);
-    
+
         req.onload = function() {
             // This is called even on 404 etc
             // so check the status
@@ -107,12 +107,12 @@ function get(url: string) {
                 reject(Error(req.statusText));
             }
         };
-    
+
         // Handle network errors
         req.onerror = function() {
             reject(Error("Network Error"));
         };
-    
+
         // Make the request
         req.send();
     });
@@ -121,45 +121,45 @@ function get(url: string) {
 
 
 function getJSON(url: string) {
-	return get(url).then(JSON.parse);
+    return get(url).then(JSON.parse);
 }
 
 function addHtmlToPage(html: string) {
-	
+
 }
 
 function addTextToPage(text: string) {
-	
+
 }
 
 interface Story {
-	heading: string;
-	chapterUrls: string[]
+    heading: string;
+    chapterUrls: string[]
 }
 
 getJSON('story.json').then(function(story: Story) {
-  addHtmlToPage(story.heading);
+    addHtmlToPage(story.heading);
 
-  // Map our array of chapter urls to
-  // an array of chapter json promises.
-  // This makes sure they all download parallel.
-  return story.chapterUrls.map(getJSON)
-    .reduce(function(sequence, chapterPromise) {
-      // Use reduce to chain the promises together,
-      // adding content to the page for each chapter
-      return sequence.then(function() {
-        // Wait for everything in the sequence so far,
-        // then wait for this chapter to arrive.
-        return chapterPromise;
-      }).then(function(chapter) {
-        addHtmlToPage(chapter.html);
-      });
-    }, Promise.resolve());
+    // Map our array of chapter urls to
+    // an array of chapter json promises.
+    // This makes sure they all download parallel.
+    return story.chapterUrls.map(getJSON)
+        .reduce(function(sequence, chapterPromise) {
+            // Use reduce to chain the promises together,
+            // adding content to the page for each chapter
+            return sequence.then(function() {
+                // Wait for everything in the sequence so far,
+                // then wait for this chapter to arrive.
+                return chapterPromise;
+            }).then(function(chapter) {
+                    addHtmlToPage(chapter.html);
+                });
+        }, Promise.resolve());
 }).then(function() {
-  addTextToPage("All done");
-}).catch(function(err) {
-  // catch any error that happened along the way
-  addTextToPage("Argh, broken: " + err.message);
-}).then(function() {
-  (<HTMLElement>document.querySelector('.spinner')).style.display = 'none';
-});
+        addTextToPage("All done");
+    }).catch(function(err) {
+        // catch any error that happened along the way
+        addTextToPage("Argh, broken: " + err.message);
+    }).then(function() {
+        (<HTMLElement>document.querySelector('.spinner')).style.display = 'none';
+    });

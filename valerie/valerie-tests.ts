@@ -57,7 +57,7 @@ function ObservableValidationTypes() {
 }
 
 function ComputedValidationTests() {
-    var t1 = ko.computed<string>(function () { return "hello world"; })
+    var t1 = ko.computed<string>(function() { return "hello world"; })
         .validate()
         .end();
 }
@@ -70,22 +70,22 @@ function RuleTests() {
     // valerie supports both value and function arguments in many cases
 
     var stringValue = "";
-    var stringFN = function () { return stringValue; }
+    var stringFN = function() { return stringValue; }
 
     var numberValue = 1;
-    var numberFN = function () { return numberValue; }
+    var numberFN = function() { return numberValue; }
 
     var booleanValue = false;
-    var booleanFN = function () { return booleanValue; }
+    var booleanFN = function() { return booleanValue; }
 
     var dateValue = new Date();
-    var dateFN = function () { return dateValue; }
+    var dateFN = function() { return dateValue; }
 
     var anyValue = <any>{};
-    var anyFN = function () { return anyValue; }
+    var anyFN = function() { return anyValue; }
 
     var arrayValue = <any[]>[];
-    var arrayFN = function () { return arrayValue; }
+    var arrayFN = function() { return arrayValue; }
 
     var regexpValue = /\d+/;
 
@@ -99,7 +99,7 @@ function RuleTests() {
     var test_applicable = ko.observable(stringValue)
         .validate()
         .applicable(true)
-        .applicable(function () { return false; })
+        .applicable(function() { return false; })
         .end();
 
     var test_currencyMajor = ko.observable(numberValue)

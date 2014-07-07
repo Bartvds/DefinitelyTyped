@@ -112,22 +112,22 @@ $('.datepicker').pickadate({
 });
 
 $('.datepicker').pickadate({
-    onStart: function () {
+    onStart: function() {
         console.log('Hello there :)')
     },
-    onRender: function () {
+    onRender: function() {
         console.log('Whoa.. rendered anew')
     },
-    onOpen: function () {
+    onOpen: function() {
         console.log('Opened up')
     },
-    onClose: function () {
+    onClose: function() {
         console.log('Closed now')
     },
-    onStop: function () {
+    onStop: function() {
         console.log('See ya.')
     },
-    onSet: function (event) {
+    onSet: function(event) {
         console.log('Just set stuff:', event)
     }
 });
@@ -153,7 +153,7 @@ $('.timepicker').pickatime({
 });
 
 $('.timepicker').pickatime({
-    formatLabel: function (time: TimePickerItemObject) {
+    formatLabel: function(time: TimePickerItemObject) {
         var hours = (time.pick - this.get('now').pick) / 60,
             label = hours < 0 ? ' !hours to now' : hours > 0 ? ' !hours from now' : 'now'
         return 'h:i a <sm!all>' + (hours ? Math.abs(hours).toString() : '') + label + '</sm!all>'
@@ -207,22 +207,22 @@ $('.timepicker').pickatime({
 });
 
 $('.timepicker').pickatime({
-    onStart: function () {
+    onStart: function() {
         console.log('Hello there :)')
     },
-    onRender: function () {
+    onRender: function() {
         console.log('Whoa.. rendered anew')
     },
-    onOpen: function () {
+    onOpen: function() {
         console.log('Opened up')
     },
-    onClose: function () {
+    onClose: function() {
         console.log('Closed now')
     },
-    onStop: function () {
+    onStop: function() {
         console.log('See ya.')
     },
-    onSet: function (event) {
+    onSet: function(event) {
         console.log('Just set stuff:', event)
     }
 });
@@ -244,7 +244,7 @@ picker.close();
 picker.close(true);
 
 picker.open(false)
-$(document).on('click', function () {
+$(document).on('click', function() {
     picker.close()
 });
 
@@ -282,7 +282,7 @@ picker.set('disable', undefined);
 picker.set('select', [2013, 3, 20]);
 
 // Using JavaScript Date objects.
-picker.set('select', new Date(2013,03,20));
+picker.set('select', new Date(2013, 03, 20));
 
 // Using positive integers as UNIX timestamps.
 picker.set('select', 1365961912346);
@@ -297,7 +297,7 @@ picker.set('select', 540);
 picker.set('highlight', [2013, 3, 20]);
 
 // Using JavaScript Date objects.
-picker.set('highlight', new Date(2013,7,14));
+picker.set('highlight', new Date(2013, 7, 14));
 
 // Using positive integers as UNIX timestamps.
 picker.set('highlight', 1365961912346);
@@ -312,7 +312,7 @@ picker.set('highlight', 1080);
 picker.set('view', [2000, 3, 20]);
 
 // Using JavaScript Date objects.
-picker.set('view', new Date(1988,7,14));
+picker.set('view', new Date(1988, 7, 14));
 
 // Using positive integers as UNIX timestamps.
 picker.set('view', 1587355200000);
@@ -327,7 +327,7 @@ picker.set('view', 1080);
 picker.set('min', [2013, 3, 20]);
 
 // Using JavaScript Date objects.
-picker.set('min', new Date(2013,7,14));
+picker.set('min', new Date(2013, 7, 14));
 
 // Using integers as days relative to today.
 picker.set('min', -4);
@@ -354,7 +354,7 @@ picker.set('min', false);
 picker.set('max', [2013, 3, 20]);
 
 // Using JavaScript Date objects.
-picker.set('max', new Date(2013,7,14));
+picker.set('max', new Date(2013, 7, 14));
 
 // Using integers as days relative to today.
 picker.set('max', 4);
@@ -377,41 +377,41 @@ picker.set('max', true);
 // Using `false` to remove.
 picker.set('max', false);
 
-picker.on('open', function () {
+picker.on('open', function() {
     console.log('Opened.. and here I am!');
 });
 
 picker.on({
-    open: function () {
+    open: function() {
         console.log('Opened.. and here I am!');
     },
-    close: function () {
+    close: function() {
         console.log('Closed.. and here I am!');
     }
 });
 
 $('.datepicker').pickadate({
-    onOpen: function () {
+    onOpen: function() {
         console.log('Opened up!')
     },
-    onClose: function () {
+    onClose: function() {
         console.log('Closed now')
     },
-    onRender: function () {
+    onRender: function() {
         console.log('Just rendered anew')
     },
-    onStart: function () {
+    onStart: function() {
         console.log('Hello there :)')
     },
-    onStop: function () {
+    onStop: function() {
         console.log('See ya')
     },
-    onSet: function (event) {
+    onSet: function(event) {
         console.log('Set stuff:', event)
     }
 });
 
-picker.on('open', function () {
+picker.on('open', function() {
     console.log('Didn\'t open.. yet here I am!');
 })
 picker.trigger('open');
