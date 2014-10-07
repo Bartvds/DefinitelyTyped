@@ -17,7 +17,7 @@ interface AsyncQueue<T> {
     concurrency: number;
     started: boolean;
     paused: boolean;
-    push(task: T, callback?: AsyncMultipleResultsCallback<T>): void;
+    push(task: T, callback?: AsyncMultipleResultsCallback<T>);
     push(task: T[], callback?: AsyncMultipleResultsCallback<T>): void;
     unshift(task: T, callback?: AsyncMultipleResultsCallback<T>): void;
     unshift(task: T[], callback?: AsyncMultipleResultsCallback<T>): void;

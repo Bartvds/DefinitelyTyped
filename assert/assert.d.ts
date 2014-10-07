@@ -8,7 +8,7 @@
 
 declare function assert(value:any, message?:string):void;
 declare module assert {
-    export class AssertionError implements Error {
+    export class AssertionError implements Error {{{
         name:string;
         message:string;
         actual:any;
